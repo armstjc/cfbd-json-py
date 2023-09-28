@@ -20,8 +20,7 @@ def get_cfbd_team_ppa_data(
         # `year` and/or `team` must be not null for this function to work.
         conference: str = None,
         exclude_garbage_time: bool = False,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -41,8 +40,7 @@ def get_cfbd_game_ppa_data(
         conference: str = None,
         exclude_garbage_time: bool = False,
         season_type: str = "regular",  # "regular" or "postseason"
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -65,8 +63,7 @@ def get_cfbd_game_player_ppa_data(
         play_threshold: int = None,
         exclude_garbage_time: bool = False,
         season_type: str = "regular",  # "regular" or "postseason"
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -87,8 +84,7 @@ def get_cfbd_season_player_ppa_data(
         player_id: int = None,
         play_threshold: int = None,
         exclude_garbage_time: bool = False,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -102,8 +98,7 @@ def get_cfbd_game_win_probability_data(
         game_id: int,
         api_key: str = None,
         api_key_dir: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -120,8 +115,7 @@ def get_cfbd_pregame_win_probability_data(
         week: int = None,
         team: str = None,
         season_type: str = "regular",  # "regular" or "postseason"
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 

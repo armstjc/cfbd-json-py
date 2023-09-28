@@ -7,8 +7,7 @@ def get_cfbd_team_season_stats(
         conference: str = None,
         start_week: int = None,
         end_week: int = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -27,8 +26,7 @@ def get_cfbd_advanced_team_season_stats(
         exclude_garbage_time: bool = False,
         start_week: int = None,
         end_week: int = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -48,8 +46,7 @@ def get_cfbd_advanced_team_game_stats(
         opponent: str = None,
         exclude_garbage_time: bool = False,
         season_type: str = "regular",  # "regular", "postseason", or "both"
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -62,8 +59,7 @@ def get_cfbd_advanced_team_game_stats(
 def get_cfbd_team_stat_categories(
         api_key: str = None,
         api_key_dir: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 

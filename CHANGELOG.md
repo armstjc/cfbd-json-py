@@ -1,5 +1,12 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.0.2: The "Betting" Update.
+
+- Removed the option to cache data. This may be implemented in a future version.
+- Implemented `cfbd_json_py.betting.get_cfbd_betting_lines()`, a function that allows a user to get betting lines for a season, a week, and/or for a specific team for the regular season, or postseason.
+- Changed `cfbd_json_py.utls.get_cfbd_api_token()`` to log, not print out the fact that the CFBD API key the function is trying to find is not present in the current Python environment.
+- Updated the package version to `0.0.2`.
+
 ## 0.0.1: The "First Steps" Update
 
 - Implemented the core structure of the python package.

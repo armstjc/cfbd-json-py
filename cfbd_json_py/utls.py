@@ -1,6 +1,7 @@
 import json
 import os
 import secrets
+import logging
 
 
 def reverse_cipher_encrypt(plain_text_str: str):
@@ -82,7 +83,8 @@ def get_cfbd_api_token(api_key_dir: str = None):
         key = os.environ['CFBD_API_KEY']
         return key
     except:
-        print("CFBD key not found in this python environment.\nAttempting to load the API key from a file.")
+        logging.info(
+            "CFBD key not found in this python environment.\nAttempting to load the API key from a file.")
 
     if api_key_dir != None:
         with open(f"{api_key_dir}/.cfbd/cfbd.json", "r") as f:

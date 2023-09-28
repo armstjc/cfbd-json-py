@@ -5,8 +5,7 @@ def cfbd_player_search(
         position: str = None,
         team: str = None,
         year: int = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -25,8 +24,7 @@ def get_cfbd_player_usage(
         position: str = None,
         player_id: int = None,
         exclude_garbage_time: bool = False,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -42,8 +40,7 @@ def get_cfbd_returning_production(
         api_key_dir: str = None,
         team: str = None,
         conference: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -63,8 +60,7 @@ def get_cfbd_player_season_stats(
         end_week: int = None,
         season_type: str = 'regular',  # "regular", "postseason", or "both"
         stat_category: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -78,8 +74,7 @@ def get_cfbd_transfer_portal_data(
         year: int,
         api_key: str = None,
         api_key_dir: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 

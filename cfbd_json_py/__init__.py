@@ -1,3 +1,5 @@
+# Loaders
+# from cfbd_json_py.loaders import *
 from cfbd_json_py.betting import *
 from cfbd_json_py.coaches import *
 from cfbd_json_py.conferences import *
@@ -8,6 +10,7 @@ from cfbd_json_py.metrics import *
 from cfbd_json_py.players import *
 from cfbd_json_py.plays import *
 from cfbd_json_py.rankings import *
+from cfbd_json_py.ratings import *
 from cfbd_json_py.recruiting import *
 from cfbd_json_py.stats import *
 from cfbd_json_py.teams import *

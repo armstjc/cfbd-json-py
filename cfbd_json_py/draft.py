@@ -1,8 +1,7 @@
 def get_cfbd_nfl_teams(
         api_key: str = None,
         api_key_dir: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -15,8 +14,7 @@ def get_cfbd_nfl_teams(
 def get_cfbd_nfl_positions(
         api_key: str = None,
         api_key_dir: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -34,8 +32,7 @@ def get_cfbd_nfl_draft_info(
         college: str = None,
         conference: str = None,
         position: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 

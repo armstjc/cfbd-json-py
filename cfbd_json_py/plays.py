@@ -13,8 +13,7 @@ def get_cfbd_pbp_data(
         defensive_conference: str = None,
         play_type: int = None,
         ncaa_division: str = "fbs",
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -27,8 +26,7 @@ def get_cfbd_pbp_data(
 def get_cfbd_pbp_play_types(
         api_key: str = None,
         api_key_dir: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -49,8 +47,7 @@ def get_cfbd_pbp_stats(
         stat_type_id: int = None,
         season_type: str = "regular",  # "regular", "postseason", or "both"
         conference: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -63,8 +60,7 @@ def get_cfbd_pbp_stats(
 def get_cfbd_pbp_stat_types(
         api_key: str = None,
         api_key_dir: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -85,8 +81,7 @@ def get_cfbd_live_pbp_data(
         game_id: int,
         api_key: str = None,
         api_key_dir: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 

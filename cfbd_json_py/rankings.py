@@ -5,8 +5,7 @@ def get_cfbd_poll_rankings(
         api_key_dir: str = None,
         week: int = None,
         season_type: str = "regular",  # "regular" or "postseason"
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 

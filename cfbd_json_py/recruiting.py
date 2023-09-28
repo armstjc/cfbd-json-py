@@ -9,8 +9,7 @@ def get_cfbd_player_recruit_ratings(
         # Can be "HighSchool", "JUCO", or "PrepSchool"
         position: str = None,
         state: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -25,8 +24,7 @@ def get_cfbd_team_recruiting_ratings(
         api_key_dir: str = None,
         year: int = None,
         team: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -43,8 +41,7 @@ def get_cfbd_team_recruiting_group_ratings(
         end_year: int = None,
         team: str = None,
         conference: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 

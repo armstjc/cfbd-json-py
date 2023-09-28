@@ -12,8 +12,7 @@ def get_cfbd_drives_info(
         offensive_conference: str = None,
         defensive_conference: str = None,
         ncaa_division: str = "fbs",
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 

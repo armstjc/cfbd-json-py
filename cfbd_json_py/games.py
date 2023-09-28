@@ -10,8 +10,7 @@ def get_cfbd_games(
         conference: str = None,
         ncaa_division: str = "fbs",
         game_id: int = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -28,8 +27,7 @@ def get_cfbd_team_records(
         year: int = None,
         team: str = None,  # Must specify either a year or team
         conference: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -44,8 +42,7 @@ def get_cfbd_season_weeks(
         year: int,
         api_key: str = None,
         api_key_dir: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -66,8 +63,7 @@ def get_cfbd_game_media_info(
         conference: str = None,
         media_type: str = "all",  # "tv", "radio", "web", "ppv", or "mobile"
         ncaa_division: str = "fbs",
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -89,8 +85,7 @@ def get_cfbd_player_game_stats(
         # `week`, `team`, and/or conference must be not null for this function to work.
         stat_category: str = None,
         game_id: int = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
 
@@ -105,8 +100,7 @@ def get_cfbd_advanced_game_stats(
         game_id: int,
         api_key: str = None,
         api_key_dir: str = None,
-        cache_data: bool = False,
-        cache_dir: str = None,
+
         return_as_dict: bool = False):
     """
     """

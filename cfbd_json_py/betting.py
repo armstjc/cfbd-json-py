@@ -110,42 +110,76 @@ def get_cfbd_betting_lines(
     if cfbd_key != "tigersAreAwsome":
         print("Using the user's API key declared in this script for this example.\n\n")
 
-        # Gets all betting info for the 2020 CFB season
-        print(get_cfbd_betting_lines(api_key=cfbd_key, season=2020))
+        # Gets all available betting info for the 2020 CFB season.
+        print("Gets all available betting info for the 2020 CFB season.")
+        json_data = get_cfbd_betting_lines(
+            api_key=cfbd_key,
+            season=2020
+        )
+        print(json_data)
         time.sleep(5)
-        print("")
 
-        # Gets all betting info for the 2020 CFB season, in week 2.
-        print(get_cfbd_betting_lines(api_key=cfbd_key, season=2020, week=2))
+        # Gets all available betting info for the 2020 CFB season, in week 2.
+        print("Gets all available betting info for the 2020 CFB season, in week 2.")
+        json_data = get_cfbd_betting_lines(
+            api_key=cfbd_key,
+            season=2020,
+            week=2
+        )
+        print(json_data)
         time.sleep(5)
-        print("")
-
-        # Gets all betting info for the 2020 CFB season, in the postseason (bowls, playoffs, etc.)
-        print(get_cfbd_betting_lines(api_key=cfbd_key, season=2020, season_type="postseason"))
+        # Gets all betting info for the 2020 CFB season, in the postseason (bowls, playoffs, etc.).
+        print("Gets all betting info for the 2020 CFB season, in the postseason (bowls, playoffs, etc.).")
+        json_data = get_cfbd_betting_lines(
+            api_key=cfbd_key,
+            season=2020,
+            season_type="postseason"
+        )
+        print(json_data)
         time.sleep(5)
-        print("")
-
-        # Gets all betting info for Cincinnati Bearcats Football games the 2020 CFB season
-        print(get_cfbd_betting_lines(api_key=cfbd_key, season=2020, team="Cincinnati"))
+        # Gets all betting info for Cincinnati Bearcats Football games the 2020 CFB season.
+        print("Gets all betting info for Cincinnati Bearcats Football games the 2020 CFB season.")
+        json_data = get_cfbd_betting_lines(
+            api_key=cfbd_key,
+            season=2020,
+            team="Cincinnati"
+        )
+        print(json_data)
         time.sleep(5)
-        print("")
-
-        # Gets all betting info for Ohio Bobcats home games the 2020 CFB season
-        print(get_cfbd_betting_lines(api_key=cfbd_key, season=2020, home_team="Ohio"))
+        # Gets all betting info for Ohio Bobcats home games the 2020 CFB season.
+        print("Gets all betting info for Ohio Bobcats home games the 2020 CFB season.")
+        json_data = get_cfbd_betting_lines(
+            api_key=cfbd_key,
+            season=2020,
+            home_team="Ohio"
+        )
+        print(json_data)
         time.sleep(5)
-        print("")
+        # Gets all betting info for Ohio State Buckeyes away games the 2020 CFB season.
+        print("Gets all betting info for Ohio State Buckeyes away games the 2020 CFB season.")
+        json_data = get_cfbd_betting_lines(
+            api_key=cfbd_key,
+            season=2020,
+            away_team="Ohio State"
+        )
 
-        # Gets all betting info for Ohio State Buckeyes away games the 2020 CFB season
-        print(get_cfbd_betting_lines(api_key=cfbd_key,
-            season=2020, away_team="Ohio State"))
-
-        # Gets all betting info for Atlantic Coast Conference (ACC) games the 2020 CFB season
-        print(get_cfbd_betting_lines(api_key=cfbd_key, year=2020, conference_abv="ACC"))
+        # Gets all betting info for Atlantic Coast Conference (ACC) games the 2020 CFB season.
+        print("Gets all betting info for Atlantic Coast Conference (ACC) games the 2020 CFB season.")
+        json_data = get_cfbd_betting_lines(
+            api_key=cfbd_key,
+            season=2020,
+            conference_abv="ACC"
+        )
+        print(json_data)
         time.sleep(5)
-        print("")
-
         # You can also tell this function to just return the API call as a Dictionary (read: JSON) object.
-        print(get_cfbd_betting_lines(api_key=cfbd_key, year=2020, return_as_dict=True))
+        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        json_data = get_cfbd_betting_lines(
+            api_key=cfbd_key,
+            season=2020,
+            return_as_dict=True
+        )
+        print(json_data)
 
     else:
         # Alternatively, if the CFBD API key exists in this python environment,
@@ -154,48 +188,68 @@ def get_cfbd_betting_lines(
         # in the script.
         print("Using the user's API key suposedly loaded into this python environment for this example.\n\n")
 
-        # Gets all betting info for the 2020 CFB season
-        print(get_cfbd_betting_lines(season=2020))
+        # Gets all available betting info for the 2020 CFB season.
+        print("Gets all available betting info for the 2020 CFB season.")
+        json_data = get_cfbd_betting_lines(
+            season=2020
+        )
+        print(json_data)
         time.sleep(5)
-        print("")
-
-        # Gets all betting info for the 2020 CFB season, in week 2.
-        print(get_cfbd_betting_lines(season=2020, week=2))
+        # Gets all available betting info for the 2020 CFB season, in week 2.
+        print("Gets all available betting info for the 2020 CFB season, in week 2.")
+        json_data = get_cfbd_betting_lines(
+            season=2020,
+            week=2
+        )
+        print(json_data)
         time.sleep(5)
-        print("")
-
-        # Gets all betting info for the 2020 CFB season, in the postseason (bowls, playoffs, etc.)
-        print(get_cfbd_betting_lines(season=2020, season_type="postseason"))
+        # Gets all betting info for the 2020 CFB season, in the postseason (bowls, playoffs, etc.).
+        print("Gets all betting info for the 2020 CFB season, in the postseason (bowls, playoffs, etc.).")
+        json_data = get_cfbd_betting_lines(
+            season=2020,
+            season_type="postseason"
+        )
+        print(json_data)
         time.sleep(5)
-        print("")
-
-        # Gets all betting info for Cincinnati Bearcats Football games the 2020 CFB season
-        print(get_cfbd_betting_lines(season=2020, team="Cincinnati"))
+        # Gets all betting info for Cincinnati Bearcats Football games the 2020 CFB season.
+        print("Gets all betting info for Cincinnati Bearcats Football games the 2020 CFB season.")
+        json_data = get_cfbd_betting_lines(
+            season=2020,
+            team="Cincinnati"
+        )
+        print(json_data)
         time.sleep(5)
-        print("")
-
-        # Gets all betting info for Ohio Bobcats home games the 2020 CFB season
-        print(get_cfbd_betting_lines(season=2020, home_team="Ohio"))
+        # Gets all betting info for Ohio Bobcats home games the 2020 CFB season.
+        print("Gets all betting info for Ohio Bobcats home games the 2020 CFB season.")
+        json_data = get_cfbd_betting_lines(
+            season=2020,
+            home_team="Ohio"
+        )
+        print(json_data)
         time.sleep(5)
-        print("")
+        # Gets all betting info for Ohio State Buckeyes away games the 2020 CFB season.
+        print("Gets all betting info for Ohio State Buckeyes away games the 2020 CFB season.")
+        json_data = get_cfbd_betting_lines(
 
-        # Gets all betting info for Ohio State Buckeyes away games the 2020 CFB season
-        print(get_cfbd_betting_lines(season=2020, away_team="Ohio State"))
+            season=2020,
+            away_team="Ohio State"
+        )
+
+        # Gets all betting info for Atlantic Coast Conference (ACC) games the 2020 CFB season.
+        print("Gets all betting info for Atlantic Coast Conference (ACC) games the 2020 CFB season.")
+        json_data = get_cfbd_betting_lines(
+            season=2020,
+            conference_abv="ACC"
+        )
+        print(json_data)
         time.sleep(5)
-        print("")
-
-        # Gets all betting info for Ohio State Buckeyes away games the 2020 CFB season
-        print(get_cfbd_betting_lines(season=2020, away_team="Ohio State"))
-        time.sleep(5)
-        print("")
-
-        # Gets all betting info for Atlantic Coast Conference (ACC) games the 2020 CFB season
-        print(get_cfbd_betting_lines(api_key=cfbd_key, year=2020, conference_abv="ACC"))
-        time.sleep(5)
-        print("")
-
         # You can also tell this function to just return the API call as a Dictionary (read: JSON) object.
-        print(get_cfbd_betting_lines(api_key=cfbd_key, year=2020, return_as_dict=True))
+        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        json_data = get_cfbd_betting_lines(
+            season=2020,
+            return_as_dict=True
+        )
+        print(json_data)
 
 
     ```
@@ -237,7 +291,7 @@ def get_cfbd_betting_lines(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwsome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key.")
     elif "Bearer " in real_api_key:

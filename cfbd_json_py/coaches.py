@@ -52,7 +52,6 @@ def get_cfbd_coaches_info(
         set this variable to that specific first name, and this function 
         will attempt to look up coaches with that specific last name.
 
-
     `team` (str, optional):
         Optional argument.
         If you want to filter and drill down to coaches who coached a specific

@@ -47,7 +47,7 @@ def get_cfbd_conference_info(
     cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
 
     if cfbd_key != "tigersAreAwsome":
-        print("Using the user's API key declared in this script for this example.\n\n")
+        print("Using the user's API key declared in this script for this example.")
 
         # Gets CFB confrence info from the CFBD API.
         print("Gets CFB confrence info from the CFBD API.")
@@ -67,7 +67,7 @@ def get_cfbd_conference_info(
         # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
         # you could just call these functions directly, without setting the API key
         # in the script.
-        print("Using the user's API key suposedly loaded into this python environment for this example.\n\n")
+        print("Using the user's API key suposedly loaded into this python environment for this example.")
 
         # Gets CFB confrence info from the CFBD API.
         print("Gets CFB confrence info from the CFBD API.")
@@ -154,6 +154,10 @@ def get_cfbd_conference_info(
         )
 
         conference_df = pd.concat([conference_df, row_df], ignore_index=True)
+        del conference_id, conference_name, \
+            conference_short_name, conference_abbreviation, \
+            ncaa_classification
+
         del row_df
 
     return conference_df

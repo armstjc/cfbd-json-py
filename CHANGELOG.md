@@ -1,15 +1,26 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.0.5: The "Draft" Update.
+
+- Implemented `cfbd_json_py.draft.get_cfbd_nfl_teams()`, a function that allows a user to get a list of NFL teams from the CFBD API.
+- Implemented `cfbd_json_py.draft.get_cfbd_nfl_positions()`, a function that allows a user to get a list of player positions for the NFL Draft from the CFBD API.
+- Implemented `cfbd_json_py.draft.get_cfbd_nfl_positions()`, a function that allows a user to get a list of actual NFL Draft selections from the CFBD API.
+- Updated the function descriptions for the following functions:
+  - `cfbd_json_py.betting.get_cfbd_betting_lines()`
+  - `cfbd_json_py.coaches.get_cfbd_coaches_info()`
+  - `cfbd_json_py.conferences.get_cfbd_conference_info()`
+- Updated the package version to `0.0.5`.
+
 ## 0.0.4: The "Conferences" Update.
 
-- Implemented `get_cfbd_coaches_info()`, a function that allows a user to get CFB confrence info from the CFBD API.
+- Implemented `cfbd_json_py.conferences.get_cfbd_conference_info()`, a function that allows a user to get CFB confrence info from the CFBD API.
 - Updated the package version to `0.0.4`.
 
 ## 0.0.3: The "Coaches" Update.
 
-- Implemented `get_cfbd_coaches_info()`, a function that allows a user to get CFB head coach information from a specified season, timeframe, team, or name.
-- Updated the sample script found in the help guide for `get_cfbd_betting_lines()`.
-- Fixed a bug in `get_cfbd_betting_lines()` that would always result in the function not recognizing if the inputed `api_key` is the placeholder key inside the sample script for this function.
+- Implemented `cfbd_json_py.coaches.get_cfbd_coaches_info()`, a function that allows a user to get CFB head coach information from a specified season, timeframe, team, or name.
+- Updated the sample script found in the help guide for `cfbd_json_py.betting.get_cfbd_betting_lines()`.
+- Fixed a bug in `cfbd_json_py.betting.get_cfbd_betting_lines()` that would always result in the function not recognizing if the inputed `api_key` is the placeholder key inside the sample script for this function.
 - Updated the package version to `0.0.3`.
 
 ## 0.0.2: The "Betting" Update.

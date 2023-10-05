@@ -108,7 +108,7 @@ def get_cfbd_betting_lines(
     cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
 
     if cfbd_key != "tigersAreAwsome":
-        print("Using the user's API key declared in this script for this example.\n\n")
+        print("Using the user's API key declared in this script for this example.")
 
         # Gets all available betting info for the 2020 CFB season.
         print("Gets all available betting info for the 2020 CFB season.")
@@ -186,7 +186,7 @@ def get_cfbd_betting_lines(
         # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
         # you could just call these functions directly, without setting the API key
         # in the script.
-        print("Using the user's API key suposedly loaded into this python environment for this example.\n\n")
+        print("Using the user's API key suposedly loaded into this python environment for this example.")
 
         # Gets all available betting info for the 2020 CFB season.
         print("Gets all available betting info for the 2020 CFB season.")

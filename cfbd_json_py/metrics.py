@@ -18,7 +18,7 @@ def get_cfbd_team_ppa_data(
         year: int = None,
         team: str = None,
         # `year` and/or `team` must be not null for this function to work.
-        conference: str = None,
+        conference_abv: str = None,
         exclude_garbage_time: bool = False,
 
         return_as_dict: bool = False):
@@ -32,12 +32,12 @@ def get_cfbd_team_ppa_data(
 
 
 def get_cfbd_game_ppa_data(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
         week: int = None,
         team: str = None,
-        conference: str = None,
+        conference_abv: str = None,
         exclude_garbage_time: bool = False,
         season_type: str = "regular",  # "regular" or "postseason"
 
@@ -52,7 +52,7 @@ def get_cfbd_game_ppa_data(
 
 
 def get_cfbd_game_player_ppa_data(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
         week: int = None,
@@ -75,11 +75,11 @@ def get_cfbd_game_player_ppa_data(
 
 
 def get_cfbd_season_player_ppa_data(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
         team: str = None,
-        conference: str = None,
+        conference_abv: str = None,
         position: str = None,
         player_id: int = None,
         play_threshold: int = None,
@@ -109,7 +109,7 @@ def get_cfbd_game_win_probability_data(
 
 
 def get_cfbd_pregame_win_probability_data(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
         week: int = None,

@@ -4,7 +4,7 @@ def get_cfbd_team_season_stats(
         year: int = None,
         team: str = None,
         # `year` and/or `team` need to be not null for this function to work.
-        conference: str = None,
+        conference_abv: str = None,
         start_week: int = None,
         end_week: int = None,
 

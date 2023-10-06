@@ -33,10 +33,10 @@ def get_cfbd_srs_ratings(
 
 
 def get_cfbd_sp_plus_conference_ratings(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
-        conference: str = None,
+        conference_abv: str = None,
 
         return_as_dict: bool = False):
     """
@@ -48,13 +48,13 @@ def get_cfbd_sp_plus_conference_ratings(
 
 
 def get_cfbd_elo_ratings(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
         week: int = None,
         season_type: str = 'regular',  # "regular" or "postseason"
         team: str = None,
-        conference: str = None,
+        conference_abv: str = None,
 
         return_as_dict: bool = False):
     """

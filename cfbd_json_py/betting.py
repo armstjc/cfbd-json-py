@@ -1,7 +1,7 @@
 
 import time
 import warnings
-from datetime import datetime
+# from datetime import datetime
 
 import pandas as pd
 import requests
@@ -64,7 +64,7 @@ def get_cfbd_betting_lines(
         Semi-optional argument.
         By defualt, this will be set to "regular", for the CFB regular season.
         If you want postseason betting data, set `season_type` to "postseason".
-        If `season_type` is set to anything byt "regular" or "postseason", 
+        If `season_type` is set to anything but "regular" or "postseason", 
         a `ValueError()` will be raised.
 
     `team` (str, optional):

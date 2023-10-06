@@ -1,6 +1,6 @@
 
 def get_cfbd_pbp_data(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
         week: int = None,
@@ -8,9 +8,9 @@ def get_cfbd_pbp_data(
         team: str = None,
         offensive_team: str = None,
         defensive_team: str = None,
-        conference: str = None,
-        offensive_conference: str = None,
-        defensive_conference: str = None,
+        conference_abv: str = None,
+        offensive_conference_abv: str = None,
+        defensive_conference_abv: str = None,
         play_type: int = None,
         ncaa_division: str = "fbs",
 
@@ -37,7 +37,7 @@ def get_cfbd_pbp_play_types(
 
 
 def get_cfbd_pbp_stats(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
         week: int = None,
@@ -46,7 +46,7 @@ def get_cfbd_pbp_stats(
         athlete_id: int = None,
         stat_type_id: int = None,
         season_type: str = "regular",  # "regular", "postseason", or "both"
-        conference: str = None,
+        conference_abv: str = None,
 
         return_as_dict: bool = False):
     """

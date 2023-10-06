@@ -40,7 +40,7 @@ def get_cfbd_team_recruiting_group_ratings(
         start_year: int = None,
         end_year: int = None,
         team: str = None,
-        conference: str = None,
+        conference_abv: str = None,
 
         return_as_dict: bool = False):
     """

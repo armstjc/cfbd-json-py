@@ -16,11 +16,11 @@ def cfbd_player_search(
 
 
 def get_cfbd_player_usage(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
         team: str = None,
-        conference: str = None,
+        conference_abv: str = None,
         position: str = None,
         player_id: int = None,
         exclude_garbage_time: bool = False,
@@ -35,11 +35,11 @@ def get_cfbd_player_usage(
 
 
 def get_cfbd_returning_production(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
         team: str = None,
-        conference: str = None,
+        conference_abv: str = None,
 
         return_as_dict: bool = False):
     """
@@ -51,11 +51,11 @@ def get_cfbd_returning_production(
 
 
 def get_cfbd_player_season_stats(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
         team: str = None,
-        conference: str = None,
+        conference_abv: str = None,
         start_week: int = None,
         end_week: int = None,
         season_type: str = 'regular',  # "regular", "postseason", or "both"
@@ -71,7 +71,7 @@ def get_cfbd_player_season_stats(
 
 
 def get_cfbd_transfer_portal_data(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
 

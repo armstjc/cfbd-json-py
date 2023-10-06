@@ -318,7 +318,7 @@ def get_cfbd_nfl_draft_info(
         season: int = None,
         nfl_team: str = None,
         college: str = None,
-        conference: str = None,
+        conference_abv: str = None,
         position: str = None,
         return_as_dict: bool = False):
     """
@@ -383,6 +383,149 @@ def get_cfbd_nfl_draft_info(
         If you want this function to return the data as a dictionary (read: JSON object), 
         instead of a pandas `DataFrame` object,
         set `return_as_dict` to `True`.
+    Usage
+    ---------- 
+    ```
+import time
+
+from cfbd_json_py.draft import get_cfbd_nfl_draft_info
+
+cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+
+if cfbd_key != "tigersAreAwsome":
+    print("Using the user's API key declared in this script for this example.")
+
+    # Get NFL Draft selections from the 2020 NFL Draft.
+    print("Get NFL Draft selections from the 2020 NFL Draft.")
+    json_data = get_cfbd_nfl_draft_info(
+        api_key=cfbd_key,
+        season=2020
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # Get NFL Draft selections from the 2020 NFL Draft made by the
+    # 2020 Cincinnati Bengals.
+    print("Get NFL Draft selections from the 2020 NFL Draft made by the 2020 Cincinnati Bengals.")
+    json_data = get_cfbd_nfl_draft_info(
+        api_key=cfbd_key,
+        season=2020,
+        nfl_team="Cincinnati"
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # Get NFL Draft selections from the 2020 NFL Draft made involving
+    # Clemson Tigers football players.
+    print("Get NFL Draft selections from the 2020 NFL Draft made involving Clemson Tigers football players.")
+    json_data = get_cfbd_nfl_draft_info(
+        api_key=cfbd_key,
+        season=2020,
+        college="Clemson"
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # Get NFL Draft selections from the 2020 NFL Draft made involving
+    # players who played in the Southeastern Confrence (SEC).
+    print("Get NFL Draft selections from the 2020 NFL Draft made involving players who played in the Southeastern Confrence (SEC).")
+    json_data = get_cfbd_nfl_draft_info(
+        api_key=cfbd_key,
+        season=2020,
+        conference="SEC"
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # Get NFL Draft selections from the 2020 NFL Draft made
+    # where the selected player was a QB in college.
+    print("Get NFL Draft selections from the 2020 NFL Draft made where the selected player was a QB in college.")
+    json_data = get_cfbd_nfl_draft_info(
+        api_key=cfbd_key,
+        season=2020,
+        position="QB"
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # You can also tell this function to just return the API call as a Dictionary (read: JSON) object.
+    print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+    json_data = get_cfbd_nfl_draft_info(
+        season=2020,
+        position="QB",
+        api_key=cfbd_key,
+        return_as_dict=True
+    )
+    print(json_data)
+
+else:
+    # Alternatively, if the CFBD API key exists in this python environment,
+    # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
+    # you could just call these functions directly, without setting the API key
+    # in the script.
+    print("Using the user's API key suposedly loaded into this python environment for this example.")
+
+    # Get NFL Draft selections from the 2020 NFL Draft.
+    print("Get NFL Draft selections from the 2020 NFL Draft.")
+    json_data = get_cfbd_nfl_draft_info(season=2020)
+    print(json_data)
+    time.sleep(5)
+
+    # Get NFL Draft selections from the 2020 NFL Draft made by the
+    # 2020 Cincinnati Bengals.
+    print("Get NFL Draft selections from the 2020 NFL Draft made by the 2020 Cincinnati Bengals.")
+    json_data = get_cfbd_nfl_draft_info(
+        season=2020,
+        nfl_team="Cincinnati"
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # Get NFL Draft selections from the 2020 NFL Draft made involving
+    # Clemson Tigers football players.
+    print("Get NFL Draft selections from the 2020 NFL Draft made involving Clemson Tigers football players.")
+    json_data = get_cfbd_nfl_draft_info(
+        season=2020,
+        college="Clemson"
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # Get NFL Draft selections from the 2020 NFL Draft made involving
+    # players who played in the Southeastern Confrence (SEC).
+    print("Get NFL Draft selections from the 2020 NFL Draft made involving players who played in the Southeastern Confrence (SEC).")
+    json_data = get_cfbd_nfl_draft_info(
+        season=2020,
+        conference="SEC"
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # Get NFL Draft selections from the 2020 NFL Draft made
+    # where the selected player was a QB in college.
+    print("Get NFL Draft selections from the 2020 NFL Draft made where the selected player was a QB in college.")
+    json_data = get_cfbd_nfl_draft_info(
+        season=2020,
+        position="QB"
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # You can also tell this function to just return the API call as a Dictionary (read: JSON) object.
+    print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+    json_data = get_cfbd_nfl_draft_info(
+        season=2020,
+        position="QB",
+        return_as_dict=True
+    )
+    print(json_data)
+    ```
+
+    Returns
+    ----------
+    A pandas `DataFrame` object with NFL Draft selection data, 
+    or (if `return_as_dict` is set to `True`) 
+    a dictionary object with NFL Draft selection data.
 
     """
     now = datetime.now()
@@ -409,7 +552,7 @@ def get_cfbd_nfl_draft_info(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    if season == None and nfl_team == None and college == None and conference == None:
+    if season == None and nfl_team == None and college == None and conference_abv == None:
         logging.warning(
             "Not specifying a `season`, `nfl_team`, `college`, or `confrence` will still result in a successful get request (assuming the API key is valid)" +
             ", but this is not a recomended method of calling this function.")
@@ -443,12 +586,12 @@ def get_cfbd_nfl_draft_info(
         url += f"&college={college}"
         url_elements += 1
 
-    if conference != None and url_elements == 0:
+    if conference_abv != None and url_elements == 0:
         # conference = "SEC", not "Southeastern Confrence"
-        url += f"?conference={conference}"
+        url += f"?conference={conference_abv}"
         url_elements += 1
-    elif conference != None:
-        url += f"&conference={conference}"
+    elif conference_abv != None:
+        url += f"&conference={conference_abv}"
         url_elements += 1
 
     if position != None and url_elements == 0:
@@ -519,6 +662,9 @@ def get_cfbd_nfl_draft_info(
 
     if len(nfl_draft_df) == 0:
         logging.error(
-            "The CFBD API accepted your inputs, but found no data within your specified input paramaters. Please double check your input paramaters.")
+            "The CFBD API accepted your inputs, " +
+            "but found no data within your specified input paramaters." +
+            " Please double check your input paramaters."
+        )
 
     return nfl_draft_df

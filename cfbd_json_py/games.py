@@ -1,13 +1,13 @@
 
 def get_cfbd_games(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
         season_type: str = "regular",
         team: str = None,
         home_team: str = None,
         away_team: str = None,
-        conference: str = None,
+        conference_abv: str = None,
         ncaa_division: str = "fbs",
         game_id: int = None,
 
@@ -26,7 +26,7 @@ def get_cfbd_team_records(
         api_key_dir: str = None,
         year: int = None,
         team: str = None,  # Must specify either a year or team
-        conference: str = None,
+        conference_abv: str = None,
 
         return_as_dict: bool = False):
     """
@@ -39,7 +39,7 @@ def get_cfbd_team_records(
 
 
 def get_cfbd_season_weeks(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
 
@@ -54,13 +54,13 @@ def get_cfbd_season_weeks(
 
 
 def get_cfbd_game_media_info(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
         season_type: str = "regular",  # "regular", "postseason", or "both"
         week: int = None,
         team: str = None,
-        conference: str = None,
+        conference_abv: str = None,
         media_type: str = "all",  # "tv", "radio", "web", "ppv", or "mobile"
         ncaa_division: str = "fbs",
 
@@ -75,13 +75,13 @@ def get_cfbd_game_media_info(
 
 
 def get_cfbd_player_game_stats(
-        year: int,
+        season: int,
         api_key: str = None,
         api_key_dir: str = None,
         season_type: str = "regular",  # "regular" or "postseason"
         week: int = None,
         team: str = None,
-        conference: str = None,
+        conference_abv: str = None,
         # `week`, `team`, and/or conference must be not null for this function to work.
         stat_category: str = None,
         game_id: int = None,

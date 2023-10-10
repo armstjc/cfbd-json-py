@@ -1,10 +1,18 @@
+# Creation Date: 08/30/2023 01:13 EDT
+# Last Updated Date: 10/06/2023 07:53 PM EDT
+# Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
+# File Name: players.py
+# Purpose: Houses functions pertaining to CFB player data within the CFBD API.
+####################################################################################################
+
+
 def cfbd_player_search(
         search_str: str,
         api_key: str = None,
         api_key_dir: str = None,
         position: str = None,
         team: str = None,
-        year: int = None,
+        season: int = None,
 
         return_as_dict: bool = False):
     """
@@ -24,7 +32,6 @@ def get_cfbd_player_usage(
         position: str = None,
         player_id: int = None,
         exclude_garbage_time: bool = False,
-
         return_as_dict: bool = False):
     """
 

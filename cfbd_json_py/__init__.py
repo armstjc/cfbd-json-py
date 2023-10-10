@@ -1,5 +1,17 @@
-# Loaders
-# from cfbd_json_py.loaders import *
+# Creation Date: 08/30/2023 01:13 EDT
+# Last Updated Date: 10/06/2023 08:06 PM EDT
+# Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
+# File Name: __init__.py
+# Purpose: Allows for the python package to function,
+#          by allowing you to to access functions within
+#          this package.
+####################################################################################################
+
+# Generated Functions:
+from cfbd_json_py._early_access import *
+
+
+# Fully Implemented Functions:
 from cfbd_json_py.betting import *
 from cfbd_json_py.coaches import *
 from cfbd_json_py.conferences import *

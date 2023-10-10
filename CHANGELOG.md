@@ -1,5 +1,16 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.0.8: The "Games" Update
+
+## 0.0.7: The "Infrastructure" Update.
+
+- Implemented `cfbd_json_py.games.get_cfbd_games()`, a function that allows a user to get game/schedule data from the CFBD API.
+- Added a Docs webpage framework to this package by using [pdoc](https://pdoc.dev/)
+- Added `cfbd_json_py._early_access`, a section specifically for CFBD API endpoints that exist, but aren't implemented yet by this python package.
+- Added python file descriptors to track changes, detail when a file was first created, and explian the python file's purpose.
+- Implemented the `check_cfbd_api_compatability.py` python script, a script that checks if this python package is compatible with the most recent version of the CFBD API, and raises a `ValueError()` if that isn't the case.
+- Updated the package version to `0.0.7`.
+
 ## 0.0.6: The "Drives" Update.
 
 - Implemented `cfbd_json_py.drives.get_cfbd_drives_info()`, a function that allows a user to get CFB drive data from the CFBD API.

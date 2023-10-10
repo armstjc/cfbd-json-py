@@ -1,3 +1,9 @@
+# Creation Date: 08/30/2023 01:13 EDT
+# Last Updated Date: 10/06/2023 07:54 PM EDT
+# Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
+# File Name: venues.py
+# Purpose: Houses functions pertaining to CFB team venues/stadium data within the CFBD API.
+####################################################################################################
 
 def get_cfbd_venues(
         api_key: str = None,

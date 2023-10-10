@@ -1,3 +1,9 @@
+# Creation Date: 08/30/2023 01:13 EDT
+# Last Updated Date: 10/06/2023 07:35 PM EDT
+# Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
+# File Name: conferences.py
+# Purpose: Houses functions pertaining to CFB conference data within the CFBD API.
+####################################################################################################
 
 import time
 import pandas as pd

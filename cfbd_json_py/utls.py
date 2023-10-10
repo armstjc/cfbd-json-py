@@ -1,3 +1,10 @@
+# Creation Date: 08/30/2023 01:13 EDT
+# Last Updated Date: 10/06/2023 07:54 PM EDT
+# Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
+# File Name: utls.py
+# Purpose: Houses utility functions for this python package.
+####################################################################################################
+
 import json
 import os
 import secrets

@@ -1,3 +1,9 @@
+# Creation Date: 08/30/2023 01:13 EDT
+# Last Updated Date: 10/06/2023 07:52 PM EDT
+# Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
+# File Name: betting.py
+# Purpose: Houses functions pertaining to betting data within the CFBD API.
+####################################################################################################
 
 import time
 import warnings

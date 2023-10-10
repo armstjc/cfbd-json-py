@@ -1,3 +1,9 @@
+# Creation Date: 08/30/2023 01:13 EDT
+# Last Updated Date: 10/07/2023 10:16 AM EDT
+# Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
+# File Name: drives.py
+# Purpose: Houses functions pertaining to CFB drive data within the CFBD API.
+####################################################################################################
 
 from datetime import datetime
 import logging
@@ -115,7 +121,7 @@ def get_cfbd_drives_info(
         Semi-optional argument.
         By default, `ncaa_division` will be set to "fbs", 
         short for the Football Bowl Subdivision (FBS), 
-        formerly known as D1-A (division one single A),
+        formerly known as D1-A (read as "division one single A"),
         the highest level in the NCAA football pyramid,
         where teams can scolarship up to 85 players 
         on their football team soley for athletic ability, 
@@ -124,7 +130,7 @@ def get_cfbd_drives_info(
 
         Other valid inputs are:
         - "fcs": Football Championship Subdivision (FCS), 
-            formerly known as D1-AA (division one double A).
+            formerly known as D1-AA (read as "division one double A").
             An FCS school is still in the 1st division of the NCAA,
             making them elligable for the March Madness tournament,
             but may not have the resources to compete at the FBS level

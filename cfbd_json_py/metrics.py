@@ -1,3 +1,9 @@
+# Creation Date: 08/30/2023 01:13 EDT
+# Last Updated Date: 10/06/2023 07:53 PM EDT
+# Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
+# File Name: metrics.py
+# Purpose: Houses functions pertaining to various CFB stats within the CFBD API.
+####################################################################################################
 
 def get_cfbd_predicted_ppa_from_down_distance(
         down: int,
@@ -15,7 +21,7 @@ def get_cfbd_predicted_ppa_from_down_distance(
 def get_cfbd_team_ppa_data(
         api_key: str = None,
         api_key_dir: str = None,
-        year: int = None,
+        season: int = None,
         team: str = None,
         # `year` and/or `team` must be not null for this function to work.
         conference_abv: str = None,

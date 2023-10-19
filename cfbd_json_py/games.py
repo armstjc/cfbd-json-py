@@ -2862,8 +2862,9 @@ def get_cfbd_player_game_stats(
                                 f"Unhandled stat: \t{stat['name']}")
 
                 else:
-                    raise IndexError(f"Unhandled stat category: \t{
-                                     s_category['name']}")
+                    raise IndexError(
+                        f"Unhandled stat category: \t{s_category['name']}"
+                    )
 
     for key, value in tqdm(rebuilt_json.items()):
         # print(key)

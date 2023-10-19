@@ -1,5 +1,12 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.0.10: The "Metrics" Update
+
+## 0.0.9: The "Bug Fixes 1" Update
+- Attempted another fix for the `generate_docs.yml` GitHub Workflow to allow it to call `pdoc` properly within GitHub Actions.
+- Removed the PyArrow package as a required package for this python package.
+- Updated the package version to `0.0.9`.
+
 ## 0.0.8: The "Games" Update
 
 - Implemented `cfbd_json_py.games.get_cfbd_player_advanced_game_stats()`, a function that allows a user to get advanced player game stats for actual CFB games in a specific timeframe, from the CFBD API.

@@ -2,6 +2,15 @@
 
 ## 0.0.8: The "Games" Update
 
+- Implemented `cfbd_json_py.games.get_cfbd_player_advanced_game_stats()`, a function that allows a user to get advanced player game stats for actual CFB games in a specific timeframe, from the CFBD API.
+- Implemented `cfbd_json_py.games.get_cfbd_player_game_stats()`, a function that allows a user to get player game stats for actual CFB games in a specific timeframe, from the CFBD API.
+- Implemented `cfbd_json_py.games.get_cfbd_game_media_info()`, a function that allows a user to get a list of known broadcasters for actual CFB games in a specific timeframe, from the CFBD API.
+- Implemented `cfbd_json_py.games.get_cfbd_season_weeks()`, a function that allows a user to get a list of weeks that occured in a given CFB season from the CFBD API.
+- Implemented `cfbd_json_py.games.get_cfbd_team_records()`, a function that allows a user to get team records data from the CFBD API.
+- Fixed multiple bugs that would prevent a user from properly calling `cfbd_json_py.games.get_cfbd_games()` in certian edge cases.
+- Attempted a fix for the `generate_docs.yml` GitHub Workflow to allow it to call `pdoc` properly within GitHub Actions.
+- Updated the package version to `0.0.8`.
+
 ## 0.0.7: The "Infrastructure" Update.
 
 - Implemented `cfbd_json_py.games.get_cfbd_games()`, a function that allows a user to get game/schedule data from the CFBD API.

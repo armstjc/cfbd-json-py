@@ -90,7 +90,7 @@ def get_cfbd_drives_info(
     `conference_abv` (str, optional):
         Optional argument.
         If you only want CFB drive data from games 
-        involving teams a specific confrence, 
+        involving teams from a specific confrence, 
         set `conference_abv` to the abbreviation 
         of the conference you want CFB drive data from.
         For a list of confrences, 

@@ -2,6 +2,21 @@
 
 ## 0.0.10: The "Metrics" Update
 
+- Implemented `cfbd_json_py.metrics.get_cfbd_pregame_win_probability_data()`, a function that allows a user to get pregame win probability data from the CFBD API.
+- Implemented `cfbd_json_py.metrics.get_cfbd_game_win_probability_data()`, a function that allows a user to get win probability data from a valid game ID in the CFBD API.
+- Implemented `cfbd_json_py.metrics.get_cfbd_player_season_ppa_data()`, a function that allows a user to get player game PPA data from the CFBD API.
+- Implemented `cfbd_json_py.metrics.get_cfbd_player_game_ppa_data()`, a function that allows a user to get player season PPA data from the CFBD API.
+- Implemented `cfbd_json_py.metrics.get_cfbd_team_game_ppa_data()`, a function that allows a user to get team game PPA data from the CFBD API.
+- Implemented `cfbd_json_py.metrics.get_cfbd_team_season_ppa_data()`, a function that allows a user to get team season PPA data from the CFBD API.
+- Implemented `cfbd_json_py.metrics.get_cfbd_predicted_ppa_from_down_distance()`, a function that allows a user to get predicted PPA values from the CFBD API, given a down and distance (like 1st and 10).
+- Updated the function descriptions for the following functions:
+  - `cfbd_json_py.utls.reverse_cipher_encrypt()`
+  - `cfbd_json_py.utls.reverse_cipher_decrypt()`
+  - `cfbd_json_py.utls.get_cfbd_api_token()`
+- Updated the `README.md` file to give users a general idea on what this python package is, how to install it, and how to access this python package's docs.
+- Added a front page to the Docs website for this python package.
+- Updated the package version to `0.0.10`.
+
 ## 0.0.9: The "Bug Fixes 1" Update
 - Attempted another fix for the `generate_docs.yml` GitHub Workflow to allow it to call `pdoc` properly within GitHub Actions.
 - Removed the PyArrow package as a required package for this python package.

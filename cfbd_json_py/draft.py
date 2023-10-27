@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 10/07/2023 10:56 AM EDT
+# Last Updated Date: 10/23/2023 04:09 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: draft.py
 # Purpose: Houses functions pertaining to NFL Draft data within the CFBD API.
@@ -7,7 +7,6 @@
 
 from datetime import datetime
 import logging
-import time
 import pandas as pd
 import requests
 from tqdm import tqdm
@@ -33,7 +32,7 @@ def get_cfbd_nfl_teams(
 
     `api_key_dir` (str, optional):
         Optional argument.
-        If `api_key` is set to a string non-empty string, this variable is ignored.
+        If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null, 
         this function will try to find a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
@@ -128,7 +127,7 @@ def get_cfbd_nfl_teams(
     }
 
     response = requests.get(url, headers=headers)
-    time.sleep(0.1)
+    
 
     if response.status_code == 200:
         pass
@@ -189,7 +188,7 @@ def get_cfbd_nfl_positions(
 
     `api_key_dir` (str, optional):
         Optional argument.
-        If `api_key` is set to a string non-empty string, this variable is ignored.
+        If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null, 
         this function will try to find a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
@@ -283,7 +282,7 @@ def get_cfbd_nfl_positions(
     }
 
     response = requests.get(url, headers=headers)
-    time.sleep(0.1)
+    
 
     if response.status_code == 200:
         pass
@@ -343,7 +342,7 @@ def get_cfbd_nfl_draft_info(
 
     `api_key_dir` (str, optional):
         Optional argument.
-        If `api_key` is set to a string non-empty string, this variable is ignored.
+        If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null, 
         this function will try to find a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
@@ -615,7 +614,7 @@ def get_cfbd_nfl_draft_info(
     }
 
     response = requests.get(url, headers=headers)
-    time.sleep(0.1)
+    
 
     if response.status_code == 200:
         pass

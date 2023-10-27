@@ -13,6 +13,8 @@ import logging
 
 def reverse_cipher_encrypt(plain_text_str: str):
     """
+    NOT INTENDED TO BE CALLED BY THE USER!
+
     Implements a reverse cipher encription to a plain text string.
 
     Parameters
@@ -37,6 +39,8 @@ def reverse_cipher_encrypt(plain_text_str: str):
 
 def reverse_cipher_decrypt(encrypted_text_str: str):
     """
+    NOT INTENDED TO BE CALLED BY THE USER!
+    
     Decrypts a string that was presumed to be encrypted by a reverse cipher encryption.
 
     Parameters
@@ -64,6 +68,12 @@ def reverse_cipher_decrypt(encrypted_text_str: str):
 
 def get_cfbd_api_token(api_key_dir: str = None):
     """
+    NOT INTENDED TO BE CALLED BY THE USER!
+    
+    If you've already set the API key using 
+    `cfbd_json_py.utls.set_cfbd_api_token()`,
+    you don't need to use this function.
+
     If the CFBD API key exists in the environment, 
     or is in a file, this function retrives the CFBD API key, 
     and returns it as a string.

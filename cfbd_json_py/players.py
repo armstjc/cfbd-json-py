@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 10/06/2023 07:53 PM EDT
+# Last Updated Date: 10/26/2023 07:45 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: players.py
 # Purpose: Houses functions pertaining to CFB player data within the CFBD API.
@@ -13,7 +13,6 @@ def cfbd_player_search(
         position: str = None,
         team: str = None,
         season: int = None,
-
         return_as_dict: bool = False):
     """
 

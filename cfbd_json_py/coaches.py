@@ -1,12 +1,11 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 10/09/2023 08:00 PM EDT
+# Last Updated Date: 10/23/2023 04:09 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: coaches.py
 # Purpose: Houses functions pertaining to coaching data within the CFBD API.
 ####################################################################################################
 
 import logging
-import time
 
 import pandas as pd
 import requests
@@ -40,7 +39,7 @@ def get_cfbd_coaches_info(
 
     `api_key_dir` (str, optional):
         Optional argument.
-        If `api_key` is set to a string non-empty string, this variable is ignored.
+        If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null, 
         this function will try to find a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
@@ -336,7 +335,7 @@ def get_cfbd_coaches_info(
     }
 
     response = requests.get(url, headers=headers)
-    time.sleep(0.1)
+    
 
     if response.status_code == 200:
         pass

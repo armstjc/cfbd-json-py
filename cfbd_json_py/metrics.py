@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 10/27/2023 10:54 AM  EDT
+# Last Updated Date: 11/04/2023 02:55 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: metrics.py
 # Purpose: Houses functions pertaining to various CFB stats within the CFBD API.
@@ -490,7 +490,7 @@ def get_cfbd_team_season_ppa_data(
         # Rare, but in this endpoint,
         # you don't need to input the season.
         pass
-    elif season > now.year:
+    elif season > (now.year + 1):
         raise ValueError(f"`season` cannot be greater than {season}.")
     elif season < 1869:
         raise ValueError(f"`season` cannot be less than 1869.")
@@ -883,7 +883,7 @@ def get_cfbd_team_game_ppa_data(
             "\nIf you have a GitHub account, please raise an issue on this python package's GitHub page:\n" +
             "https://github.com/armstjc/cfbd-json-py/issues"
         )
-    elif season > now.year:
+    elif season > (now.year + 1):
         raise ValueError(f"`season` cannot be greater than {season}.")
     elif season < 1869:
         raise ValueError(f"`season` cannot be less than 1869.")
@@ -1306,7 +1306,7 @@ def get_cfbd_player_game_ppa_data(
             "\nIf you have a GitHub account, please raise an issue on this python package's GitHub page:\n" +
             "https://github.com/armstjc/cfbd-json-py/issues"
         )
-    elif season > now.year:
+    elif season > (now.year + 1):
         raise ValueError(f"`season` cannot be greater than {season}.")
     elif season < 1869:
         raise ValueError(f"`season` cannot be less than 1869.")
@@ -1768,7 +1768,7 @@ def get_cfbd_player_season_ppa_data(
 
     if season == None:
         pass
-    elif season > now.year:
+    elif season > (now.year + 1):
         raise ValueError(f"`season` cannot be greater than {season}.")
     elif season < 1869:
         raise ValueError(f"`season` cannot be less than 1869.")
@@ -2350,7 +2350,7 @@ def get_cfbd_pregame_win_probability_data(
 
     if season == None:
         pass
-    elif season > now.year:
+    elif season > (now.year + 1):
         raise ValueError(f"`season` cannot be greater than {season}.")
     elif season < 1869:
         raise ValueError(f"`season` cannot be less than 1869.")

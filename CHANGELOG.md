@@ -1,5 +1,27 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.0.11: The "Players" Update
+
+- Implemented `cfbd_json_py.players.get_cfbd_transfer_portal_data()`, a function that allows a user to get transfer portal data from the CFBD API.
+- Implemented `cfbd_json_py.players.get_cfbd_player_season_stats()`, a function that allows a user to get player season stats from the CFBD API.
+- Implemented `cfbd_json_py.players.get_cfbd_returning_production()`, a function that allows a user to get returning production data from the CFBD API.
+- Implemented `cfbd_json_py.players.get_cfbd_player_usage()`, a function that allows a user to get player usage data from the CFBD API.
+- Implemented `cfbd_json_py.players.get_cfbd_pregame_win_probability_data()`, a function that allows a user to lookup known players in the CFBD API.
+- Updated the function descriptions for `cfbd_json_py.games.get_cfbd_player_game_stats()`, and added a `["season"]` column to the function's output, should `return_as_dict = False`.
+- Updated the validation logic for the `season` input variable for the following functions, by alowing a user to lookup data for the next CFB season:
+  - `cfbd_json_py.drives.get_cfbd_drives_info()`
+  - `cfbd_json_py.games.get_cfbd_games()`
+  - `cfbd_json_py.games.get_cfbd_season_weeks()`
+  - `cfbd_json_py.games.get_cfbd_game_media_info()`
+  - `cfbd_json_py.games.get_cfbd_player_game_stats()`
+  - `cfbd_json_py.metrics.get_cfbd_team_season_ppa_data()`
+  - `cfbd_json_py.metrics.get_cfbd_team_game_ppa_data()`
+  - `cfbd_json_py.metrics.get_cfbd_player_game_ppa_data()`
+  - `cfbd_json_py.metrics.get_cfbd_player_season_ppa_data()`
+  - `cfbd_json_py.metrics.get_cfbd_pregame_win_probability_data()`
+  - `cfbd_json_py.metrics.get_cfbd_pregame_win_probability_data()`
+- Updated the package version to `0.0.11`.
+
 ## 0.0.10: The "Metrics" Update
 
 - Implemented `cfbd_json_py.metrics.get_cfbd_pregame_win_probability_data()`, a function that allows a user to get pregame win probability data from the CFBD API.

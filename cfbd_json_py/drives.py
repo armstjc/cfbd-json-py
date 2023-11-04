@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 10/23/2023 04:09 PM EDT
+# Last Updated Date: 11/04/2023 02:55 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: drives.py
 # Purpose: Houses functions pertaining to CFB drive data within the CFBD API.
@@ -417,7 +417,7 @@ def get_cfbd_drives_info(
             "\nIf you have a GitHub account, please raise an issue on this python package's GitHub page:\n" +
             "https://github.com/armstjc/cfbd-json-py/issues"
         )
-    elif season > now.year:
+    elif season > (now.year + 1):
         raise ValueError(f"`season` cannot be greater than {season}.")
     elif season < 1869:
         raise ValueError(f"`season` cannot be less than 1869.")

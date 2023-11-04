@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 10/23/2023 04:09 PM EDT
+# Last Updated Date: 11/04/2023 02:55 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: games.py
 # Purpose: Houses functions pertaining to CFB game data within the CFBD API.
@@ -367,7 +367,7 @@ def get_cfbd_games(
             "\nIf you have a GitHub account, please raise an issue on this python package's GitHub page:\n" +
             "https://github.com/armstjc/cfbd-json-py/issues"
         )
-    elif season > now.year:
+    elif season > (now.year + 1):
         raise ValueError(f"`season` cannot be greater than {season}.")
     elif season < 1869:
         raise ValueError(f"`season` cannot be less than 1869.")
@@ -932,7 +932,7 @@ def get_cfbd_season_weeks(
             "\nIf you have a GitHub account, please raise an issue on this python package's GitHub page:\n" +
             "https://github.com/armstjc/cfbd-json-py/issues"
         )
-    elif season > now.year:
+    elif season > (now.year + 1):
         raise ValueError(f"`season` cannot be greater than {season}.")
     elif season < 1869:
         raise ValueError(f"`season` cannot be less than 1869.")
@@ -1312,7 +1312,7 @@ def get_cfbd_game_media_info(
             "\nIf you have a GitHub account, please raise an issue on this python package's GitHub page:\n" +
             "https://github.com/armstjc/cfbd-json-py/issues"
         )
-    elif season > now.year:
+    elif season > (now.year + 1):
         raise ValueError(f"`season` cannot be greater than {season}.")
     elif season < 1869:
         raise ValueError(f"`season` cannot be less than 1869.")
@@ -1437,9 +1437,9 @@ def get_cfbd_player_game_stats(
     ----------
     `season` (int, mandatory):
         Required argument.
-        Specifies the season you want CFB media information from.
+        Specifies the season you want CFB player game stats from.
         This must be specified, otherwise this package, and by extension
-        the CFBD API, will not accept the request to get CFB media information.
+        the CFBD API, will not accept the request to get CFB player game stats.
 
     `api_key` (str, optional):
         Semi-optional argument. 
@@ -1460,7 +1460,7 @@ def get_cfbd_player_game_stats(
     `season_type` (str, semi-optional):
         Semi-optional argument.
         By defualt, this will be set to "regular", for the CFB regular season.
-        If you want CFB media information for non-regular season games, 
+        If you want CFB player game stats for non-regular season games, 
         set `season_type` to "postseason".
         If `season_type` is set to anything but "regular" or "postseason", 
         a `ValueError()` will be raised.
@@ -1471,20 +1471,20 @@ def get_cfbd_player_game_stats(
     `week` (int, optional):
         Optional argument.
         If `week` is set to an integer, this function will attempt 
-        to load CFB media information from games in that season, and in that week.
+        to load CFB player game stats from games in that season, and in that week.
 
     `team` (str, optional):
         Optional argument.
-        If you only want CFB media information for a team, 
+        If you only want CFB player game stats for a team, 
         regardless if they are the home/away team,
-        set `team` to the name of the team you want CFB media information from.
+        set `team` to the name of the team you want CFB player game stats from.
 
     `conference_abv` (str, optional):
         Optional argument.
-        If you only want media information from games 
+        If you only want player game stats from games 
         involving teams a specific confrence, 
         set `conference_abv` to the abbreviation 
-        of the conference you want game information from.
+        of the conference you want stats from.
 
     `stat_category` (str, optional):
         Optional argument.
@@ -1693,6 +1693,7 @@ def get_cfbd_player_game_stats(
     row_df = pd.DataFrame()
     url = "https://api.collegefootballdata.com/games/players"
     stat_columns = [
+        'season',
         'game_id',
         'team_name',
         'team_confrence',
@@ -1796,7 +1797,7 @@ def get_cfbd_player_game_stats(
             "please raise an issue on this python package's GitHub page:\n" +
             "https://github.com/armstjc/cfbd-json-py/issues"
         )
-    elif season > now.year:
+    elif season > (now.year + 1):
         raise ValueError(f"`season` cannot be greater than {season}.")
     elif season < 1869:
         raise ValueError(f"`season` cannot be less than 1869.")
@@ -3069,12 +3070,14 @@ def get_cfbd_player_game_stats(
         "kicking_XPA": "int"
     })
     # print(cfb_games_df.columns)
+    cfb_games_df['season'] = season
 
     if filter_by_stat_category == False:
         cfb_games_df = cfb_games_df.reindex(columns=stat_columns)
 
     elif filter_by_stat_category == True and stat_category == "passing":
         cfb_games_df = cfb_games_df[[
+            'season',
             'game_id',
             'team_name',
             'team_confrence',
@@ -3094,6 +3097,7 @@ def get_cfbd_player_game_stats(
 
     elif filter_by_stat_category == True and stat_category == "rushing":
         cfb_games_df = cfb_games_df[[
+            'season',
             'game_id',
             'team_name',
             'team_confrence',
@@ -3110,6 +3114,7 @@ def get_cfbd_player_game_stats(
 
     elif filter_by_stat_category == True and stat_category == "receiving":
         cfb_games_df = cfb_games_df[[
+            'season',
             'game_id',
             'team_name',
             'team_confrence',
@@ -3126,6 +3131,7 @@ def get_cfbd_player_game_stats(
 
     elif filter_by_stat_category == True and stat_category == "fumbles":
         cfb_games_df = cfb_games_df[[
+            'season',
             'game_id',
             'team_name',
             'team_confrence',
@@ -3140,6 +3146,7 @@ def get_cfbd_player_game_stats(
 
     elif filter_by_stat_category == True and stat_category == "defensive":
         cfb_games_df = cfb_games_df[[
+            'season',
             'game_id',
             'team_name',
             'team_confrence',
@@ -3158,6 +3165,7 @@ def get_cfbd_player_game_stats(
 
     elif filter_by_stat_category == True and stat_category == "interceptions":
         cfb_games_df = cfb_games_df[[
+            'season',
             'game_id',
             'team_name',
             'team_confrence',
@@ -3172,6 +3180,7 @@ def get_cfbd_player_game_stats(
 
     elif filter_by_stat_category == True and stat_category == "punting":
         cfb_games_df = cfb_games_df[[
+            'season',
             'game_id',
             'team_name',
             'team_confrence',
@@ -3189,6 +3198,7 @@ def get_cfbd_player_game_stats(
 
     elif filter_by_stat_category == True and stat_category == "kicking":
         cfb_games_df = cfb_games_df[[
+            'season',
             'game_id',
             'team_name',
             'team_confrence',
@@ -3209,6 +3219,7 @@ def get_cfbd_player_game_stats(
 
     elif filter_by_stat_category == True and stat_category == "kickReturns":
         cfb_games_df = cfb_games_df[[
+            'season',
             'game_id',
             'team_name',
             'team_confrence',
@@ -3225,6 +3236,7 @@ def get_cfbd_player_game_stats(
 
     elif filter_by_stat_category == True and stat_category == "puntReturns":
         cfb_games_df = cfb_games_df[[
+            'season',
             'game_id',
             'team_name',
             'team_confrence',

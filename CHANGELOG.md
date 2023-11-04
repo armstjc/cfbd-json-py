@@ -1,5 +1,10 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.0.12: The "Venues" Update
+- Implemented `cfbd_json_py.venues.get_cfbd_venues()`, a function that allows a user to a list of CFB venues from the CFBD API.
+- Updated the package version to `0.0.12`.
+
+
 ## 0.0.11: The "Players" Update
 
 - Implemented `cfbd_json_py.players.get_cfbd_transfer_portal_data()`, a function that allows a user to get transfer portal data from the CFBD API.

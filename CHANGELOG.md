@@ -1,5 +1,9 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.0.13: The "Rankings" Update
+- Implemented `cfbd_json_py.rankings.get_cfbd_poll_rankings()`, a function that allows a user to get CFB poll data from the CFBD API.
+- Updated the package version to `0.0.13`.
+
 ## 0.0.12: The "Venues" Update
 - Implemented `cfbd_json_py.venues.get_cfbd_venues()`, a function that allows a user to a list of CFB venues from the CFBD API.
 - Updated the package version to `0.0.12`.

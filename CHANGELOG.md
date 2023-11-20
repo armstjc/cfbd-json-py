@@ -1,13 +1,26 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.0.14: The "Play-by-play" Update
+
+- Implemented `cfbd_json_py.plays.get_cfbd_pbp_data()`, a function that allows a user to get CFB play-by-play (PBP) from the CFBD API.
+- Implemented `cfbd_json_py.plays.get_cfbd_pbp_play_types()`, a function that allows a user to get a list of valid inputs for the `play_type` parameter for `cfbd_json_py.plays.get_cfbd_pbp_data()`.
+- Implemented `cfbd_json_py.plays.get_cfbd_pbp_stat_types()`, a function that allows a user to get a list of valid inputs for the `stat_type_id` parameter for `cfbd_json_py.plays.get_cfbd_pbp_stats()`.
+- Updated the package version to `0.0.15`.
+
+## 0.0.14: The "Rankings" Update
+
+- Implemented `cfbd_json_py.rankings.get_cfbd_poll_rankings()`, a function that allows a user to get CFB poll data from the CFBD API.
+- Updated the package version to `0.0.14`.
+
 ## 0.0.13: The "Rankings" Update
+
 - Implemented `cfbd_json_py.rankings.get_cfbd_poll_rankings()`, a function that allows a user to get CFB poll data from the CFBD API.
 - Updated the package version to `0.0.13`.
 
 ## 0.0.12: The "Venues" Update
+
 - Implemented `cfbd_json_py.venues.get_cfbd_venues()`, a function that allows a user to a list of CFB venues from the CFBD API.
 - Updated the package version to `0.0.12`.
-
 
 ## 0.0.11: The "Players" Update
 

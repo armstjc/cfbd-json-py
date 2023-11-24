@@ -1,5 +1,12 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.0.17: The "Teams" Update
+
+## 0.0.16: The "Maintenance" Update
+- **NOTE**: This update is to push the prevous `0.0.15` update to PyPi.
+- Implemented `cfbd_json_py.teams.get_cfbd_team_information()`, a function that allows a user to get CFB team information from the CFBD API.
+- Updated the package version to `0.0.16`.
+
 ## 0.0.15: The "Play-by-play" Update
 
 - Implemented `cfbd_json_py.plays.get_cfbd_pbp_data()`, a function that allows a user to get CFB play-by-play (PBP) stats from the CFBD API.

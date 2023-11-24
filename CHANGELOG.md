@@ -1,6 +1,12 @@
 # CHANGELOG: cfbd_json_py
 
 ## 0.0.17: The "Teams" Update
+- Implemented `cfbd_json_py.teams.get_cfbd_team_matchup_history()`, a function that allows a user to get a list of matchups between two teams from the CFBD API.
+- Implemented `cfbd_json_py.teams.get_cfbd_team_talent_rankings()`, a function that allows a user to get team talent ranking from the CFBD API.
+- Implemented `cfbd_json_py.teams.get_cfbd_team_rosters()`, a function that allows a user to get team roster data from the CFBD API.
+- Implemented `cfbd_json_py.teams.get_cfbd_fbs_team_list()`, a function that allows a user to get a list of FBS teams from the CFBD API.
+- Updated the `documentation` section of `pyproject.toml` to point to the following URL: https://armstjc.github.io/cfbd-json-py/cfbd_json_py.html
+- Updated the package version to `0.0.17`.
 
 ## 0.0.16: The "Maintenance" Update
 - **NOTE**: This update is to push the prevous `0.0.15` update to PyPi.

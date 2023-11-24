@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 11/09/2023 11:00 AM EST
+# Last Updated Date: 11/24/2023 10:50 AM EST
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: plays.py
 # Purpose: Houses functions pertaining to CFB play data within the CFBD API.
@@ -684,7 +684,7 @@ def get_cfbd_pbp_stats(
         game_id: int = None,
         athlete_id: int = None,
         stat_type_id: int = None,
-        season_type: str = "regular",  # "regular", "postseason", or "both"
+        season_type: str = "both",  # "regular", "postseason", or "both"
         conference_abv: str = None,
         return_as_dict: bool = False):
     """
@@ -721,10 +721,19 @@ def get_cfbd_pbp_stats(
         to load CFB poll rankings data from games in that season, and in that week.
 
     `team` (str, optional):
+        Optional argument.
+        If you only want stats for a specific team,
+        set `team` to the name of that specific team.
 
     `game_id` (int, optional):
+        Optional argument.
+        If you only want stats for a specific game,
+        set `game_id` to the ID of that specific game.
 
     `athlete_id` (int, optional):
+        Optional argument.
+        If you only want stats for a specific player, 
+        set `athlete_id` to the ID of the player you want stats for.
 
     `stats_type_id` (int, optional):
         Optional argument.
@@ -761,6 +770,195 @@ def get_cfbd_pbp_stats(
     Usage
     ----------
     ```
+    import time
+
+    from cfbd_json_py.plays import get_cfbd_pbp_stats
+
+
+    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+
+    if cfbd_key != "tigersAreAwsome":
+        print("Using the user's API key declared in this script for this example.")
+
+        # Get CFB PBP stats data for the 2020 CFB season.
+        print("Get CFB PBP stats data for the 2020 CFB season.")
+        json_data = get_cfbd_pbp_stats(
+            api_key=cfbd_key,
+            season=2020
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get CFB PBP stats data for week 10 of the 2020 CFB season.
+        print("Get CFB PBP stats data for week 10 of the 2020 CFB season.")
+        json_data = get_cfbd_pbp_stats(
+            api_key=cfbd_key,
+            season=2020,
+            week=10
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get CFB PBP stats data for a 2019 game between 
+        # the Ohio State Buckeyes and Clemson Tigers football teams.
+        print("Get CFB PBP stats data for a 2019 game between the Ohio State Buckeyes and Clemson Tigers football teams.")
+        json_data = get_cfbd_pbp_stats(
+            api_key=cfbd_key,
+            game_id=401135279
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get CFB PBP stats data for Trevor Lawrence (athlete ID #4360310) 
+        # during the 2020 CFB Season.
+        print("Get CFB PBP stats data for the 2020 CFB season.")
+        json_data = get_cfbd_pbp_stats(
+            api_key=cfbd_key,
+            season=2020,
+            athlete_id=4360310
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get CFB PBP stats data for Trevor Lawrence (athlete ID #4360310) 
+        # during the 2020 CFB Season, 
+        # but only return plays where Lawrence scored a touchdown.
+        print("Get CFB PBP stats data for the 2020 CFB season.")
+        json_data = get_cfbd_pbp_stats(
+            api_key=cfbd_key,
+            season=2020,
+            athlete_id=4360310,
+            stat_type_id=22
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get CFB PBP stats data for the 2020 CFB season, 
+        # but only for postseason games.
+        print("Get CFB PBP stats data for the 2020 CFB season.")
+        json_data = get_cfbd_pbp_stats(
+            api_key=cfbd_key,
+            season=2020,
+            season_type="postseason"
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get CFB PBP stats data for the 2020 CFB season, 
+        # but only for Big 10 (B1G) games.
+        print("Get CFB PBP stats data for the 2020 CFB season.")
+        json_data = get_cfbd_pbp_stats(
+            api_key=cfbd_key,
+            season=2020,
+            conference_abv="B1G"
+        )
+        print(json_data)
+        time.sleep(5)
+        
+        # Get CFB PBP stats data for the 2020 CFB season.
+        print("Get CFB PBP stats data for the 2020 CFB season.")
+        json_data = get_cfbd_pbp_stats(
+            api_key=cfbd_key,
+            season=2020
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # You can also tell this function to just return the API call as
+        # a Dictionary (read: JSON) object.
+        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        json_data = get_cfbd_pbp_stats(
+            api_key=cfbd_key,
+            season=2020,
+            week=10,
+            return_as_dict=True
+        )
+        print(json_data)
+
+    else:
+        # Alternatively, if the CFBD API key exists in this python environment,
+        # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
+        # you could just call these functions directly, without setting the API key
+        # in the script.
+        print("Using the user's API key suposedly loaded into this python environment for this example.")
+
+        # Get CFB PBP stats data for the 2020 CFB season.
+        print("Get CFB PBP stats data for the 2020 CFB season.")
+        json_data = get_cfbd_pbp_stats(
+            season=2020
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get CFB PBP stats data for week 10 of the 2020 CFB season.
+        print("Get CFB PBP stats data for week 10 of the 2020 CFB season.")
+        json_data = get_cfbd_pbp_stats(
+            season=2020,
+            week=10
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get CFB PBP stats data for a 2019 game between 
+        # the Ohio State Buckeyes and Clemson Tigers football teams.
+        print("Get CFB PBP stats data for a 2019 game between the Ohio State Buckeyes and Clemson Tigers football teams.")
+        json_data = get_cfbd_pbp_stats(
+            game_id=401135279
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get CFB PBP stats data for Trevor Lawrence (athlete ID #4360310) 
+        # during the 2020 CFB Season.
+        print("Get CFB PBP stats data for the 2020 CFB season.")
+        json_data = get_cfbd_pbp_stats(
+            season=2020,
+            athlete_id=4360310
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get CFB PBP stats data for Trevor Lawrence (athlete ID #4360310) 
+        # during the 2020 CFB Season, 
+        # but only return plays where Lawrence scored a touchdown.
+        print("Get CFB PBP stats data for the 2020 CFB season.")
+        json_data = get_cfbd_pbp_stats(
+            season=2020,
+            athlete_id=4360310,
+            stat_type_id=22
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get CFB PBP stats data for the 2020 CFB season, 
+        # but only for postseason games.
+        print("Get CFB PBP stats data for the 2020 CFB season.")
+        json_data = get_cfbd_pbp_stats(
+            season=2020,
+            season_type="postseason"
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get CFB PBP stats data for the 2020 CFB season, 
+        # but only for Big 10 (B1G) games.
+        print("Get CFB PBP stats data for the 2020 CFB season.")
+        json_data = get_cfbd_pbp_stats(
+            season=2020,
+            conference_abv="B1G"
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # You can also tell this function to just return the API call as
+        # a Dictionary (read: JSON) object.
+        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        json_data = get_cfbd_pbp_stats(
+            season=2020,
+            week=10,
+            return_as_dict=True
+        )
+        print(json_data)
 
     ```
     Returns
@@ -773,7 +971,7 @@ def get_cfbd_pbp_stats(
     now = datetime.now()
     pbp_df = pd.DataFrame()
     row_df = pd.DataFrame()
-    url = "https://api.collegefootballdata.com/plays"
+    url = "https://api.collegefootballdata.com/play/stats"
 
     # Input validation
     ########################################################################################################################################################################################################
@@ -794,23 +992,14 @@ def get_cfbd_pbp_stats(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    if season == None:
-        # This should never happen without user tampering, but if it does,
-        # we need to raise an error, because the CFBD API will refuse this call without a valid season.
-        raise SystemError(
-            "I don't know how, I don't know why, but you managed to call this function while `season` was `None` (NULL)," +
-            " and the function got to this point in the code." +
-            "\nIf you have a GitHub account, please raise an issue on this python package's GitHub page:\n" +
-            "https://github.com/armstjc/cfbd-json-py/issues"
-        )
-    elif season > (now.year + 1):
+    if season != None and (season > (now.year + 1)):
         raise ValueError(f"`season` cannot be greater than {season}.")
-    elif season < 1869:
+    elif season != None and season < 1869 :
         raise ValueError(f"`season` cannot be less than 1869.")
 
-    if season_type != "regular" and season_type != "postseason":
+    if season_type != "regular" and season_type != "postseason" and season_type != "both":
         raise ValueError(
-            "`season_type` must be set to either \"regular\" or \"postseason\" for this function to work.")
+            "`season_type` must be set to either \"regular\", \"postseason\", or \"both\" for this function to work.")
 
     if season == None and game_id == None:
         logging.warn(
@@ -830,46 +1019,61 @@ def get_cfbd_pbp_stats(
     ########################################################################################################################################################################################################
     url_elements = 0
 
-    # Required by API
-    if season_type !=None & url_elements == 0:
+    if season_type != None and url_elements == 0:
         url += f"?seasonType={season_type}"
+        url_elements += 1
     elif season_type != None:
         url += f"&seasonType={season_type}"
+        url_elements += 1
 
-    if season != None & url_elements == 0:
+    if season != None and url_elements == 0:
         url += f"?year={season}"
+        url_elements += 1
     elif season != None:
         url += f"&year={season}"
+        url_elements += 1
 
-    if week != None & url_elements == 0:
+    if week != None and url_elements == 0:
         url += f"?week={week}"
+        url_elements += 1
     elif week != None:
         url += f"&week={week}"
+        url_elements += 1
 
-    if team != None & url_elements == 0:
+    if team != None and url_elements == 0:
         url += f"?team={team}"
+        url_elements += 1
     elif team != None:
         url += f"&team={team}"
+        url_elements += 1
 
-    if conference_abv != None & url_elements == 0:
+    if conference_abv != None and url_elements == 0:
         url += f"&conference={conference_abv}"
+        url_elements += 1
     elif conference_abv != None:
         url += f"&conference={conference_abv}"
+        url_elements += 1
 
-    if game_id != None & url_elements == 0:
+    if game_id != None and url_elements == 0:
         url += f"&gameId={game_id}"
+        url_elements += 1
     elif game_id != None:
         url += f"&gameId={game_id}"
+        url_elements += 1
 
-    if athlete_id != None & url_elements == 0:
+    if athlete_id != None and url_elements == 0:
         url += f"&athleteId={athlete_id}"
+        url_elements += 1
     elif athlete_id != None:
         url += f"&athleteId={athlete_id}"
+        url_elements += 1
 
-    if stat_type_id != None & url_elements == 0:
+    if stat_type_id != None and url_elements == 0:
         url += f"&statTypeId={stat_type_id}"
+        url_elements += 1
     elif stat_type_id != None:
         url += f"&statTypeId={stat_type_id}"
+        url_elements += 1
 
 
     headers = {
@@ -896,10 +1100,33 @@ def get_cfbd_pbp_stats(
         return json_data
 
     for play in tqdm(json_data):
-        pass
-    raise NotImplementedError(
-        'This function has yet to be implemented by this version.'
-    )
+        p_game_id = play['gameId']
+        row_df = pd.DataFrame({"game_id":p_game_id},index=[0])
+        row_df['season'] = play['season']
+        row_df['week'] = play['week']
+        row_df['team'] = play['team']
+        row_df['conference'] = play['conference']
+        row_df['opponent'] = play['opponent']
+        row_df['team_score'] = play['teamScore']
+        row_df['opponent_score'] = play['opponentScore']
+        row_df['drive_id'] = play['driveId']
+        row_df['play_id'] = play['playId']
+        row_df['quarter'] = play['period']
+        row_df['yards_to_goal'] = play['yardsToGoal']
+        row_df['down'] = play['down']
+        row_df['distance'] = play['distance']
+        row_df['athlete_id'] = play['athleteId']
+        row_df['athlete_name'] = play['athleteName']
+        row_df['stat_type'] = play['statType']
+        row_df['stat'] = play['stat']
+        
+        pbp_df = pd.concat([pbp_df,row_df],ignore_index=True)
+        del row_df
+        del p_game_id
+
+    ## TODO: Implement an option to put all stats for 
+    ## a specific game on a single line.
+    return pbp_df
 
 def get_cfbd_pbp_stat_types(
         api_key: str = None,

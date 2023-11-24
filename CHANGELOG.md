@@ -1,8 +1,9 @@
 # CHANGELOG: cfbd_json_py
 
-## 0.0.14: The "Play-by-play" Update
+## 0.0.15: The "Play-by-play" Update
 
-- Implemented `cfbd_json_py.plays.get_cfbd_pbp_data()`, a function that allows a user to get CFB play-by-play (PBP) from the CFBD API.
+- Implemented `cfbd_json_py.plays.get_cfbd_pbp_data()`, a function that allows a user to get CFB play-by-play (PBP) stats from the CFBD API.
+- Implemented `cfbd_json_py.plays.get_cfbd_pbp_data()`, a function that allows a user to get CFB PBP data from the CFBD API.
 - Implemented `cfbd_json_py.plays.get_cfbd_pbp_play_types()`, a function that allows a user to get a list of valid inputs for the `play_type` parameter for `cfbd_json_py.plays.get_cfbd_pbp_data()`.
 - Implemented `cfbd_json_py.plays.get_cfbd_pbp_stat_types()`, a function that allows a user to get a list of valid inputs for the `stat_type_id` parameter for `cfbd_json_py.plays.get_cfbd_pbp_stats()`.
 - Updated the package version to `0.0.15`.

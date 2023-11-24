@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cfbd_json_py"
-version = "0.0.16"
+version = "0.0.17"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
@@ -39,6 +39,6 @@ dependencies = [
 
 [project.urls]
 homepage = "https://github.com/armstjc/cfbd-json-py"
-documentation = "https://github.com/armstjc/cfbd-json-py/wiki"
+documentation = "https://armstjc.github.io/cfbd-json-py/cfbd_json_py.html"
 repository = "https://github.com/armstjc/cfbd-json-py.git"
 changelog = "https://github.com/armstjc/cfbd-json-py/blob/main/CHANGELOG.md"

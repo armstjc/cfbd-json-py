@@ -1,5 +1,11 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.0.18: The "recruiting" Update
+- Implemented `cfbd_json_py.recruiting.get_cfbd_team_recruiting_group_ratings()`, a function that allows a user to get CFB recruiting data, grouped by the team and position, from the CFBD API.
+- Implemented `cfbd_json_py.recruiting.get_cfbd_team_recruiting_ratings()`, a function that allows a user to get team recruting rankings, from the CFBD API.
+- Implemented `cfbd_json_py.recruiting.get_cfbd_player_recruit_ratings()`, a function that allows a user to get a list of players recruited to CFB teams, from the CFBD API.
+- Updated the package version to `0.0.18`.
+
 ## 0.0.17: The "Teams" Update
 - Implemented `cfbd_json_py.teams.get_cfbd_team_matchup_history()`, a function that allows a user to get a list of matchups between two teams from the CFBD API.
 - Implemented `cfbd_json_py.teams.get_cfbd_team_talent_rankings()`, a function that allows a user to get team talent ranking from the CFBD API.

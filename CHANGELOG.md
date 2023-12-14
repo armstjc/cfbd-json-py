@@ -1,5 +1,16 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.0.19: The "stats" Update
+
+- Implemented `cfbd_json_py.stats.get_cfbd_team_stat_categories()`, a function that allows a user to get a list of team stat categories, directly from the CFBD API.
+- Implemented `cfbd_json_py.stats.get_cfbd_advanced_team_game_stats()`, a function that allows a user to get advanced CFB team game stats, from the CFBD API.
+- Implemented `cfbd_json_py.stats.get_cfbd_advanced_team_season_stats()`, a function that allows a user to get advanced CFB team season stats, from the CFBD API.
+- Implemented `cfbd_json_py.stats.get_cfbd_team_season_stats()`, a function that allows a user to get CFB team season stats, from the CFBD API.
+- Implemented `cfbd_json_py.metrics.get_cfbd_fg_expected_points()`, a fucntion based off of the recently added `/metrics/fg/ep` endpoint to the CFBD API in version `4.5.2`,  which returns the expected points of a field goal for every yard line on a football field.
+- Updated the package's GitHub repo to identify the current version of the CFBD API as `"4.5.2"` instead of `"4.5.1"`
+- Updated the package version to `0.0.19`.
+
+
 ## 0.0.18: The "recruiting" Update
 - Implemented `cfbd_json_py.recruiting.get_cfbd_team_recruiting_group_ratings()`, a function that allows a user to get CFB recruiting data, grouped by the team and position, from the CFBD API.
 - Implemented `cfbd_json_py.recruiting.get_cfbd_team_recruiting_ratings()`, a function that allows a user to get team recruting rankings, from the CFBD API.

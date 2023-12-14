@@ -161,7 +161,7 @@ cython_debug/
 
 # test files
 test.py
-test.json
+test*
 
 # VS Code Counter
 .VSCodeCounter*

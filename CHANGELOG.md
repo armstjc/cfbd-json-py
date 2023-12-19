@@ -1,5 +1,14 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.0.20: The "ratings" update
+
+- Implemented `cfbd_json_py.ratings.get_cfbd_fpi_ratings()`, a function that allows a user to get Football Power Index (FPI) ratings data directly from the CFBD API.  
+- Implemented `cfbd_json_py.ratings.get_cfbd_elo_ratings()`, a function that allows a user to get Elo ratings data directly from the CFBD API.  
+- Implemented `cfbd_json_py.ratings.get_cfbd_sp_plus_conference_ratings()`, a function that allows a user to get Success rate and equivalent Points per play (S&P+) ratings data, grouped by confrence, directly from the CFBD API.  
+- Implemented `cfbd_json_py.ratings.get_cfbd_sp_plus_ratings()`, a function that allows a user to get Success rate and equivalent Points per play (S&P+) ratings data, directly from the CFBD API.  
+- Implemented `cfbd_json_py.ratings.get_cfbd_sp_plus_ratings()`, a function that allows a user to get Simple Rating System (SRS) ratings data, directly from the CFBD API.  
+- Updated the package version to `0.0.20`.
+
 ## 0.0.19: The "stats" Update
 
 - Implemented `cfbd_json_py.stats.get_cfbd_team_stat_categories()`, a function that allows a user to get a list of team stat categories, directly from the CFBD API.

@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 11/24/2023 2:55 PM EDT
+# Last Updated Date: 12/22/2023 02:22 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: teams.py
 # Purpose: Houses functions pertaining to CFB team data within the CFBD API.
@@ -19,7 +19,7 @@ from cfbd_json_py.utls import get_cfbd_api_token
 def get_cfbd_team_information(
         api_key: str = None,
         api_key_dir: str = None,
-        conference_abv: str = None,
+        conference: str = None,
         return_as_dict: bool = False):
     """
     Allows you to get CFB team information from the CFBD API.
@@ -42,10 +42,10 @@ def get_cfbd_team_information(
         this function will assume that `api_key_dir` is a directory, 
         and will try to find a CFBD API key file in that directory.
 
-    `conference_abv` (str, optional):
+    `conference` (str, optional):
         Optional argument.
         If you only want CFB team information from a specific confrence, 
-        set `conference_abv` to the abbreviation 
+        set `conference` to the abbreviation 
         of the conference you want CFB team information from.
         For a list of confrences, 
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
@@ -83,7 +83,7 @@ def get_cfbd_team_information(
         print("Get CFB team information for all known Southeastern Confrence (SEC) CFB teams.")
         json_data = get_cfbd_team_information(
             api_key=cfbd_key,
-            conference_abv="SEC"
+            conference="SEC"
         )
         print(json_data)
         time.sleep(5)
@@ -94,7 +94,7 @@ def get_cfbd_team_information(
         print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
         json_data = get_cfbd_team_information(
             api_key=cfbd_key,
-            conference_abv="B1G",
+            conference="B1G",
             return_as_dict=True
         )    
         print(json_data)
@@ -116,7 +116,7 @@ def get_cfbd_team_information(
         # Get CFB team information for all known Southeastern Confrence (SEC) CFB teams.
         print("Get CFB team information for all known Southeastern Confrence (SEC) CFB teams.")
         json_data = get_cfbd_team_information(
-            conference_abv="SEC"
+            conference="SEC"
         )
         print(json_data)
         time.sleep(5)
@@ -126,7 +126,7 @@ def get_cfbd_team_information(
         # a Dictionary (read: JSON) object.
         print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
         json_data = get_cfbd_team_information(
-            conference_abv="B1G",
+            conference="B1G",
             return_as_dict=True
         )    
         print(json_data)
@@ -164,8 +164,8 @@ def get_cfbd_team_information(
         real_api_key = "Bearer " + real_api_key
     # URL builder
     ########################################################################################################################################################################################################
-    if conference_abv != None:
-        url += f"?conference={conference_abv}"
+    if conference != None:
+        url += f"?conference={conference}"
 
     headers = {
         'Authorization': f'{real_api_key}',

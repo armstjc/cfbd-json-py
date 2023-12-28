@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 11/08/2023 10:00 PM EST
+# Last Updated Date: 12/28/2023 09:46 PM EST
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: rankings.py
 # Purpose: Houses functions pertaining to CFB poll data within the CFBD API.
@@ -163,7 +163,6 @@ def get_cfbd_poll_rankings(
         )
         print(json_data)
 
-
     ```
     Returns
     ----------
@@ -287,5 +286,4 @@ def get_cfbd_poll_rankings(
             del p_poll_name
 
         del w_season, w_season_type, w_week
-
     return rankings_df

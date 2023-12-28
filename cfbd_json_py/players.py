@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 12/14/2023 11:30 AM EDT
+# Last Updated Date: 12/27/2023 11:09 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: players.py
 # Purpose: Houses functions pertaining to CFB player data within the CFBD API.
@@ -24,7 +24,8 @@ def cfbd_player_search(
     position: str = None,
     team: str = None,
     season: int = None,
-    return_as_dict: bool = False):
+    return_as_dict: bool = False,
+):
     """
     Given a string, search for players who's
     name matches that string in some capacity.
@@ -239,7 +240,7 @@ def cfbd_player_search(
     """
     now = datetime.now()
     players_df = pd.DataFrame()
-    row_df = pd.DataFrame()
+    # row_df = pd.DataFrame()
     url = "https://api.collegefootballdata.com/player/search"
 
     ########################################################################################################################################################################################################
@@ -305,26 +306,42 @@ def cfbd_player_search(
     if return_as_dict == True:
         return json_data
 
-    for player in tqdm(json_data):
-        p_id = player["id"]
-        row_df = pd.DataFrame({"player_id": p_id}, index=[0])
-        row_df["team"] = player["team"]
-        row_df["player_full_name"] = player["name"]
-        row_df["player_first_name"] = player["firstName"]
-        row_df["player_last_name"] = player["lastName"]
-        row_df["weight_lbs"] = player["weight"]
-        row_df["height_in"] = player["height"]
-        row_df["jersey"] = player["jersey"]
-        row_df["position"] = player["position"]
-        row_df["hometown"] = player["hometown"]
-        row_df["team_color_primary"] = player["teamColor"]
-        row_df["team_color_secondary"] = player["teamColorSecondary"]
+    # for player in tqdm(json_data):
+    #     p_id = player["id"]
+    #     row_df = pd.DataFrame({"player_id": p_id}, index=[0])
+    #     row_df["team"] = player["team"]
+    #     row_df["player_full_name"] = player["name"]
+    #     row_df["player_first_name"] = player["firstName"]
+    #     row_df["player_last_name"] = player["lastName"]
+    #     row_df["weight_lbs"] = player["weight"]
+    #     row_df["height_in"] = player["height"]
+    #     row_df["jersey"] = player["jersey"]
+    #     row_df["position"] = player["position"]
+    #     row_df["hometown"] = player["hometown"]
+    #     row_df["team_color_primary"] = player["teamColor"]
+    #     row_df["team_color_secondary"] = player["teamColorSecondary"]
 
-        players_df = pd.concat([players_df, row_df], ignore_index=True)
+    #     players_df = pd.concat([players_df, row_df], ignore_index=True)
 
-        del row_df
-        del p_id
-
+    #     del row_df
+    #     del p_id
+    players_df = pd.json_normalize(json_data)
+    players_df.rename(
+        columns={
+            "id": "player_id",
+            "team": "team_name",
+            "name": "player_name",
+            "firstName": "first_name",
+            "lastName": "last_name",
+            "weight": "weight_lbs",
+            "height": "height_in",
+            "jersey": "jersey_num",
+            "position": "position_abv",
+            "teamColor": "team_color",
+            "teamColorSecondary": "team_secondary_color",
+        },
+        inplace=True,
+    )
     return players_df
 
 
@@ -333,11 +350,12 @@ def get_cfbd_player_usage(
     api_key: str = None,
     api_key_dir: str = None,
     team: str = None,
-    conference_abv: str = None,
+    conference: str = None,
     position: str = None,
     player_id: int = None,
     exclude_garbage_time: bool = False,
-    return_as_dict: bool = False):
+    return_as_dict: bool = False,
+):
     """
     Get player usage data (A.K.A., the percentages for how often a player touched the ball),
     for a given season, at the season level, from the CFBD API.
@@ -383,11 +401,11 @@ def get_cfbd_player_usage(
         A list of CFBD API positions can be found in the `position_abbreviation` column from
         the pandas DataFrame that is returned by calling `cfbd_json_py.draft.get_cfbd_nfl_positions()`.
 
-    `conference_abv` (str, optional):
+    `conference` (str, optional):
         Optional argument.
         If you only want player usage data from games
         involving teams from a specific confrence,
-        set `conference_abv` to the abbreviation
+        set `conference` to the abbreviation
         of the conference you want player usage data from.
         For a list of confrences,
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
@@ -462,7 +480,7 @@ def get_cfbd_player_usage(
         json_data = get_cfbd_player_usage(
             api_key=cfbd_key,
             season=2020,
-            conference_abv="B1G"
+            conference="B1G"
         )
         print(json_data)
         time.sleep(5)
@@ -545,7 +563,7 @@ def get_cfbd_player_usage(
         print("Get player usage data from players who played on Big 10 Confrence (B1G) teams during the 2020 CFB Season.")
         json_data = get_cfbd_player_usage(
             season=2020,
-            conference_abv="B1G"
+            conference="B1G"
         )
         print(json_data)
         time.sleep(5)
@@ -583,7 +601,6 @@ def get_cfbd_player_usage(
             return_as_dict=True
         )
         print(json_data)
-
 
     ```
     Returns
@@ -644,15 +661,15 @@ def get_cfbd_player_usage(
     if team != None:
         url += f"&team={team}"
 
-    if conference_abv != None:
-        url += f"&conference={conference_abv}"
+    if conference != None:
+        url += f"&conference={conference}"
 
     if position != None:
         url += f"&position={position}"
 
     if player_id != None:
         url += f"&playerId={player_id}"
-        #print()
+        # print()
     if exclude_garbage_time != None:
         url += f"&excludeGarbageTime={gt_str}"
 
@@ -676,25 +693,43 @@ def get_cfbd_player_usage(
     if return_as_dict == True:
         return json_data
 
-    for player in tqdm(json_data):
-        row_df = pd.DataFrame({"season": season}, index=[0])
-        row_df["player_id"] = player["id"]
-        row_df["player_name"] = player["name"]
-        row_df["player_position"] = player["position"]
-        row_df["team"] = player["team"]
-        row_df["conference"] = player["conference"]
-        row_df["player_usage_overall"] = player["usage"]["overall"]
-        row_df["player_usage_passing"] = player["usage"]["pass"]
-        row_df["player_usage_rushing"] = player["usage"]["rush"]
-        row_df["player_usage_1st_downs"] = player["usage"]["firstDown"]
-        row_df["player_usage_2nd_downs"] = player["usage"]["secondDown"]
-        row_df["player_usage_3rd_downs"] = player["usage"]["thirdDown"]
-        row_df["player_usage_standard_downs"] = player["usage"]["standardDowns"]
-        row_df["player_usage_pasing_downs"] = player["usage"]["passingDowns"]
+    # for player in tqdm(json_data):
+    #     row_df = pd.DataFrame({"season": season}, index=[0])
+    #     row_df["player_id"] = player["id"]
+    #     row_df["player_name"] = player["name"]
+    #     row_df["player_position"] = player["position"]
+    #     row_df["team"] = player["team"]
+    #     row_df["conference"] = player["conference"]
+    #     row_df["player_usage_overall"] = player["usage"]["overall"]
+    #     row_df["player_usage_passing"] = player["usage"]["pass"]
+    #     row_df["player_usage_rushing"] = player["usage"]["rush"]
+    #     row_df["player_usage_1st_downs"] = player["usage"]["firstDown"]
+    #     row_df["player_usage_2nd_downs"] = player["usage"]["secondDown"]
+    #     row_df["player_usage_3rd_downs"] = player["usage"]["thirdDown"]
+    #     row_df["player_usage_standard_downs"] = player["usage"]["standardDowns"]
+    #     row_df["player_usage_pasing_downs"] = player["usage"]["passingDowns"]
 
-        players_df = pd.concat([players_df, row_df], ignore_index=True)
-        del row_df
-
+    #     players_df = pd.concat([players_df, row_df], ignore_index=True)
+    #     del row_df
+    players_df = pd.json_normalize(json_data)
+    players_df.rename(
+        columns={
+            "id": "player_id",
+            "name": "player_name",
+            "position": "position_abv",
+            "team": "team_name",
+            "conference": "conference_name",
+            "usage.overall": "usage_overall",
+            "usage.pass": "usage_pass",
+            "usage.rush": "usage_rush",
+            "usage.firstDown": "usage_first_down",
+            "usage.secondDown": "usage_second_down",
+            "usage.thirdDown": "usage_third_down",
+            "usage.standardDowns": "usage_standard_downs",
+            "usage.passingDowns": "usage_passing_downs",
+        },
+        inplace=True,
+    )
     return players_df
 
 
@@ -704,8 +739,9 @@ def get_cfbd_returning_production(
     season: int = None,
     team: str = None,
     # `season` or `team` must be specified.
-    conference_abv: str = None,
-    return_as_dict: bool = False):
+    conference: str = None,
+    return_as_dict: bool = False,
+):
     """
     Get data from the CFBD API
     on how much returning production a team has going into a CFB season.
@@ -744,11 +780,11 @@ def get_cfbd_returning_production(
         this function to work. If you don't, a `ValueError()`
         will be raised.
 
-    `conference_abv` (str, optional):
+    `conference` (str, optional):
         Optional argument.
         If you only want team PPA data from games
         involving teams from a specific confrence,
-        set `conference_abv` to the abbreviation
+        set `conference` to the abbreviation
         of the conference you want team PPA data from.
         For a list of confrences,
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
@@ -806,17 +842,7 @@ def get_cfbd_returning_production(
         json_data = get_cfbd_returning_production(
             api_key=cfbd_key,
             team="Maryland",
-            conference_abv="B1G"
-        )
-        print(json_data)
-        time.sleep(5)
-
-        # Get returning production .
-        print("Get returning production for the 2019 LSU Tigers.")
-        json_data = get_cfbd_returning_production(
-            api_key=cfbd_key,
-            season=2019,
-            team="LSU"
+            conference="B1G"
         )
         print(json_data)
         time.sleep(5)
@@ -868,16 +894,7 @@ def get_cfbd_returning_production(
         print("Get returning production for Maryland, for seasons where Maryland is a member of the Big 10 (B1G) Conference.")
         json_data = get_cfbd_returning_production(
             team="Maryland",
-            conference_abv="B1G"
-        )
-        print(json_data)
-        time.sleep(5)
-
-        # Get returning production .
-        print("Get returning production for the 2019 LSU Tigers.")
-        json_data = get_cfbd_returning_production(
-            season=2019,
-            team="LSU"
+            conference="B1G"
         )
         print(json_data)
         time.sleep(5)
@@ -891,6 +908,7 @@ def get_cfbd_returning_production(
             return_as_dict=True
         )
         print(json_data)
+
 
     ```
     Returns
@@ -955,11 +973,11 @@ def get_cfbd_returning_production(
         url += f"&team={team}"
         url_elements += 1
 
-    if conference_abv != None and url_elements == 0:
-        url += f"?conference={conference_abv}"
+    if conference != None and url_elements == 0:
+        url += f"?conference={conference}"
         url_elements += 1
-    elif conference_abv != None:
-        url += f"&conference={conference_abv}"
+    elif conference != None:
+        url += f"&conference={conference}"
         url_elements += 1
 
     headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
@@ -982,33 +1000,52 @@ def get_cfbd_returning_production(
     if return_as_dict == True:
         return json_data
 
-    for team in tqdm(json_data):
-        t_season = team["season"]
-        t_conference = team["conference"]
-        t_name = team["team"]
+    # for team in tqdm(json_data):
+    #     t_season = team["season"]
+    #     t_conference = team["conference"]
+    #     t_name = team["team"]
 
-        row_df = pd.DataFrame(
-            {"season": t_season, "team_name": t_name, "team_conference": t_conference},
-            index=[0],
-        )
-        row_df["total_ppa"] = team["totalPPA"]
-        row_df["total_ppa_passing"] = team["totalPassingPPA"]
-        row_df["total_ppa_rushing"] = team["totalRushingPPA"]
-        row_df["total_ppa_receiving"] = team["totalReceivingPPA"]
-        row_df["percent_ppa"] = team["percentPPA"]
-        row_df["percent_ppa_passing"] = team["percentPassingPPA"]
-        row_df["percent_ppa_rushing"] = team["percentRushingPPA"]
-        row_df["percent_ppa_receiving"] = team["percentReceivingPPA"]
-        row_df["usage"] = team["usage"]
-        row_df["passing_usage"] = team["passingUsage"]
-        row_df["rushing_usage"] = team["rushingUsage"]
-        row_df["receiving_usage"] = team["receivingUsage"]
+    #     row_df = pd.DataFrame(
+    #         {"season": t_season, "team_name": t_name, "team_conference": t_conference},
+    #         index=[0],
+    #     )
+    #     row_df["total_ppa"] = team["totalPPA"]
+    #     row_df["total_ppa_passing"] = team["totalPassingPPA"]
+    #     row_df["total_ppa_rushing"] = team["totalRushingPPA"]
+    #     row_df["total_ppa_receiving"] = team["totalReceivingPPA"]
+    #     row_df["percent_ppa"] = team["percentPPA"]
+    #     row_df["percent_ppa_passing"] = team["percentPassingPPA"]
+    #     row_df["percent_ppa_rushing"] = team["percentRushingPPA"]
+    #     row_df["percent_ppa_receiving"] = team["percentReceivingPPA"]
+    #     row_df["usage"] = team["usage"]
+    #     row_df["passing_usage"] = team["passingUsage"]
+    #     row_df["rushing_usage"] = team["rushingUsage"]
+    #     row_df["receiving_usage"] = team["receivingUsage"]
 
-        team_df = pd.concat([team_df, row_df], ignore_index=True)
+    #     team_df = pd.concat([team_df, row_df], ignore_index=True)
 
-        del row_df
-        del t_season, t_conference, t_name
-
+    #     del row_df
+    #     del t_season, t_conference, t_name
+    team_df = pd.json_normalize(json_data)
+    team_df.rename(
+        columns={
+            "team": "team_name",
+            "conference": "conference_name",
+            "totalPPA": "returning_total_ppa",
+            "totalPassingPPA": "returning_total_passing_ppa",
+            "totalReceivingPPA": "returning_total_receiving_ppa",
+            "totalRushingPPA": "returning_total_rush_ppa",
+            "percentPPA": "returning_ppa_percent",
+            "percentPassingPPA": "returning_percent_passing_ppa",
+            "percentReceivingPPA": "returning_percent_receiving_ppa",
+            "percentRushingPPA": "returning_percent_rushing_ppa",
+            "usage": "returning_usage",
+            "passingUsage": "returning_passing_usage",
+            "receivingUsage": "returning_receiving_usage",
+            "rushingUsage": "returning_rushing_usage",
+        },
+        inplace=True,
+    )
     return team_df
 
 
@@ -1017,12 +1054,13 @@ def get_cfbd_player_season_stats(
     api_key: str = None,
     api_key_dir: str = None,
     team: str = None,
-    conference_abv: str = None,
+    conference: str = None,
     start_week: int = None,
     end_week: int = None,
     season_type: str = "both",  # "regular", "postseason", or "both"
     stat_category: str = None,
-    return_as_dict: bool = False):
+    return_as_dict: bool = False,
+):
     """
     Get player season stats, or the stats of players in a specific timeframe, from the CFBD API.
 
@@ -1056,11 +1094,11 @@ def get_cfbd_player_season_stats(
         regardless if they are the home/away team,
         set `team` to the name of the team you want CFB player season stats from.
 
-    `conference_abv` (str, optional):
+    `conference` (str, optional):
         Optional argument.
         If you only want player season stats from games
         involving teams a specific confrence,
-        set `conference_abv` to the abbreviation
+        set `conference` to the abbreviation
         of the conference you want stats from.
 
     `start_week` (int, semi-optional):
@@ -1145,7 +1183,7 @@ def get_cfbd_player_season_stats(
         json_data = get_cfbd_player_season_stats(
             api_key=cfbd_key,
             season=2020,
-            conference_abv="SEC"
+            conference="SEC"
         )
         print(json_data)
         time.sleep(5)
@@ -1157,13 +1195,12 @@ def get_cfbd_player_season_stats(
         json_data = get_cfbd_player_season_stats(
             api_key=cfbd_key,
             season=2020,
-            conference_abv="SEC",
+            conference="SEC",
             start_week=1,
             end_week=5
         )
         print(json_data)
         time.sleep(5)
-
 
         # Get player season stats for the 2020 CFB season.
         print("Get player season stats for the 2020 CFB season.")
@@ -1173,7 +1210,6 @@ def get_cfbd_player_season_stats(
         )
         print(json_data)
         time.sleep(5)
-
 
         # Get player season stats for
         # the Ohio Bobcats Football team in the 2022 CFB season,
@@ -1194,7 +1230,7 @@ def get_cfbd_player_season_stats(
         json_data = get_cfbd_player_season_stats(
             api_key=cfbd_key,
             season=2020,
-            conference_abv="SEC",
+            conference="SEC",
             stat_category="passing"
         )
         print(json_data)
@@ -1233,7 +1269,7 @@ def get_cfbd_player_season_stats(
         print("Get player season stats for teams who competed in the Southeastern Confrence (SEC) in the 2023 CFB season.")
         json_data = get_cfbd_player_season_stats(
             season=2020,
-            conference_abv="SEC"
+            conference="SEC"
         )
         print(json_data)
         time.sleep(5)
@@ -1244,13 +1280,12 @@ def get_cfbd_player_season_stats(
         print("Get player season stats for teams who competed in the Southeastern Confrence (SEC) in the 2023 CFB season.")
         json_data = get_cfbd_player_season_stats(
             season=2020,
-            conference_abv="SEC",
+            conference="SEC",
             start_week=1,
             end_week=5
         )
         print(json_data)
         time.sleep(5)
-
 
         # Get player season stats for the 2020 CFB season.
         print("Get player season stats for the 2020 CFB season.")
@@ -1259,7 +1294,6 @@ def get_cfbd_player_season_stats(
         )
         print(json_data)
         time.sleep(5)
-
 
         # Get player season stats for
         # the Ohio Bobcats Football team in the 2022 CFB season,
@@ -1278,7 +1312,7 @@ def get_cfbd_player_season_stats(
         print("Get passing stats for teams who competed in the Southeastern Confrence (SEC) in the 2023 CFB season.")
         json_data = get_cfbd_player_season_stats(
             season=2020,
-            conference_abv="SEC",
+            conference="SEC",
             stat_category="passing"
         )
         print(json_data)
@@ -1294,7 +1328,6 @@ def get_cfbd_player_season_stats(
             return_as_dict=True
         )
         print(json_data)
-
 
     ```
     Returns
@@ -1506,8 +1539,8 @@ def get_cfbd_player_season_stats(
     if team != None:
         url += f"&team={team}"
 
-    if conference_abv != None:
-        url += f"&conference={conference_abv}"
+    if conference != None:
+        url += f"&conference={conference}"
 
     if season_type != None:
         url += f"&seasonType={season_type}"
@@ -1893,177 +1926,14 @@ def get_cfbd_player_season_stats(
         del player_id, player_name, team_name, team_confrence, s_category, s_type, s_num
 
     for key, value in tqdm(rebuilt_json.items()):
-        # print(key)
-
-        # print(value)
-        team_name = value["team_name"]
-        team_confrence = value["team_confrence"]
-        player_id = key
-        player_name = value["player_name"]
-
-        row_df = pd.DataFrame(
-            {
-                "team_name": team_name,
-                "team_confrence": team_confrence,
-                "player_id": player_id,
-                "player_name": player_name,
-            },
-            index=[0],
-        )
-        # Passing
-        if value.get("passing_COMP") != None:
-            row_df["passing_COMP"] = value["passing_COMP"]
-
-        if value.get("passing_ATT") != None:
-            row_df["passing_ATT"] = value["passing_ATT"]
-
-        if value.get("passing_YDS") != None:
-            row_df["passing_YDS"] = value["passing_YDS"]
-
-        if value.get("passing_TD") != None:
-            row_df["passing_TD"] = value["passing_TD"]
-
-        if value.get("passing_INT") != None:
-            row_df["passing_INT"] = value["passing_INT"]
-
-        # Rushing
-        if value.get("rushing_CAR") != None:
-            row_df["rushing_CAR"] = value["rushing_CAR"]
-
-        if value.get("rushing_YDS") != None:
-            row_df["rushing_YDS"] = value["rushing_YDS"]
-
-        if value.get("rushing_AVG") != None:
-            row_df["rushing_AVG"] = value["rushing_AVG"]
-
-        if value.get("rushing_TD") != None:
-            row_df["rushing_TD"] = value["rushing_TD"]
-
-        if value.get("rushing_LONG") != None:
-            row_df["rushing_LONG"] = value["rushing_LONG"]
-
-        # Receiving
-        if value.get("receiving_REC") != None:
-            row_df["receiving_REC"] = value["receiving_REC"]
-
-        if value.get("receiving_YDS") != None:
-            row_df["receiving_YDS"] = value["receiving_YDS"]
-
-        if value.get("receiving_TD") != None:
-            row_df["receiving_TD"] = value["receiving_TD"]
-
-        if value.get("receiving_LONG") != None:
-            row_df["receiving_LONG"] = value["receiving_LONG"]
-
-        # Fumbles
-        if value.get("fumbles_FUM") != None:
-            row_df["fumbles_FUM"] = value["fumbles_FUM"]
-
-        if value.get("fumbles_LOST") != None:
-            row_df["fumbles_LOST"] = value["fumbles_LOST"]
-
-        if value.get("fumbles_REC") != None:
-            row_df["fumbles_REC"] = value["fumbles_REC"]
-
-        # Defense
-        if value.get("defensive_TOT") != None:
-            row_df["defensive_TOT"] = value["defensive_TOT"]
-
-        if value.get("defensive_SOLO") != None:
-            row_df["defensive_SOLO"] = value["defensive_SOLO"]
-
-        if value.get("defensive_TFL") != None:
-            row_df["defensive_TFL"] = value["defensive_TFL"]
-
-        if value.get("defensive_QB HUR") != None:
-            row_df["defensive_QB HUR"] = value["defensive_QB HUR"]
-
-        if value.get("defensive_SACKS") != None:
-            row_df["defensive_SACKS"] = value["defensive_SACKS"]
-
-        if value.get("defensive_PD") != None:
-            row_df["defensive_PD"] = value["defensive_PD"]
-
-        if value.get("defensive_TD") != None:
-            row_df["defensive_TD"] = value["defensive_TD"]
-
-        # interceptions
-        if value.get("interceptions_INT") != None:
-            row_df["interceptions_INT"] = value["interceptions_INT"]
-
-        if value.get("interceptions_YDS") != None:
-            row_df["interceptions_YDS"] = value["interceptions_YDS"]
-
-        if value.get("interceptions_TD") != None:
-            row_df["interceptions_TD"] = value["interceptions_TD"]
-
-        # punting
-        if value.get("punting_NO") != None:
-            row_df["punting_NO"] = value["punting_NO"]
-
-        if value.get("punting_YDS") != None:
-            row_df["punting_YDS"] = value["punting_YDS"]
-
-        if value.get("punting_TB") != None:
-            row_df["punting_TB"] = value["punting_TB"]
-
-        if value.get("punting_In 20") != None:
-            row_df["punting_In 20"] = value["punting_In 20"]
-
-        if value.get("punting_LONG") != None:
-            row_df["punting_LONG"] = value["punting_LONG"]
-
-        # kicking
-        if value.get("kicking_FGM") != None:
-            row_df["kicking_FGM"] = value["kicking_FGM"]
-
-        if value.get("kicking_FGA") != None:
-            row_df["kicking_FGA"] = value["kicking_FGA"]
-
-        if value.get("kicking_LONG") != None:
-            row_df["kicking_LONG"] = value["kicking_LONG"]
-
-        if value.get("kicking_XPM") != None:
-            row_df["kicking_XPM"] = value["kicking_XPM"]
-
-        if value.get("kicking_XPA") != None:
-            row_df["kicking_XPA"] = value["kicking_XPA"]
-
-        # kickReturns
-        if value.get("kickReturns_NO") != None:
-            row_df["kickReturns_NO"] = value["kickReturns_NO"]
-
-        if value.get("kickReturns_YDS") != None:
-            row_df["kickReturns_YDS"] = value["kickReturns_YDS"]
-
-        if value.get("kickReturns_AVG") != None:
-            row_df["kickReturns_AVG"] = value["kickReturns_AVG"]
-
-        if value.get("kickReturns_TD") != None:
-            row_df["kickReturns_TD"] = value["kickReturns_TD"]
-
-        if value.get("kickReturns_LONG") != None:
-            row_df["kickReturns_LONG"] = value["kickReturns_LONG"]
-
-        # puntReturns
-        if value.get("puntReturns_NO") != None:
-            row_df["puntReturns_NO"] = value["puntReturns_NO"]
-
-        if value.get("puntReturns_YDS") != None:
-            row_df["puntReturns_YDS"] = value["puntReturns_YDS"]
-
-        if value.get("puntReturns_AVG") != None:
-            row_df["puntReturns_AVG"] = value["puntReturns_AVG"]
-
-        if value.get("puntReturns_TD") != None:
-            row_df["puntReturns_TD"] = value["puntReturns_TD"]
-
-        if value.get("puntReturns_LONG") != None:
-            row_df["puntReturns_LONG"] = value["puntReturns_LONG"]
-
+        row_df = pd.json_normalize(value)
         final_df = pd.concat([final_df, row_df], ignore_index=True)
         del row_df
 
+    # final_df=final_df.astype({
+    #     "passing_COMP": "int32",
+    #     "passing_ATT": "int32",
+    # })
     final_df = final_df.fillna(0)
 
     final_df["season"] = season
@@ -2145,7 +2015,7 @@ def get_cfbd_player_season_stats(
                 "season",
                 "team_name",
                 "team_confrence",
-                "player_id",
+                # "player_id",
                 "player_name",
                 # PASS
                 "passing_COMP",
@@ -2422,7 +2292,8 @@ def get_cfbd_transfer_portal_data(
     season: int,
     api_key: str = None,
     api_key_dir: str = None,
-    return_as_dict: bool = False):
+    return_as_dict: bool = False,
+):
     """
     Get player usage data (A.K.A., the percentages for how often a player touched the ball),
     for a given season, from the CFBD API.
@@ -2460,6 +2331,59 @@ def get_cfbd_transfer_portal_data(
     Usage
     ----------
     ```
+    import time
+
+    from cfbd_json_py.players import get_cfbd_transfer_portal_data
+
+
+    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+
+    if cfbd_key != "tigersAreAwsome":
+        print("Using the user's API key declared in this script for this example.")
+
+        # Get Transfer Portal data for the 2021 CFB season.
+        print("Get Transfer Portal data for the 2021 CFB season.")
+        json_data = get_cfbd_transfer_portal_data(
+            api_key=cfbd_key,
+            season=2021
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # You can also tell this function to just return the API call as
+        # a Dictionary (read: JSON) object.
+        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        json_data = get_cfbd_transfer_portal_data(
+            api_key=cfbd_key,
+            season=2021,
+            return_as_dict=True
+        )
+        print(json_data)
+
+    else:
+        # Alternatively, if the CFBD API key exists in this python environment,
+        # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
+        # you could just call these functions directly, without setting the API key
+        # in the script.
+        print("Using the user's API key suposedly loaded into this python environment for this example.")
+
+        # Get Transfer Portal data for the 2021 CFB season.
+        print("Get Transfer Portal data for the 2021 CFB season.")
+        json_data = get_cfbd_transfer_portal_data(
+            season=2021
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # You can also tell this function to just return the API call as
+        # a Dictionary (read: JSON) object.
+        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        json_data = get_cfbd_transfer_portal_data(
+            season=2021,
+            return_as_dict=True
+        )
+        print(json_data)
+
     ```
     Returns
     ----------
@@ -2531,19 +2455,33 @@ def get_cfbd_transfer_portal_data(
     if return_as_dict == True:
         return json_data
 
-    for player in tqdm(json_data):
-        row_df = pd.DataFrame({"season": season}, index=[0])
-        row_df["first_name"] = player["firstName"]
-        row_df["last_name"] = player["lastName"]
-        row_df["position"] = player["position"]
-        row_df["origin_team"] = player["origin"]
-        row_df["destination_team"] = player["destination"]
-        row_df["transferDate"] = player["transferDate"]
-        row_df["player_rating"] = player["rating"]
-        row_df["player_stars"] = player["stars"]
-        row_df["player_eligibility"] = player["eligibility"]
-        portal_df = pd.concat([portal_df, row_df], ignore_index=True)
+    # for player in tqdm(json_data):
+    #     row_df = pd.DataFrame({"season": season}, index=[0])
+    #     row_df["first_name"] = player["firstName"]
+    #     row_df["last_name"] = player["lastName"]
+    #     row_df["position"] = player["position"]
+    #     row_df["origin_team"] = player["origin"]
+    #     row_df["destination_team"] = player["destination"]
+    #     row_df["transferDate"] = player["transferDate"]
+    #     row_df["player_rating"] = player["rating"]
+    #     row_df["player_stars"] = player["stars"]
+    #     row_df["player_eligibility"] = player["eligibility"]
+    #     portal_df = pd.concat([portal_df, row_df], ignore_index=True)
 
-        del row_df
-
+    #     del row_df
+    portal_df = pd.json_normalize(json_data)
+    portal_df.rename(
+        columns={
+            "firstName":"first_name",
+            "lastName":"last_name",
+            "position":"position_abv",
+            "origin":"origin_team",
+            "destination":"destination_team",
+            "transferDate":"transfer_date",
+            "rating":"rating",
+            "stars":"stars",
+            "eligibility":"eligibility",
+        },
+        inplace=True,
+    )
     return portal_df

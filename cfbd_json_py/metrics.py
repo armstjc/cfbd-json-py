@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 12/13/2023 03:10 PM EDT
+# Last Updated Date: 12/27/2023 09:59 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: metrics.py
 # Purpose: Houses functions pertaining to various CFB stats within the CFBD API.
@@ -19,7 +19,8 @@ def get_cfbd_predicted_ppa_from_down_distance(
     distance: int,
     api_key: str = None,
     api_key_dir: str = None,
-    return_as_dict: bool = False):
+    return_as_dict: bool = False,
+):
     """
     Given a down and distance,
     this function will attempt to get the predicted
@@ -234,18 +235,22 @@ def get_cfbd_predicted_ppa_from_down_distance(
     if return_as_dict == True:
         return json_data
 
-    for dnd in json_data:
-        row_df = pd.DataFrame(
-            {
-                "down": down,
-                "distance": distance,
-            },
-            index=[0],
-        )
-        row_df["predicted_points"] = dnd["predictedPoints"]
-        row_df["yard_line"] = dnd["yardLine"]
-        ppa_df = pd.concat([ppa_df, row_df], ignore_index=True)
-
+    # for dnd in json_data:
+    #     row_df = pd.DataFrame(
+    #         {
+    #             "down": down,
+    #             "distance": distance,
+    #         },
+    #         index=[0],
+    #     )
+    #     row_df["predicted_points"] = dnd["predictedPoints"]
+    #     row_df["yard_line"] = dnd["yardLine"]
+    #     ppa_df = pd.concat([ppa_df, row_df], ignore_index=True)
+    ppa_df = pd.json_normalize(json_data)
+    ppa_df.rename(
+        columns={"yardLine": "yard_line", "predictedPoints": "predicted_points"},
+        inplace=True,
+    )
     return ppa_df
 
 
@@ -255,9 +260,10 @@ def get_cfbd_team_season_ppa_data(
     season: int = None,
     team: str = None,
     # `year` and/or `team` must be not null for this function to work.
-    conference_abv: str = None,
+    conference: str = None,
     exclude_garbage_time: bool = False,
-    return_as_dict: bool = False):
+    return_as_dict: bool = False,
+):
     """
     Allows you to get team PPA data,
     over an entire season,
@@ -299,11 +305,11 @@ def get_cfbd_team_season_ppa_data(
         this function to work. If you don't, a `ValueError()`
         will be raised.
 
-    `conference_abv` (str, optional):
+    `conference` (str, optional):
         Optional argument.
         If you only want team PPA data from games
         involving teams from a specific confrence,
-        set `conference_abv` to the abbreviation
+        set `conference` to the abbreviation
         of the conference you want team PPA data from.
         For a list of confrences,
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
@@ -327,7 +333,7 @@ def get_cfbd_team_season_ppa_data(
     ```
     import time
 
-    from cfbd_json_py.metrics import get_cfbd_team_ppa_data
+    from cfbd_json_py.metrics import get_cfbd_team_season_ppa_data
 
 
     cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
@@ -337,7 +343,7 @@ def get_cfbd_team_season_ppa_data(
 
         # Get team season PPA data for the 2020 CFB season.
         print("Get team PPA data for the 2020 CFB season.")
-        json_data = get_cfbd_team_ppa_data(
+        json_data = get_cfbd_team_season_ppa_data(
             api_key=cfbd_key,
             season=2020
         )
@@ -346,7 +352,7 @@ def get_cfbd_team_season_ppa_data(
 
         # Get team season PPA data for the 2020 Ohio State Buckeyes.
         print("Get team season PPA data for the 2020 Ohio State Buckeyes.")
-        json_data = get_cfbd_team_ppa_data(
+        json_data = get_cfbd_team_season_ppa_data(
             api_key=cfbd_key,
             season=2020,
             team="Ohio State"
@@ -357,7 +363,7 @@ def get_cfbd_team_season_ppa_data(
         # Get team season PPA data for the 2020 Ohio State Buckeyes,
         # but exclude garbage time plays when making the PPA calculations.
         print("Get team season PPA data for the 2020 Ohio State Buckeyes, but exclude garbage time plays when making the PPA calculations.")
-        json_data = get_cfbd_team_ppa_data(
+        json_data = get_cfbd_team_season_ppa_data(
             api_key=cfbd_key,
             season=2020,
             team="Ohio State",
@@ -368,10 +374,10 @@ def get_cfbd_team_season_ppa_data(
 
         # Get team season PPA data for teams in the Big 10 (B1G) Conference in the 2020 CFB Season.
         print("Get team season PPA data for teams in the Big 10 (B1G) Conference in the 2020 CFB Season.")
-        json_data = get_cfbd_team_ppa_data(
+        json_data = get_cfbd_team_season_ppa_data(
             api_key=cfbd_key,
             season=2020,
-            conference_abv="B1G"
+            conference="B1G"
         )
         print(json_data)
         time.sleep(5)
@@ -379,10 +385,10 @@ def get_cfbd_team_season_ppa_data(
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
         print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
-        json_data = get_cfbd_team_ppa_data(
+        json_data = get_cfbd_team_season_ppa_data(
             api_key=cfbd_key,
             season=2020,
-            conference_abv="B1G",
+            conference="B1G",
             return_as_dict=True
         )
         print(json_data)
@@ -396,7 +402,7 @@ def get_cfbd_team_season_ppa_data(
 
         # Get team season PPA data for the 2020 CFB season.
         print("Get team PPA data for the 2020 CFB season.")
-        json_data = get_cfbd_team_ppa_data(
+        json_data = get_cfbd_team_season_ppa_data(
             season=2020
         )
         print(json_data)
@@ -404,7 +410,7 @@ def get_cfbd_team_season_ppa_data(
 
         # Get team season PPA data for the 2020 Ohio State Buckeyes.
         print("Get team season PPA data for the 2020 Ohio State Buckeyes.")
-        json_data = get_cfbd_team_ppa_data(
+        json_data = get_cfbd_team_season_ppa_data(
             season=2020,
             team="Ohio State"
         )
@@ -414,7 +420,7 @@ def get_cfbd_team_season_ppa_data(
         # Get team season PPA data for the 2020 Ohio State Buckeyes,
         # but exclude garbage time plays when making the PPA calculations.
         print("Get team season PPA data for the 2020 Ohio State Buckeyes, but exclude garbage time plays when making the PPA calculations.")
-        json_data = get_cfbd_team_ppa_data(
+        json_data = get_cfbd_team_season_ppa_data(
             season=2020,
             team="Ohio State",
             exclude_garbage_time=True
@@ -424,9 +430,9 @@ def get_cfbd_team_season_ppa_data(
 
         # Get team season PPA data for teams in the Big 10 (B1G) Conference in the 2020 CFB Season.
         print("Get team season PPA data for teams in the Big 10 (B1G) Conference in the 2020 CFB Season.")
-        json_data = get_cfbd_team_ppa_data(
+        json_data = get_cfbd_team_season_ppa_data(
             season=2020,
-            conference_abv="B1G"
+            conference="B1G"
         )
         print(json_data)
         time.sleep(5)
@@ -434,9 +440,9 @@ def get_cfbd_team_season_ppa_data(
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
         print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
-        json_data = get_cfbd_team_ppa_data(
+        json_data = get_cfbd_team_season_ppa_data(
             season=2020,
-            conference_abv="B1G",
+            conference="B1G",
             return_as_dict=True
         )
         print(json_data)
@@ -511,11 +517,11 @@ def get_cfbd_team_season_ppa_data(
         url += f"&team={team}"
         url_elements += 1
 
-    if conference_abv != None and url_elements == 0:
-        url += f"?conference={conference_abv}"
+    if conference != None and url_elements == 0:
+        url += f"?conference={conference}"
         url_elements += 1
-    elif conference_abv != None:
-        url += f"&conference={conference_abv}"
+    elif conference != None:
+        url += f"&conference={conference}"
         url_elements += 1
 
     if exclude_garbage_time != None and url_elements == 0:
@@ -545,51 +551,78 @@ def get_cfbd_team_season_ppa_data(
     if return_as_dict == True:
         return json_data
 
-    for team in tqdm(json_data):
-        t_season = team["season"]
-        t_conference = team["conference"]
-        t_name = team["team"]
+    # for team in tqdm(json_data):
+    #     t_season = team["season"]
+    #     t_conference = team["conference"]
+    #     t_name = team["team"]
 
-        row_df = pd.DataFrame(
-            {"season": t_season, "team_name": t_name, "team_conference": t_conference},
-            index=[0],
-        )
+    #     row_df = pd.DataFrame(
+    #         {"season": t_season, "team_name": t_name, "team_conference": t_conference},
+    #         index=[0],
+    #     )
 
-        # Team offense
-        row_df["offensive_ppa_overall"] = team["offense"]["overall"]
-        row_df["offensive_ppa_passing"] = team["offense"]["passing"]
-        row_df["offensive_ppa_rushing"] = team["offense"]["rushing"]
-        row_df["offensive_ppa_first_down"] = team["offense"]["firstDown"]
-        row_df["offensive_ppa_second_down"] = team["offense"]["secondDown"]
-        row_df["offensive_ppa_third_down"] = team["offense"]["thirdDown"]
-        row_df["offensive_ppa_cumulative"] = team["offense"]["cumulative"]["total"]
-        row_df["offensive_ppa_cumulative_passing"] = team["offense"]["cumulative"][
-            "passing"
-        ]
-        row_df["offensive_ppa_cumulative_rushing"] = team["offense"]["cumulative"][
-            "rushing"
-        ]
+    #     # Team offense
+    #     row_df["offensive_ppa_overall"] = team["offense"]["overall"]
+    #     row_df["offensive_ppa_passing"] = team["offense"]["passing"]
+    #     row_df["offensive_ppa_rushing"] = team["offense"]["rushing"]
+    #     row_df["offensive_ppa_first_down"] = team["offense"]["firstDown"]
+    #     row_df["offensive_ppa_second_down"] = team["offense"]["secondDown"]
+    #     row_df["offensive_ppa_third_down"] = team["offense"]["thirdDown"]
+    #     row_df["offensive_ppa_cumulative"] = team["offense"]["cumulative"]["total"]
+    #     row_df["offensive_ppa_cumulative_passing"] = team["offense"]["cumulative"][
+    #         "passing"
+    #     ]
+    #     row_df["offensive_ppa_cumulative_rushing"] = team["offense"]["cumulative"][
+    #         "rushing"
+    #     ]
 
-        # Team defense
-        row_df["defensive_ppa_overall"] = team["defense"]["overall"]
-        row_df["defensive_ppa_passing"] = team["defense"]["passing"]
-        row_df["defensive_ppa_rushing"] = team["defense"]["rushing"]
-        row_df["defensive_ppa_first_down"] = team["defense"]["firstDown"]
-        row_df["defensive_ppa_second_down"] = team["defense"]["secondDown"]
-        row_df["defensive_ppa_third_down"] = team["defense"]["thirdDown"]
-        row_df["defensive_ppa_cumulative"] = team["defense"]["cumulative"]["total"]
-        row_df["defensive_ppa_cumulative_passing"] = team["defense"]["cumulative"][
-            "passing"
-        ]
-        row_df["defensive_ppa_cumulative_rushing"] = team["defense"]["cumulative"][
-            "rushing"
-        ]
+    #     # Team defense
+    #     row_df["defensive_ppa_overall"] = team["defense"]["overall"]
+    #     row_df["defensive_ppa_passing"] = team["defense"]["passing"]
+    #     row_df["defensive_ppa_rushing"] = team["defense"]["rushing"]
+    #     row_df["defensive_ppa_first_down"] = team["defense"]["firstDown"]
+    #     row_df["defensive_ppa_second_down"] = team["defense"]["secondDown"]
+    #     row_df["defensive_ppa_third_down"] = team["defense"]["thirdDown"]
+    #     row_df["defensive_ppa_cumulative"] = team["defense"]["cumulative"]["total"]
+    #     row_df["defensive_ppa_cumulative_passing"] = team["defense"]["cumulative"][
+    #         "passing"
+    #     ]
+    #     row_df["defensive_ppa_cumulative_rushing"] = team["defense"]["cumulative"][
+    #         "rushing"
+    #     ]
 
-        ppa_df = pd.concat([ppa_df, row_df], ignore_index=True)
+    #     ppa_df = pd.concat([ppa_df, row_df], ignore_index=True)
 
-        del t_season, t_conference, t_name
-        del row_df
+    #     del t_season, t_conference, t_name
+    #     del row_df
 
+    ppa_df = pd.json_normalize(json_data)
+    # print(ppa_df.columns)
+    ppa_df.rename(
+        columns={
+            "conference": "conference_name",
+            "team": "team_name",
+            "offense.overall": "ppa_offense_overall",
+            "offense.passing": "ppa_offense_passing",
+            "offense.rushing": "ppa_offense_rushing",
+            "offense.firstDown": "ppa_offense_first_down",
+            "offense.secondDown": "ppa_offense_second_down",
+            "offense.thirdDown": "ppa_offense_third_down",
+            "offense.cumulative.total": "ppa_offense_cumulative_total",
+            "offense.cumulative.passing": "ppa_offense_cumulative_passing",
+            "offense.cumulative.rushing": "ppa_offense_cumulative_rushing",
+            "defense.overall": "ppa_defense_overall",
+            "defense.passing": "ppa_defense_passing",
+            "defense.rushing": "ppa_defense_rushing",
+            "defense.firstDown": "ppa_defense_first_down",
+            "defense.secondDown": "ppa_defense_second_down",
+            "defense.thirdDown": "ppa_defense_third_down",
+            "defense.cumulative.total": "ppa_defense_cumulative_total",
+            "defense.cumulative.passing": "ppa_defense_cumulative_passing",
+            "defense.cumulative.rushing": "ppa_defense_cumulative_rushing",
+        },
+        inplace=True,
+    )
     return ppa_df
 
 
@@ -599,10 +632,11 @@ def get_cfbd_team_game_ppa_data(
     api_key_dir: str = None,
     week: int = None,
     team: str = None,
-    conference_abv: str = None,
+    conference: str = None,
     exclude_garbage_time: bool = False,
     season_type: str = "regular",  # "regular" or "postseason"
-    return_as_dict: bool = False):
+    return_as_dict: bool = False,
+):
     """
     Allows you to get team PPA data,
     at a game level,
@@ -646,11 +680,11 @@ def get_cfbd_team_game_ppa_data(
         regardless if they are the home/away team,
         set `team` to the name of the team you want team game PPA data from.
 
-    `conference_abv` (str, optional):
+    `conference` (str, optional):
         Optional argument.
         If you only want team game PPA data from games
         involving teams a specific confrence,
-        set `conference_abv` to the abbreviation
+        set `conference` to the abbreviation
         of the conference you want team game PPA data from.
 
     `exclude_garbage_time` (bool, optional):
@@ -723,7 +757,7 @@ def get_cfbd_team_game_ppa_data(
         json_data = get_cfbd_team_game_ppa_data(
             api_key=cfbd_key,
             season=2020,
-            conference_abv="SEC"
+            conference="SEC"
         )
         print(json_data)
         time.sleep(5)
@@ -734,7 +768,7 @@ def get_cfbd_team_game_ppa_data(
         json_data = get_cfbd_team_game_ppa_data(
             api_key=cfbd_key,
             season=2020,
-            conference_abv="SEC",
+            conference="SEC",
             exclude_garbage_time=True
         )
         print(json_data)
@@ -800,7 +834,7 @@ def get_cfbd_team_game_ppa_data(
         print("Get team PPA data for Southeastern Conference (SEC) games within the 2020 CFB season.")
         json_data = get_cfbd_team_game_ppa_data(
             season=2020,
-            conference_abv="SEC"
+            conference="SEC"
         )
         print(json_data)
         time.sleep(5)
@@ -810,7 +844,7 @@ def get_cfbd_team_game_ppa_data(
         print("Get team PPA data for Southeastern Conference (SEC) games within the 2020 CFB season, but exclude plays that occur in garbage time.")
         json_data = get_cfbd_team_game_ppa_data(
             season=2020,
-            conference_abv="SEC",
+            conference="SEC",
             exclude_garbage_time=True
         )
         print(json_data)
@@ -912,8 +946,8 @@ def get_cfbd_team_game_ppa_data(
     if team != None:
         url += f"&team={team}"
 
-    if conference_abv != None:
-        url += f"&conference={conference_abv}"
+    if conference != None:
+        url += f"&conference={conference}"
 
     if exclude_garbage_time != None:
         url += f"&excludeGarbageTime={gt_str}"
@@ -937,47 +971,74 @@ def get_cfbd_team_game_ppa_data(
     if return_as_dict == True:
         return json_data
 
-    for game in tqdm(json_data):
-        g_season = game["season"]
-        g_gid = game["gameId"]
-        g_week = game["week"]
-        g_tm = game["team"]
-        g_conf = game["conference"]
-        g_opp = game["opponent"]
+    # for game in tqdm(json_data):
+    #     g_season = game["season"]
+    #     g_gid = game["gameId"]
+    #     g_week = game["week"]
+    #     g_tm = game["team"]
+    #     g_conf = game["conference"]
+    #     g_opp = game["opponent"]
 
-        row_df = pd.DataFrame(
-            {
-                "season": g_season,
-                "game_id": g_gid,
-                "week": g_week,
-                "team": g_tm,
-                "conference": g_conf,
-                "opponent": g_opp,
-            },
-            index=[0],
-        )
+    #     row_df = pd.DataFrame(
+    #         {
+    #             "season": g_season,
+    #             "game_id": g_gid,
+    #             "week": g_week,
+    #             "team": g_tm,
+    #             "conference": g_conf,
+    #             "opponent": g_opp,
+    #         },
+    #         index=[0],
+    #     )
 
-        # Team Offense
-        row_df["ppa_offense_overall"] = game["offense"]["overall"]
-        row_df["ppa_offense_passing"] = game["offense"]["passing"]
-        row_df["ppa_offense_rushing"] = game["offense"]["rushing"]
-        row_df["ppa_offense_first_down"] = game["offense"]["firstDown"]
-        row_df["ppa_offense_second_down"] = game["offense"]["secondDown"]
-        row_df["ppa_offense_third_down"] = game["offense"]["thirdDown"]
+    #     # Team Offense
+    #     row_df["ppa_offense_overall"] = game["offense"]["overall"]
+    #     row_df["ppa_offense_passing"] = game["offense"]["passing"]
+    #     row_df["ppa_offense_rushing"] = game["offense"]["rushing"]
+    #     row_df["ppa_offense_first_down"] = game["offense"]["firstDown"]
+    #     row_df["ppa_offense_second_down"] = game["offense"]["secondDown"]
+    #     row_df["ppa_offense_third_down"] = game["offense"]["thirdDown"]
 
-        # Team Defense
-        row_df["ppa_defense_overall"] = game["defense"]["overall"]
-        row_df["ppa_defense_passing"] = game["defense"]["passing"]
-        row_df["ppa_defense_rushing"] = game["defense"]["rushing"]
-        row_df["ppa_defense_first_down"] = game["defense"]["firstDown"]
-        row_df["ppa_defense_second_down"] = game["defense"]["secondDown"]
-        row_df["ppa_defense_third_down"] = game["defense"]["thirdDown"]
+    #     # Team Defense
+    #     row_df["ppa_defense_overall"] = game["defense"]["overall"]
+    #     row_df["ppa_defense_passing"] = game["defense"]["passing"]
+    #     row_df["ppa_defense_rushing"] = game["defense"]["rushing"]
+    #     row_df["ppa_defense_first_down"] = game["defense"]["firstDown"]
+    #     row_df["ppa_defense_second_down"] = game["defense"]["secondDown"]
+    #     row_df["ppa_defense_third_down"] = game["defense"]["thirdDown"]
 
-        cfb_games_df = pd.concat([cfb_games_df, row_df], ignore_index=True)
+    #     cfb_games_df = pd.concat([cfb_games_df, row_df], ignore_index=True)
 
-        del row_df
-        del g_gid, g_season, g_week, g_conf, g_tm, g_opp
-
+    #     del row_df
+    #     del g_gid, g_season, g_week, g_conf, g_tm, g_opp
+    cfb_games_df = pd.json_normalize(json_data)
+    cfb_games_df.rename(
+        columns={
+            "gameId": "game_id",
+            "conference": "conference_name",
+            "team": "team_name",
+            "opponent": "opponent_name",
+            "offense.overall": "ppa_offense_overall",
+            "offense.passing": "ppa_offense_passing",
+            "offense.rushing": "ppa_offense_rushing",
+            "offense.firstDown": "ppa_offense_first_down",
+            "offense.secondDown": "ppa_offense_second_down",
+            "offense.thirdDown": "ppa_offense_third_down",
+            "offense.cumulative.total": "ppa_offense_cumulative_total",
+            "offense.cumulative.passing": "ppa_offense_cumulative_passing",
+            "offense.cumulative.rushing": "ppa_offense_cumulative_rushing",
+            "defense.overall": "ppa_defense_overall",
+            "defense.passing": "ppa_defense_passing",
+            "defense.rushing": "ppa_defense_rushing",
+            "defense.firstDown": "ppa_defense_first_down",
+            "defense.secondDown": "ppa_defense_second_down",
+            "defense.thirdDown": "ppa_defense_third_down",
+            "defense.cumulative.total": "ppa_defense_cumulative_total",
+            "defense.cumulative.passing": "ppa_defense_cumulative_passing",
+            "defense.cumulative.rushing": "ppa_defense_cumulative_rushing",
+        },
+        inplace=True,
+    )
     return cfb_games_df
 
 
@@ -993,7 +1054,8 @@ def get_cfbd_player_game_ppa_data(
     play_threshold: int = None,
     exclude_garbage_time: bool = False,
     season_type: str = "regular",  # "regular" or "postseason"
-    return_as_dict: bool = False):
+    return_as_dict: bool = False,
+):
     """
     Allows you to get player PPA data,
     at a game level,
@@ -1405,35 +1467,49 @@ def get_cfbd_player_game_ppa_data(
     if return_as_dict == True:
         return json_data
 
-    for player in tqdm(json_data):
-        p_season = player["season"]
-        row_df = pd.DataFrame({"season": p_season}, index=[0])
+    # for player in tqdm(json_data):
+    #     p_season = player["season"]
+    #     row_df = pd.DataFrame({"season": p_season}, index=[0])
 
-        row_df["week"] = player["week"]
-        row_df["player_name"] = player["name"]
-        row_df["player_position"] = player["position"]
-        row_df["team"] = player["team"]
-        row_df["opponent"] = player["opponent"]
+    #     row_df["week"] = player["week"]
+    #     row_df["player_name"] = player["name"]
+    #     row_df["player_position"] = player["position"]
+    #     row_df["team"] = player["team"]
+    #     row_df["opponent"] = player["opponent"]
 
-        row_df["avg_ppa_all"] = player["averagePPA"]["all"]
-        row_df["avg_ppa_pass"] = player["averagePPA"]["pass"]
-        row_df["avg_ppa_rush"] = player["averagePPA"]["rush"]
+    #     row_df["avg_ppa_all"] = player["averagePPA"]["all"]
+    #     row_df["avg_ppa_pass"] = player["averagePPA"]["pass"]
+    #     row_df["avg_ppa_rush"] = player["averagePPA"]["rush"]
 
-        # Have to do this because of a FutureWarning that is raised
-        # starting in pandas 2.1.1, when using pd.concat(),
-        # and a column datatype mismatch is found.
-        row_df = row_df.astype(
-            {
-                "avg_ppa_all": "float",
-                "avg_ppa_pass": "float",
-                "avg_ppa_rush": "float",
-            }
-        )
+    #     # Have to do this because of a FutureWarning that is raised
+    #     # starting in pandas 2.1.1, when using pd.concat(),
+    #     # and a column datatype mismatch is found.
+    #     row_df = row_df.astype(
+    #         {
+    #             "avg_ppa_all": "float",
+    #             "avg_ppa_pass": "float",
+    #             "avg_ppa_rush": "float",
+    #         }
+    #     )
 
-        cfb_games_df = pd.concat([cfb_games_df, row_df], ignore_index=True)
+    #     cfb_games_df = pd.concat([cfb_games_df, row_df], ignore_index=True)
 
-        del row_df
-        del p_season
+    #     del row_df
+    #     del p_season
+
+    cfb_games_df = pd.json_normalize(json_data)
+    cfb_games_df.rename(
+        columns={
+            "name": "player_name",
+            "position": "position_abv",
+            "team": "team_name",
+            "opponent": "opponent_name",
+            "averagePPA.all": "avg_ppa_cumulative",
+            "averagePPA.pass": "avg_ppa_pass",
+            "averagePPA.rush": "avg_ppa_rush",
+        },
+        inplace=True,
+    )
 
     return cfb_games_df
 
@@ -1443,12 +1519,13 @@ def get_cfbd_player_season_ppa_data(
     api_key_dir: str = None,
     season: int = None,
     team: str = None,
-    conference_abv: str = None,
+    conference: str = None,
     position: str = None,
     player_id: int = None,
     play_threshold: int = None,
     exclude_garbage_time: bool = False,
-    return_as_dict: bool = False):
+    return_as_dict: bool = False,
+):
     """
     Allows you to get player PPA data,
     at a season level,
@@ -1491,11 +1568,11 @@ def get_cfbd_player_season_ppa_data(
         `week` and/or `team` must be set to a non-null value for this function
         to work.
 
-    `conference_abv` (str, optional):
+    `conference` (str, optional):
         Optional argument.
         If you only want player season PPA data from games
         involving teams from a specific confrence,
-        set `conference_abv` to the abbreviation
+        set `conference` to the abbreviation
         of the conference you want player season PPA data from.
         For a list of confrences,
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
@@ -1571,7 +1648,7 @@ def get_cfbd_player_season_ppa_data(
         json_data = get_cfbd_player_season_ppa_data(
             api_key=cfbd_key,
             season=2020,
-            conference_abv="SEC"
+            conference="SEC"
         )
         print(json_data)
         time.sleep(5)
@@ -1659,7 +1736,7 @@ def get_cfbd_player_season_ppa_data(
         print("Get player season PPA data for players who played on teams within the Southeastern Conference (SEC) for the 2020 CFB Season.")
         json_data = get_cfbd_player_season_ppa_data(
             season=2020,
-            conference_abv="SEC"
+            conference="SEC"
         )
         print(json_data)
         time.sleep(5)
@@ -1776,11 +1853,11 @@ def get_cfbd_player_season_ppa_data(
         url += f"&team={team}"
         url_elements += 1
 
-    if conference_abv != None and url_elements == 0:
-        url += f"?conference={conference_abv}"
+    if conference != None and url_elements == 0:
+        url += f"?conference={conference}"
         url_elements += 1
-    elif conference_abv != None:
-        url += f"&conference={conference_abv}"
+    elif conference != None:
+        url += f"&conference={conference}"
         url_elements += 1
 
     if position != None and url_elements == 0:
@@ -1830,64 +1907,91 @@ def get_cfbd_player_season_ppa_data(
     if return_as_dict == True:
         return json_data
 
-    for player in tqdm(json_data):
-        p_season = player["season"]
-        row_df = pd.DataFrame({"season": p_season}, index=[0])
-        row_df["player_id"] = player["id"]
-        row_df["player_name"] = player["name"]
-        row_df["player_position"] = player["position"]
-        row_df["team"] = player["team"]
-        row_df["conference"] = player["conference"]
-        row_df["countable_plays"] = player["countablePlays"]
+    # for player in tqdm(json_data):
+    #     p_season = player["season"]
+    #     row_df = pd.DataFrame({"season": p_season}, index=[0])
+    #     row_df["player_id"] = player["id"]
+    #     row_df["player_name"] = player["name"]
+    #     row_df["player_position"] = player["position"]
+    #     row_df["team"] = player["team"]
+    #     row_df["conference"] = player["conference"]
+    #     row_df["countable_plays"] = player["countablePlays"]
 
-        # Average PPA
-        row_df["average_ppa_all"] = player["averagePPA"]["all"]
-        row_df["average_ppa_pass"] = player["averagePPA"]["pass"]
-        row_df["average_ppa_rush"] = player["averagePPA"]["rush"]
-        row_df["average_ppa_first_down"] = player["averagePPA"]["firstDown"]
-        row_df["average_ppa_second_down"] = player["averagePPA"]["secondDown"]
-        row_df["average_ppa_third_down"] = player["averagePPA"]["thirdDown"]
-        row_df["average_ppa_standard_downs"] = player["averagePPA"]["standardDowns"]
-        row_df["average_ppa_passing_downs"] = player["averagePPA"]["passingDowns"]
+    #     # Average PPA
+    #     row_df["average_ppa_all"] = player["averagePPA"]["all"]
+    #     row_df["average_ppa_pass"] = player["averagePPA"]["pass"]
+    #     row_df["average_ppa_rush"] = player["averagePPA"]["rush"]
+    #     row_df["average_ppa_first_down"] = player["averagePPA"]["firstDown"]
+    #     row_df["average_ppa_second_down"] = player["averagePPA"]["secondDown"]
+    #     row_df["average_ppa_third_down"] = player["averagePPA"]["thirdDown"]
+    #     row_df["average_ppa_standard_downs"] = player["averagePPA"]["standardDowns"]
+    #     row_df["average_ppa_passing_downs"] = player["averagePPA"]["passingDowns"]
 
-        # Total PPA
-        row_df["total_ppa_all"] = player["totalPPA"]["all"]
-        row_df["total_ppa_pass"] = player["totalPPA"]["pass"]
-        row_df["total_ppa_rush"] = player["totalPPA"]["rush"]
-        row_df["total_ppa_first_down"] = player["totalPPA"]["firstDown"]
-        row_df["total_ppa_second_down"] = player["totalPPA"]["secondDown"]
-        row_df["total_ppa_third_down"] = player["totalPPA"]["thirdDown"]
-        row_df["total_ppa_standard_downs"] = player["totalPPA"]["standardDowns"]
-        row_df["total_ppa_passing_downs"] = player["totalPPA"]["passingDowns"]
+    #     # Total PPA
+    #     row_df["total_ppa_all"] = player["totalPPA"]["all"]
+    #     row_df["total_ppa_pass"] = player["totalPPA"]["pass"]
+    #     row_df["total_ppa_rush"] = player["totalPPA"]["rush"]
+    #     row_df["total_ppa_first_down"] = player["totalPPA"]["firstDown"]
+    #     row_df["total_ppa_second_down"] = player["totalPPA"]["secondDown"]
+    #     row_df["total_ppa_third_down"] = player["totalPPA"]["thirdDown"]
+    #     row_df["total_ppa_standard_downs"] = player["totalPPA"]["standardDowns"]
+    #     row_df["total_ppa_passing_downs"] = player["totalPPA"]["passingDowns"]
 
-        # Have to do this because of a FutureWarning that is raised
-        # starting in pandas 2.1.1, when using pd.concat(),
-        # and a column datatype mismatch is found.
-        row_df = row_df.astype(
-            {
-                "average_ppa_all": "float",
-                "average_ppa_pass": "float",
-                "average_ppa_rush": "float",
-                "average_ppa_first_down": "float",
-                "average_ppa_second_down": "float",
-                "average_ppa_third_down": "float",
-                "average_ppa_standard_downs": "float",
-                "average_ppa_passing_downs": "float",
-                "total_ppa_all": "float",
-                "total_ppa_pass": "float",
-                "total_ppa_rush": "float",
-                "total_ppa_first_down": "float",
-                "total_ppa_second_down": "float",
-                "total_ppa_third_down": "float",
-                "total_ppa_standard_downs": "float",
-                "total_ppa_passing_downs": "float",
-            }
-        )
+    #     # Have to do this because of a FutureWarning that is raised
+    #     # starting in pandas 2.1.1, when using pd.concat(),
+    #     # and a column datatype mismatch is found.
+    #     row_df = row_df.astype(
+    #         {
+    #             "average_ppa_all": "float",
+    #             "average_ppa_pass": "float",
+    #             "average_ppa_rush": "float",
+    #             "average_ppa_first_down": "float",
+    #             "average_ppa_second_down": "float",
+    #             "average_ppa_third_down": "float",
+    #             "average_ppa_standard_downs": "float",
+    #             "average_ppa_passing_downs": "float",
+    #             "total_ppa_all": "float",
+    #             "total_ppa_pass": "float",
+    #             "total_ppa_rush": "float",
+    #             "total_ppa_first_down": "float",
+    #             "total_ppa_second_down": "float",
+    #             "total_ppa_third_down": "float",
+    #             "total_ppa_standard_downs": "float",
+    #             "total_ppa_passing_downs": "float",
+    #         }
+    #     )
 
-        cfb_games_df = pd.concat([cfb_games_df, row_df], ignore_index=True)
-        del row_df
-        del p_season
-
+    #     cfb_games_df = pd.concat([cfb_games_df, row_df], ignore_index=True)
+    #     del row_df
+    #     del p_season
+    cfb_games_df = pd.json_normalize(json_data)
+    cfb_games_df.rename(
+        columns={
+            "id": "game_id",
+            "name": "player_name",
+            "position": "position_abv",
+            "team": "team_name",
+            "conference": "conference_name",
+            "countablePlays": "countable_plays",
+            "averagePPA.all": "avg_ppa_all",
+            "averagePPA.pass": "avg_ppa_pass",
+            "averagePPA.rush": "avg_ppa_rush",
+            "averagePPA.firstDown": "avg_ppa_first_down",
+            "averagePPA.secondDown": "avg_ppa_second_down",
+            "averagePPA.thirdDown": "avg_ppa_third_down",
+            "averagePPA.standardDowns": "avg_ppa_standard_downs",
+            "averagePPA.passingDowns": "avg_ppa_passing_downs",
+            "totalPPA.all": "total_ppa_all",
+            "totalPPA.pass": "total_ppa_pass",
+            "totalPPA.rush": "total_ppa_rush",
+            "totalPPA.firstDown": "total_ppa_first_down",
+            "totalPPA.secondDown": "total_ppa_second_down",
+            "totalPPA.thirdDown": "total_ppa_third_down",
+            "totalPPA.standardDowns": "total_ppa_standard_downs",
+            "totalPPA.passingDowns": "total_ppa_passing_downs",
+        },
+        inplace=True,
+    )
     return cfb_games_df
 
 
@@ -1895,7 +1999,8 @@ def get_cfbd_game_win_probability_data(
     game_id: int,
     api_key: str = None,
     api_key_dir: str = None,
-    return_as_dict: bool = False):
+    return_as_dict: bool = False,
+):
     """
     Allows one to get win probabliity data for a given game ID.
 
@@ -2063,25 +2168,43 @@ def get_cfbd_game_win_probability_data(
     if return_as_dict == True:
         return json_data
 
-    for play in tqdm(json_data):
-        row_df = pd.DataFrame({"game_id": game_id}, index=[0])
-        row_df["play_id"] = play["playId"]
-        row_df["play_text"] = play["playText"]
-        row_df["home_id"] = play["homeId"]
-        row_df["home_team_name"] = play["home"]
-        row_df["away_id"] = play["awayId"]
-        row_df["away_team_name"] = play["away"]
-        row_df["spread"] = play["spread"]
-        row_df["home_team_has_ball"] = play["homeBall"]
-        row_df["home_score"] = play["homeScore"]
-        row_df["away_score"] = play["awayScore"]
-        row_df["down"] = play["down"]
-        row_df["distance"] = play["distance"]
-        row_df["home_win_probability"] = play["homeWinProb"]
-        row_df["play_number"] = play["playNumber"]
+    # for play in tqdm(json_data):
+    #     row_df = pd.DataFrame({"game_id": game_id}, index=[0])
+    #     row_df["play_id"] = play["playId"]
+    #     row_df["play_text"] = play["playText"]
+    #     row_df["home_id"] = play["homeId"]
+    #     row_df["home_team_name"] = play["home"]
+    #     row_df["away_id"] = play["awayId"]
+    #     row_df["away_team_name"] = play["away"]
+    #     row_df["spread"] = play["spread"]
+    #     row_df["home_team_has_ball"] = play["homeBall"]
+    #     row_df["home_score"] = play["homeScore"]
+    #     row_df["away_score"] = play["awayScore"]
+    #     row_df["down"] = play["down"]
+    #     row_df["distance"] = play["distance"]
+    #     row_df["home_win_probability"] = play["homeWinProb"]
+    #     row_df["play_number"] = play["playNumber"]
 
-        wp_df = pd.concat([wp_df, row_df], ignore_index=True)
-
+    #     wp_df = pd.concat([wp_df, row_df], ignore_index=True)
+    wp_df = pd.json_normalize(json_data)
+    wp_df.rename(
+        columns={
+            "playId": "play_id",
+            "playText": "play_text",
+            "homeId": "home_team_id",
+            "home": "home_team_name",
+            "awayId": "away_team_id",
+            "away": "away_team_name",
+            "spread": "spread_line",
+            "homeBall": "home_team_on_offense_flag",
+            "homeScore": "home_score",
+            "awayScore": "away_score",
+            "homeWinProb": "home_win_probability",
+            "playNumber": "play_num",
+            "yardLine": "yard_line",
+        },
+        inplace=True,
+    )
     if len(wp_df) == 0:
         logging.error(
             "The CFBD API accepted your inputs, "
@@ -2102,7 +2225,8 @@ def get_cfbd_pregame_win_probability_data(
     week: int = None,
     team: str = None,
     season_type: str = "regular",  # "regular" or "postseason"
-    return_as_dict: bool = False):
+    return_as_dict: bool = False,
+):
     """
     Allows you to get pregame win probability data for games within a timeframe.
 
@@ -2372,21 +2496,33 @@ def get_cfbd_pregame_win_probability_data(
     if return_as_dict == True:
         return json_data
 
-    for game in tqdm(json_data):
-        g_season = game["season"]
-        row_df = pd.DataFrame({"season": g_season}, index=[0])
-        row_df["week"] = game["week"]
-        row_df["season_type"] = game["seasonType"]
-        row_df["game_id"] = game["gameId"]
-        row_df["home_team_name"] = game["homeTeam"]
-        row_df["away_team_name"] = game["awayTeam"]
-        row_df["spread"] = game["spread"]
-        row_df["home_win_probability"] = game["homeWinProb"]
+    # for game in tqdm(json_data):
+    #     g_season = game["season"]
+    #     row_df = pd.DataFrame({"season": g_season}, index=[0])
+    #     row_df["week"] = game["week"]
+    #     row_df["season_type"] = game["seasonType"]
+    #     row_df["game_id"] = game["gameId"]
+    #     row_df["home_team_name"] = game["homeTeam"]
+    #     row_df["away_team_name"] = game["awayTeam"]
+    #     row_df["spread"] = game["spread"]
+    #     row_df["home_win_probability"] = game["homeWinProb"]
 
-        wp_df = pd.concat([wp_df, row_df], ignore_index=True)
-        del row_df
-        del g_season
-
+    #     wp_df = pd.concat([wp_df, row_df], ignore_index=True)
+    #     del row_df
+    #     del g_season
+    wp_df = pd.json_normalize(json_data)
+    wp_df.rename(
+        columns={
+            "seasonType":"season_type",
+            
+            "gameId":"game_id",
+            "homeTeam":"home_team_name",
+            "awayTeam":"away_team_name",
+            "spread":"spread_line",
+            "homeWinProb":"home_win_probability",
+        },
+        inplace=True,
+    )
     if len(wp_df) == 0:
         logging.error(
             "The CFBD API accepted your inputs, "
@@ -2403,7 +2539,8 @@ def get_cfbd_pregame_win_probability_data(
 def get_cfbd_fg_expected_points(
     api_key: str = None, 
     api_key_dir: str = None, 
-    return_as_dict: bool = False):
+    return_as_dict: bool = False
+):
     """
     Retrives Expected Points data for field goals from the CFBD API.
 

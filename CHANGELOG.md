@@ -1,5 +1,10 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.1.0: The "beta release" update
+- Optimized a number of functions in this python package by using `pandas.json_normalize()` instead of looping through the data for some functions.
+- Finalized the python package so it can be used by others.
+- Updated the package version to `0.1.0`.
+
 ## 0.0.20: The "ratings" update
 
 - Implemented `cfbd_json_py.ratings.get_cfbd_fpi_ratings()`, a function that allows a user to get Football Power Index (FPI) ratings data directly from the CFBD API.  

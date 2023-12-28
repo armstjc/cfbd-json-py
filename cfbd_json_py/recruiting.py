@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 11/30/2023 8:00 PM EDT
+# Last Updated Date: 12/22/2023 02:22 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: recruiting.py
 # Purpose: Houses functions pertaining to CFB recruiting data within the CFBD API.
@@ -567,7 +567,7 @@ def get_cfbd_team_recruiting_group_ratings(
     start_season: int = None,
     end_season: int = None,
     team: str = None,
-    conference_abv: str = None,
+    conference: str = None,
     return_as_dict: bool = False):
     """ 
     Allows you to get CFB player recruiting data,
@@ -612,10 +612,10 @@ def get_cfbd_team_recruiting_group_ratings(
         the CFBD API, will not accept the request to get CFB recruiting data.
         This or `season` must be set to a valid non-null variable for this to function.
         
-    `conference_abv` (str, optional):
+    `conference` (str, optional):
         Optional argument.
         If you only want CFB recruiting data from teams in a specific confrence, 
-        set `conference_abv` to the abbreviation 
+        set `conference` to the abbreviation 
         of the conference you want CFB recruiting data from.
         For a list of confrences, 
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
@@ -691,7 +691,7 @@ def get_cfbd_team_recruiting_group_ratings(
         json_data = get_cfbd_team_recruiting_group_ratings(
             api_key=cfbd_key,
             start_season=2020,
-            conference_abv="MWC"
+            conference="MWC"
         )
         print(json_data)
         time.sleep(5)
@@ -762,7 +762,7 @@ def get_cfbd_team_recruiting_group_ratings(
         print("Get recruiting data starting in 2020, grouped by team and position, but only for Mountain West Confrence (MWC) teams.")
         json_data = get_cfbd_team_recruiting_group_ratings(
             start_season=2020,
-            conference_abv="MWC"
+            conference="MWC"
         )
         print(json_data)
         time.sleep(5)
@@ -841,11 +841,11 @@ def get_cfbd_team_recruiting_group_ratings(
         url+=f"&team={team}"
         url_elements+=1
     
-    if conference_abv != None and url_elements ==0:
-        url+=f"?conference={conference_abv}"
+    if conference != None and url_elements ==0:
+        url+=f"?conference={conference}"
         url_elements+=1
-    elif conference_abv != None:
-        url+=f"&conference={conference_abv}"
+    elif conference != None:
+        url+=f"&conference={conference}"
         url_elements+=1
 
     headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}

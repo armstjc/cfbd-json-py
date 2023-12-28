@@ -54,27 +54,295 @@
 
                         <label class="view-source-button" for="mod-rankings-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="c1"># Creation Date: 08/30/2023 01:13 EDT</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a><span class="c1"># Last Updated Date: 10/06/2023 07:53 PM EDT</span>
-</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="c1"># Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="c1"># File Name: rankings.py</span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="c1"># Purpose: Houses functions pertaining to CFB poll data within the CFBD API.</span>
-</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="c1">####################################################################################################</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>
-</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="k">def</span> <span class="nf">get_cfbd_poll_rankings</span><span class="p">(</span>
-</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>        <span class="n">season</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>        <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>        <span class="n">api_key_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>        <span class="n">week</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>        <span class="n">season_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;regular&quot;</span><span class="p">,</span>  <span class="c1"># &quot;regular&quot; or &quot;postseason&quot;</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>        <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>        <span class="s1">&#39;This function has yet to be implemented by this version.&#39;</span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>    <span class="p">)</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="c1"># Creation Date: 08/30/2023 01:13 EDT</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a><span class="c1"># Last Updated Date: 11/08/2023 10:00 PM EST</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="c1"># Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="c1"># File Name: rankings.py</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a><span class="c1"># Purpose: Houses functions pertaining to CFB poll data within the CFBD API.</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a><span class="c1">####################################################################################################</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a>
+</span><span id="L-8"><a href="#L-8"><span class="linenos">  8</span></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos">  9</span></a>
+</span><span id="L-10"><a href="#L-10"><span class="linenos"> 10</span></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos"> 11</span></a><span class="kn">import</span> <span class="nn">requests</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos"> 12</span></a><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos"> 13</span></a><span class="kn">from</span> <span class="nn">cfbd_json_py.utls</span> <span class="kn">import</span> <span class="n">get_cfbd_api_token</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos"> 14</span></a>
+</span><span id="L-15"><a href="#L-15"><span class="linenos"> 15</span></a>
+</span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a><span class="k">def</span> <span class="nf">get_cfbd_poll_rankings</span><span class="p">(</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>        <span class="n">season</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a>        <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a>        <span class="n">api_key_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a>        <span class="n">week</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a>        <span class="n">season_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;regular&quot;</span><span class="p">,</span>  <span class="c1"># &quot;regular&quot; or &quot;postseason&quot;</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a>
+</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a>        <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+</span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a><span class="sd">    Allows you to get CFB poll rankings data from the CFBD API.</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a><span class="sd">    </span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a><span class="sd">    Parameters</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a><span class="sd">    ----------</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a><span class="sd">    `season` (int, mandatory):</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a><span class="sd">        Required argument.</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a><span class="sd">        Specifies the season you want CFB poll rankings data from.</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a><span class="sd">        This must be specified, otherwise this package, and by extension</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a><span class="sd">        the CFBD API, will not accept the request to get CFB poll rankings data.</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>
+</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a><span class="sd">    `api_key` (str, optional):</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="sd">        Semi-optional argument. </span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a><span class="sd">        If `api_key` is null, this function will attempt to load a CFBD API key</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a><span class="sd">        from the python environment, or from a file on this computer.</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a><span class="sd">        If `api_key` is not null, this function will automatically assume that the</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a><span class="sd">        inputted `api_key` is a valid CFBD API key.</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a>
+</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a><span class="sd">    `api_key_dir` (str, optional):</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a><span class="sd">        Optional argument.</span>
+</span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a><span class="sd">        If `api_key` is set to am empty string, this variable is ignored.</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a><span class="sd">        If `api_key_dir` is null, and `api_key` is null, </span>
+</span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a><span class="sd">        this function will try to find a CFBD API key file in this user&#39;s home directory.</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a><span class="sd">        If `api_key_dir` is set to a string, and `api_key` is null,</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a><span class="sd">        this function will assume that `api_key_dir` is a directory, </span>
+</span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a><span class="sd">        and will try to find a CFBD API key file in that directory.</span>
+</span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a>
+</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a><span class="sd">    `week` (int, optional):</span>
+</span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a><span class="sd">        Optional argument.</span>
+</span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a><span class="sd">        If `week` is set to an integer, this function will attempt </span>
+</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a><span class="sd">        to load CFB poll rankings data from games in that season, and in that week.</span>
+</span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a><span class="sd">        </span>
+</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a><span class="sd">        Semi-optional argument.</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a><span class="sd">        If you want CFB poll rankings data for non-regular season games, </span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a><span class="sd">        set `season_type` to &quot;postseason&quot;.</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;, </span>
+</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a><span class="sd">        a `ValueError()` will be raised.</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a>
+</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a><span class="sd">    `return_as_dict` (bool, semi-optional):</span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a><span class="sd">        Semi-optional argument.</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a><span class="sd">        If you want this function to return the data as a dictionary (read: JSON object), </span>
+</span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a><span class="sd">        instead of a pandas `DataFrame` object,</span>
+</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a><span class="sd">        set `return_as_dict` to `True`.</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">    Usage</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="sd">    ----------</span>
+</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a><span class="sd">    ```</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">    import time</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">    from cfbd_json_py.rankings import get_cfbd_poll_rankings</span>
+</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>
+</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>
+</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a><span class="sd">        print(&quot;Using the user&#39;s API key declared in this script for this example.&quot;)</span>
+</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>
+</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a><span class="sd">        # Get CFB poll data for the 2020 CFB season.</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="sd">        print(&quot;Get CFB poll data for the 2020 CFB season.&quot;)</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="sd">            api_key=cfbd_key,</span>
+</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a><span class="sd">            season=2020</span>
+</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">        )</span>
+</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a><span class="sd">        print(json_data)</span>
+</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a><span class="sd">        time.sleep(5)</span>
+</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>
+</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a><span class="sd">        # Get CFB poll data from week 10 of the 2023 CFB season.</span>
+</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a><span class="sd">        print(&quot;Get CFB poll data from week 10 of the 2023 CFB season.&quot;)</span>
+</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a><span class="sd">            api_key=cfbd_key,</span>
+</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a><span class="sd">            season=2023,</span>
+</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">            week=10</span>
+</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a><span class="sd">        )</span>
+</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a><span class="sd">        print(json_data)</span>
+</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a><span class="sd">        time.sleep(5)</span>
+</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>
+</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a><span class="sd">        # Get CFB poll data for the 2021 CFB season, during the postseason.</span>
+</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a><span class="sd">        print(&quot;Get CFB poll data for the 2021 CFB season, during the postseason.&quot;)</span>
+</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a><span class="sd">            api_key=cfbd_key,</span>
+</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a><span class="sd">            season=2021,</span>
+</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a><span class="sd">            season_type=&quot;postseason&quot;</span>
+</span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a><span class="sd">        )</span>
+</span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a><span class="sd">        print(json_data)</span>
+</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a><span class="sd">        time.sleep(5)</span>
+</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a>
+</span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a><span class="sd">        # You can also tell this function to just return the API call as</span>
+</span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a><span class="sd">        # a Dictionary (read: JSON) object.</span>
+</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a><span class="sd">        print(&quot;You can also tell this function to just return the API call as a Dictionary (read: JSON) object.&quot;)</span>
+</span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a><span class="sd">            api_key=cfbd_key,</span>
+</span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a><span class="sd">            season=2020,</span>
+</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a><span class="sd">            week=10,</span>
+</span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a><span class="sd">            return_as_dict=True</span>
+</span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a><span class="sd">        )</span>
+</span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a><span class="sd">        print(json_data)</span>
+</span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a>
+</span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a><span class="sd">    else:</span>
+</span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a><span class="sd">        # Alternatively, if the CFBD API key exists in this python environment,</span>
+</span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a><span class="sd">        # or it&#39;s been set by cfbd_json_py.utls.set_cfbd_api_token(),</span>
+</span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a><span class="sd">        # you could just call these functions directly, without setting the API key</span>
+</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a><span class="sd">        # in the script.</span>
+</span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a><span class="sd">        print(&quot;Using the user&#39;s API key suposedly loaded into this python environment for this example.&quot;)</span>
+</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>
+</span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a><span class="sd">        # Get CFB poll data for the 2020 CFB season.</span>
+</span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a><span class="sd">        print(&quot;Get CFB poll data for the 2020 CFB season.&quot;)</span>
+</span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a><span class="sd">            season=2020</span>
+</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a><span class="sd">        )</span>
+</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a><span class="sd">        print(json_data)</span>
+</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a><span class="sd">        time.sleep(5)</span>
+</span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a>
+</span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a><span class="sd">        # Get CFB poll data from week 10 of the 2023 CFB season.</span>
+</span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a><span class="sd">        print(&quot;Get CFB poll data from week 10 of the 2023 CFB season.&quot;)</span>
+</span><span id="L-140"><a href="#L-140"><span class="linenos">140</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="L-141"><a href="#L-141"><span class="linenos">141</span></a><span class="sd">            season=2023,</span>
+</span><span id="L-142"><a href="#L-142"><span class="linenos">142</span></a><span class="sd">            week=10</span>
+</span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a><span class="sd">        )</span>
+</span><span id="L-144"><a href="#L-144"><span class="linenos">144</span></a><span class="sd">        print(json_data)</span>
+</span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a><span class="sd">        time.sleep(5)</span>
+</span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>
+</span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a><span class="sd">        # Get CFB poll data for the 2021 CFB season, during the postseason.</span>
+</span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a><span class="sd">        print(&quot;Get CFB poll data for the 2021 CFB season, during the postseason.&quot;)</span>
+</span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a><span class="sd">            season=2021,</span>
+</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a><span class="sd">            season_type=&quot;postseason&quot;</span>
+</span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a><span class="sd">        )</span>
+</span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a><span class="sd">        print(json_data)</span>
+</span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a><span class="sd">        time.sleep(5)</span>
+</span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a>
+</span><span id="L-156"><a href="#L-156"><span class="linenos">156</span></a><span class="sd">        # You can also tell this function to just return the API call as</span>
+</span><span id="L-157"><a href="#L-157"><span class="linenos">157</span></a><span class="sd">        # a Dictionary (read: JSON) object.</span>
+</span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a><span class="sd">        print(&quot;You can also tell this function to just return the API call as a Dictionary (read: JSON) object.&quot;)</span>
+</span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a><span class="sd">            season=2020,</span>
+</span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a><span class="sd">            week=10,</span>
+</span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a><span class="sd">            return_as_dict=True</span>
+</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a><span class="sd">        )</span>
+</span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a><span class="sd">        print(json_data)</span>
+</span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a>
+</span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a><span class="sd">    ```</span>
+</span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a><span class="sd">    Returns</span>
+</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a><span class="sd">    ----------</span>
+</span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a><span class="sd">    A pandas `DataFrame` object with CFB Poll data, </span>
+</span><span id="L-170"><a href="#L-170"><span class="linenos">170</span></a><span class="sd">    or (if `return_as_dict` is set to `True`) </span>
+</span><span id="L-171"><a href="#L-171"><span class="linenos">171</span></a><span class="sd">    a dictionary object with CFB Poll data.</span>
+</span><span id="L-172"><a href="#L-172"><span class="linenos">172</span></a>
+</span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a>
+</span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a>    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a>    <span class="n">rankings_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+</span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a>    <span class="n">row_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+</span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a>    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.collegefootballdata.com/rankings&quot;</span>
+</span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a>
+</span><span id="L-180"><a href="#L-180"><span class="linenos">180</span></a>    <span class="c1">########################################################################################################################################################################################################</span>
+</span><span id="L-181"><a href="#L-181"><span class="linenos">181</span></a>
+</span><span id="L-182"><a href="#L-182"><span class="linenos">182</span></a>    <span class="k">if</span> <span class="n">api_key</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-183"><a href="#L-183"><span class="linenos">183</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">api_key</span>
+</span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a>        <span class="k">del</span> <span class="n">api_key</span>
+</span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="L-186"><a href="#L-186"><span class="linenos">186</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
+</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a>
+</span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-189"><a href="#L-189"><span class="linenos">189</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span><span class="p">)</span>
+</span><span id="L-191"><a href="#L-191"><span class="linenos">191</span></a>    <span class="k">elif</span> <span class="s2">&quot;Bearer &quot;</span> <span class="ow">in</span> <span class="n">real_api_key</span><span class="p">:</span>
+</span><span id="L-192"><a href="#L-192"><span class="linenos">192</span></a>        <span class="k">pass</span>
+</span><span id="L-193"><a href="#L-193"><span class="linenos">193</span></a>    <span class="k">elif</span> <span class="s2">&quot;Bearer&quot;</span> <span class="ow">in</span> <span class="n">real_api_key</span><span class="p">:</span>
+</span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">real_api_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Bearer&#39;</span><span class="p">,</span> <span class="s1">&#39;Bearer &#39;</span><span class="p">)</span>
+</span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="s2">&quot;Bearer &quot;</span> <span class="o">+</span> <span class="n">real_api_key</span>
+</span><span id="L-197"><a href="#L-197"><span class="linenos">197</span></a>
+</span><span id="L-198"><a href="#L-198"><span class="linenos">198</span></a>    <span class="k">if</span> <span class="n">season</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-199"><a href="#L-199"><span class="linenos">199</span></a>        <span class="c1"># This should never happen without user tampering, but if it does,</span>
+</span><span id="L-200"><a href="#L-200"><span class="linenos">200</span></a>        <span class="c1"># we need to raise an error, because the CFBD API will refuse this call without a valid season.</span>
+</span><span id="L-201"><a href="#L-201"><span class="linenos">201</span></a>        <span class="k">raise</span> <span class="ne">SystemError</span><span class="p">(</span>
+</span><span id="L-202"><a href="#L-202"><span class="linenos">202</span></a>            <span class="s2">&quot;I don&#39;t know how, I don&#39;t know why, but you managed to call this function while `season` was `None` (NULL),&quot;</span> <span class="o">+</span>
+</span><span id="L-203"><a href="#L-203"><span class="linenos">203</span></a>            <span class="s2">&quot; and the function got to this point in the code.&quot;</span> <span class="o">+</span>
+</span><span id="L-204"><a href="#L-204"><span class="linenos">204</span></a>            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">If you have a GitHub account, please raise an issue on this python package&#39;s GitHub page:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+</span><span id="L-205"><a href="#L-205"><span class="linenos">205</span></a>            <span class="s2">&quot;https://github.com/armstjc/cfbd-json-py/issues&quot;</span>
+</span><span id="L-206"><a href="#L-206"><span class="linenos">206</span></a>        <span class="p">)</span>
+</span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a>    <span class="k">elif</span> <span class="n">season</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`season` cannot be greater than </span><span class="si">{</span><span class="n">season</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a>    <span class="k">elif</span> <span class="n">season</span> <span class="o">&lt;</span> <span class="mi">1869</span><span class="p">:</span>
+</span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`season` cannot be less than 1869.&quot;</span><span class="p">)</span>
+</span><span id="L-211"><a href="#L-211"><span class="linenos">211</span></a>
+</span><span id="L-212"><a href="#L-212"><span class="linenos">212</span></a>    <span class="k">if</span> <span class="n">season_type</span> <span class="o">!=</span> <span class="s2">&quot;regular&quot;</span> <span class="ow">and</span> <span class="n">season_type</span> <span class="o">!=</span> <span class="s2">&quot;postseason&quot;</span><span class="p">:</span>
+</span><span id="L-213"><a href="#L-213"><span class="linenos">213</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="L-214"><a href="#L-214"><span class="linenos">214</span></a>            <span class="s2">&quot;`season_type` must be set to either </span><span class="se">\&quot;</span><span class="s2">regular</span><span class="se">\&quot;</span><span class="s2"> or </span><span class="se">\&quot;</span><span class="s2">postseason</span><span class="se">\&quot;</span><span class="s2"> for this function to work.&quot;</span><span class="p">)</span>
+</span><span id="L-215"><a href="#L-215"><span class="linenos">215</span></a>
+</span><span id="L-216"><a href="#L-216"><span class="linenos">216</span></a>    <span class="k">if</span> <span class="n">week</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">week</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="L-217"><a href="#L-217"><span class="linenos">217</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="L-218"><a href="#L-218"><span class="linenos">218</span></a>            <span class="s2">&quot;`week` must be a positive number.&quot;</span>
+</span><span id="L-219"><a href="#L-219"><span class="linenos">219</span></a>        <span class="p">)</span>
+</span><span id="L-220"><a href="#L-220"><span class="linenos">220</span></a>
+</span><span id="L-221"><a href="#L-221"><span class="linenos">221</span></a>    <span class="k">if</span> <span class="n">season_type</span> <span class="o">!=</span> <span class="s2">&quot;regular&quot;</span> <span class="ow">and</span> <span class="n">season_type</span> <span class="o">!=</span> <span class="s2">&quot;postseason&quot;</span><span class="p">:</span>
+</span><span id="L-222"><a href="#L-222"><span class="linenos">222</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a>            <span class="s2">&quot;`season_type` must be set to either </span><span class="se">\&quot;</span><span class="s2">regular</span><span class="se">\&quot;</span><span class="s2"> or </span><span class="se">\&quot;</span><span class="s2">postseason</span><span class="se">\&quot;</span><span class="s2"> for this function to work.&quot;</span><span class="p">)</span>
+</span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a>    <span class="c1"># URL builder</span>
+</span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a>    <span class="c1">########################################################################################################################################################################################################</span>
+</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a>
+</span><span id="L-227"><a href="#L-227"><span class="linenos">227</span></a>    <span class="c1"># Required by API</span>
+</span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a>    <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;?year=</span><span class="si">{</span><span class="n">season</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a>
+</span><span id="L-230"><a href="#L-230"><span class="linenos">230</span></a>    <span class="k">if</span> <span class="n">week</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-231"><a href="#L-231"><span class="linenos">231</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;week=</span><span class="si">{</span><span class="n">week</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-232"><a href="#L-232"><span class="linenos">232</span></a>
+</span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a>    <span class="k">if</span> <span class="n">season_type</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-234"><a href="#L-234"><span class="linenos">234</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;seasonType=</span><span class="si">{</span><span class="n">season_type</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-235"><a href="#L-235"><span class="linenos">235</span></a>
+</span><span id="L-236"><a href="#L-236"><span class="linenos">236</span></a>    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-237"><a href="#L-237"><span class="linenos">237</span></a>        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">real_api_key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span id="L-238"><a href="#L-238"><span class="linenos">238</span></a>        <span class="s1">&#39;accept&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+</span><span id="L-239"><a href="#L-239"><span class="linenos">239</span></a>    <span class="p">}</span>
+</span><span id="L-240"><a href="#L-240"><span class="linenos">240</span></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</span><span id="L-241"><a href="#L-241"><span class="linenos">241</span></a>
+</span><span id="L-242"><a href="#L-242"><span class="linenos">242</span></a>    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+</span><span id="L-243"><a href="#L-243"><span class="linenos">243</span></a>        <span class="k">pass</span>
+</span><span id="L-244"><a href="#L-244"><span class="linenos">244</span></a>    <span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
+</span><span id="L-245"><a href="#L-245"><span class="linenos">245</span></a>        <span class="k">raise</span> <span class="ne">ConnectionRefusedError</span><span class="p">(</span>
+</span><span id="L-246"><a href="#L-246"><span class="linenos">246</span></a>            <span class="sa">f</span><span class="s1">&#39;Could not connect. The connection was refused.</span><span class="se">\n</span><span class="s1">HTTP Status Code 401.&#39;</span>
+</span><span id="L-247"><a href="#L-247"><span class="linenos">247</span></a>        <span class="p">)</span>
+</span><span id="L-248"><a href="#L-248"><span class="linenos">248</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="L-249"><a href="#L-249"><span class="linenos">249</span></a>        <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span>
+</span><span id="L-250"><a href="#L-250"><span class="linenos">250</span></a>            <span class="sa">f</span><span class="s1">&#39;Could not connect.</span><span class="se">\n</span><span class="s1">HTTP Status code </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span>
+</span><span id="L-251"><a href="#L-251"><span class="linenos">251</span></a>        <span class="p">)</span>
+</span><span id="L-252"><a href="#L-252"><span class="linenos">252</span></a>
+</span><span id="L-253"><a href="#L-253"><span class="linenos">253</span></a>    <span class="n">json_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="L-254"><a href="#L-254"><span class="linenos">254</span></a>
+</span><span id="L-255"><a href="#L-255"><span class="linenos">255</span></a>    <span class="k">if</span> <span class="n">return_as_dict</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="L-256"><a href="#L-256"><span class="linenos">256</span></a>        <span class="k">return</span> <span class="n">json_data</span>
+</span><span id="L-257"><a href="#L-257"><span class="linenos">257</span></a>    
+</span><span id="L-258"><a href="#L-258"><span class="linenos">258</span></a>    <span class="k">for</span> <span class="n">week</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">json_data</span><span class="p">):</span>
+</span><span id="L-259"><a href="#L-259"><span class="linenos">259</span></a>        <span class="n">w_season</span> <span class="o">=</span> <span class="n">week</span><span class="p">[</span><span class="s1">&#39;season&#39;</span><span class="p">]</span>
+</span><span id="L-260"><a href="#L-260"><span class="linenos">260</span></a>        <span class="n">w_season_type</span> <span class="o">=</span> <span class="n">week</span><span class="p">[</span><span class="s1">&#39;seasonType&#39;</span><span class="p">]</span>
+</span><span id="L-261"><a href="#L-261"><span class="linenos">261</span></a>        <span class="n">w_week</span> <span class="o">=</span> <span class="n">week</span><span class="p">[</span><span class="s1">&#39;week&#39;</span><span class="p">]</span>
+</span><span id="L-262"><a href="#L-262"><span class="linenos">262</span></a>
+</span><span id="L-263"><a href="#L-263"><span class="linenos">263</span></a>        <span class="k">for</span> <span class="n">poll</span> <span class="ow">in</span> <span class="n">week</span><span class="p">[</span><span class="s1">&#39;polls&#39;</span><span class="p">]:</span>
+</span><span id="L-264"><a href="#L-264"><span class="linenos">264</span></a>            <span class="n">p_poll_name</span> <span class="o">=</span> <span class="n">poll</span><span class="p">[</span><span class="s1">&#39;poll&#39;</span><span class="p">]</span>
+</span><span id="L-265"><a href="#L-265"><span class="linenos">265</span></a>            
+</span><span id="L-266"><a href="#L-266"><span class="linenos">266</span></a>            <span class="k">for</span> <span class="n">team</span> <span class="ow">in</span> <span class="n">poll</span><span class="p">[</span><span class="s1">&#39;ranks&#39;</span><span class="p">]:</span>
+</span><span id="L-267"><a href="#L-267"><span class="linenos">267</span></a>                <span class="n">row_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+</span><span id="L-268"><a href="#L-268"><span class="linenos">268</span></a>                    <span class="p">{</span>
+</span><span id="L-269"><a href="#L-269"><span class="linenos">269</span></a>                        <span class="s2">&quot;season&quot;</span><span class="p">:</span><span class="n">w_season</span><span class="p">,</span>
+</span><span id="L-270"><a href="#L-270"><span class="linenos">270</span></a>                        <span class="s2">&quot;season_type&quot;</span><span class="p">:</span><span class="n">w_season_type</span><span class="p">,</span>
+</span><span id="L-271"><a href="#L-271"><span class="linenos">271</span></a>                        <span class="s2">&quot;week&quot;</span><span class="p">:</span><span class="n">w_week</span><span class="p">,</span>
+</span><span id="L-272"><a href="#L-272"><span class="linenos">272</span></a>                        <span class="s2">&quot;poll_name&quot;</span><span class="p">:</span><span class="n">p_poll_name</span>
+</span><span id="L-273"><a href="#L-273"><span class="linenos">273</span></a>                    <span class="p">},</span>
+</span><span id="L-274"><a href="#L-274"><span class="linenos">274</span></a>                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="L-275"><a href="#L-275"><span class="linenos">275</span></a>                <span class="p">)</span>
+</span><span id="L-276"><a href="#L-276"><span class="linenos">276</span></a>
+</span><span id="L-277"><a href="#L-277"><span class="linenos">277</span></a>                <span class="n">row_df</span><span class="p">[</span><span class="s1">&#39;poll_rank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span>
+</span><span id="L-278"><a href="#L-278"><span class="linenos">278</span></a>                <span class="n">row_df</span><span class="p">[</span><span class="s1">&#39;school_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s1">&#39;school&#39;</span><span class="p">]</span>
+</span><span id="L-279"><a href="#L-279"><span class="linenos">279</span></a>                <span class="n">row_df</span><span class="p">[</span><span class="s1">&#39;conference_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s1">&#39;conference&#39;</span><span class="p">]</span>
+</span><span id="L-280"><a href="#L-280"><span class="linenos">280</span></a>                <span class="n">row_df</span><span class="p">[</span><span class="s1">&#39;first_place_votes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s1">&#39;firstPlaceVotes&#39;</span><span class="p">]</span>
+</span><span id="L-281"><a href="#L-281"><span class="linenos">281</span></a>                <span class="n">row_df</span><span class="p">[</span><span class="s1">&#39;points&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s1">&#39;points&#39;</span><span class="p">]</span>
+</span><span id="L-282"><a href="#L-282"><span class="linenos">282</span></a>
+</span><span id="L-283"><a href="#L-283"><span class="linenos">283</span></a>                <span class="n">rankings_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">rankings_df</span><span class="p">,</span><span class="n">row_df</span><span class="p">],</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="L-284"><a href="#L-284"><span class="linenos">284</span></a>                <span class="k">del</span> <span class="n">row_df</span>
+</span><span id="L-285"><a href="#L-285"><span class="linenos">285</span></a>                
+</span><span id="L-286"><a href="#L-286"><span class="linenos">286</span></a>            <span class="k">del</span> <span class="n">p_poll_name</span>
+</span><span id="L-287"><a href="#L-287"><span class="linenos">287</span></a>
+</span><span id="L-288"><a href="#L-288"><span class="linenos">288</span></a>        <span class="k">del</span> <span class="n">w_season</span><span class="p">,</span> <span class="n">w_season_type</span><span class="p">,</span> <span class="n">w_week</span>
+</span><span id="L-289"><a href="#L-289"><span class="linenos">289</span></a>    <span class="k">return</span> <span class="n">rankings_df</span>
 </span></pre></div>
 
 
@@ -90,24 +358,432 @@
 
     </div>
     <a class="headerlink" href="#get_cfbd_poll_rankings"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="get_cfbd_poll_rankings-9"><a href="#get_cfbd_poll_rankings-9"><span class="linenos"> 9</span></a><span class="k">def</span> <span class="nf">get_cfbd_poll_rankings</span><span class="p">(</span>
-</span><span id="get_cfbd_poll_rankings-10"><a href="#get_cfbd_poll_rankings-10"><span class="linenos">10</span></a>        <span class="n">season</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="get_cfbd_poll_rankings-11"><a href="#get_cfbd_poll_rankings-11"><span class="linenos">11</span></a>        <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="get_cfbd_poll_rankings-12"><a href="#get_cfbd_poll_rankings-12"><span class="linenos">12</span></a>        <span class="n">api_key_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="get_cfbd_poll_rankings-13"><a href="#get_cfbd_poll_rankings-13"><span class="linenos">13</span></a>        <span class="n">week</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="get_cfbd_poll_rankings-14"><a href="#get_cfbd_poll_rankings-14"><span class="linenos">14</span></a>        <span class="n">season_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;regular&quot;</span><span class="p">,</span>  <span class="c1"># &quot;regular&quot; or &quot;postseason&quot;</span>
-</span><span id="get_cfbd_poll_rankings-15"><a href="#get_cfbd_poll_rankings-15"><span class="linenos">15</span></a>
-</span><span id="get_cfbd_poll_rankings-16"><a href="#get_cfbd_poll_rankings-16"><span class="linenos">16</span></a>        <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-</span><span id="get_cfbd_poll_rankings-17"><a href="#get_cfbd_poll_rankings-17"><span class="linenos">17</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="get_cfbd_poll_rankings-18"><a href="#get_cfbd_poll_rankings-18"><span class="linenos">18</span></a>
-</span><span id="get_cfbd_poll_rankings-19"><a href="#get_cfbd_poll_rankings-19"><span class="linenos">19</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="get_cfbd_poll_rankings-20"><a href="#get_cfbd_poll_rankings-20"><span class="linenos">20</span></a>    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-</span><span id="get_cfbd_poll_rankings-21"><a href="#get_cfbd_poll_rankings-21"><span class="linenos">21</span></a>        <span class="s1">&#39;This function has yet to be implemented by this version.&#39;</span>
-</span><span id="get_cfbd_poll_rankings-22"><a href="#get_cfbd_poll_rankings-22"><span class="linenos">22</span></a>    <span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="get_cfbd_poll_rankings-17"><a href="#get_cfbd_poll_rankings-17"><span class="linenos"> 17</span></a><span class="k">def</span> <span class="nf">get_cfbd_poll_rankings</span><span class="p">(</span>
+</span><span id="get_cfbd_poll_rankings-18"><a href="#get_cfbd_poll_rankings-18"><span class="linenos"> 18</span></a>        <span class="n">season</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span><span id="get_cfbd_poll_rankings-19"><a href="#get_cfbd_poll_rankings-19"><span class="linenos"> 19</span></a>        <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="get_cfbd_poll_rankings-20"><a href="#get_cfbd_poll_rankings-20"><span class="linenos"> 20</span></a>        <span class="n">api_key_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="get_cfbd_poll_rankings-21"><a href="#get_cfbd_poll_rankings-21"><span class="linenos"> 21</span></a>        <span class="n">week</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="get_cfbd_poll_rankings-22"><a href="#get_cfbd_poll_rankings-22"><span class="linenos"> 22</span></a>        <span class="n">season_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;regular&quot;</span><span class="p">,</span>  <span class="c1"># &quot;regular&quot; or &quot;postseason&quot;</span>
+</span><span id="get_cfbd_poll_rankings-23"><a href="#get_cfbd_poll_rankings-23"><span class="linenos"> 23</span></a>
+</span><span id="get_cfbd_poll_rankings-24"><a href="#get_cfbd_poll_rankings-24"><span class="linenos"> 24</span></a>        <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+</span><span id="get_cfbd_poll_rankings-25"><a href="#get_cfbd_poll_rankings-25"><span class="linenos"> 25</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="get_cfbd_poll_rankings-26"><a href="#get_cfbd_poll_rankings-26"><span class="linenos"> 26</span></a><span class="sd">    Allows you to get CFB poll rankings data from the CFBD API.</span>
+</span><span id="get_cfbd_poll_rankings-27"><a href="#get_cfbd_poll_rankings-27"><span class="linenos"> 27</span></a><span class="sd">    </span>
+</span><span id="get_cfbd_poll_rankings-28"><a href="#get_cfbd_poll_rankings-28"><span class="linenos"> 28</span></a><span class="sd">    Parameters</span>
+</span><span id="get_cfbd_poll_rankings-29"><a href="#get_cfbd_poll_rankings-29"><span class="linenos"> 29</span></a><span class="sd">    ----------</span>
+</span><span id="get_cfbd_poll_rankings-30"><a href="#get_cfbd_poll_rankings-30"><span class="linenos"> 30</span></a><span class="sd">    `season` (int, mandatory):</span>
+</span><span id="get_cfbd_poll_rankings-31"><a href="#get_cfbd_poll_rankings-31"><span class="linenos"> 31</span></a><span class="sd">        Required argument.</span>
+</span><span id="get_cfbd_poll_rankings-32"><a href="#get_cfbd_poll_rankings-32"><span class="linenos"> 32</span></a><span class="sd">        Specifies the season you want CFB poll rankings data from.</span>
+</span><span id="get_cfbd_poll_rankings-33"><a href="#get_cfbd_poll_rankings-33"><span class="linenos"> 33</span></a><span class="sd">        This must be specified, otherwise this package, and by extension</span>
+</span><span id="get_cfbd_poll_rankings-34"><a href="#get_cfbd_poll_rankings-34"><span class="linenos"> 34</span></a><span class="sd">        the CFBD API, will not accept the request to get CFB poll rankings data.</span>
+</span><span id="get_cfbd_poll_rankings-35"><a href="#get_cfbd_poll_rankings-35"><span class="linenos"> 35</span></a>
+</span><span id="get_cfbd_poll_rankings-36"><a href="#get_cfbd_poll_rankings-36"><span class="linenos"> 36</span></a><span class="sd">    `api_key` (str, optional):</span>
+</span><span id="get_cfbd_poll_rankings-37"><a href="#get_cfbd_poll_rankings-37"><span class="linenos"> 37</span></a><span class="sd">        Semi-optional argument. </span>
+</span><span id="get_cfbd_poll_rankings-38"><a href="#get_cfbd_poll_rankings-38"><span class="linenos"> 38</span></a><span class="sd">        If `api_key` is null, this function will attempt to load a CFBD API key</span>
+</span><span id="get_cfbd_poll_rankings-39"><a href="#get_cfbd_poll_rankings-39"><span class="linenos"> 39</span></a><span class="sd">        from the python environment, or from a file on this computer.</span>
+</span><span id="get_cfbd_poll_rankings-40"><a href="#get_cfbd_poll_rankings-40"><span class="linenos"> 40</span></a><span class="sd">        If `api_key` is not null, this function will automatically assume that the</span>
+</span><span id="get_cfbd_poll_rankings-41"><a href="#get_cfbd_poll_rankings-41"><span class="linenos"> 41</span></a><span class="sd">        inputted `api_key` is a valid CFBD API key.</span>
+</span><span id="get_cfbd_poll_rankings-42"><a href="#get_cfbd_poll_rankings-42"><span class="linenos"> 42</span></a>
+</span><span id="get_cfbd_poll_rankings-43"><a href="#get_cfbd_poll_rankings-43"><span class="linenos"> 43</span></a><span class="sd">    `api_key_dir` (str, optional):</span>
+</span><span id="get_cfbd_poll_rankings-44"><a href="#get_cfbd_poll_rankings-44"><span class="linenos"> 44</span></a><span class="sd">        Optional argument.</span>
+</span><span id="get_cfbd_poll_rankings-45"><a href="#get_cfbd_poll_rankings-45"><span class="linenos"> 45</span></a><span class="sd">        If `api_key` is set to am empty string, this variable is ignored.</span>
+</span><span id="get_cfbd_poll_rankings-46"><a href="#get_cfbd_poll_rankings-46"><span class="linenos"> 46</span></a><span class="sd">        If `api_key_dir` is null, and `api_key` is null, </span>
+</span><span id="get_cfbd_poll_rankings-47"><a href="#get_cfbd_poll_rankings-47"><span class="linenos"> 47</span></a><span class="sd">        this function will try to find a CFBD API key file in this user&#39;s home directory.</span>
+</span><span id="get_cfbd_poll_rankings-48"><a href="#get_cfbd_poll_rankings-48"><span class="linenos"> 48</span></a><span class="sd">        If `api_key_dir` is set to a string, and `api_key` is null,</span>
+</span><span id="get_cfbd_poll_rankings-49"><a href="#get_cfbd_poll_rankings-49"><span class="linenos"> 49</span></a><span class="sd">        this function will assume that `api_key_dir` is a directory, </span>
+</span><span id="get_cfbd_poll_rankings-50"><a href="#get_cfbd_poll_rankings-50"><span class="linenos"> 50</span></a><span class="sd">        and will try to find a CFBD API key file in that directory.</span>
+</span><span id="get_cfbd_poll_rankings-51"><a href="#get_cfbd_poll_rankings-51"><span class="linenos"> 51</span></a>
+</span><span id="get_cfbd_poll_rankings-52"><a href="#get_cfbd_poll_rankings-52"><span class="linenos"> 52</span></a><span class="sd">    `week` (int, optional):</span>
+</span><span id="get_cfbd_poll_rankings-53"><a href="#get_cfbd_poll_rankings-53"><span class="linenos"> 53</span></a><span class="sd">        Optional argument.</span>
+</span><span id="get_cfbd_poll_rankings-54"><a href="#get_cfbd_poll_rankings-54"><span class="linenos"> 54</span></a><span class="sd">        If `week` is set to an integer, this function will attempt </span>
+</span><span id="get_cfbd_poll_rankings-55"><a href="#get_cfbd_poll_rankings-55"><span class="linenos"> 55</span></a><span class="sd">        to load CFB poll rankings data from games in that season, and in that week.</span>
+</span><span id="get_cfbd_poll_rankings-56"><a href="#get_cfbd_poll_rankings-56"><span class="linenos"> 56</span></a><span class="sd">        </span>
+</span><span id="get_cfbd_poll_rankings-57"><a href="#get_cfbd_poll_rankings-57"><span class="linenos"> 57</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
+</span><span id="get_cfbd_poll_rankings-58"><a href="#get_cfbd_poll_rankings-58"><span class="linenos"> 58</span></a><span class="sd">        Semi-optional argument.</span>
+</span><span id="get_cfbd_poll_rankings-59"><a href="#get_cfbd_poll_rankings-59"><span class="linenos"> 59</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="get_cfbd_poll_rankings-60"><a href="#get_cfbd_poll_rankings-60"><span class="linenos"> 60</span></a><span class="sd">        If you want CFB poll rankings data for non-regular season games, </span>
+</span><span id="get_cfbd_poll_rankings-61"><a href="#get_cfbd_poll_rankings-61"><span class="linenos"> 61</span></a><span class="sd">        set `season_type` to &quot;postseason&quot;.</span>
+</span><span id="get_cfbd_poll_rankings-62"><a href="#get_cfbd_poll_rankings-62"><span class="linenos"> 62</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;, </span>
+</span><span id="get_cfbd_poll_rankings-63"><a href="#get_cfbd_poll_rankings-63"><span class="linenos"> 63</span></a><span class="sd">        a `ValueError()` will be raised.</span>
+</span><span id="get_cfbd_poll_rankings-64"><a href="#get_cfbd_poll_rankings-64"><span class="linenos"> 64</span></a>
+</span><span id="get_cfbd_poll_rankings-65"><a href="#get_cfbd_poll_rankings-65"><span class="linenos"> 65</span></a><span class="sd">    `return_as_dict` (bool, semi-optional):</span>
+</span><span id="get_cfbd_poll_rankings-66"><a href="#get_cfbd_poll_rankings-66"><span class="linenos"> 66</span></a><span class="sd">        Semi-optional argument.</span>
+</span><span id="get_cfbd_poll_rankings-67"><a href="#get_cfbd_poll_rankings-67"><span class="linenos"> 67</span></a><span class="sd">        If you want this function to return the data as a dictionary (read: JSON object), </span>
+</span><span id="get_cfbd_poll_rankings-68"><a href="#get_cfbd_poll_rankings-68"><span class="linenos"> 68</span></a><span class="sd">        instead of a pandas `DataFrame` object,</span>
+</span><span id="get_cfbd_poll_rankings-69"><a href="#get_cfbd_poll_rankings-69"><span class="linenos"> 69</span></a><span class="sd">        set `return_as_dict` to `True`.</span>
+</span><span id="get_cfbd_poll_rankings-70"><a href="#get_cfbd_poll_rankings-70"><span class="linenos"> 70</span></a>
+</span><span id="get_cfbd_poll_rankings-71"><a href="#get_cfbd_poll_rankings-71"><span class="linenos"> 71</span></a><span class="sd">    Usage</span>
+</span><span id="get_cfbd_poll_rankings-72"><a href="#get_cfbd_poll_rankings-72"><span class="linenos"> 72</span></a><span class="sd">    ----------</span>
+</span><span id="get_cfbd_poll_rankings-73"><a href="#get_cfbd_poll_rankings-73"><span class="linenos"> 73</span></a><span class="sd">    ```</span>
+</span><span id="get_cfbd_poll_rankings-74"><a href="#get_cfbd_poll_rankings-74"><span class="linenos"> 74</span></a><span class="sd">    import time</span>
+</span><span id="get_cfbd_poll_rankings-75"><a href="#get_cfbd_poll_rankings-75"><span class="linenos"> 75</span></a>
+</span><span id="get_cfbd_poll_rankings-76"><a href="#get_cfbd_poll_rankings-76"><span class="linenos"> 76</span></a><span class="sd">    from cfbd_json_py.rankings import get_cfbd_poll_rankings</span>
+</span><span id="get_cfbd_poll_rankings-77"><a href="#get_cfbd_poll_rankings-77"><span class="linenos"> 77</span></a>
+</span><span id="get_cfbd_poll_rankings-78"><a href="#get_cfbd_poll_rankings-78"><span class="linenos"> 78</span></a>
+</span><span id="get_cfbd_poll_rankings-79"><a href="#get_cfbd_poll_rankings-79"><span class="linenos"> 79</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_poll_rankings-80"><a href="#get_cfbd_poll_rankings-80"><span class="linenos"> 80</span></a>
+</span><span id="get_cfbd_poll_rankings-81"><a href="#get_cfbd_poll_rankings-81"><span class="linenos"> 81</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_poll_rankings-82"><a href="#get_cfbd_poll_rankings-82"><span class="linenos"> 82</span></a><span class="sd">        print(&quot;Using the user&#39;s API key declared in this script for this example.&quot;)</span>
+</span><span id="get_cfbd_poll_rankings-83"><a href="#get_cfbd_poll_rankings-83"><span class="linenos"> 83</span></a>
+</span><span id="get_cfbd_poll_rankings-84"><a href="#get_cfbd_poll_rankings-84"><span class="linenos"> 84</span></a><span class="sd">        # Get CFB poll data for the 2020 CFB season.</span>
+</span><span id="get_cfbd_poll_rankings-85"><a href="#get_cfbd_poll_rankings-85"><span class="linenos"> 85</span></a><span class="sd">        print(&quot;Get CFB poll data for the 2020 CFB season.&quot;)</span>
+</span><span id="get_cfbd_poll_rankings-86"><a href="#get_cfbd_poll_rankings-86"><span class="linenos"> 86</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="get_cfbd_poll_rankings-87"><a href="#get_cfbd_poll_rankings-87"><span class="linenos"> 87</span></a><span class="sd">            api_key=cfbd_key,</span>
+</span><span id="get_cfbd_poll_rankings-88"><a href="#get_cfbd_poll_rankings-88"><span class="linenos"> 88</span></a><span class="sd">            season=2020</span>
+</span><span id="get_cfbd_poll_rankings-89"><a href="#get_cfbd_poll_rankings-89"><span class="linenos"> 89</span></a><span class="sd">        )</span>
+</span><span id="get_cfbd_poll_rankings-90"><a href="#get_cfbd_poll_rankings-90"><span class="linenos"> 90</span></a><span class="sd">        print(json_data)</span>
+</span><span id="get_cfbd_poll_rankings-91"><a href="#get_cfbd_poll_rankings-91"><span class="linenos"> 91</span></a><span class="sd">        time.sleep(5)</span>
+</span><span id="get_cfbd_poll_rankings-92"><a href="#get_cfbd_poll_rankings-92"><span class="linenos"> 92</span></a>
+</span><span id="get_cfbd_poll_rankings-93"><a href="#get_cfbd_poll_rankings-93"><span class="linenos"> 93</span></a><span class="sd">        # Get CFB poll data from week 10 of the 2023 CFB season.</span>
+</span><span id="get_cfbd_poll_rankings-94"><a href="#get_cfbd_poll_rankings-94"><span class="linenos"> 94</span></a><span class="sd">        print(&quot;Get CFB poll data from week 10 of the 2023 CFB season.&quot;)</span>
+</span><span id="get_cfbd_poll_rankings-95"><a href="#get_cfbd_poll_rankings-95"><span class="linenos"> 95</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="get_cfbd_poll_rankings-96"><a href="#get_cfbd_poll_rankings-96"><span class="linenos"> 96</span></a><span class="sd">            api_key=cfbd_key,</span>
+</span><span id="get_cfbd_poll_rankings-97"><a href="#get_cfbd_poll_rankings-97"><span class="linenos"> 97</span></a><span class="sd">            season=2023,</span>
+</span><span id="get_cfbd_poll_rankings-98"><a href="#get_cfbd_poll_rankings-98"><span class="linenos"> 98</span></a><span class="sd">            week=10</span>
+</span><span id="get_cfbd_poll_rankings-99"><a href="#get_cfbd_poll_rankings-99"><span class="linenos"> 99</span></a><span class="sd">        )</span>
+</span><span id="get_cfbd_poll_rankings-100"><a href="#get_cfbd_poll_rankings-100"><span class="linenos">100</span></a><span class="sd">        print(json_data)</span>
+</span><span id="get_cfbd_poll_rankings-101"><a href="#get_cfbd_poll_rankings-101"><span class="linenos">101</span></a><span class="sd">        time.sleep(5)</span>
+</span><span id="get_cfbd_poll_rankings-102"><a href="#get_cfbd_poll_rankings-102"><span class="linenos">102</span></a>
+</span><span id="get_cfbd_poll_rankings-103"><a href="#get_cfbd_poll_rankings-103"><span class="linenos">103</span></a><span class="sd">        # Get CFB poll data for the 2021 CFB season, during the postseason.</span>
+</span><span id="get_cfbd_poll_rankings-104"><a href="#get_cfbd_poll_rankings-104"><span class="linenos">104</span></a><span class="sd">        print(&quot;Get CFB poll data for the 2021 CFB season, during the postseason.&quot;)</span>
+</span><span id="get_cfbd_poll_rankings-105"><a href="#get_cfbd_poll_rankings-105"><span class="linenos">105</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="get_cfbd_poll_rankings-106"><a href="#get_cfbd_poll_rankings-106"><span class="linenos">106</span></a><span class="sd">            api_key=cfbd_key,</span>
+</span><span id="get_cfbd_poll_rankings-107"><a href="#get_cfbd_poll_rankings-107"><span class="linenos">107</span></a><span class="sd">            season=2021,</span>
+</span><span id="get_cfbd_poll_rankings-108"><a href="#get_cfbd_poll_rankings-108"><span class="linenos">108</span></a><span class="sd">            season_type=&quot;postseason&quot;</span>
+</span><span id="get_cfbd_poll_rankings-109"><a href="#get_cfbd_poll_rankings-109"><span class="linenos">109</span></a><span class="sd">        )</span>
+</span><span id="get_cfbd_poll_rankings-110"><a href="#get_cfbd_poll_rankings-110"><span class="linenos">110</span></a><span class="sd">        print(json_data)</span>
+</span><span id="get_cfbd_poll_rankings-111"><a href="#get_cfbd_poll_rankings-111"><span class="linenos">111</span></a><span class="sd">        time.sleep(5)</span>
+</span><span id="get_cfbd_poll_rankings-112"><a href="#get_cfbd_poll_rankings-112"><span class="linenos">112</span></a>
+</span><span id="get_cfbd_poll_rankings-113"><a href="#get_cfbd_poll_rankings-113"><span class="linenos">113</span></a><span class="sd">        # You can also tell this function to just return the API call as</span>
+</span><span id="get_cfbd_poll_rankings-114"><a href="#get_cfbd_poll_rankings-114"><span class="linenos">114</span></a><span class="sd">        # a Dictionary (read: JSON) object.</span>
+</span><span id="get_cfbd_poll_rankings-115"><a href="#get_cfbd_poll_rankings-115"><span class="linenos">115</span></a><span class="sd">        print(&quot;You can also tell this function to just return the API call as a Dictionary (read: JSON) object.&quot;)</span>
+</span><span id="get_cfbd_poll_rankings-116"><a href="#get_cfbd_poll_rankings-116"><span class="linenos">116</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="get_cfbd_poll_rankings-117"><a href="#get_cfbd_poll_rankings-117"><span class="linenos">117</span></a><span class="sd">            api_key=cfbd_key,</span>
+</span><span id="get_cfbd_poll_rankings-118"><a href="#get_cfbd_poll_rankings-118"><span class="linenos">118</span></a><span class="sd">            season=2020,</span>
+</span><span id="get_cfbd_poll_rankings-119"><a href="#get_cfbd_poll_rankings-119"><span class="linenos">119</span></a><span class="sd">            week=10,</span>
+</span><span id="get_cfbd_poll_rankings-120"><a href="#get_cfbd_poll_rankings-120"><span class="linenos">120</span></a><span class="sd">            return_as_dict=True</span>
+</span><span id="get_cfbd_poll_rankings-121"><a href="#get_cfbd_poll_rankings-121"><span class="linenos">121</span></a><span class="sd">        )</span>
+</span><span id="get_cfbd_poll_rankings-122"><a href="#get_cfbd_poll_rankings-122"><span class="linenos">122</span></a><span class="sd">        print(json_data)</span>
+</span><span id="get_cfbd_poll_rankings-123"><a href="#get_cfbd_poll_rankings-123"><span class="linenos">123</span></a>
+</span><span id="get_cfbd_poll_rankings-124"><a href="#get_cfbd_poll_rankings-124"><span class="linenos">124</span></a><span class="sd">    else:</span>
+</span><span id="get_cfbd_poll_rankings-125"><a href="#get_cfbd_poll_rankings-125"><span class="linenos">125</span></a><span class="sd">        # Alternatively, if the CFBD API key exists in this python environment,</span>
+</span><span id="get_cfbd_poll_rankings-126"><a href="#get_cfbd_poll_rankings-126"><span class="linenos">126</span></a><span class="sd">        # or it&#39;s been set by cfbd_json_py.utls.set_cfbd_api_token(),</span>
+</span><span id="get_cfbd_poll_rankings-127"><a href="#get_cfbd_poll_rankings-127"><span class="linenos">127</span></a><span class="sd">        # you could just call these functions directly, without setting the API key</span>
+</span><span id="get_cfbd_poll_rankings-128"><a href="#get_cfbd_poll_rankings-128"><span class="linenos">128</span></a><span class="sd">        # in the script.</span>
+</span><span id="get_cfbd_poll_rankings-129"><a href="#get_cfbd_poll_rankings-129"><span class="linenos">129</span></a><span class="sd">        print(&quot;Using the user&#39;s API key suposedly loaded into this python environment for this example.&quot;)</span>
+</span><span id="get_cfbd_poll_rankings-130"><a href="#get_cfbd_poll_rankings-130"><span class="linenos">130</span></a>
+</span><span id="get_cfbd_poll_rankings-131"><a href="#get_cfbd_poll_rankings-131"><span class="linenos">131</span></a><span class="sd">        # Get CFB poll data for the 2020 CFB season.</span>
+</span><span id="get_cfbd_poll_rankings-132"><a href="#get_cfbd_poll_rankings-132"><span class="linenos">132</span></a><span class="sd">        print(&quot;Get CFB poll data for the 2020 CFB season.&quot;)</span>
+</span><span id="get_cfbd_poll_rankings-133"><a href="#get_cfbd_poll_rankings-133"><span class="linenos">133</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="get_cfbd_poll_rankings-134"><a href="#get_cfbd_poll_rankings-134"><span class="linenos">134</span></a><span class="sd">            season=2020</span>
+</span><span id="get_cfbd_poll_rankings-135"><a href="#get_cfbd_poll_rankings-135"><span class="linenos">135</span></a><span class="sd">        )</span>
+</span><span id="get_cfbd_poll_rankings-136"><a href="#get_cfbd_poll_rankings-136"><span class="linenos">136</span></a><span class="sd">        print(json_data)</span>
+</span><span id="get_cfbd_poll_rankings-137"><a href="#get_cfbd_poll_rankings-137"><span class="linenos">137</span></a><span class="sd">        time.sleep(5)</span>
+</span><span id="get_cfbd_poll_rankings-138"><a href="#get_cfbd_poll_rankings-138"><span class="linenos">138</span></a>
+</span><span id="get_cfbd_poll_rankings-139"><a href="#get_cfbd_poll_rankings-139"><span class="linenos">139</span></a><span class="sd">        # Get CFB poll data from week 10 of the 2023 CFB season.</span>
+</span><span id="get_cfbd_poll_rankings-140"><a href="#get_cfbd_poll_rankings-140"><span class="linenos">140</span></a><span class="sd">        print(&quot;Get CFB poll data from week 10 of the 2023 CFB season.&quot;)</span>
+</span><span id="get_cfbd_poll_rankings-141"><a href="#get_cfbd_poll_rankings-141"><span class="linenos">141</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="get_cfbd_poll_rankings-142"><a href="#get_cfbd_poll_rankings-142"><span class="linenos">142</span></a><span class="sd">            season=2023,</span>
+</span><span id="get_cfbd_poll_rankings-143"><a href="#get_cfbd_poll_rankings-143"><span class="linenos">143</span></a><span class="sd">            week=10</span>
+</span><span id="get_cfbd_poll_rankings-144"><a href="#get_cfbd_poll_rankings-144"><span class="linenos">144</span></a><span class="sd">        )</span>
+</span><span id="get_cfbd_poll_rankings-145"><a href="#get_cfbd_poll_rankings-145"><span class="linenos">145</span></a><span class="sd">        print(json_data)</span>
+</span><span id="get_cfbd_poll_rankings-146"><a href="#get_cfbd_poll_rankings-146"><span class="linenos">146</span></a><span class="sd">        time.sleep(5)</span>
+</span><span id="get_cfbd_poll_rankings-147"><a href="#get_cfbd_poll_rankings-147"><span class="linenos">147</span></a>
+</span><span id="get_cfbd_poll_rankings-148"><a href="#get_cfbd_poll_rankings-148"><span class="linenos">148</span></a><span class="sd">        # Get CFB poll data for the 2021 CFB season, during the postseason.</span>
+</span><span id="get_cfbd_poll_rankings-149"><a href="#get_cfbd_poll_rankings-149"><span class="linenos">149</span></a><span class="sd">        print(&quot;Get CFB poll data for the 2021 CFB season, during the postseason.&quot;)</span>
+</span><span id="get_cfbd_poll_rankings-150"><a href="#get_cfbd_poll_rankings-150"><span class="linenos">150</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="get_cfbd_poll_rankings-151"><a href="#get_cfbd_poll_rankings-151"><span class="linenos">151</span></a><span class="sd">            season=2021,</span>
+</span><span id="get_cfbd_poll_rankings-152"><a href="#get_cfbd_poll_rankings-152"><span class="linenos">152</span></a><span class="sd">            season_type=&quot;postseason&quot;</span>
+</span><span id="get_cfbd_poll_rankings-153"><a href="#get_cfbd_poll_rankings-153"><span class="linenos">153</span></a><span class="sd">        )</span>
+</span><span id="get_cfbd_poll_rankings-154"><a href="#get_cfbd_poll_rankings-154"><span class="linenos">154</span></a><span class="sd">        print(json_data)</span>
+</span><span id="get_cfbd_poll_rankings-155"><a href="#get_cfbd_poll_rankings-155"><span class="linenos">155</span></a><span class="sd">        time.sleep(5)</span>
+</span><span id="get_cfbd_poll_rankings-156"><a href="#get_cfbd_poll_rankings-156"><span class="linenos">156</span></a>
+</span><span id="get_cfbd_poll_rankings-157"><a href="#get_cfbd_poll_rankings-157"><span class="linenos">157</span></a><span class="sd">        # You can also tell this function to just return the API call as</span>
+</span><span id="get_cfbd_poll_rankings-158"><a href="#get_cfbd_poll_rankings-158"><span class="linenos">158</span></a><span class="sd">        # a Dictionary (read: JSON) object.</span>
+</span><span id="get_cfbd_poll_rankings-159"><a href="#get_cfbd_poll_rankings-159"><span class="linenos">159</span></a><span class="sd">        print(&quot;You can also tell this function to just return the API call as a Dictionary (read: JSON) object.&quot;)</span>
+</span><span id="get_cfbd_poll_rankings-160"><a href="#get_cfbd_poll_rankings-160"><span class="linenos">160</span></a><span class="sd">        json_data = get_cfbd_poll_rankings(</span>
+</span><span id="get_cfbd_poll_rankings-161"><a href="#get_cfbd_poll_rankings-161"><span class="linenos">161</span></a><span class="sd">            season=2020,</span>
+</span><span id="get_cfbd_poll_rankings-162"><a href="#get_cfbd_poll_rankings-162"><span class="linenos">162</span></a><span class="sd">            week=10,</span>
+</span><span id="get_cfbd_poll_rankings-163"><a href="#get_cfbd_poll_rankings-163"><span class="linenos">163</span></a><span class="sd">            return_as_dict=True</span>
+</span><span id="get_cfbd_poll_rankings-164"><a href="#get_cfbd_poll_rankings-164"><span class="linenos">164</span></a><span class="sd">        )</span>
+</span><span id="get_cfbd_poll_rankings-165"><a href="#get_cfbd_poll_rankings-165"><span class="linenos">165</span></a><span class="sd">        print(json_data)</span>
+</span><span id="get_cfbd_poll_rankings-166"><a href="#get_cfbd_poll_rankings-166"><span class="linenos">166</span></a>
+</span><span id="get_cfbd_poll_rankings-167"><a href="#get_cfbd_poll_rankings-167"><span class="linenos">167</span></a><span class="sd">    ```</span>
+</span><span id="get_cfbd_poll_rankings-168"><a href="#get_cfbd_poll_rankings-168"><span class="linenos">168</span></a><span class="sd">    Returns</span>
+</span><span id="get_cfbd_poll_rankings-169"><a href="#get_cfbd_poll_rankings-169"><span class="linenos">169</span></a><span class="sd">    ----------</span>
+</span><span id="get_cfbd_poll_rankings-170"><a href="#get_cfbd_poll_rankings-170"><span class="linenos">170</span></a><span class="sd">    A pandas `DataFrame` object with CFB Poll data, </span>
+</span><span id="get_cfbd_poll_rankings-171"><a href="#get_cfbd_poll_rankings-171"><span class="linenos">171</span></a><span class="sd">    or (if `return_as_dict` is set to `True`) </span>
+</span><span id="get_cfbd_poll_rankings-172"><a href="#get_cfbd_poll_rankings-172"><span class="linenos">172</span></a><span class="sd">    a dictionary object with CFB Poll data.</span>
+</span><span id="get_cfbd_poll_rankings-173"><a href="#get_cfbd_poll_rankings-173"><span class="linenos">173</span></a>
+</span><span id="get_cfbd_poll_rankings-174"><a href="#get_cfbd_poll_rankings-174"><span class="linenos">174</span></a>
+</span><span id="get_cfbd_poll_rankings-175"><a href="#get_cfbd_poll_rankings-175"><span class="linenos">175</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="get_cfbd_poll_rankings-176"><a href="#get_cfbd_poll_rankings-176"><span class="linenos">176</span></a>    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span><span id="get_cfbd_poll_rankings-177"><a href="#get_cfbd_poll_rankings-177"><span class="linenos">177</span></a>    <span class="n">rankings_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+</span><span id="get_cfbd_poll_rankings-178"><a href="#get_cfbd_poll_rankings-178"><span class="linenos">178</span></a>    <span class="n">row_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+</span><span id="get_cfbd_poll_rankings-179"><a href="#get_cfbd_poll_rankings-179"><span class="linenos">179</span></a>    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.collegefootballdata.com/rankings&quot;</span>
+</span><span id="get_cfbd_poll_rankings-180"><a href="#get_cfbd_poll_rankings-180"><span class="linenos">180</span></a>
+</span><span id="get_cfbd_poll_rankings-181"><a href="#get_cfbd_poll_rankings-181"><span class="linenos">181</span></a>    <span class="c1">########################################################################################################################################################################################################</span>
+</span><span id="get_cfbd_poll_rankings-182"><a href="#get_cfbd_poll_rankings-182"><span class="linenos">182</span></a>
+</span><span id="get_cfbd_poll_rankings-183"><a href="#get_cfbd_poll_rankings-183"><span class="linenos">183</span></a>    <span class="k">if</span> <span class="n">api_key</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-184"><a href="#get_cfbd_poll_rankings-184"><span class="linenos">184</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">api_key</span>
+</span><span id="get_cfbd_poll_rankings-185"><a href="#get_cfbd_poll_rankings-185"><span class="linenos">185</span></a>        <span class="k">del</span> <span class="n">api_key</span>
+</span><span id="get_cfbd_poll_rankings-186"><a href="#get_cfbd_poll_rankings-186"><span class="linenos">186</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-187"><a href="#get_cfbd_poll_rankings-187"><span class="linenos">187</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-188"><a href="#get_cfbd_poll_rankings-188"><span class="linenos">188</span></a>
+</span><span id="get_cfbd_poll_rankings-189"><a href="#get_cfbd_poll_rankings-189"><span class="linenos">189</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-190"><a href="#get_cfbd_poll_rankings-190"><span class="linenos">190</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="get_cfbd_poll_rankings-191"><a href="#get_cfbd_poll_rankings-191"><span class="linenos">191</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span><span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-192"><a href="#get_cfbd_poll_rankings-192"><span class="linenos">192</span></a>    <span class="k">elif</span> <span class="s2">&quot;Bearer &quot;</span> <span class="ow">in</span> <span class="n">real_api_key</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-193"><a href="#get_cfbd_poll_rankings-193"><span class="linenos">193</span></a>        <span class="k">pass</span>
+</span><span id="get_cfbd_poll_rankings-194"><a href="#get_cfbd_poll_rankings-194"><span class="linenos">194</span></a>    <span class="k">elif</span> <span class="s2">&quot;Bearer&quot;</span> <span class="ow">in</span> <span class="n">real_api_key</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-195"><a href="#get_cfbd_poll_rankings-195"><span class="linenos">195</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">real_api_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Bearer&#39;</span><span class="p">,</span> <span class="s1">&#39;Bearer &#39;</span><span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-196"><a href="#get_cfbd_poll_rankings-196"><span class="linenos">196</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-197"><a href="#get_cfbd_poll_rankings-197"><span class="linenos">197</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="s2">&quot;Bearer &quot;</span> <span class="o">+</span> <span class="n">real_api_key</span>
+</span><span id="get_cfbd_poll_rankings-198"><a href="#get_cfbd_poll_rankings-198"><span class="linenos">198</span></a>
+</span><span id="get_cfbd_poll_rankings-199"><a href="#get_cfbd_poll_rankings-199"><span class="linenos">199</span></a>    <span class="k">if</span> <span class="n">season</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-200"><a href="#get_cfbd_poll_rankings-200"><span class="linenos">200</span></a>        <span class="c1"># This should never happen without user tampering, but if it does,</span>
+</span><span id="get_cfbd_poll_rankings-201"><a href="#get_cfbd_poll_rankings-201"><span class="linenos">201</span></a>        <span class="c1"># we need to raise an error, because the CFBD API will refuse this call without a valid season.</span>
+</span><span id="get_cfbd_poll_rankings-202"><a href="#get_cfbd_poll_rankings-202"><span class="linenos">202</span></a>        <span class="k">raise</span> <span class="ne">SystemError</span><span class="p">(</span>
+</span><span id="get_cfbd_poll_rankings-203"><a href="#get_cfbd_poll_rankings-203"><span class="linenos">203</span></a>            <span class="s2">&quot;I don&#39;t know how, I don&#39;t know why, but you managed to call this function while `season` was `None` (NULL),&quot;</span> <span class="o">+</span>
+</span><span id="get_cfbd_poll_rankings-204"><a href="#get_cfbd_poll_rankings-204"><span class="linenos">204</span></a>            <span class="s2">&quot; and the function got to this point in the code.&quot;</span> <span class="o">+</span>
+</span><span id="get_cfbd_poll_rankings-205"><a href="#get_cfbd_poll_rankings-205"><span class="linenos">205</span></a>            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">If you have a GitHub account, please raise an issue on this python package&#39;s GitHub page:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+</span><span id="get_cfbd_poll_rankings-206"><a href="#get_cfbd_poll_rankings-206"><span class="linenos">206</span></a>            <span class="s2">&quot;https://github.com/armstjc/cfbd-json-py/issues&quot;</span>
+</span><span id="get_cfbd_poll_rankings-207"><a href="#get_cfbd_poll_rankings-207"><span class="linenos">207</span></a>        <span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-208"><a href="#get_cfbd_poll_rankings-208"><span class="linenos">208</span></a>    <span class="k">elif</span> <span class="n">season</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span><span id="get_cfbd_poll_rankings-209"><a href="#get_cfbd_poll_rankings-209"><span class="linenos">209</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`season` cannot be greater than </span><span class="si">{</span><span class="n">season</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-210"><a href="#get_cfbd_poll_rankings-210"><span class="linenos">210</span></a>    <span class="k">elif</span> <span class="n">season</span> <span class="o">&lt;</span> <span class="mi">1869</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-211"><a href="#get_cfbd_poll_rankings-211"><span class="linenos">211</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`season` cannot be less than 1869.&quot;</span><span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-212"><a href="#get_cfbd_poll_rankings-212"><span class="linenos">212</span></a>
+</span><span id="get_cfbd_poll_rankings-213"><a href="#get_cfbd_poll_rankings-213"><span class="linenos">213</span></a>    <span class="k">if</span> <span class="n">season_type</span> <span class="o">!=</span> <span class="s2">&quot;regular&quot;</span> <span class="ow">and</span> <span class="n">season_type</span> <span class="o">!=</span> <span class="s2">&quot;postseason&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-214"><a href="#get_cfbd_poll_rankings-214"><span class="linenos">214</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="get_cfbd_poll_rankings-215"><a href="#get_cfbd_poll_rankings-215"><span class="linenos">215</span></a>            <span class="s2">&quot;`season_type` must be set to either </span><span class="se">\&quot;</span><span class="s2">regular</span><span class="se">\&quot;</span><span class="s2"> or </span><span class="se">\&quot;</span><span class="s2">postseason</span><span class="se">\&quot;</span><span class="s2"> for this function to work.&quot;</span><span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-216"><a href="#get_cfbd_poll_rankings-216"><span class="linenos">216</span></a>
+</span><span id="get_cfbd_poll_rankings-217"><a href="#get_cfbd_poll_rankings-217"><span class="linenos">217</span></a>    <span class="k">if</span> <span class="n">week</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">week</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-218"><a href="#get_cfbd_poll_rankings-218"><span class="linenos">218</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="get_cfbd_poll_rankings-219"><a href="#get_cfbd_poll_rankings-219"><span class="linenos">219</span></a>            <span class="s2">&quot;`week` must be a positive number.&quot;</span>
+</span><span id="get_cfbd_poll_rankings-220"><a href="#get_cfbd_poll_rankings-220"><span class="linenos">220</span></a>        <span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-221"><a href="#get_cfbd_poll_rankings-221"><span class="linenos">221</span></a>
+</span><span id="get_cfbd_poll_rankings-222"><a href="#get_cfbd_poll_rankings-222"><span class="linenos">222</span></a>    <span class="k">if</span> <span class="n">season_type</span> <span class="o">!=</span> <span class="s2">&quot;regular&quot;</span> <span class="ow">and</span> <span class="n">season_type</span> <span class="o">!=</span> <span class="s2">&quot;postseason&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-223"><a href="#get_cfbd_poll_rankings-223"><span class="linenos">223</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="get_cfbd_poll_rankings-224"><a href="#get_cfbd_poll_rankings-224"><span class="linenos">224</span></a>            <span class="s2">&quot;`season_type` must be set to either </span><span class="se">\&quot;</span><span class="s2">regular</span><span class="se">\&quot;</span><span class="s2"> or </span><span class="se">\&quot;</span><span class="s2">postseason</span><span class="se">\&quot;</span><span class="s2"> for this function to work.&quot;</span><span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-225"><a href="#get_cfbd_poll_rankings-225"><span class="linenos">225</span></a>    <span class="c1"># URL builder</span>
+</span><span id="get_cfbd_poll_rankings-226"><a href="#get_cfbd_poll_rankings-226"><span class="linenos">226</span></a>    <span class="c1">########################################################################################################################################################################################################</span>
+</span><span id="get_cfbd_poll_rankings-227"><a href="#get_cfbd_poll_rankings-227"><span class="linenos">227</span></a>
+</span><span id="get_cfbd_poll_rankings-228"><a href="#get_cfbd_poll_rankings-228"><span class="linenos">228</span></a>    <span class="c1"># Required by API</span>
+</span><span id="get_cfbd_poll_rankings-229"><a href="#get_cfbd_poll_rankings-229"><span class="linenos">229</span></a>    <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;?year=</span><span class="si">{</span><span class="n">season</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="get_cfbd_poll_rankings-230"><a href="#get_cfbd_poll_rankings-230"><span class="linenos">230</span></a>
+</span><span id="get_cfbd_poll_rankings-231"><a href="#get_cfbd_poll_rankings-231"><span class="linenos">231</span></a>    <span class="k">if</span> <span class="n">week</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-232"><a href="#get_cfbd_poll_rankings-232"><span class="linenos">232</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;week=</span><span class="si">{</span><span class="n">week</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="get_cfbd_poll_rankings-233"><a href="#get_cfbd_poll_rankings-233"><span class="linenos">233</span></a>
+</span><span id="get_cfbd_poll_rankings-234"><a href="#get_cfbd_poll_rankings-234"><span class="linenos">234</span></a>    <span class="k">if</span> <span class="n">season_type</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-235"><a href="#get_cfbd_poll_rankings-235"><span class="linenos">235</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;seasonType=</span><span class="si">{</span><span class="n">season_type</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="get_cfbd_poll_rankings-236"><a href="#get_cfbd_poll_rankings-236"><span class="linenos">236</span></a>
+</span><span id="get_cfbd_poll_rankings-237"><a href="#get_cfbd_poll_rankings-237"><span class="linenos">237</span></a>    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="get_cfbd_poll_rankings-238"><a href="#get_cfbd_poll_rankings-238"><span class="linenos">238</span></a>        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">real_api_key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span id="get_cfbd_poll_rankings-239"><a href="#get_cfbd_poll_rankings-239"><span class="linenos">239</span></a>        <span class="s1">&#39;accept&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+</span><span id="get_cfbd_poll_rankings-240"><a href="#get_cfbd_poll_rankings-240"><span class="linenos">240</span></a>    <span class="p">}</span>
+</span><span id="get_cfbd_poll_rankings-241"><a href="#get_cfbd_poll_rankings-241"><span class="linenos">241</span></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-242"><a href="#get_cfbd_poll_rankings-242"><span class="linenos">242</span></a>
+</span><span id="get_cfbd_poll_rankings-243"><a href="#get_cfbd_poll_rankings-243"><span class="linenos">243</span></a>    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-244"><a href="#get_cfbd_poll_rankings-244"><span class="linenos">244</span></a>        <span class="k">pass</span>
+</span><span id="get_cfbd_poll_rankings-245"><a href="#get_cfbd_poll_rankings-245"><span class="linenos">245</span></a>    <span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-246"><a href="#get_cfbd_poll_rankings-246"><span class="linenos">246</span></a>        <span class="k">raise</span> <span class="ne">ConnectionRefusedError</span><span class="p">(</span>
+</span><span id="get_cfbd_poll_rankings-247"><a href="#get_cfbd_poll_rankings-247"><span class="linenos">247</span></a>            <span class="sa">f</span><span class="s1">&#39;Could not connect. The connection was refused.</span><span class="se">\n</span><span class="s1">HTTP Status Code 401.&#39;</span>
+</span><span id="get_cfbd_poll_rankings-248"><a href="#get_cfbd_poll_rankings-248"><span class="linenos">248</span></a>        <span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-249"><a href="#get_cfbd_poll_rankings-249"><span class="linenos">249</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-250"><a href="#get_cfbd_poll_rankings-250"><span class="linenos">250</span></a>        <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span>
+</span><span id="get_cfbd_poll_rankings-251"><a href="#get_cfbd_poll_rankings-251"><span class="linenos">251</span></a>            <span class="sa">f</span><span class="s1">&#39;Could not connect.</span><span class="se">\n</span><span class="s1">HTTP Status code </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span>
+</span><span id="get_cfbd_poll_rankings-252"><a href="#get_cfbd_poll_rankings-252"><span class="linenos">252</span></a>        <span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-253"><a href="#get_cfbd_poll_rankings-253"><span class="linenos">253</span></a>
+</span><span id="get_cfbd_poll_rankings-254"><a href="#get_cfbd_poll_rankings-254"><span class="linenos">254</span></a>    <span class="n">json_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="get_cfbd_poll_rankings-255"><a href="#get_cfbd_poll_rankings-255"><span class="linenos">255</span></a>
+</span><span id="get_cfbd_poll_rankings-256"><a href="#get_cfbd_poll_rankings-256"><span class="linenos">256</span></a>    <span class="k">if</span> <span class="n">return_as_dict</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-257"><a href="#get_cfbd_poll_rankings-257"><span class="linenos">257</span></a>        <span class="k">return</span> <span class="n">json_data</span>
+</span><span id="get_cfbd_poll_rankings-258"><a href="#get_cfbd_poll_rankings-258"><span class="linenos">258</span></a>    
+</span><span id="get_cfbd_poll_rankings-259"><a href="#get_cfbd_poll_rankings-259"><span class="linenos">259</span></a>    <span class="k">for</span> <span class="n">week</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">json_data</span><span class="p">):</span>
+</span><span id="get_cfbd_poll_rankings-260"><a href="#get_cfbd_poll_rankings-260"><span class="linenos">260</span></a>        <span class="n">w_season</span> <span class="o">=</span> <span class="n">week</span><span class="p">[</span><span class="s1">&#39;season&#39;</span><span class="p">]</span>
+</span><span id="get_cfbd_poll_rankings-261"><a href="#get_cfbd_poll_rankings-261"><span class="linenos">261</span></a>        <span class="n">w_season_type</span> <span class="o">=</span> <span class="n">week</span><span class="p">[</span><span class="s1">&#39;seasonType&#39;</span><span class="p">]</span>
+</span><span id="get_cfbd_poll_rankings-262"><a href="#get_cfbd_poll_rankings-262"><span class="linenos">262</span></a>        <span class="n">w_week</span> <span class="o">=</span> <span class="n">week</span><span class="p">[</span><span class="s1">&#39;week&#39;</span><span class="p">]</span>
+</span><span id="get_cfbd_poll_rankings-263"><a href="#get_cfbd_poll_rankings-263"><span class="linenos">263</span></a>
+</span><span id="get_cfbd_poll_rankings-264"><a href="#get_cfbd_poll_rankings-264"><span class="linenos">264</span></a>        <span class="k">for</span> <span class="n">poll</span> <span class="ow">in</span> <span class="n">week</span><span class="p">[</span><span class="s1">&#39;polls&#39;</span><span class="p">]:</span>
+</span><span id="get_cfbd_poll_rankings-265"><a href="#get_cfbd_poll_rankings-265"><span class="linenos">265</span></a>            <span class="n">p_poll_name</span> <span class="o">=</span> <span class="n">poll</span><span class="p">[</span><span class="s1">&#39;poll&#39;</span><span class="p">]</span>
+</span><span id="get_cfbd_poll_rankings-266"><a href="#get_cfbd_poll_rankings-266"><span class="linenos">266</span></a>            
+</span><span id="get_cfbd_poll_rankings-267"><a href="#get_cfbd_poll_rankings-267"><span class="linenos">267</span></a>            <span class="k">for</span> <span class="n">team</span> <span class="ow">in</span> <span class="n">poll</span><span class="p">[</span><span class="s1">&#39;ranks&#39;</span><span class="p">]:</span>
+</span><span id="get_cfbd_poll_rankings-268"><a href="#get_cfbd_poll_rankings-268"><span class="linenos">268</span></a>                <span class="n">row_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+</span><span id="get_cfbd_poll_rankings-269"><a href="#get_cfbd_poll_rankings-269"><span class="linenos">269</span></a>                    <span class="p">{</span>
+</span><span id="get_cfbd_poll_rankings-270"><a href="#get_cfbd_poll_rankings-270"><span class="linenos">270</span></a>                        <span class="s2">&quot;season&quot;</span><span class="p">:</span><span class="n">w_season</span><span class="p">,</span>
+</span><span id="get_cfbd_poll_rankings-271"><a href="#get_cfbd_poll_rankings-271"><span class="linenos">271</span></a>                        <span class="s2">&quot;season_type&quot;</span><span class="p">:</span><span class="n">w_season_type</span><span class="p">,</span>
+</span><span id="get_cfbd_poll_rankings-272"><a href="#get_cfbd_poll_rankings-272"><span class="linenos">272</span></a>                        <span class="s2">&quot;week&quot;</span><span class="p">:</span><span class="n">w_week</span><span class="p">,</span>
+</span><span id="get_cfbd_poll_rankings-273"><a href="#get_cfbd_poll_rankings-273"><span class="linenos">273</span></a>                        <span class="s2">&quot;poll_name&quot;</span><span class="p">:</span><span class="n">p_poll_name</span>
+</span><span id="get_cfbd_poll_rankings-274"><a href="#get_cfbd_poll_rankings-274"><span class="linenos">274</span></a>                    <span class="p">},</span>
+</span><span id="get_cfbd_poll_rankings-275"><a href="#get_cfbd_poll_rankings-275"><span class="linenos">275</span></a>                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="get_cfbd_poll_rankings-276"><a href="#get_cfbd_poll_rankings-276"><span class="linenos">276</span></a>                <span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-277"><a href="#get_cfbd_poll_rankings-277"><span class="linenos">277</span></a>
+</span><span id="get_cfbd_poll_rankings-278"><a href="#get_cfbd_poll_rankings-278"><span class="linenos">278</span></a>                <span class="n">row_df</span><span class="p">[</span><span class="s1">&#39;poll_rank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span>
+</span><span id="get_cfbd_poll_rankings-279"><a href="#get_cfbd_poll_rankings-279"><span class="linenos">279</span></a>                <span class="n">row_df</span><span class="p">[</span><span class="s1">&#39;school_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s1">&#39;school&#39;</span><span class="p">]</span>
+</span><span id="get_cfbd_poll_rankings-280"><a href="#get_cfbd_poll_rankings-280"><span class="linenos">280</span></a>                <span class="n">row_df</span><span class="p">[</span><span class="s1">&#39;conference_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s1">&#39;conference&#39;</span><span class="p">]</span>
+</span><span id="get_cfbd_poll_rankings-281"><a href="#get_cfbd_poll_rankings-281"><span class="linenos">281</span></a>                <span class="n">row_df</span><span class="p">[</span><span class="s1">&#39;first_place_votes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s1">&#39;firstPlaceVotes&#39;</span><span class="p">]</span>
+</span><span id="get_cfbd_poll_rankings-282"><a href="#get_cfbd_poll_rankings-282"><span class="linenos">282</span></a>                <span class="n">row_df</span><span class="p">[</span><span class="s1">&#39;points&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s1">&#39;points&#39;</span><span class="p">]</span>
+</span><span id="get_cfbd_poll_rankings-283"><a href="#get_cfbd_poll_rankings-283"><span class="linenos">283</span></a>
+</span><span id="get_cfbd_poll_rankings-284"><a href="#get_cfbd_poll_rankings-284"><span class="linenos">284</span></a>                <span class="n">rankings_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">rankings_df</span><span class="p">,</span><span class="n">row_df</span><span class="p">],</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="get_cfbd_poll_rankings-285"><a href="#get_cfbd_poll_rankings-285"><span class="linenos">285</span></a>                <span class="k">del</span> <span class="n">row_df</span>
+</span><span id="get_cfbd_poll_rankings-286"><a href="#get_cfbd_poll_rankings-286"><span class="linenos">286</span></a>                
+</span><span id="get_cfbd_poll_rankings-287"><a href="#get_cfbd_poll_rankings-287"><span class="linenos">287</span></a>            <span class="k">del</span> <span class="n">p_poll_name</span>
+</span><span id="get_cfbd_poll_rankings-288"><a href="#get_cfbd_poll_rankings-288"><span class="linenos">288</span></a>
+</span><span id="get_cfbd_poll_rankings-289"><a href="#get_cfbd_poll_rankings-289"><span class="linenos">289</span></a>        <span class="k">del</span> <span class="n">w_season</span><span class="p">,</span> <span class="n">w_season_type</span><span class="p">,</span> <span class="n">w_week</span>
+</span><span id="get_cfbd_poll_rankings-290"><a href="#get_cfbd_poll_rankings-290"><span class="linenos">290</span></a>    <span class="k">return</span> <span class="n">rankings_df</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p>Allows you to get CFB poll rankings data from the CFBD API.</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<p><code>season</code> (int, mandatory):
+    Required argument.
+    Specifies the season you want CFB poll rankings data from.
+    This must be specified, otherwise this package, and by extension
+    the CFBD API, will not accept the request to get CFB poll rankings data.</p>
+
+<p><code>api_key</code> (str, optional):
+    Semi-optional argument. 
+    If <code>api_key</code> is null, this function will attempt to load a CFBD API key
+    from the python environment, or from a file on this computer.
+    If <code>api_key</code> is not null, this function will automatically assume that the
+    inputted <code>api_key</code> is a valid CFBD API key.</p>
+
+<p><code>api_key_dir</code> (str, optional):
+    Optional argument.
+    If <code>api_key</code> is set to am empty string, this variable is ignored.
+    If <code>api_key_dir</code> is null, and <code>api_key</code> is null, 
+    this function will try to find a CFBD API key file in this user's home directory.
+    If <code>api_key_dir</code> is set to a string, and <code>api_key</code> is null,
+    this function will assume that <code>api_key_dir</code> is a directory, 
+    and will try to find a CFBD API key file in that directory.</p>
+
+<p><code>week</code> (int, optional):
+    Optional argument.
+    If <code>week</code> is set to an integer, this function will attempt 
+    to load CFB poll rankings data from games in that season, and in that week.</p>
+
+<p><code>season_type</code> (str, semi-optional):
+    Semi-optional argument.
+    By defualt, this will be set to "regular", for the CFB regular season.
+    If you want CFB poll rankings data for non-regular season games, 
+    set <code>season_type</code> to "postseason".
+    If <code>season_type</code> is set to anything but "regular" or "postseason", 
+    a <code>ValueError()</code> will be raised.</p>
+
+<p><code>return_as_dict</code> (bool, semi-optional):
+    Semi-optional argument.
+    If you want this function to return the data as a dictionary (read: JSON object), 
+    instead of a pandas <code>DataFrame</code> object,
+    set <code>return_as_dict</code> to <code>True</code>.</p>
+
+<h2 id="usage">Usage</h2>
+
+<pre><code>import time
+
+from <a href="">cfbd_json_py.rankings</a> import get_cfbd_poll_rankings
+
+
+cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+
+if cfbd_key != "tigersAreAwsome":
+    print("Using the user's API key declared in this script for this example.")
+
+    # Get CFB poll data for the 2020 CFB season.
+    print("Get CFB poll data for the 2020 CFB season.")
+    json_data = get_cfbd_poll_rankings(
+        api_key=cfbd_key,
+        season=2020
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # Get CFB poll data from week 10 of the 2023 CFB season.
+    print("Get CFB poll data from week 10 of the 2023 CFB season.")
+    json_data = get_cfbd_poll_rankings(
+        api_key=cfbd_key,
+        season=2023,
+        week=10
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # Get CFB poll data for the 2021 CFB season, during the postseason.
+    print("Get CFB poll data for the 2021 CFB season, during the postseason.")
+    json_data = get_cfbd_poll_rankings(
+        api_key=cfbd_key,
+        season=2021,
+        season_type="postseason"
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # You can also tell this function to just return the API call as
+    # a Dictionary (read: JSON) object.
+    print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+    json_data = get_cfbd_poll_rankings(
+        api_key=cfbd_key,
+        season=2020,
+        week=10,
+        return_as_dict=True
+    )
+    print(json_data)
+
+else:
+    # Alternatively, if the CFBD API key exists in this python environment,
+    # or it's been set by <a href="utls.html#set_cfbd_api_token">cfbd_json_py.utls.set_cfbd_api_token()</a>,
+    # you could just call these functions directly, without setting the API key
+    # in the script.
+    print("Using the user's API key suposedly loaded into this python environment for this example.")
+
+    # Get CFB poll data for the 2020 CFB season.
+    print("Get CFB poll data for the 2020 CFB season.")
+    json_data = get_cfbd_poll_rankings(
+        season=2020
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # Get CFB poll data from week 10 of the 2023 CFB season.
+    print("Get CFB poll data from week 10 of the 2023 CFB season.")
+    json_data = get_cfbd_poll_rankings(
+        season=2023,
+        week=10
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # Get CFB poll data for the 2021 CFB season, during the postseason.
+    print("Get CFB poll data for the 2021 CFB season, during the postseason.")
+    json_data = get_cfbd_poll_rankings(
+        season=2021,
+        season_type="postseason"
+    )
+    print(json_data)
+    time.sleep(5)
+
+    # You can also tell this function to just return the API call as
+    # a Dictionary (read: JSON) object.
+    print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+    json_data = get_cfbd_poll_rankings(
+        season=2020,
+        week=10,
+        return_as_dict=True
+    )
+    print(json_data)
+
+</code></pre>
+
+<h2 id="returns">Returns</h2>
+
+<p>A pandas <code>DataFrame</code> object with CFB Poll data, 
+or (if <code>return_as_dict</code> is set to <code>True</code>) 
+a dictionary object with CFB Poll data.</p>
+</div>
+
 
                 </section>
     </main>

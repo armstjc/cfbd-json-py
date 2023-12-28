@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 12/14/2023 11:40 AM EDT
+# Last Updated Date: 12/22/2023 02:22 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: stats.py
 # Purpose: Houses functions pertaining to CFB team/player stats data within the CFBD API.
@@ -22,7 +22,7 @@ def get_cfbd_team_season_stats(
     season: int = None,
     team: str = None,
     # `year` and/or `team` need to be not null for this function to work.
-    conference_abv: str = None,
+    conference: str = None,
     start_week: int = None,
     end_week: int = None,
     return_as_dict: bool = False,
@@ -63,11 +63,11 @@ def get_cfbd_team_season_stats(
         the CFBD API, will not accept the request to get CFB team season stats data.
         This or `season` must be set to a valid non-null variable for this to function.
 
-    `conference_abv` (str, optional):
+    `conference` (str, optional):
         Optional argument.
         If you only want team season stats from games
         involving teams a specific confrence,
-        set `conference_abv` to the abbreviation
+        set `conference` to the abbreviation
         of the conference you want stats from.
 
     `start_week` (int, semi-optional):
@@ -125,7 +125,7 @@ def get_cfbd_team_season_stats(
         print("Get team season stats for teams competing in the Big 10 (B1G) Confrence the 2020 CFB season.")
         json_data = get_cfbd_team_season_stats(
             api_key=cfbd_key,
-            conference_abv="B1G",
+            conference="B1G",
             season=2020
         )
         print(json_data)
@@ -173,7 +173,7 @@ def get_cfbd_team_season_stats(
         # Get team season stats for teams competing in the Big 10 (B1G) Confrence the 2020 CFB season.
         print("Get team season stats for teams competing in the Big 10 (B1G) Confrence the 2020 CFB season.")
         json_data = get_cfbd_team_season_stats(
-            conference_abv="B1G",
+            conference="B1G",
             season=2020
         )
         print(json_data)
@@ -305,8 +305,8 @@ def get_cfbd_team_season_stats(
     elif team != None:
         url += f"?team={team}"
 
-    if conference_abv != None:
-        url += f"&conference={conference_abv}"
+    if conference != None:
+        url += f"&conference={conference}"
 
     if start_week != None:
         url += f"&startWeek={start_week}"

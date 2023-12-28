@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 12/19/2023 04:10 PM EDT
+# Last Updated Date: 12/28/2023 09:41 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: ratings.py
 # Purpose: Houses functions pertaining to CFB team rating data within the CFBD API.
@@ -20,7 +20,8 @@ def get_cfbd_sp_plus_ratings(
     season: int = None,
     team: int = None,
     # Either `year` or `team` have to be not null for this function to work.
-    return_as_dict: bool = False):
+    return_as_dict: bool = False,
+):
     """
     Allows you to get Success rate and equivalent Points per play (S&P+)
     ratings data from the CFBD API.
@@ -235,64 +236,95 @@ def get_cfbd_sp_plus_ratings(
 
     # final_df = pd.json_normalize(json_data)
 
-    for team in tqdm(json_data):
-        t_year = team["year"]
-        t_name = team["team"]
-        try:
-            t_conf = team["conference"]
-        except:
-            t_conf = None
-        t_sp_rating = team["rating"]
-        t_sp_ranking = team["ranking"]
-        t_2nd_order_wins = team["secondOrderWins"]
-        t_sos = team["sos"]
+    # for team in tqdm(json_data):
+    #     t_year = team["year"]
+    #     t_name = team["team"]
+    #     try:
+    #         t_conf = team["conference"]
+    #     except:
+    #         t_conf = None
+    #     t_sp_rating = team["rating"]
+    #     t_sp_ranking = team["ranking"]
+    #     t_2nd_order_wins = team["secondOrderWins"]
+    #     t_sos = team["sos"]
 
-        row_df = pd.DataFrame(
-            {
-                "season": t_year,
-                "team_name": t_name,
-                "conference_name": t_conf,
-                "S&P+_rating": t_sp_rating,
-                "second_order_wins": t_2nd_order_wins,
-                "sos": t_sos,
-            },
-            index=[0],
-        )
-        row_df["offense_S&P+_ranking"] = team["offense"]["ranking"]
-        row_df["offense_S&P+_rating"] = team["offense"]["rating"]
-        row_df["offense_S&P+_success"] = team["offense"]["success"]
-        row_df["offense_S&P+_explosiveness"] = team["offense"]["explosiveness"]
-        row_df["offense_S&P+_rushing"] = team["offense"]["rushing"]
-        row_df["offense_S&P+_passing"] = team["offense"]["passing"]
-        row_df["offense_S&P+_standard_downs"] = team["offense"]["standardDowns"]
-        row_df["offense_S&P+_passing_downs"] = team["offense"]["passingDowns"]
-        row_df["offense_S&P+_run_rate"] = team["offense"]["runRate"]
-        row_df["offense_S&P+_pace"] = team["offense"]["pace"]
+    #     row_df = pd.DataFrame(
+    #         {
+    #             "season": t_year,
+    #             "team_name": t_name,
+    #             "conference_name": t_conf,
+    #             "S&P+_rating": t_sp_rating,
+    #             "second_order_wins": t_2nd_order_wins,
+    #             "sos": t_sos,
+    #         },
+    #         index=[0],
+    #     )
+    #     row_df["offense_S&P+_ranking"] = team["offense"]["ranking"]
+    #     row_df["offense_S&P+_rating"] = team["offense"]["rating"]
+    #     row_df["offense_S&P+_success"] = team["offense"]["success"]
+    #     row_df["offense_S&P+_explosiveness"] = team["offense"]["explosiveness"]
+    #     row_df["offense_S&P+_rushing"] = team["offense"]["rushing"]
+    #     row_df["offense_S&P+_passing"] = team["offense"]["passing"]
+    #     row_df["offense_S&P+_standard_downs"] = team["offense"]["standardDowns"]
+    #     row_df["offense_S&P+_passing_downs"] = team["offense"]["passingDowns"]
+    #     row_df["offense_S&P+_run_rate"] = team["offense"]["runRate"]
+    #     row_df["offense_S&P+_pace"] = team["offense"]["pace"]
 
-        row_df["defense_S&P+_ranking"] = team["defense"]["ranking"]
-        row_df["defense_S&P+_rating"] = team["defense"]["rating"]
-        row_df["defense_S&P+_success"] = team["defense"]["success"]
-        row_df["defense_S&P+_explosiveness"] = team["defense"]["explosiveness"]
-        row_df["defense_S&P+_rushing"] = team["defense"]["rushing"]
-        row_df["defense_S&P+_passing"] = team["defense"]["passing"]
-        row_df["defense_S&P+_standard_downs"] = team["defense"]["standardDowns"]
-        row_df["defense_S&P+_passing_downs"] = team["defense"]["passingDowns"]
-        # row_df["defense_S&P+_run_rate"] = team["defense"]["runRate"]
-        row_df["defense_S&P+_havoc_total"] = team["defense"]["havoc"]["total"]
-        row_df["defense_S&P+_havoc_front_seven"] = team["defense"]["havoc"][
-            "frontSeven"
-        ]
-        row_df["defense_S&P+_havoc_db"] = team["defense"]["havoc"]["db"]
-        row_df["defense_S&P+_special_teams_rating"] = team["specialTeams"]["rating"]
+    #     row_df["defense_S&P+_ranking"] = team["defense"]["ranking"]
+    #     row_df["defense_S&P+_rating"] = team["defense"]["rating"]
+    #     row_df["defense_S&P+_success"] = team["defense"]["success"]
+    #     row_df["defense_S&P+_explosiveness"] = team["defense"]["explosiveness"]
+    #     row_df["defense_S&P+_rushing"] = team["defense"]["rushing"]
+    #     row_df["defense_S&P+_passing"] = team["defense"]["passing"]
+    #     row_df["defense_S&P+_standard_downs"] = team["defense"]["standardDowns"]
+    #     row_df["defense_S&P+_passing_downs"] = team["defense"]["passingDowns"]
+    #     # row_df["defense_S&P+_run_rate"] = team["defense"]["runRate"]
+    #     row_df["defense_S&P+_havoc_total"] = team["defense"]["havoc"]["total"]
+    #     row_df["defense_S&P+_havoc_front_seven"] = team["defense"]["havoc"][
+    #         "frontSeven"
+    #     ]
+    #     row_df["defense_S&P+_havoc_db"] = team["defense"]["havoc"]["db"]
+    #     row_df["defense_S&P+_special_teams_rating"] = team["specialTeams"]["rating"]
 
-        final_df = pd.concat([final_df, row_df], ignore_index=True)
-        del row_df
-        del t_year, t_name, t_conf
-        del (
-            t_sp_ranking,
-            t_sp_rating,
-        )
-        del t_2nd_order_wins, t_sos
+    #     final_df = pd.concat([final_df, row_df], ignore_index=True)
+    #     del row_df
+    #     del t_year, t_name, t_conf
+    #     del (
+    #         t_sp_ranking,
+    #         t_sp_rating,
+    #     )
+    #     del t_2nd_order_wins, t_sos
+    final_df =pd.json_normalize(json_data)
+    final_df.rename(
+        columns={
+            "team":"team_name",
+            "conference":"conference_name",
+            "rating":"S&P+_rating",
+            "secondOrderWins":"second_order_wins",
+            "offense.rating":"offense_S&P+_rating",
+            "offense.success":"offense_S&P+_success",
+            "offense.explosiveness":"offense_S&P+_esplosiveness",
+            "offense.rushing":"offense_S&P+_rushing",
+            "offense.passing":"offense_S&P+_passing",
+            "offense.standardDowns":"offense_S&P+_standard_downs",
+            "offense.passingDowns":"offense_S&P+_passing_downs",
+            "offense.runRate":"offense_S&P+_run_rate",
+            "offense.pace":"offense_S&P+_pace",
+            "defense.rating":"defense_S&P+_rating",
+            "defense.success":"defense_S&P+_success",
+            "defense.explosiveness":"defense_S&P+_esplosiveness",
+            "defense.rushing":"defense_S&P+_rushing",
+            "defense.passing":"defense_S&P+_passing",
+            "defense.standardDowns":"defense_S&P+_standard_downs",
+            "defense.passingDowns":"defense_S&P+_passing_downs",
+            "defense.havoc.total":"defense_S&P+_havoc_total",
+            "defense.havoc.frontSeven":"defense_S&P+_havoc_front_seven",
+            "defense.havoc.db":"defense_S&P+_havoc_db",
+            "specialTeams.rating":"defense_S&P+_special_teams_rating",
+        },
+        inplace=True,
+    )
+    #print(final_df.columns)
 
     return final_df
 
@@ -303,8 +335,9 @@ def get_cfbd_srs_ratings(
     season: int = None,
     team: int = None,
     # Either `year` or `team` have to be not null for this function to work.
-    conference_abv: str = None,
-    return_as_dict: bool = False):
+    conference: str = None,
+    return_as_dict: bool = False,
+):
     """
     Allows you to get Simple Rating System (SRS) data from the CFBD API.
 
@@ -344,11 +377,11 @@ def get_cfbd_srs_ratings(
         the CFBD API, will not accept the request to get SRS ratings data.
         This or `season` must be set to a valid non-null variable for this to function.
 
-    `conference_abv` (str, optional):
+    `conference` (str, optional):
         Optional argument.
         If you only want game information from games
         involving teams a specific confrence,
-        set `conference_abv` to the abbreviation
+        set `conference` to the abbreviation
         of the conference you want game information from.
 
     `return_as_dict` (bool, semi-optional):
@@ -502,8 +535,8 @@ def get_cfbd_srs_ratings(
     elif team != None:
         url += f"?team={team}"
 
-    if conference_abv != None:
-        url += f"&conference={conference_abv}"
+    if conference != None:
+        url += f"&conference={conference}"
 
     headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
     response = requests.get(url, headers=headers)
@@ -534,8 +567,9 @@ def get_cfbd_sp_plus_conference_ratings(
     api_key: str = None,
     api_key_dir: str = None,
     season: int = None,
-    conference_abv: str = None,
-    return_as_dict: bool = False):
+    conference: str = None,
+    return_as_dict: bool = False,
+):
     """
     Allows you to get Success rate and equivalent Points per play (S&P+)
     ratings data from the CFBD API.
@@ -576,11 +610,11 @@ def get_cfbd_sp_plus_conference_ratings(
         the CFBD API, will not accept the request to get S&P+ ratings data.
         This or `season` must be set to a valid non-null variable for this to function.
 
-    `conference_abv` (str, optional):
+    `conference` (str, optional):
         Optional argument.
         If you only want S&P+ ratings data from games
         involving teams a specific confrence,
-        set `conference_abv` to the abbreviation
+        set `conference` to the abbreviation
         of the conference you want S&P+ ratings data from.
 
     `return_as_dict` (bool, semi-optional):
@@ -653,7 +687,7 @@ def get_cfbd_sp_plus_conference_ratings(
     or (if `return_as_dict` is set to `True`)
     a dictionary object with a with S&P+ ratings data.
     """
-    warnings.simplefilter(action="ignore", category=FutureWarning)
+    # warnings.simplefilter(action="ignore", category=FutureWarning)
 
     now = datetime.now()
     url = "https://api.collegefootballdata.com/ratings/sp/conferences"
@@ -675,11 +709,11 @@ def get_cfbd_sp_plus_conference_ratings(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    if season == None and team == None:
-        raise ValueError(
-            "`season` and/or `team` must be set to a valid, "
-            + "non-null value for this function to work."
-        )
+    # if season == None and team == None:
+    #     raise ValueError(
+    #         "`season` and/or `team` must be set to a valid, "
+    #         + "non-null value for this function to work."
+    #     )
 
     if season != None and (season > (now.year + 1)):
         raise ValueError(f"`season` cannot be greater than {season}.")
@@ -698,11 +732,11 @@ def get_cfbd_sp_plus_conference_ratings(
         url += f"&year={season}"
         url_elements += 1
 
-    if conference_abv != None and url_elements == 0:
-        url += f"?conference={conference_abv}"
+    if conference != None and url_elements == 0:
+        url += f"?conference={conference}"
         url_elements += 1
-    elif conference_abv != None:
-        url += f"&conference={conference_abv}"
+    elif conference != None:
+        url += f"&conference={conference}"
         url_elements += 1
 
     headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
@@ -724,76 +758,49 @@ def get_cfbd_sp_plus_conference_ratings(
     if return_as_dict == True:
         return json_data
 
-    # final_df = pd.json_normalize(json_data)
 
-    for team in tqdm(json_data):
-        t_year = team["year"]
-        # t_name = team["team"]
-        try:
-            t_conf = team["conference"]
-        except:
-            t_conf = None
-        t_sp_rating = team["rating"]
-        # t_sp_ranking = team["ranking"]
-        t_2nd_order_wins = team["secondOrderWins"]
-        t_sos = team["sos"]
-
-        row_df = pd.DataFrame(
-            {
-                "season": t_year,
-                # "team_name":t_name,
-                "conference_name": t_conf,
-                # "S&P+_rating":t_sp_rating,
-                "second_order_wins": t_2nd_order_wins,
-                "sos": t_sos,
-            },
-            index=[0],
-        )
-        # row_df["offense_S&P+_ranking"] = team["offense"]["ranking"]
-        row_df["offense_S&P+_rating"] = team["offense"]["rating"]
-        row_df["offense_S&P+_success"] = team["offense"]["success"]
-        row_df["offense_S&P+_explosiveness"] = team["offense"]["explosiveness"]
-        row_df["offense_S&P+_rushing"] = team["offense"]["rushing"]
-        row_df["offense_S&P+_passing"] = team["offense"]["passing"]
-        row_df["offense_S&P+_standard_downs"] = team["offense"]["standardDowns"]
-        row_df["offense_S&P+_passing_downs"] = team["offense"]["passingDowns"]
-        row_df["offense_S&P+_run_rate"] = team["offense"]["runRate"]
-        row_df["offense_S&P+_pace"] = team["offense"]["pace"]
-
-        # row_df["defense_S&P+_ranking"] = team["defense"]["ranking"]
-        row_df["defense_S&P+_rating"] = team["defense"]["rating"]
-        row_df["defense_S&P+_success"] = team["defense"]["success"]
-        row_df["defense_S&P+_explosiveness"] = team["defense"]["explosiveness"]
-        row_df["defense_S&P+_rushing"] = team["defense"]["rushing"]
-        row_df["defense_S&P+_passing"] = team["defense"]["passing"]
-        row_df["defense_S&P+_standard_downs"] = team["defense"]["standardDowns"]
-        row_df["defense_S&P+_passing_downs"] = team["defense"]["passingDowns"]
-        # row_df["defense_S&P+_run_rate"] = team["defense"]["runRate"]
-        row_df["defense_S&P+_havoc_total"] = team["defense"]["havoc"]["total"]
-        row_df["defense_S&P+_havoc_front_seven"] = team["defense"]["havoc"][
-            "frontSeven"
-        ]
-        row_df["defense_S&P+_havoc_db"] = team["defense"]["havoc"]["db"]
-        row_df["defense_S&P+_special_teams_rating"] = team["specialTeams"]["rating"]
-
-        final_df = pd.concat([final_df, row_df], ignore_index=True)
-        del row_df
-        del t_year, t_conf
-        del (t_sp_rating,)
-        del t_2nd_order_wins, t_sos
-
+    final_df = pd.json_normalize(json_data)
+    final_df.rename(
+        columns={
+            "conference":"conference_name",
+            "rating":"S&P+_rating",
+            "secondOrderWins":"second_order_wins",
+            "offense.rating":"offense_S&P+_rating",
+            "offense.success":"offense_S&P+_success",
+            "offense.explosiveness":"offense_S&P+_esplosiveness",
+            "offense.rushing":"offense_S&P+_rushing",
+            "offense.passing":"offense_S&P+_passing",
+            "offense.standardDowns":"offense_S&P+_standard_downs",
+            "offense.passingDowns":"offense_S&P+_passing_downs",
+            "offense.runRate":"offense_S&P+_run_rate",
+            "offense.pace":"offense_S&P+_pace",
+            "defense.rating":"defense_S&P+_rating",
+            "defense.success":"defense_S&P+_success",
+            "defense.explosiveness":"defense_S&P+_esplosiveness",
+            "defense.rushing":"defense_S&P+_rushing",
+            "defense.passing":"defense_S&P+_passing",
+            "defense.standardDowns":"defense_S&P+_standard_downs",
+            "defense.passingDowns":"defense_S&P+_passing_downs",
+            "defense.havoc.total":"defense_S&P+_havoc_total",
+            "defense.havoc.frontSeven":"defense_S&P+_havoc_front_seven",
+            "defense.havoc.db":"defense_S&P+_havoc_db",
+            "specialTeams.rating":"defense_S&P+_special_teams_rating",
+        },
+        inplace=True,
+    )
     return final_df
 
 
 def get_cfbd_elo_ratings(
     api_key: str = None,
     api_key_dir: str = None,
-    season: int=None,
+    season: int = None,
     week: int = None,
     season_type: str = "postseason",  # "regular" or "postseason"
     team: str = None,
-    conference_abv: str = None,
-    return_as_dict: bool = False):
+    conference: str = None,
+    return_as_dict: bool = False,
+):
     """
     Allows you to get Elo ratings data for CFB teams from the CFBD API.
 
@@ -825,7 +832,7 @@ def get_cfbd_elo_ratings(
         This must be specified, otherwise this package, and by extension
         the CFBD API, will not accept the request to get S&P+ ratings data.
         This or `team` must be set to a valid non-null variable for this to function.
-    
+
     `week` (int, optional):
         Optional argument.
         If `week` is set to a valid, non-null integer,
@@ -835,9 +842,9 @@ def get_cfbd_elo_ratings(
     `season_type` (str, semi-optional):
         Semi-optional argument.
         By defualt, this will be set to "postseason".
-        If `season_type` is set to "regular", 
+        If `season_type` is set to "regular",
         the API will ignore postseason games (like bowls and CFP games) when calculating elo.
-        If `season_type` is set to anything but "regular" or "postseason", 
+        If `season_type` is set to anything but "regular" or "postseason",
         a `ValueError()` will be raised.
 
     `team` (str, optional):
@@ -847,11 +854,11 @@ def get_cfbd_elo_ratings(
         the CFBD API, will not accept the request to get S&P+ ratings data.
         This or `season` must be set to a valid non-null variable for this to function.
 
-    `conference_abv` (str, optional):
+    `conference` (str, optional):
         Optional argument.
         If you only want S&P+ ratings data from games
         involving teams a specific confrence,
-        set `conference_abv` to the abbreviation
+        set `conference` to the abbreviation
         of the conference you want S&P+ ratings data from.
 
     `return_as_dict` (bool, semi-optional):
@@ -876,7 +883,7 @@ def get_cfbd_elo_ratings(
         # Get Elo ratings data for the 2020 CFB season.
         print("Get Elo ratings data for the 2020 CFB season.")
         json_data = get_cfbd_elo_ratings(
-            api_key=cfbd_key, 
+            api_key=cfbd_key,
             season=2020
         )
         print(json_data)
@@ -885,7 +892,7 @@ def get_cfbd_elo_ratings(
         # Get Elo ratings data up to week 12 of the 2021 CFB season.
         print("Get Elo ratings data up to week 12 of the 2021 CFB season.")
         json_data = get_cfbd_elo_ratings(
-            api_key=cfbd_key, 
+            api_key=cfbd_key,
             season=2020,
             week=12
         )
@@ -895,31 +902,31 @@ def get_cfbd_elo_ratings(
         # Get Elo ratings data for the 2020 CFB season, but only for games in the regular season.
         print("Get Elo ratings data for the 2020 CFB season, but only for games in the regular season.")
         json_data = get_cfbd_elo_ratings(
-            api_key=cfbd_key, 
+            api_key=cfbd_key,
             season=2020,
             season_type="regular"
         )
         print(json_data)
         time.sleep(5)
 
-        # Get historical Elo ratings data for the 
+        # Get historical Elo ratings data for the
         # University of Cincinnati Football Team.
         print("Get historical Elo ratings data for the University of Cincinnati Football Team.")
         json_data = get_cfbd_elo_ratings(
-            api_key=cfbd_key, 
+            api_key=cfbd_key,
             team="Cincinnati"
         )
         print(json_data)
         time.sleep(5)
 
 
-        # Get Elo ratings data for teams competing in the 
+        # Get Elo ratings data for teams competing in the
         # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
         print("Get Elo ratings data for teams competing in the Atlantic Coast Confrence (ACC) in the 2021 CFB season.")
         json_data = get_cfbd_elo_ratings(
-            api_key=cfbd_key, 
+            api_key=cfbd_key,
             season=2021,
-            conference_abv="ACC"
+            conference="ACC"
         )
         print(json_data)
         time.sleep(5)
@@ -928,8 +935,8 @@ def get_cfbd_elo_ratings(
         # a Dictionary (read: JSON) object.
         print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
         json_data = get_cfbd_elo_ratings(
-            api_key=cfbd_key, 
-            season=2020, 
+            api_key=cfbd_key,
+            season=2020,
             team="Cincinnati",
             return_as_dict=True
         )
@@ -970,7 +977,7 @@ def get_cfbd_elo_ratings(
         print(json_data)
         time.sleep(5)
 
-        # Get historical Elo ratings data for the 
+        # Get historical Elo ratings data for the
         # University of Cincinnati Football Team.
         print("Get historical Elo ratings data for the University of Cincinnati Football Team.")
         json_data = get_cfbd_elo_ratings(
@@ -980,12 +987,12 @@ def get_cfbd_elo_ratings(
         time.sleep(5)
 
 
-        # Get Elo ratings data for teams competing in the 
+        # Get Elo ratings data for teams competing in the
         # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
         print("Get Elo ratings data for teams competing in the Atlantic Coast Confrence (ACC) in the 2021 CFB season.")
         json_data = get_cfbd_elo_ratings(
             season=2021,
-            conference_abv="ACC"
+            conference="ACC"
         )
         print(json_data)
         time.sleep(5)
@@ -994,7 +1001,7 @@ def get_cfbd_elo_ratings(
         # a Dictionary (read: JSON) object.
         print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
         json_data = get_cfbd_elo_ratings(
-            season=2020, 
+            season=2020,
             team="Cincinnati",
             return_as_dict=True
         )
@@ -1037,8 +1044,6 @@ def get_cfbd_elo_ratings(
         raise ValueError(f"`season` cannot be greater than {season}.")
     elif season != None and season < 1869:
         raise ValueError(f"`season` cannot be less than 1869.")
-    
-
 
     # URL builder
     ########################################################################################################################################################################################################
@@ -1052,13 +1057,13 @@ def get_cfbd_elo_ratings(
         url += f"?team={team}"
 
     if week != None:
-        url+=f"&week={week}"
+        url += f"&week={week}"
 
-    if conference_abv != None:
-        url += f"&conference={conference_abv}"
+    if conference != None:
+        url += f"&conference={conference}"
 
-    if season_type !=None:
-        url+=f"&seasonType={season_type}"
+    if season_type != None:
+        url += f"&seasonType={season_type}"
 
     headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
     response = requests.get(url, headers=headers)
@@ -1083,7 +1088,7 @@ def get_cfbd_elo_ratings(
 
     final_df.rename(columns={"rating": "elo_rating"}, inplace=True)
 
-    if week != None and len(final_df)>0:
+    if week != None and len(final_df) > 0:
         final_df["week"] = week
     return final_df
 
@@ -1091,13 +1096,14 @@ def get_cfbd_elo_ratings(
 def get_cfbd_fpi_ratings(
     api_key: str = None,
     api_key_dir: str = None,
-    season: int=None,
+    season: int = None,
     week: int = None,
     team: str = None,
-    conference_abv: str = None,
-    return_as_dict: bool = False):
+    conference: str = None,
+    return_as_dict: bool = False,
+):
     """
-    Allows you to get Football Power Index (FPI) ratings data 
+    Allows you to get Football Power Index (FPI) ratings data
     for CFB teams from the CFBD API.
 
     For more information about FPI, consult the following webpages:
@@ -1128,7 +1134,7 @@ def get_cfbd_fpi_ratings(
         This must be specified, otherwise this package, and by extension
         the CFBD API, will not accept the request to get FPI ratings data.
         This or `team` must be set to a valid non-null variable for this to function.
-    
+
     `week` (int, optional):
         Optional argument.
         If `week` is set to a valid, non-null integer,
@@ -1142,11 +1148,11 @@ def get_cfbd_fpi_ratings(
         the CFBD API, will not accept the request to get FPI ratings data.
         This or `season` must be set to a valid non-null variable for this to function.
 
-    `conference_abv` (str, optional):
+    `conference` (str, optional):
         Optional argument.
         If you only want FPI ratings data from games
         involving teams a specific confrence,
-        set `conference_abv` to the abbreviation
+        set `conference` to the abbreviation
         of the conference you want FPI ratings data from.
 
     `return_as_dict` (bool, semi-optional):
@@ -1171,7 +1177,7 @@ def get_cfbd_fpi_ratings(
         # Get FPI ratings data for the 2020 CFB season.
         print("Get FPI ratings data for the 2020 CFB season.")
         json_data = get_cfbd_fpi_ratings(
-            api_key=cfbd_key, 
+            api_key=cfbd_key,
             season=2020
         )
         print(json_data)
@@ -1180,31 +1186,31 @@ def get_cfbd_fpi_ratings(
         # Get FPI ratings data up to week 12 of the 2021 CFB season.
         print("Get FPI ratings data up to week 12 of the 2021 CFB season.")
         json_data = get_cfbd_fpi_ratings(
-            api_key=cfbd_key, 
+            api_key=cfbd_key,
             season=2020,
             week=12
         )
         print(json_data)
         time.sleep(5)
 
-        # Get historical FPI ratings data for the 
+        # Get historical FPI ratings data for the
         # University of Cincinnati Football Team.
         print("Get historical FPI ratings data for the University of Cincinnati Football Team.")
         json_data = get_cfbd_fpi_ratings(
-            api_key=cfbd_key, 
+            api_key=cfbd_key,
             team="Cincinnati"
         )
         print(json_data)
         time.sleep(5)
 
 
-        # Get FPI ratings data for teams competing in the 
+        # Get FPI ratings data for teams competing in the
         # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
         print("Get FPI ratings data for teams competing in the Atlantic Coast Confrence (ACC) in the 2021 CFB season.")
         json_data = get_cfbd_fpi_ratings(
-            api_key=cfbd_key, 
+            api_key=cfbd_key,
             season=2021,
-            conference_abv="ACC"
+            conference="ACC"
         )
         print(json_data)
         time.sleep(5)
@@ -1213,8 +1219,8 @@ def get_cfbd_fpi_ratings(
         # a Dictionary (read: JSON) object.
         print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
         json_data = get_cfbd_fpi_ratings(
-            api_key=cfbd_key, 
-            season=2020, 
+            api_key=cfbd_key,
+            season=2020,
             team="Cincinnati",
             return_as_dict=True
         )
@@ -1248,7 +1254,7 @@ def get_cfbd_fpi_ratings(
 
 
 
-        # Get historical FPI ratings data for the 
+        # Get historical FPI ratings data for the
         # University of Cincinnati Football Team.
         print("Get historical FPI ratings data for the University of Cincinnati Football Team.")
         json_data = get_cfbd_fpi_ratings(
@@ -1258,12 +1264,12 @@ def get_cfbd_fpi_ratings(
         time.sleep(5)
 
 
-        # Get FPI ratings data for teams competing in the 
+        # Get FPI ratings data for teams competing in the
         # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
         print("Get FPI ratings data for teams competing in the Atlantic Coast Confrence (ACC) in the 2021 CFB season.")
         json_data = get_cfbd_fpi_ratings(
             season=2021,
-            conference_abv="ACC"
+            conference="ACC"
         )
         print(json_data)
         time.sleep(5)
@@ -1272,7 +1278,7 @@ def get_cfbd_fpi_ratings(
         # a Dictionary (read: JSON) object.
         print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
         json_data = get_cfbd_fpi_ratings(
-            season=2020, 
+            season=2020,
             team="Cincinnati",
             return_as_dict=True
         )
@@ -1330,10 +1336,10 @@ def get_cfbd_fpi_ratings(
         url += f"?team={team}"
 
     if week != None:
-        url+=f"&week={week}"
+        url += f"&week={week}"
 
-    if conference_abv != None:
-        url += f"&conference={conference_abv}"
+    if conference != None:
+        url += f"&conference={conference}"
 
     headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
     response = requests.get(url, headers=headers)
@@ -1358,20 +1364,20 @@ def get_cfbd_fpi_ratings(
 
     final_df.rename(
         columns={
-            "year":"season",
-            "team":"team_name",
-            "conference":"conference_name",
-            "resumeRanks.strenghOfRecord":"resume_strength_of_record",
-            "resumeRanks.fpi":"fpi_rank",
-            "resumeRanks.averageWinProbability":"resume_avg_win_probability",
-            "resumeRanks.strengthOfSchedule":"resume_strength_of_schedule",
-            "resumeRanks.remaningStrengthOfSchedule":"resume_remaining_strength_of_schedule",
-            "resumeRanks.gameControl":"resume_game_control",
-            "efficiencies.overall":"efficiency_overall",
-            "efficiencies.offense":"efficiency_offense",
-            "efficiencies.defense":"efficiency_defense",
-            "efficiencies.specialTeams":"efficiency_special_teams",
+            "year": "season",
+            "team": "team_name",
+            "conference": "conference_name",
+            "resumeRanks.strenghOfRecord": "resume_strength_of_record",
+            "resumeRanks.fpi": "fpi_rank",
+            "resumeRanks.averageWinProbability": "resume_avg_win_probability",
+            "resumeRanks.strengthOfSchedule": "resume_strength_of_schedule",
+            "resumeRanks.remaningStrengthOfSchedule": "resume_remaining_strength_of_schedule",
+            "resumeRanks.gameControl": "resume_game_control",
+            "efficiencies.overall": "efficiency_overall",
+            "efficiencies.offense": "efficiency_offense",
+            "efficiencies.defense": "efficiency_defense",
+            "efficiencies.specialTeams": "efficiency_special_teams",
         },
-        inplace=True
+        inplace=True,
     )
     return final_df

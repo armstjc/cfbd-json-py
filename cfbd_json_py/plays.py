@@ -1,10 +1,11 @@
+"""
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 12/28/2023 09:55 AM EST
+# Last Updated Date: 02/24/2023 03:30 PM EST
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: plays.py
 # Purpose: Houses functions pertaining to CFB play data within the CFBD API.
-####################################################################################################
-
+###############################################################################
+"""
 from datetime import datetime
 import logging
 
@@ -53,14 +54,16 @@ def get_cfbd_pbp_data(
         Semi-optional argument.
         If `api_key` is null, this function will attempt to load a CFBD API key
         from the python environment, or from a file on this computer.
-        If `api_key` is not null, this function will automatically assume that the
+        If `api_key` is not null,
+        this function will automatically assume that the
         inputted `api_key` is a valid CFBD API key.
 
     `api_key_dir` (str, optional):
         Optional argument.
         If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null,
-        this function will try to find a CFBD API key file in this user's home directory.
+        this function will try to find
+        a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
         this function will assume that `api_key_dir` is a directory,
         and will try to find a CFBD API key file in that directory.
@@ -68,7 +71,8 @@ def get_cfbd_pbp_data(
     `week` (int, optional):
         Optional argument.
         If `week` is set to an integer, this function will attempt
-        to load CFB poll rankings data from games in that season, and in that week.
+        to load CFB poll rankings data from games in that season,
+        and in that week.
 
     `season_type` (str, semi-optional):
         Semi-optional argument.
@@ -159,7 +163,8 @@ def get_cfbd_pbp_data(
 
     `return_as_dict` (bool, semi-optional):
         Semi-optional argument.
-        If you want this function to return the data as a dictionary (read: JSON object),
+        If you want this function to return
+        the data as a dictionary (read: JSON object),
         instead of a pandas `DataFrame` object,
         set `return_as_dict` to `True`.
 
@@ -174,9 +179,14 @@ def get_cfbd_pbp_data(
     cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
 
     if cfbd_key != "tigersAreAwsome":
-        print("Using the user's API key declared in this script for this example.")
+        print(
+            "Using the user's API key declared in this script " +
+            "for this example."
+        )
 
-        # Get CFB PBP data for the University of Cincinnati Football Team for week 10 of the 2021 season
+        # Get CFB PBP data for
+        # the University of Cincinnati Football Team
+        # for week 10 of the 2021 season
         print("Get CFB PBP data for week 10 of the 2021 season.")
         json_data = get_cfbd_pbp_data(
             api_key=cfbd_key,
@@ -189,7 +199,10 @@ def get_cfbd_pbp_data(
 
         # Get CFB PBP data for when the Ohio State Buckeyes Football Team
         # was on offense for week 10 of the 2021 season
-        print("Get CFB PBP data for when the Ohio State Buckeyes Football Team was on offense for week 10 of the 2021 season")
+        print(
+            "Get CFB PBP data for when the Ohio State Buckeyes " +
+            "Football Team was on offense for week 10 of the 2021 season"
+        )
         json_data = get_cfbd_pbp_data(
             api_key=cfbd_key,
             season=2021,
@@ -201,7 +214,10 @@ def get_cfbd_pbp_data(
 
         # Get CFB PBP data for when the LSU Tigers Football Team
         # was on defense for week 10 of the 2021 season
-        print("Get CFB PBP data for when the LSU Tigers Football Team was on defense for week 10 of the 2021 season")
+        print(
+            "Get CFB PBP data for when the LSU Tigers Football Team " +
+            "was on defense for week 10 of the 2021 season"
+        )
         json_data = get_cfbd_pbp_data(
             api_key=cfbd_key,
             season=2021,
@@ -211,8 +227,13 @@ def get_cfbd_pbp_data(
         print(json_data)
         time.sleep(5)
 
-        # Get CFB PBP data for teams in the Southeastern Conference (SEC) for week 10 of the 2021 CFB season.
-        print("Get CFB PBP data for teams in the Southeastern Conference (SEC) for week 10 of the 2021 CFB season.")
+        # Get CFB PBP data for teams in the Southeastern Conference (SEC)
+        # for week 10 of the 2021 CFB season.
+        print(
+            "Get CFB PBP data for teams in " +
+            "the Southeastern Conference (SEC) " +
+            "for week 10 of the 2021 CFB season."
+        )
         json_data = get_cfbd_pbp_data(
             api_key=cfbd_key,
             season=2021,
@@ -224,7 +245,10 @@ def get_cfbd_pbp_data(
 
         # Get CFB PBP data for teams in the Big 10 (B1G) Conference,
         # while on offense, for week 10 of the 2021 CFB season.
-        print("Get CFB PBP data for teams in the Big 10 (B1G) Conference while on offense, for week 10 of the 2021 CFB season.")
+        print(
+            "Get CFB PBP data for teams in the Big 10 (B1G) Conference " +
+            "while on offense, for week 10 of the 2021 CFB season."
+        )
         json_data = get_cfbd_pbp_data(
             api_key=cfbd_key,
             season=2021,
@@ -236,7 +260,11 @@ def get_cfbd_pbp_data(
 
         # Get CFB PBP data for teams in the Atlantic Coast Conference (ACC),
         # while on defense, for week 10 of the 2021 CFB season.
-        print("Get CFB PBP data for teams in the Atlantic Coast Conference (ACC), while on defense, for week 10 of the 2021 CFB season.")
+        print(
+            "Get CFB PBP data for teams in " +
+            "the Atlantic Coast Conference (ACC), while on defense, " +
+            "for week 10 of the 2021 CFB season."
+        )
         json_data = get_cfbd_pbp_data(
             api_key=cfbd_key,
             season=2021,
@@ -253,13 +281,18 @@ def get_cfbd_pbp_data(
             season=2021,
             week=10,
             play_type=5 # ID for run plays.
-            # See `cfbd_json_py.plays.get_cfbd_pbp_play_types()` for a list of play type IDs.
+            # See `cfbd_json_py.plays.get_cfbd_pbp_play_types()`
+            # for a list of play type IDs.
         )
         print(json_data)
         time.sleep(5)
 
-        # Get CFB PBP data for Football Championship Subdivision (FCS) teams in week 10 of the 2021 CFB season.
-        print("Get CFB PBP data for Football Championship Subdivision (FCS) teams in week 10 of the 2021 CFB season.")
+        # Get CFB PBP data for Football Championship Subdivision (FCS)
+        # teams in week 10 of the 2021 CFB season.
+        print(
+            "Get CFB PBP data for Football Championship Subdivision (FCS)" +
+            " teams in week 10 of the 2021 CFB season."
+        )
         json_data = get_cfbd_pbp_data(
             api_key=cfbd_key,
             season=2021,
@@ -281,7 +314,10 @@ def get_cfbd_pbp_data(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_pbp_data(
             api_key=cfbd_key,
             season=2020,
@@ -294,13 +330,20 @@ def get_cfbd_pbp_data(
     else:
         # Alternatively, if the CFBD API key exists in this python environment,
         # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
-        # you could just call these functions directly, without setting the API key
-        # in the script.
-        print("Using the user's API key suposedly loaded into this python environment for this example.")
+        # you could just call these functions directly,
+        # without setting the API key in the script.
+        print(
+            "Using the user's API key suposedly loaded " +
+            "into this python environment for this example."
+        )
 
         # Get CFB PBP data for the University of Cincinnati Football Team
         # for week 10 of the 2021 season
-        print("Get CFB play-by-play (PBP) data for the University of Cincinnati Football Team for week 10 of the 2021 season")
+        print(
+            "Get CFB play-by-play (PBP) data for " +
+            "the University of Cincinnati Football Team " +
+            "for week 10 of the 2021 season"
+        )
         json_data = get_cfbd_pbp_data(
             season=2021,
             week=10,
@@ -311,7 +354,11 @@ def get_cfbd_pbp_data(
 
         # Get CFB PBP data for when the Ohio State Buckeyes Football Team
         # was on offense for week 10 of the 2021 season
-        print("Get CFB PBP data for when the Ohio State Buckeyes Football Team was on offense for week 10 of the 2021 season")
+        print(
+            "Get CFB PBP data for when " +
+            "the Ohio State Buckeyes Football Team was on offense " +
+            "for week 10 of the 2021 season"
+        )
         json_data = get_cfbd_pbp_data(
             season=2021,
             week=10,
@@ -322,7 +369,10 @@ def get_cfbd_pbp_data(
 
         # Get CFB PBP data for when the LSU Tigers Football Team
         # was on defense for week 10 of the 2021 season
-        print("Get CFB PBP data for when the LSU Tigers Football Team was on defense for week 10 of the 2021 season")
+        print(
+            "Get CFB PBP data for when the LSU Tigers Football Team " +
+            "was on defense for week 10 of the 2021 season"
+        )
         json_data = get_cfbd_pbp_data(
             season=2021,
             week=10,
@@ -331,8 +381,13 @@ def get_cfbd_pbp_data(
         print(json_data)
         time.sleep(5)
 
-        # Get CFB PBP data for teams in the Southeastern Conference (SEC) for week 10 of the 2021 CFB season.
-        print("Get CFB PBP data for teams in the Southeastern Conference (SEC) for week 10 of the 2021 CFB season.")
+        # Get CFB PBP data for teams in the Southeastern Conference (SEC)
+        # for week 10 of the 2021 CFB season.
+        print(
+            "Get CFB PBP data for teams in " +
+            "the Southeastern Conference (SEC) " +
+            "for week 10 of the 2021 CFB season."
+        )
         json_data = get_cfbd_pbp_data(
             season=2021,
             week=10,
@@ -343,7 +398,10 @@ def get_cfbd_pbp_data(
 
         # Get CFB PBP data for teams in the Big 10 (B1G) Conference,
         # while on offense, for week 10 of the 2021 CFB season.
-        print("Get CFB PBP data for teams in the Big 10 (B1G) Conference while on offense, for week 10 of the 2021 CFB season.")
+        print(
+            "Get CFB PBP data for teams in the Big 10 (B1G) Conference " +
+            "while on offense, for week 10 of the 2021 CFB season."
+        )
         json_data = get_cfbd_pbp_data(
             season=2021,
             week=10,
@@ -354,7 +412,11 @@ def get_cfbd_pbp_data(
 
         # Get CFB PBP data for teams in the Atlantic Coast Conference (ACC),
         # while on defense, for week 10 of the 2021 CFB season.
-        print("Get CFB PBP data for teams in the Atlantic Coast Conference (ACC), while on defense, for week 10 of the 2021 CFB season.")
+        print(
+            "Get CFB PBP data for teams in " +
+            "the Atlantic Coast Conference (ACC), while on defense, " +
+            "for week 10 of the 2021 CFB season."
+        )
         json_data = get_cfbd_pbp_data(
             season=2021,
             week=10,
@@ -369,13 +431,18 @@ def get_cfbd_pbp_data(
             season=2021,
             week=10,
             play_type=5 # ID for run plays.
-            # See `cfbd_json_py.plays.get_cfbd_pbp_play_types()` for a list of play type IDs.
+            # See `cfbd_json_py.plays.get_cfbd_pbp_play_types()`
+            # for a list of play type IDs.
         )
         print(json_data)
         time.sleep(5)
 
-        # Get CFB PBP data for Football Championship Subdivision (FCS) teams in week 10 of the 2021 CFB season.
-        print("Get CFB PBP data for Football Championship Subdivision (FCS) teams in week 10 of the 2021 CFB season.")
+        # Get CFB PBP data for Football Championship Subdivision (FCS)
+        # teams in week 10 of the 2021 CFB season.
+        print(
+            "Get CFB PBP data for Football Championship Subdivision (FCS)" +
+            " teams in week 10 of the 2021 CFB season."
+        )
         json_data = get_cfbd_pbp_data(
             season=2021,
             week=10,
@@ -395,7 +462,10 @@ def get_cfbd_pbp_data(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_pbp_data(
             season=2020,
             week=10,
@@ -415,20 +485,22 @@ def get_cfbd_pbp_data(
 
     now = datetime.now()
     pbp_df = pd.DataFrame()
-    row_df = pd.DataFrame()
+    # row_df = pd.DataFrame()
     url = "https://api.collegefootballdata.com/plays"
 
     # Input validation
-    ########################################################################################################################################################################################################
+    ##########################################################################
 
-    if api_key != None:
+    if api_key is not None:
         real_api_key = api_key
         del api_key
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
     if real_api_key == "tigersAreAwsome":
-        raise ValueError("You actually need to change `cfbd_key` to your CFBD API key.")
+        raise ValueError(
+            "You actually need to change `cfbd_key` to your CFBD API key."
+        )
     elif "Bearer " in real_api_key:
         pass
     elif "Bearer" in real_api_key:
@@ -436,23 +508,28 @@ def get_cfbd_pbp_data(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    if season == None:
+    if season is None:
         # This should never happen without user tampering, but if it does,
-        # we need to raise an error, because the CFBD API will refuse this call without a valid season.
+        # we need to raise an error,
+        # because the CFBD API will refuse this call without a valid season.
         raise SystemError(
-            "I don't know how, I don't know why, but you managed to call this function while `season` was `None` (NULL),"
+            "I don't know how, I don't know why, "
+            + "but you managed to call this function "
+            + "while `season` was `None` (NULL),"
             + " and the function got to this point in the code."
-            + "\nIf you have a GitHub account, please raise an issue on this python package's GitHub page:\n"
+            + "\nIf you have a GitHub account, "
+            + "please raise an issue on this python package's GitHub page:\n"
             + "https://github.com/armstjc/cfbd-json-py/issues"
         )
     elif season > (now.year + 1):
         raise ValueError(f"`season` cannot be greater than {season}.")
     elif season < 1869:
-        raise ValueError(f"`season` cannot be less than 1869.")
+        raise ValueError("`season` cannot be less than 1869.")
 
     if season_type != "regular" and season_type != "postseason":
         raise ValueError(
-            '`season_type` must be set to either "regular" or "postseason" for this function to work.'
+            '`season_type` must be set to either ' +
+            '"regular" or "postseason" for this function to work.'
         )
 
     if (
@@ -469,18 +546,19 @@ def get_cfbd_pbp_data(
             + f"\n\nYou entered:\n{ncaa_division}"
         )
 
-    if week == None and (
-        team == None and offensive_team == None and defensive_team == None
+    if week is None and (
+        team is None and offensive_team is None and defensive_team is None
     ):
         raise ValueError(
             "If `week` is set to `None` when calling this function, "
-            + "the following variables must be set to a valid non-null variable:"
+            + "the following variables must be set "
+            + "to a valid non-null variable:"
             + "\n- `team`"
             + "\n- `offensive_team`"
             + "\n- `defensive_team`"
         )
     # URL builder
-    ########################################################################################################################################################################################################
+    ##########################################################################
 
     # Required by API
     url += f"?seasonType={season_type}"
@@ -489,31 +567,34 @@ def get_cfbd_pbp_data(
 
     url += f"&week={week}"
 
-    if team != None:
+    if team is not None:
         url += f"&team={team}"
 
-    if offensive_team != None:
+    if offensive_team is not None:
         url += f"&offense={offensive_team}"
 
-    if defensive_team != None:
+    if defensive_team is not None:
         url += f"&defense={defensive_team}"
 
-    if conference != None:
+    if conference is not None:
         url += f"&conference={conference}"
 
-    if offensive_conference != None:
+    if offensive_conference is not None:
         url += f"&offenseConference={offensive_conference}"
 
-    if defensive_conference != None:
+    if defensive_conference is not None:
         url += f"&defenseConference={defensive_conference}"
 
-    if ncaa_division != None:
+    if ncaa_division is not None:
         url += f"&classification={ncaa_division}"
 
-    if play_type != None:
+    if play_type is not None:
         url += f"&playType={play_type}"
 
-    headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
+    headers = {
+        "Authorization": f"{real_api_key}",
+        "accept": "application/json"
+    }
 
     response = requests.get(url, headers=headers)
 
@@ -521,7 +602,8 @@ def get_cfbd_pbp_data(
         pass
     elif response.status_code == 401:
         raise ConnectionRefusedError(
-            f"Could not connect. The connection was refused.\nHTTP Status Code 401."
+            "Could not connect. The connection was refused." +
+            "\nHTTP Status Code 401."
         )
     else:
         raise ConnectionError(
@@ -530,7 +612,7 @@ def get_cfbd_pbp_data(
 
     json_data = response.json()
 
-    if return_as_dict == True:
+    if return_as_dict is True:
         return json_data
 
     pbp_df = pd.json_normalize(json_data)
@@ -564,21 +646,24 @@ def get_cfbd_pbp_play_types(
         Semi-optional argument.
         If `api_key` is null, this function will attempt to load a CFBD API key
         from the python environment, or from a file on this computer.
-        If `api_key` is not null, this function will automatically assume that the
+        If `api_key` is not null,
+        this function will automatically assume that the
         inputted `api_key` is a valid CFBD API key.
 
     `api_key_dir` (str, optional):
         Optional argument.
         If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null,
-        this function will try to find a CFBD API key file in this user's home directory.
+        this function will try to find
+        a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
         this function will assume that `api_key_dir` is a directory,
         and will try to find a CFBD API key file in that directory.
 
     `return_as_dict` (bool, semi-optional):
         Semi-optional argument.
-        If you want this function to return the data as a dictionary (read: JSON object),
+        If you want this function to return
+        the data as a dictionary (read: JSON object),
         instead of a pandas `DataFrame` object,
         set `return_as_dict` to `True`.
 
@@ -599,16 +684,18 @@ def get_cfbd_pbp_play_types(
     url = "https://api.collegefootballdata.com/play/types"
 
     # Input validation
-    ########################################################################################################################################################################################################
+    ##########################################################################
 
-    if api_key != None:
+    if api_key is not None:
         real_api_key = api_key
         del api_key
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
     if real_api_key == "tigersAreAwsome":
-        raise ValueError("You actually need to change `cfbd_key` to your CFBD API key.")
+        raise ValueError(
+            "You actually need to change `cfbd_key` to your CFBD API key."
+        )
     elif "Bearer " in real_api_key:
         pass
     elif "Bearer" in real_api_key:
@@ -616,7 +703,10 @@ def get_cfbd_pbp_play_types(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
+    headers = {
+        "Authorization": f"{real_api_key}",
+        "accept": "application/json"
+    }
 
     response = requests.get(url, headers=headers)
 
@@ -624,7 +714,8 @@ def get_cfbd_pbp_play_types(
         pass
     elif response.status_code == 401:
         raise ConnectionRefusedError(
-            f"Could not connect. The connection was refused.\nHTTP Status Code 401."
+            "Could not connect. The connection was refused." +
+            "\nHTTP Status Code 401."
         )
     else:
         raise ConnectionError(
@@ -633,7 +724,7 @@ def get_cfbd_pbp_play_types(
 
     json_data = response.json()
 
-    if return_as_dict == True:
+    if return_as_dict is True:
         return json_data
 
     for p in tqdm(json_data):
@@ -672,14 +763,16 @@ def get_cfbd_pbp_stats(
         Semi-optional argument.
         If `api_key` is null, this function will attempt to load a CFBD API key
         from the python environment, or from a file on this computer.
-        If `api_key` is not null, this function will automatically assume that the
+        If `api_key` is not null,
+        this function will automatically assume that the
         inputted `api_key` is a valid CFBD API key.
 
     `api_key_dir` (str, optional):
         Optional argument.
         If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null,
-        this function will try to find a CFBD API key file in this user's home directory.
+        this function will try to find
+        a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
         this function will assume that `api_key_dir` is a directory,
         and will try to find a CFBD API key file in that directory.
@@ -693,7 +786,8 @@ def get_cfbd_pbp_stats(
     `week` (int, optional):
         Optional argument.
         If `week` is set to an integer, this function will attempt
-        to load CFB poll rankings data from games in that season, and in that week.
+        to load CFB poll rankings data from games in that season,
+        and in that week.
 
     `team` (str, optional):
         Optional argument.
@@ -738,7 +832,8 @@ def get_cfbd_pbp_stats(
 
     `return_as_dict` (bool, semi-optional):
         Semi-optional argument.
-        If you want this function to return the data as a dictionary (read: JSON object),
+        If you want this function to return
+        the data as a dictionary (read: JSON object),
         instead of a pandas `DataFrame` object,
         set `return_as_dict` to `True`.
 
@@ -753,7 +848,10 @@ def get_cfbd_pbp_stats(
     cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
 
     if cfbd_key != "tigersAreAwsome":
-        print("Using the user's API key declared in this script for this example.")
+        print(
+            "Using the user's API key declared in this script " +
+            "for this example."
+        )
 
         # Get CFB PBP stats data for the 2020 CFB season.
         print("Get CFB PBP stats data for the 2020 CFB season.")
@@ -776,7 +874,10 @@ def get_cfbd_pbp_stats(
 
         # Get CFB PBP stats data for a 2019 game between
         # the Ohio State Buckeyes and Clemson Tigers football teams.
-        print("Get CFB PBP stats data for a 2019 game between the Ohio State Buckeyes and Clemson Tigers football teams.")
+        print(
+            "Get CFB PBP stats data for a 2019 game between " +
+            "the Ohio State Buckeyes and Clemson Tigers football teams."
+        )
         json_data = get_cfbd_pbp_stats(
             api_key=cfbd_key,
             game_id=401135279
@@ -841,7 +942,10 @@ def get_cfbd_pbp_stats(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_pbp_stats(
             api_key=cfbd_key,
             season=2020,
@@ -853,9 +957,12 @@ def get_cfbd_pbp_stats(
     else:
         # Alternatively, if the CFBD API key exists in this python environment,
         # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
-        # you could just call these functions directly, without setting the API key
-        # in the script.
-        print("Using the user's API key suposedly loaded into this python environment for this example.")
+        # you could just call these functions directly,
+        # without setting the API key in the script.
+        print(
+            "Using the user's API key suposedly loaded " +
+            "into this python environment for this example."
+        )
 
         # Get CFB PBP stats data for the 2020 CFB season.
         print("Get CFB PBP stats data for the 2020 CFB season.")
@@ -876,7 +983,10 @@ def get_cfbd_pbp_stats(
 
         # Get CFB PBP stats data for a 2019 game between
         # the Ohio State Buckeyes and Clemson Tigers football teams.
-        print("Get CFB PBP stats data for a 2019 game between the Ohio State Buckeyes and Clemson Tigers football teams.")
+        print(
+            "Get CFB PBP stats data for a 2019 game between " +
+            "the Ohio State Buckeyes and Clemson Tigers football teams."
+        )
         json_data = get_cfbd_pbp_stats(
             game_id=401135279
         )
@@ -927,7 +1037,10 @@ def get_cfbd_pbp_stats(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_pbp_stats(
             season=2020,
             week=10,
@@ -945,20 +1058,21 @@ def get_cfbd_pbp_stats(
     """
     now = datetime.now()
     pbp_df = pd.DataFrame()
-    row_df = pd.DataFrame()
     url = "https://api.collegefootballdata.com/play/stats"
 
     # Input validation
-    ########################################################################################################################################################################################################
+    ##########################################################################
 
-    if api_key != None:
+    if api_key is not None:
         real_api_key = api_key
         del api_key
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
     if real_api_key == "tigersAreAwsome":
-        raise ValueError("You actually need to change `cfbd_key` to your CFBD API key.")
+        raise ValueError(
+            "You actually need to change `cfbd_key` to your CFBD API key."
+        )
     elif "Bearer " in real_api_key:
         pass
     elif "Bearer" in real_api_key:
@@ -966,10 +1080,10 @@ def get_cfbd_pbp_stats(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    if season != None and (season > (now.year + 1)):
+    if season is not None and (season > (now.year + 1)):
         raise ValueError(f"`season` cannot be greater than {season}.")
-    elif season != None and season < 1869:
-        raise ValueError(f"`season` cannot be less than 1869.")
+    elif season is not None and season < 1869:
+        raise ValueError("`season` cannot be less than 1869.")
 
     if (
         season_type != "regular"
@@ -977,16 +1091,17 @@ def get_cfbd_pbp_stats(
         and season_type != "both"
     ):
         raise ValueError(
-            '`season_type` must be set to either "regular", "postseason", or "both" for this function to work.'
+            '`season_type` must be set to either ' +
+            '"regular", "postseason", or "both" for this function to work.'
         )
 
-    if season == None and game_id == None:
+    if season is None and game_id is None:
         logging.warn(
             "This endpoint only returns the top 1,000 results. "
             + "Not setting a value for `season` or `game_id` "
             + "is not a reccomended practice."
         )
-    elif season != None and game_id == None:
+    elif season is not None and game_id is None:
         logging.warn(
             "Setting a value for both `season` and `game_id` "
             + "may not yeld the results you want. "
@@ -995,66 +1110,70 @@ def get_cfbd_pbp_stats(
         )
 
     # URL builder
-    ########################################################################################################################################################################################################
+    ##########################################################################
+
     url_elements = 0
 
-    if season_type != None and url_elements == 0:
+    if season_type is not None and url_elements == 0:
         url += f"?seasonType={season_type}"
         url_elements += 1
-    elif season_type != None:
+    elif season_type is not None:
         url += f"&seasonType={season_type}"
         url_elements += 1
 
-    if season != None and url_elements == 0:
+    if season is not None and url_elements == 0:
         url += f"?year={season}"
         url_elements += 1
-    elif season != None:
+    elif season is not None:
         url += f"&year={season}"
         url_elements += 1
 
-    if week != None and url_elements == 0:
+    if week is not None and url_elements == 0:
         url += f"?week={week}"
         url_elements += 1
-    elif week != None:
+    elif week is not None:
         url += f"&week={week}"
         url_elements += 1
 
-    if team != None and url_elements == 0:
+    if team is not None and url_elements == 0:
         url += f"?team={team}"
         url_elements += 1
-    elif team != None:
+    elif team is not None:
         url += f"&team={team}"
         url_elements += 1
 
-    if conference != None and url_elements == 0:
+    if conference is not None and url_elements == 0:
         url += f"&conference={conference}"
         url_elements += 1
-    elif conference != None:
+    elif conference is not None:
         url += f"&conference={conference}"
         url_elements += 1
 
-    if game_id != None and url_elements == 0:
+    if game_id is not None and url_elements == 0:
         url += f"&gameId={game_id}"
         url_elements += 1
-    elif game_id != None:
+    elif game_id is not None:
         url += f"&gameId={game_id}"
         url_elements += 1
 
-    if athlete_id != None and url_elements == 0:
+    if athlete_id is not None and url_elements == 0:
         url += f"&athleteId={athlete_id}"
         url_elements += 1
-    elif athlete_id != None:
+    elif athlete_id is not None:
         url += f"&athleteId={athlete_id}"
         url_elements += 1
 
-    if stat_type_id != None and url_elements == 0:
+    if stat_type_id is not None and url_elements == 0:
         url += f"&statTypeId={stat_type_id}"
         url_elements += 1
-    elif stat_type_id != None:
+    elif stat_type_id is not None:
         url += f"&statTypeId={stat_type_id}"
         url_elements += 1
 
-    headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
+    headers = {
+        "Authorization": f"{real_api_key}",
+        "accept": "application/json"
+    }
 
     response = requests.get(url, headers=headers)
 
@@ -1062,7 +1181,8 @@ def get_cfbd_pbp_stats(
         pass
     elif response.status_code == 401:
         raise ConnectionRefusedError(
-            f"Could not connect. The connection was refused.\nHTTP Status Code 401."
+            "Could not connect. The connection was refused." +
+            "\nHTTP Status Code 401."
         )
     else:
         raise ConnectionError(
@@ -1071,9 +1191,8 @@ def get_cfbd_pbp_stats(
 
     json_data = response.json()
 
-    if return_as_dict == True:
+    if return_as_dict is True:
         return json_data
-
 
     pbp_df = pd.json_normalize(json_data)
     pbp_df.rename(
@@ -1090,8 +1209,8 @@ def get_cfbd_pbp_stats(
         },
         inplace=True,
     )
-    ## TODO: Implement an option to put all stats for
-    ## a specific game on a single line.
+    # TODO: Implement an option to put all stats for
+    # a specific game on a single line.
     return pbp_df
 
 
@@ -1108,21 +1227,24 @@ def get_cfbd_pbp_stat_types(
         Semi-optional argument.
         If `api_key` is null, this function will attempt to load a CFBD API key
         from the python environment, or from a file on this computer.
-        If `api_key` is not null, this function will automatically assume that the
+        If `api_key` is not null,
+        this function will automatically assume that the
         inputted `api_key` is a valid CFBD API key.
 
     `api_key_dir` (str, optional):
         Optional argument.
         If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null,
-        this function will try to find a CFBD API key file in this user's home directory.
+        this function will try to find
+        a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
         this function will assume that `api_key_dir` is a directory,
         and will try to find a CFBD API key file in that directory.
 
     `return_as_dict` (bool, semi-optional):
         Semi-optional argument.
-        If you want this function to return the data as a dictionary (read: JSON object),
+        If you want this function to return
+        the data as a dictionary (read: JSON object),
         instead of a pandas `DataFrame` object,
         set `return_as_dict` to `True`.
 
@@ -1143,16 +1265,18 @@ def get_cfbd_pbp_stat_types(
     url = "https://api.collegefootballdata.com/play/types"
 
     # Input validation
-    ########################################################################################################################################################################################################
+    ##########################################################################
 
-    if api_key != None:
+    if api_key is not None:
         real_api_key = api_key
         del api_key
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
     if real_api_key == "tigersAreAwsome":
-        raise ValueError("You actually need to change `cfbd_key` to your CFBD API key.")
+        raise ValueError(
+            "You actually need to change `cfbd_key` to your CFBD API key."
+        )
     elif "Bearer " in real_api_key:
         pass
     elif "Bearer" in real_api_key:
@@ -1160,7 +1284,10 @@ def get_cfbd_pbp_stat_types(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
+    headers = {
+        "Authorization": f"{real_api_key}",
+        "accept": "application/json"
+    }
 
     response = requests.get(url, headers=headers)
 
@@ -1168,7 +1295,8 @@ def get_cfbd_pbp_stat_types(
         pass
     elif response.status_code == 401:
         raise ConnectionRefusedError(
-            f"Could not connect. The connection was refused.\nHTTP Status Code 401."
+            "Could not connect. The connection was refused." +
+            "\nHTTP Status Code 401."
         )
     else:
         raise ConnectionError(
@@ -1177,7 +1305,7 @@ def get_cfbd_pbp_stat_types(
 
     json_data = response.json()
 
-    if return_as_dict == True:
+    if return_as_dict is True:
         return json_data
 
     for p in tqdm(json_data):
@@ -1192,11 +1320,11 @@ def get_cfbd_pbp_stat_types(
     return plays_df
 
 
-####################################################################################################
+###############################################################################
 # Patreon Only Functions.
 #   No cacheing, because the entire point of these functions are to get people
 #   data ASAP, and right before kickoff.
-####################################################################################################
+###############################################################################
 
 
 def get_cfbd_live_pbp_data(

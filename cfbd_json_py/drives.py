@@ -1,15 +1,17 @@
+"""
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 12/28/2023 09:45 AM EDT
+# Last Updated Date: 02/24/2023 03:30 PM EST
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: drives.py
 # Purpose: Houses functions pertaining to CFB drive data within the CFBD API.
-####################################################################################################
+###############################################################################
+"""
 
 from datetime import datetime
 import logging
 import pandas as pd
 import requests
-from tqdm import tqdm
+
 
 from cfbd_json_py.utls import get_cfbd_api_token
 
@@ -48,14 +50,16 @@ def get_cfbd_drives_info(
         Semi-optional argument.
         If `api_key` is null, this function will attempt to load a CFBD API key
         from the python environment, or from a file on this computer.
-        If `api_key` is not null, this function will automatically assume that the
+        If `api_key` is not null,
+        this function will automatically assume that the
         inputted `api_key` is a valid CFBD API key.
 
     `api_key_dir` (str, optional):
         Optional argument.
         If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null,
-        this function will try to find a CFBD API key file in this user's home directory.
+        this function will try to find
+        a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
         this function will assume that `api_key_dir` is a directory,
         and will try to find a CFBD API key file in that directory.
@@ -160,7 +164,8 @@ def get_cfbd_drives_info(
 
     `return_as_dict` (bool, semi-optional):
         Semi-optional argument.
-        If you want this function to return the data as a dictionary (read: JSON object),
+        If you want this function to return the data
+        as a dictionary (read: JSON object),
         instead of a pandas `DataFrame` object,
         set `return_as_dict` to `True`.
 
@@ -173,8 +178,11 @@ def get_cfbd_drives_info(
 
     cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
-        print("Using the user's API key declared in this script for this example.")
+    if cfbd_key is not "tigersAreAwsome":
+        print(
+            "Using the user's API key declared in this script " +
+            "for this example."
+        )
 
         # Get CFB Drive data from the 2020 CFB season.
         print("Get CFB Drive data from the 2020 CFB season.")
@@ -197,7 +205,10 @@ def get_cfbd_drives_info(
 
         # Get CFB Drive data from games involving the 2020 Cincinnati Bearcats
         # Football Team.
-        print("Get CFB Drive data from games involving the 2020 Cincinnati Bearcats Football Team.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Cincinnati Bearcats Football Team."
+        )
         json_data = get_cfbd_drives_info(
             api_key=cfbd_key,
             season=2020,
@@ -208,7 +219,10 @@ def get_cfbd_drives_info(
 
         # Get CFB Drive data from games involving the 2020 Ohio Bobcats
         # Football Team, when Ohio was on offense.
-        print("Get CFB Drive data from games involving the 2020 Ohio Bobcats Football Team, when Ohio was on offense.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Ohio Bobcats Football Team, when Ohio was on offense."
+        )
         json_data = get_cfbd_drives_info(
             api_key=cfbd_key,
             season=2020,
@@ -219,7 +233,11 @@ def get_cfbd_drives_info(
 
         # Get CFB Drive data from games involving the 2020 Ohio State Buckeyes
         # Football Team, when Ohio was on offense.
-        print("Get CFB Drive data from games involving the 2020 Ohio State Buckeyes Football Team, when Ohio State was on defense.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Ohio State Buckeyes Football Team, " +
+            "when Ohio State was on defense."
+        )
         json_data = get_cfbd_drives_info(
             api_key=cfbd_key,
             season=2020,
@@ -229,7 +247,11 @@ def get_cfbd_drives_info(
         time.sleep(5)
 
         # Get CFB Drive data from Big 12 games in the 2020 CFB season.
-        print("Get CFB Drive data from games involving the 2020 Ohio State Buckeyes Football Team, when Ohio State was on defense.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Ohio State Buckeyes Football Team, " +
+            "when Ohio State was on defense."
+        )
         json_data = get_cfbd_drives_info(
             api_key=cfbd_key,
             season=2020,
@@ -240,7 +262,11 @@ def get_cfbd_drives_info(
 
         # Get CFB Drive data from Big 10 (B1G) games in the 2020 CFB season,
         # where the Big 10 team was on offense.
-        print("Get CFB Drive data from games involving the 2020 Ohio State Buckeyes Football Team, when Ohio State was on defense.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Ohio State Buckeyes Football Team, " +
+            "when Ohio State was on defense."
+        )
         json_data = get_cfbd_drives_info(
             api_key=cfbd_key,
             season=2020,
@@ -251,7 +277,11 @@ def get_cfbd_drives_info(
 
         # Get CFB Drive data from  Mid-American Conference (MAC) games
         # in the 2020 CFB season, where the MAC team was on offense.
-        print("Get CFB Drive data from games involving the 2020 Ohio State Buckeyes Football Team, when Ohio State was on defense.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Ohio State Buckeyes Football Team, " +
+            "when Ohio State was on defense."
+        )
         json_data = get_cfbd_drives_info(
             api_key=cfbd_key,
             season=2020,
@@ -263,7 +293,11 @@ def get_cfbd_drives_info(
         # Get CFB Drive data from Football Championship Subdivision (FCS) games
         # in week 3 ofthe 2020 CFB season,
         # where the MAC team was on offense.
-        print("Get CFB Drive data from games involving the 2020 Ohio State Buckeyes Football Team, when Ohio State was on defense.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Ohio State Buckeyes Football Team, " +
+            "when Ohio State was on defense."
+        )
         json_data = get_cfbd_drives_info(
             api_key=cfbd_key,
             season=2020,
@@ -275,7 +309,10 @@ def get_cfbd_drives_info(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_drives_info(
             season=2020,
             week=10,
@@ -287,9 +324,12 @@ def get_cfbd_drives_info(
     else:
         # Alternatively, if the CFBD API key exists in this python environment,
         # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
-        # you could just call these functions directly, without setting the API key
-        # in the script.
-        print("Using the user's API key suposedly loaded into this python environment for this example.")
+        # you could just call these functions directly,
+        # without setting the API key in the script.
+        print(
+            "Using the user's API key suposedly loaded " +
+            "into this python environment for this example."
+        )
 
         # Get CFB Drive data from the 2020 CFB season.
         print("Get CFB Drive data from the 2020 CFB season.")
@@ -310,7 +350,10 @@ def get_cfbd_drives_info(
 
         # Get CFB Drive data from games involving the 2020 Cincinnati Bearcats
         # Football Team.
-        print("Get CFB Drive data from games involving the 2020 Cincinnati Bearcats Football Team.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Cincinnati Bearcats Football Team."
+        )
         json_data = get_cfbd_drives_info(
             season=2020,
             team="Cincinnati"
@@ -320,7 +363,10 @@ def get_cfbd_drives_info(
 
         # Get CFB Drive data from games involving the 2020 Ohio Bobcats
         # Football Team, when Ohio was on offense.
-        print("Get CFB Drive data from games involving the 2020 Ohio Bobcats Football Team, when Ohio was on offense.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Ohio Bobcats Football Team, when Ohio was on offense."
+        )
         json_data = get_cfbd_drives_info(
             season=2020,
             offensive_team="Ohio"
@@ -330,7 +376,11 @@ def get_cfbd_drives_info(
 
         # Get CFB Drive data from games involving the 2020 Ohio State Buckeyes
         # Football Team, when Ohio was on offense.
-        print("Get CFB Drive data from games involving the 2020 Ohio State Buckeyes Football Team, when Ohio State was on defense.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Ohio State Buckeyes Football Team, " +
+            "when Ohio State was on defense."
+        )
         json_data = get_cfbd_drives_info(
             season=2020,
             defensive_team="Ohio State"
@@ -339,7 +389,11 @@ def get_cfbd_drives_info(
         time.sleep(5)
 
         # Get CFB Drive data from Big 12 games in the 2020 CFB season.
-        print("Get CFB Drive data from games involving the 2020 Ohio State Buckeyes Football Team, when Ohio State was on defense.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Ohio State Buckeyes Football Team, " +
+            "when Ohio State was on defense."
+        )
         json_data = get_cfbd_drives_info(
             season=2020,
             conference="B12"
@@ -349,7 +403,11 @@ def get_cfbd_drives_info(
 
         # Get CFB Drive data from Big 10 (B1G) games in the 2020 CFB season,
         # where the Big 10 team was on offense.
-        print("Get CFB Drive data from games involving the 2020 Ohio State Buckeyes Football Team, when Ohio State was on defense.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Ohio State Buckeyes Football Team, " +
+            "when Ohio State was on defense."
+        )
         json_data = get_cfbd_drives_info(
             season=2020,
             offensive_conference="B1G"
@@ -359,7 +417,11 @@ def get_cfbd_drives_info(
 
         # Get CFB Drive data from  Mid-American Conference (MAC) games
         # in the 2020 CFB season, where the MAC team was on offense.
-        print("Get CFB Drive data from games involving the 2020 Ohio State Buckeyes Football Team, when Ohio State was on defense.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Ohio State Buckeyes Football Team, " +
+            "when Ohio State was on defense."
+        )
         json_data = get_cfbd_drives_info(
             season=2020,
             defensive_conference="MAC"
@@ -370,7 +432,11 @@ def get_cfbd_drives_info(
         # Get CFB Drive data from Football Championship Subdivision (FCS) games
         # in week 3 ofthe 2020 CFB season,
         # where the MAC team was on offense.
-        print("Get CFB Drive data from games involving the 2020 Ohio State Buckeyes Football Team, when Ohio State was on defense.")
+        print(
+            "Get CFB Drive data from games involving " +
+            "the 2020 Ohio State Buckeyes Football Team, " +
+            "when Ohio State was on defense."
+        )
         json_data = get_cfbd_drives_info(
             season=2020,
             week=3,
@@ -381,7 +447,10 @@ def get_cfbd_drives_info(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_drives_info(
             season=2020,
             week=10,
@@ -404,65 +473,79 @@ def get_cfbd_drives_info(
     url = "https://api.collegefootballdata.com/drives"
 
     # Input validation
-    ########################################################################################################################################################################################################
-    ## `year` to `season`
-    if season != None and year != None and (year != season):
+    ##########################################################################
+
+    # `year` to `season`
+    if season is not None and year is not None and (year is not season):
         raise ValueError(
             "When using this function, "
             + "please specify a season in EITHER `year` or `season`."
         )
-    if season != None:
+    if season is not None:
         pass
-    elif year != None:
+    elif year is not None:
         season = year
     else:
         raise ValueError("No year/season inputted for this function.")
 
-    ## `offense` to `offensive_team`
-    if offense != None and offensive_team != None and (offense != offensive_team):
-        raise ValueError(
-            "When using this function, "
-            + "please specify a season in EITHER `offense` or `offensive_team`."
-        )
-    if offensive_team != None:
-        pass
-    elif offense != None:
-        offensive_team = offense
-
-    ## `defense` to `defensive_team`
-    if defense != None and defensive_team != None and (defense != defensive_team):
-        raise ValueError(
-            "When using this function, "
-            + "please specify a season in EITHER `defense` or `defensive_team`."
-        )
-    if defensive_team != None:
-        pass
-    elif defense != None:
-        defensive_team = defense
-
-    ## `classification` to `ncaa_division`
+    # `offense` to `offensive_team`
     if (
-        classification != None
-        and ncaa_division != None
-        and (classification != ncaa_division)
+        offense is not None
+        and offensive_team is not None
+        and (offense is not offensive_team)
     ):
         raise ValueError(
             "When using this function, "
-            + "please specify a season in EITHER `classification` or `ncaa_division`."
+            + "please specify a season in EITHER "
+            + "`offense` or `offensive_team`."
         )
-    if ncaa_division != None:
+    if offensive_team is not None:
         pass
-    elif defense != None:
+    elif offense is not None:
+        offensive_team = offense
+
+    # `defense` to `defensive_team`
+    if (
+        defense is not None
+        and defensive_team is not None
+        and (defense is not defensive_team)
+    ):
+        raise ValueError(
+            "When using this function, "
+            + "please specify a season in EITHER "
+            + "`defense` or `defensive_team`."
+        )
+    if defensive_team is not None:
+        pass
+    elif defense is not None:
+        defensive_team = defense
+
+    # `classification` to `ncaa_division`
+    if (
+        classification is not None
+        and ncaa_division is not None
+        and (classification is not ncaa_division)
+    ):
+        raise ValueError(
+            "When using this function, "
+            + "please specify a season in EITHER "
+            + "`classification` or `ncaa_division`."
+        )
+    if ncaa_division is not None:
+        pass
+    elif defense is not None:
         ncaa_division = classification
 
-    if api_key != None:
+    if api_key is not None:
         real_api_key = api_key
         del api_key
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
     if real_api_key == "tigersAreAwsome":
-        raise ValueError("You actually need to change `cfbd_key` to your CFBD API key.")
+        raise ValueError(
+            "You actually need to change `cfbd_key` to your CFBD API key."
+        )
     elif "Bearer " in real_api_key:
         pass
     elif "Bearer" in real_api_key:
@@ -470,23 +553,28 @@ def get_cfbd_drives_info(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    if season == None:
+    if season is None:
         # This should never happen without user tampering, but if it does,
-        # we need to raise an error, because the CFBD API will refuse this call without a valid season.
+        # we need to raise an error,
+        # because the CFBD API will refuse this call without a valid season.
         raise SystemError(
-            "I don't know how, I don't know why, but you managed to call this function while `season` was `None` (NULL),"
+            "I don't know how, I don't know why, "
+            + "but you managed to call this function "
+            + "while `season` was `None` (NULL),"
             + " and the function got to this point in the code."
-            + "\nIf you have a GitHub account, please raise an issue on this python package's GitHub page:\n"
+            + "\nIf you have a GitHub account, "
+            + "please raise an issue on this python package's GitHub page:\n"
             + "https://github.com/armstjc/cfbd-json-py/issues"
         )
     elif season > (now.year + 1):
         raise ValueError(f"`season` cannot be greater than {season}.")
     elif season < 1869:
-        raise ValueError(f"`season` cannot be less than 1869.")
+        raise ValueError("`season` cannot be less than 1869.")
 
     if season_type != "regular" and season_type != "postseason":
         raise ValueError(
-            '`season_type` must be set to either "regular" or "postseason" for this function to work.'
+            '`season_type` must be set to either ' +
+            '"regular" or "postseason" for this function to work.'
         )
 
     if (
@@ -504,38 +592,41 @@ def get_cfbd_drives_info(
         )
 
     # URL builder
-    ########################################################################################################################################################################################################
+    ##########################################################################
 
     # Required by API
     url += f"?seasonType={season_type}"
 
     url += f"&year={season}"
 
-    if week != None:
+    if week is not None:
         url += f"&week={week}"
 
-    if team != None:
+    if team is not None:
         url += f"&team={team}"
 
-    if offensive_team != None:
+    if offensive_team is not None:
         url += f"&offense={offensive_team}"
 
-    if defensive_team != None:
+    if defensive_team is not None:
         url += f"&defense={defensive_team}"
 
-    if conference != None:
+    if conference is not None:
         url += f"&conference={conference}"
 
-    if offensive_conference != None:
+    if offensive_conference is not None:
         url += f"&offenseConference={offensive_conference}"
 
-    if defensive_conference != None:
+    if defensive_conference is not None:
         url += f"&defenseConference={defensive_conference}"
 
-    if ncaa_division != None:
+    if ncaa_division is not None:
         url += f"&classification={ncaa_division.lower}"
 
-    headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
+    headers = {
+        "Authorization": f"{real_api_key}",
+        "accept": "application/json"
+    }
 
     response = requests.get(url, headers=headers)
 
@@ -543,7 +634,8 @@ def get_cfbd_drives_info(
         pass
     elif response.status_code == 401:
         raise ConnectionRefusedError(
-            f"Could not connect. The connection was refused.\nHTTP Status Code 401."
+            "Could not connect. The connection was refused." +
+            "\nHTTP Status Code 401."
         )
     else:
         raise ConnectionError(
@@ -552,7 +644,7 @@ def get_cfbd_drives_info(
 
     json_data = response.json()
 
-    if return_as_dict == True:
+    if return_as_dict is True:
         return json_data
 
     cfb_drives_df = pd.json_normalize(json_data)

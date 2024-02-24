@@ -1,10 +1,11 @@
+"""
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 10/06/2023 07:54 PM EDT
+# Last Updated Date: 02/24/2023 03:30 PM EST
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: utls.py
 # Purpose: Houses utility functions for this python package.
-####################################################################################################
-
+###############################################################################
+"""
 import json
 import os
 import secrets
@@ -26,7 +27,7 @@ def reverse_cipher_encrypt(plain_text_str: str):
     ----------
     A string encrypted through reverse cipher encryption.
     """
-    translated_text = ''
+    translated_text = ""
     str_len = len(plain_text_str) - 1
     while str_len >= 0:
         translated_text = translated_text + plain_text_str[str_len]
@@ -40,13 +41,15 @@ def reverse_cipher_encrypt(plain_text_str: str):
 def reverse_cipher_decrypt(encrypted_text_str: str):
     """
     NOT INTENDED TO BE CALLED BY THE USER!
-    
-    Decrypts a string that was presumed to be encrypted by a reverse cipher encryption.
+
+    Decrypts a string that was presumed to
+    be encrypted by a reverse cipher encryption.
 
     Parameters
     ----------
     `encrypted_text_str` (mandatory, str):
-        The string you presume that is encrypted through reverse cipher encryption, 
+        The string you presume that is encrypted
+        through reverse cipher encryption,
         that you want decrypted.
 
     Returns
@@ -54,7 +57,7 @@ def reverse_cipher_decrypt(encrypted_text_str: str):
     A decrypted string.
 
     """
-    translated_text = ''
+    translated_text = ""
     str_len = len(encrypted_text_str) - 1
 
     while str_len >= 0:
@@ -69,24 +72,25 @@ def reverse_cipher_decrypt(encrypted_text_str: str):
 def get_cfbd_api_token(api_key_dir: str = None):
     """
     NOT INTENDED TO BE CALLED BY THE USER!
-    
-    If you've already set the API key using 
+
+    If you've already set the API key using
     `cfbd_json_py.utls.set_cfbd_api_token()`,
     you don't need to use this function.
 
-    If the CFBD API key exists in the environment, 
-    or is in a file, this function retrives the CFBD API key, 
+    If the CFBD API key exists in the environment,
+    or is in a file, this function retrives the CFBD API key,
     and returns it as a string.
 
     If this package is being used in a GitHub Actions action,
-    set the key in the environment by 
+    set the key in the environment by
     creating a repository secret nammed `CFBD_API_KEY`.
 
     Parameters
     ----------
     `api_key_dir` (str, optional):
-        Optional argument. If `api_key_dir` is set to a non-null string, 
-        `set_cfbd_api_token()` will attempt to save the key file in that directory,
+        Optional argument. If `api_key_dir` is set to a non-null string,
+        `set_cfbd_api_token()` will attempt
+        to save the key file in that directory,
         instead of this user's home directory.
 
     Returns
@@ -97,19 +101,21 @@ def get_cfbd_api_token(api_key_dir: str = None):
     # raise NotImplementedError('it ain\'t ready')
 
     try:
-        key = os.environ['CFBD_API_KEY']
+        key = os.environ["CFBD_API_KEY"]
         return key
-    except:
+    except Exception as e:
         logging.info(
-            "CFBD key not found in this python environment.\nAttempting to load the API key from a file.")
+            "CFBD key not found in this python environment.\n" +
+            f"Attempting to load the API key from a file.\nFull Exception: {e}"
+        )
 
-    if api_key_dir != None:
+    if api_key_dir is not None:
         with open(f"{api_key_dir}/.cfbd/cfbd.json", "r") as f:
             json_str = f.read()
 
         json_data = json.loads(json_str)
 
-        return_key = json_data['cfbd_api_token']
+        return_key = json_data["cfbd_api_token"]
         return_key = reverse_cipher_decrypt(return_key)
         return_key = return_key[10:]
         return_key = return_key[:-10]
@@ -118,14 +124,14 @@ def get_cfbd_api_token(api_key_dir: str = None):
 
         return return_key
     else:
-        home_dir = os.path.expanduser('~')
+        home_dir = os.path.expanduser("~")
 
         with open(f"{home_dir}/.cfbd/cfbd.json", "r") as f:
             json_str = f.read()
 
         json_data = json.loads(json_str)
 
-        return_key = json_data['cfbd_api_token']
+        return_key = json_data["cfbd_api_token"]
         return_key = reverse_cipher_decrypt(return_key)
         return_key = return_key[10:]
         return_key = return_key[:-10]
@@ -137,25 +143,27 @@ def get_cfbd_api_token(api_key_dir: str = None):
 
 def set_cfbd_api_token(api_key: str, api_key_dir: str = None):
     """
-    Sets the CFBD API key into a file that exists 
+    Sets the CFBD API key into a file that exists
     either in `{home_dir}/.cfbd/cfbd_key.json`, or in a custom directory.
 
     Parameters
     ----------
     `api_key` (str, mandatory):
-        The CFBD API key you have. 
+        The CFBD API key you have.
         DO NOT input `Bearer {your CFBD API key}`,
         this package will take care of that for you.
 
     `api_key_dir` (str, optional):
-        Optional argument. If `api_key_dir` is set to a non-null string, 
-        `set_cfbd_api_token()` will attempt to save the key file in that directory,
+        Optional argument. If `api_key_dir` is set to a non-null string,
+        `set_cfbd_api_token()` will attempt
+        to save the key file in that directory,
         instead of this user's home directory.
 
     Returns
     ----------
-    Nothing. 
-    This function only sets up the API key file that this package can reference later.
+    Nothing.
+    This function only sets up the API key file
+    that this package can reference later.
     """
 
     alph_letters = [
@@ -223,8 +231,8 @@ def set_cfbd_api_token(api_key: str, api_key_dir: str = None):
         "Z",
     ]
 
-    front_hash = ''
-    back_hash = ''
+    front_hash = ""
+    back_hash = ""
 
     for i in range(0, 10):
         r_str = secrets.choice(alph_letters)
@@ -238,25 +246,30 @@ def set_cfbd_api_token(api_key: str, api_key_dir: str = None):
 
     encrypted_key = reverse_cipher_encrypt(api_key)
 
-    json_str = f"{{\n\t\"cfbd_api_token\":\"{front_hash}{encrypted_key}{back_hash}\"\n}}"
+    json_str = \
+        f'{{\n\t"cfbd_api_token":"{front_hash}{encrypted_key}{back_hash}"\n}}'
     del encrypted_key
     # print(json_str)
 
-    if api_key_dir != None:
+    if api_key_dir is not None:
         try:
             os.mkdir(f"{api_key_dir}/.cfbd")
-        except:
-            pass
+        except Exception as e:
+            logging.info(
+                f"./cfbd directory created/already exists. Full exception: {e}"
+            )
 
         with open(f"{api_key_dir}/.cfbd/cfbd.json", "w+") as f:
             f.write(json_str)
     else:
-        home_dir = os.path.expanduser('~')
+        home_dir = os.path.expanduser("~")
 
         try:
             os.mkdir(f"{home_dir}/.cfbd")
-        except:
-            pass
+        except Exception as e:
+            logging.info(
+                f"./cfbd directory created/already exists. Full exception: {e}"
+            )
 
         with open(f"{home_dir}/.cfbd/cfbd.json", "w+") as f:
             f.write(json_str)

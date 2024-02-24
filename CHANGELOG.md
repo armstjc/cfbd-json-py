@@ -1,5 +1,9 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.1.1: The "housekeeping" update
+- Cleaned up the formatting of all functions and python code.
+- Updated the package version to `0.1.1`.
+
 ## 0.1.0: The "beta release" update
 - Optimized a number of functions in this python package by using `pandas.json_normalize()` instead of looping through the data for some functions.
 - Finalized the python package so it can be used by others.

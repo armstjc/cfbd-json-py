@@ -1,16 +1,19 @@
+"""
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 12/28/2023 09:41 PM EDT
+# Last Updated Date: 02/24/2023 03:30 PM EST
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: ratings.py
-# Purpose: Houses functions pertaining to CFB team rating data within the CFBD API.
-####################################################################################################
+# Purpose: Houses functions pertaining to CFB team rating data
+    within the CFBD API.
+###############################################################################
+"""
 
-from datetime import datetime
 import warnings
+from datetime import datetime
 
 import pandas as pd
 import requests
-from tqdm import tqdm
+
 from cfbd_json_py.utls import get_cfbd_api_token
 
 
@@ -27,7 +30,8 @@ def get_cfbd_sp_plus_ratings(
     ratings data from the CFBD API.
 
     For more information about S&P+, consult the following webpages:
-    - https://www.sbnation.com/college-football/2017/10/13/16457830/college-football-advanced-stats-analytics-rankings
+    - https://www.sbnation.com/college-football/
+        2017/10/13/16457830/college-football-advanced-stats-analytics-rankings
     - https://collegefootballdata.com/sp/trends
 
     Parameters
@@ -36,14 +40,16 @@ def get_cfbd_sp_plus_ratings(
         Semi-optional argument.
         If `api_key` is null, this function will attempt to load a CFBD API key
         from the python environment, or from a file on this computer.
-        If `api_key` is not null, this function will automatically assume that the
+        If `api_key` is not null,
+        this function will automatically assume that the
         inputted `api_key` is a valid CFBD API key.
 
     `api_key_dir` (str, optional):
         Optional argument.
         If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null,
-        this function will try to find a CFBD API key file in this user's home directory.
+        this function will try to find
+        a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
         this function will assume that `api_key_dir` is a directory,
         and will try to find a CFBD API key file in that directory.
@@ -53,18 +59,21 @@ def get_cfbd_sp_plus_ratings(
         Specifies the season you want S&P+ ratings data from.
         This must be specified, otherwise this package, and by extension
         the CFBD API, will not accept the request to get S&P+ ratings data.
-        This or `team` must be set to a valid non-null variable for this to function.
+        This or `team` must be set to a valid
+        non-null variable for this to function.
 
     `team` (str, semi-mandatory):
         Semi-required argument.
         Specifies the season you want S&P+ ratings  data from.
         This must be specified, otherwise this package, and by extension
         the CFBD API, will not accept the request to get S&P+ ratings data.
-        This or `season` must be set to a valid non-null variable for this to function.
+        This or `season` must be set to a valid non-null variable
+        for this to function.
 
     `return_as_dict` (bool, semi-optional):
         Semi-optional argument.
-        If you want this function to return the data as a dictionary (read: JSON object),
+        If you want this function to return
+        the data as a dictionary (read: JSON object),
         instead of a pandas `DataFrame` object,
         set `return_as_dict` to `True`.
 
@@ -79,7 +88,10 @@ def get_cfbd_sp_plus_ratings(
     cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
 
     if cfbd_key != "tigersAreAwsome":
-        print("Using the user's API key declared in this script for this example.")
+        print(
+            "Using the user's API key declared in this script " +
+            "for this example."
+        )
 
         # Get S&P+ ratings data for the 2020 CFB season.
         print("Get S&P+ ratings data for the 2020 CFB season.")
@@ -92,7 +104,10 @@ def get_cfbd_sp_plus_ratings(
 
         # Get historical S&P+ ratings data for the
         # University of Cincinnati Bearcats Football Team.
-        print("Get historical S&P+ ratings data for the University of Cincinnati Bearcats Football Team.")
+        print(
+            "Get historical S&P+ ratings data for " +
+            "the University of Cincinnati Bearcats Football Team."
+        )
         json_data = get_cfbd_sp_plus_ratings(
             api_key=cfbd_key,
             team="Cincinnati"
@@ -101,7 +116,10 @@ def get_cfbd_sp_plus_ratings(
         time.sleep(5)
 
         # Get S&P+ ratings data for the 2019 Ohio State Buckeyes Football Team.
-        print("Get S&P+ ratings data for the 2019 Ohio State Buckeyes Football Team.")
+        print(
+            "Get S&P+ ratings data for " +
+            "the 2019 Ohio State Buckeyes Football Team."
+        )
         json_data = get_cfbd_sp_plus_ratings(
             api_key=cfbd_key,
             season=2020,
@@ -112,7 +130,10 @@ def get_cfbd_sp_plus_ratings(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_sp_plus_ratings(
             api_key=cfbd_key,
             season=2020,
@@ -124,9 +145,12 @@ def get_cfbd_sp_plus_ratings(
     else:
         # Alternatively, if the CFBD API key exists in this python environment,
         # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
-        # you could just call these functions directly, without setting the API key
-        # in the script.
-        print("Using the user's API key suposedly loaded into this python environment for this example.")
+        # you could just call these functions directly,
+        # without setting the API key in the script.
+        print(
+            "Using the user's API key suposedly loaded " +
+            "into this python environment for this example."
+        )
 
         # Get S&P+ ratings data for the 2020 CFB season.
         print("Get S&P+ ratings data for the 2020 CFB season.")
@@ -138,7 +162,10 @@ def get_cfbd_sp_plus_ratings(
 
         # Get historical S&P+ ratings data for the
         # University of Cincinnati Bearcats Football Team.
-        print("Get historical S&P+ ratings data for the University of Cincinnati Bearcats Football Team.")
+        print(
+            "Get historical S&P+ ratings data for " +
+            "the University of Cincinnati Bearcats Football Team."
+        )
         json_data = get_cfbd_sp_plus_ratings(
             team="Cincinnati"
         )
@@ -146,7 +173,10 @@ def get_cfbd_sp_plus_ratings(
         time.sleep(5)
 
         # Get S&P+ ratings data for the 2019 Ohio State Buckeyes Football Team.
-        print("Get S&P+ ratings data for the 2019 Ohio State Buckeyes Football Team.")
+        print(
+            "Get S&P+ ratings data for " +
+            "the 2019 Ohio State Buckeyes Football Team."
+        )
         json_data = get_cfbd_sp_plus_ratings(
             season=2020,
             team="Ohio State"
@@ -156,7 +186,10 @@ def get_cfbd_sp_plus_ratings(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_sp_plus_ratings(
             season=2020,
             team="Ohio State",
@@ -175,17 +208,18 @@ def get_cfbd_sp_plus_ratings(
 
     now = datetime.now()
     url = "https://api.collegefootballdata.com/ratings/sp"
-    row_df = pd.DataFrame()
     final_df = pd.DataFrame()
 
-    if api_key != None:
+    if api_key is not None:
         real_api_key = api_key
         del api_key
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
     if real_api_key == "tigersAreAwsome":
-        raise ValueError("You actually need to change `cfbd_key` to your CFBD API key.")
+        raise ValueError(
+            "You actually need to change `cfbd_key` to your CFBD API key."
+        )
     elif "Bearer " in real_api_key:
         pass
     elif "Bearer" in real_api_key:
@@ -193,36 +227,41 @@ def get_cfbd_sp_plus_ratings(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    if season == None and team == None:
+    if season is None and team is None:
         raise ValueError(
             "`season` and/or `team` must be set to a valid, "
             + "non-null value for this function to work."
         )
 
-    if season != None and (season > (now.year + 1)):
+    if season is not None and (season > (now.year + 1)):
         raise ValueError(f"`season` cannot be greater than {season}.")
-    elif season != None and season < 1869:
-        raise ValueError(f"`season` cannot be less than 1869.")
+    elif season is not None and season < 1869:
+        raise ValueError("`season` cannot be less than 1869.")
 
     # URL builder
-    ########################################################################################################################################################################################################
+    ##########################################################################
+
     # Required by the API
 
-    if season != None and team != None:
+    if season is not None and team is not None:
         url += f"?year={season}&team={team}"
-    elif season != None:
+    elif season is not None:
         url += f"?year={season}"
-    elif team != None:
+    elif team is not None:
         url += f"?team={team}"
 
-    headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
+    headers = {
+        "Authorization": f"{real_api_key}",
+        "accept": "application/json"
+    }
     response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
         pass
     elif response.status_code == 401:
         raise ConnectionRefusedError(
-            f"Could not connect. The connection was refused.\nHTTP Status Code 401."
+            "Could not connect. The connection was refused." +
+            "\nHTTP Status Code 401."
         )
     else:
         raise ConnectionError(
@@ -231,100 +270,40 @@ def get_cfbd_sp_plus_ratings(
 
     json_data = response.json()
 
-    if return_as_dict == True:
+    if return_as_dict is True:
         return json_data
 
-    # final_df = pd.json_normalize(json_data)
-
-    # for team in tqdm(json_data):
-    #     t_year = team["year"]
-    #     t_name = team["team"]
-    #     try:
-    #         t_conf = team["conference"]
-    #     except:
-    #         t_conf = None
-    #     t_sp_rating = team["rating"]
-    #     t_sp_ranking = team["ranking"]
-    #     t_2nd_order_wins = team["secondOrderWins"]
-    #     t_sos = team["sos"]
-
-    #     row_df = pd.DataFrame(
-    #         {
-    #             "season": t_year,
-    #             "team_name": t_name,
-    #             "conference_name": t_conf,
-    #             "S&P+_rating": t_sp_rating,
-    #             "second_order_wins": t_2nd_order_wins,
-    #             "sos": t_sos,
-    #         },
-    #         index=[0],
-    #     )
-    #     row_df["offense_S&P+_ranking"] = team["offense"]["ranking"]
-    #     row_df["offense_S&P+_rating"] = team["offense"]["rating"]
-    #     row_df["offense_S&P+_success"] = team["offense"]["success"]
-    #     row_df["offense_S&P+_explosiveness"] = team["offense"]["explosiveness"]
-    #     row_df["offense_S&P+_rushing"] = team["offense"]["rushing"]
-    #     row_df["offense_S&P+_passing"] = team["offense"]["passing"]
-    #     row_df["offense_S&P+_standard_downs"] = team["offense"]["standardDowns"]
-    #     row_df["offense_S&P+_passing_downs"] = team["offense"]["passingDowns"]
-    #     row_df["offense_S&P+_run_rate"] = team["offense"]["runRate"]
-    #     row_df["offense_S&P+_pace"] = team["offense"]["pace"]
-
-    #     row_df["defense_S&P+_ranking"] = team["defense"]["ranking"]
-    #     row_df["defense_S&P+_rating"] = team["defense"]["rating"]
-    #     row_df["defense_S&P+_success"] = team["defense"]["success"]
-    #     row_df["defense_S&P+_explosiveness"] = team["defense"]["explosiveness"]
-    #     row_df["defense_S&P+_rushing"] = team["defense"]["rushing"]
-    #     row_df["defense_S&P+_passing"] = team["defense"]["passing"]
-    #     row_df["defense_S&P+_standard_downs"] = team["defense"]["standardDowns"]
-    #     row_df["defense_S&P+_passing_downs"] = team["defense"]["passingDowns"]
-    #     # row_df["defense_S&P+_run_rate"] = team["defense"]["runRate"]
-    #     row_df["defense_S&P+_havoc_total"] = team["defense"]["havoc"]["total"]
-    #     row_df["defense_S&P+_havoc_front_seven"] = team["defense"]["havoc"][
-    #         "frontSeven"
-    #     ]
-    #     row_df["defense_S&P+_havoc_db"] = team["defense"]["havoc"]["db"]
-    #     row_df["defense_S&P+_special_teams_rating"] = team["specialTeams"]["rating"]
-
-    #     final_df = pd.concat([final_df, row_df], ignore_index=True)
-    #     del row_df
-    #     del t_year, t_name, t_conf
-    #     del (
-    #         t_sp_ranking,
-    #         t_sp_rating,
-    #     )
-    #     del t_2nd_order_wins, t_sos
-    final_df =pd.json_normalize(json_data)
+    final_df = pd.json_normalize(json_data)
     final_df.rename(
         columns={
-            "team":"team_name",
-            "conference":"conference_name",
-            "rating":"S&P+_rating",
-            "secondOrderWins":"second_order_wins",
-            "offense.rating":"offense_S&P+_rating",
-            "offense.success":"offense_S&P+_success",
-            "offense.explosiveness":"offense_S&P+_esplosiveness",
-            "offense.rushing":"offense_S&P+_rushing",
-            "offense.passing":"offense_S&P+_passing",
-            "offense.standardDowns":"offense_S&P+_standard_downs",
-            "offense.passingDowns":"offense_S&P+_passing_downs",
-            "offense.runRate":"offense_S&P+_run_rate",
-            "offense.pace":"offense_S&P+_pace",
-            "defense.rating":"defense_S&P+_rating",
-            "defense.success":"defense_S&P+_success",
-            "defense.explosiveness":"defense_S&P+_esplosiveness",
-            "defense.rushing":"defense_S&P+_rushing",
-            "defense.passing":"defense_S&P+_passing",
-            "defense.standardDowns":"defense_S&P+_standard_downs",
-            "defense.passingDowns":"defense_S&P+_passing_downs",
-            "defense.havoc.total":"defense_S&P+_havoc_total",
-            "defense.havoc.frontSeven":"defense_S&P+_havoc_front_seven",
-            "defense.havoc.db":"defense_S&P+_havoc_db",
-            "specialTeams.rating":"defense_S&P+_special_teams_rating",
+            "team": "team_name",
+            "conference": "conference_name",
+            "rating": "S&P+_rating",
+            "secondOrderWins": "second_order_wins",
+            "offense.rating": "offense_S&P+_rating",
+            "offense.success": "offense_S&P+_success",
+            "offense.explosiveness": "offense_S&P+_esplosiveness",
+            "offense.rushing": "offense_S&P+_rushing",
+            "offense.passing": "offense_S&P+_passing",
+            "offense.standardDowns": "offense_S&P+_standard_downs",
+            "offense.passingDowns": "offense_S&P+_passing_downs",
+            "offense.runRate": "offense_S&P+_run_rate",
+            "offense.pace": "offense_S&P+_pace",
+            "defense.rating": "defense_S&P+_rating",
+            "defense.success": "defense_S&P+_success",
+            "defense.explosiveness": "defense_S&P+_esplosiveness",
+            "defense.rushing": "defense_S&P+_rushing",
+            "defense.passing": "defense_S&P+_passing",
+            "defense.standardDowns": "defense_S&P+_standard_downs",
+            "defense.passingDowns": "defense_S&P+_passing_downs",
+            "defense.havoc.total": "defense_S&P+_havoc_total",
+            "defense.havoc.frontSeven": "defense_S&P+_havoc_front_seven",
+            "defense.havoc.db": "defense_S&P+_havoc_db",
+            "specialTeams.rating": "defense_S&P+_special_teams_rating",
         },
         inplace=True,
     )
-    #print(final_df.columns)
+    # print(final_df.columns)
 
     return final_df
 
@@ -351,14 +330,16 @@ def get_cfbd_srs_ratings(
         Semi-optional argument.
         If `api_key` is null, this function will attempt to load a CFBD API key
         from the python environment, or from a file on this computer.
-        If `api_key` is not null, this function will automatically assume that the
+        If `api_key` is not null,
+        this function will automatically assume that the
         inputted `api_key` is a valid CFBD API key.
 
     `api_key_dir` (str, optional):
         Optional argument.
         If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null,
-        this function will try to find a CFBD API key file in this user's home directory.
+        this function will try to find
+        a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
         this function will assume that `api_key_dir` is a directory,
         and will try to find a CFBD API key file in that directory.
@@ -368,14 +349,16 @@ def get_cfbd_srs_ratings(
         Specifies the season you want SRS ratings data from.
         This must be specified, otherwise this package, and by extension
         the CFBD API, will not accept the request to get SRS ratings data.
-        This or `team` must be set to a valid non-null variable for this to function.
+        This or `team` must be set to a valid non-null variable
+        for this to function.
 
     `team` (str, semi-mandatory):
         Semi-required argument.
         Specifies the season you want SRS ratings data from.
         This must be specified, otherwise this package, and by extension
         the CFBD API, will not accept the request to get SRS ratings data.
-        This or `season` must be set to a valid non-null variable for this to function.
+        This or `season` must be set to a valid non-null variable
+        for this to function.
 
     `conference` (str, optional):
         Optional argument.
@@ -386,7 +369,8 @@ def get_cfbd_srs_ratings(
 
     `return_as_dict` (bool, semi-optional):
         Semi-optional argument.
-        If you want this function to return the data as a dictionary (read: JSON object),
+        If you want this function to return
+        the data as a dictionary (read: JSON object),
         instead of a pandas `DataFrame` object,
         set `return_as_dict` to `True`.
 
@@ -401,7 +385,10 @@ def get_cfbd_srs_ratings(
     cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
 
     if cfbd_key != "tigersAreAwsome":
-        print("Using the user's API key declared in this script for this example.")
+        print(
+            "Using the user's API key declared in this script " +
+            "for this example."
+        )
 
         # Get SRS ratings data for the 2020 CFB season.
         print("Get SRS ratings data for the 2020 CFB season.")
@@ -414,7 +401,10 @@ def get_cfbd_srs_ratings(
 
         # Get historical SRS ratings data for the
         # University of Cincinnati Bearcats Football Team.
-        print("Get historical SRS ratings data for the University of Cincinnati Bearcats Football Team.")
+        print(
+            "Get historical SRS ratings data for " +
+            "the University of Cincinnati Bearcats Football Team."
+        )
         json_data = get_cfbd_srs_ratings(
             api_key=cfbd_key,
             team="Cincinnati"
@@ -423,7 +413,10 @@ def get_cfbd_srs_ratings(
         time.sleep(5)
 
         # Get SRS ratings data for the 2019 Ohio State Buckeyes Football Team.
-        print("Get SRS ratings data for the 2019 Ohio State Buckeyes Football Team.")
+        print(
+            "Get SRS ratings data for " +
+            "the 2019 Ohio State Buckeyes Football Team."
+        )
         json_data = get_cfbd_srs_ratings(
             api_key=cfbd_key,
             season=2020,
@@ -434,7 +427,10 @@ def get_cfbd_srs_ratings(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_srs_ratings(
             api_key=cfbd_key,
             season=2020,
@@ -446,9 +442,12 @@ def get_cfbd_srs_ratings(
     else:
         # Alternatively, if the CFBD API key exists in this python environment,
         # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
-        # you could just call these functions directly, without setting the API key
-        # in the script.
-        print("Using the user's API key suposedly loaded into this python environment for this example.")
+        # you could just call these functions directly,
+        # without setting the API key in the script.
+        print(
+            "Using the user's API key suposedly loaded " +
+            "into this python environment for this example."
+        )
 
         # Get SRS ratings data for the 2020 CFB season.
         print("Get SRS ratings data for the 2020 CFB season.")
@@ -460,7 +459,10 @@ def get_cfbd_srs_ratings(
 
         # Get historical SRS ratings data for the
         # University of Cincinnati Bearcats Football Team.
-        print("Get historical SRS ratings data for the University of Cincinnati Bearcats Football Team.")
+        print(
+            "Get historical SRS ratings data for " +
+            "the University of Cincinnati Bearcats Football Team."
+        )
         json_data = get_cfbd_srs_ratings(
             team="Cincinnati"
         )
@@ -468,7 +470,10 @@ def get_cfbd_srs_ratings(
         time.sleep(5)
 
         # Get SRS ratings data for the 2019 Ohio State Buckeyes Football Team.
-        print("Get SRS ratings data for the 2019 Ohio State Buckeyes Football Team.")
+        print(
+            "Get SRS ratings data for " +
+            "the 2019 Ohio State Buckeyes Football Team."
+        )
         json_data = get_cfbd_srs_ratings(
             season=2020,
             team="Ohio State"
@@ -478,7 +483,10 @@ def get_cfbd_srs_ratings(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_srs_ratings(
             season=2020,
             team="Ohio State",
@@ -498,14 +506,16 @@ def get_cfbd_srs_ratings(
     # row_df = pd.DataFrame()
     final_df = pd.DataFrame()
 
-    if api_key != None:
+    if api_key is not None:
         real_api_key = api_key
         del api_key
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
     if real_api_key == "tigersAreAwsome":
-        raise ValueError("You actually need to change `cfbd_key` to your CFBD API key.")
+        raise ValueError(
+            "You actually need to change `cfbd_key` to your CFBD API key."
+        )
     elif "Bearer " in real_api_key:
         pass
     elif "Bearer" in real_api_key:
@@ -513,39 +523,44 @@ def get_cfbd_srs_ratings(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    if season == None and team == None:
+    if season is None and team is None:
         raise ValueError(
             "`season` and/or `team` must be set to a valid, "
             + "non-null value for this function to work."
         )
 
-    if season != None and (season > (now.year + 1)):
+    if season is not None and (season > (now.year + 1)):
         raise ValueError(f"`season` cannot be greater than {season}.")
-    elif season != None and season < 1869:
-        raise ValueError(f"`season` cannot be less than 1869.")
+    elif season is not None and season < 1869:
+        raise ValueError("`season` cannot be less than 1869.")
 
     # URL builder
-    ########################################################################################################################################################################################################
+    ##########################################################################
+
     # Required by the API
 
-    if season != None and team != None:
+    if season is not None and team is not None:
         url += f"?year={season}&team={team}"
-    elif season != None:
+    elif season is not None:
         url += f"?year={season}"
-    elif team != None:
+    elif team is not None:
         url += f"?team={team}"
 
-    if conference != None:
+    if conference is not None:
         url += f"&conference={conference}"
 
-    headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
+    headers = {
+        "Authorization": f"{real_api_key}",
+        "accept": "application/json"
+    }
     response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
         pass
     elif response.status_code == 401:
         raise ConnectionRefusedError(
-            f"Could not connect. The connection was refused.\nHTTP Status Code 401."
+            "Could not connect. The connection was refused." +
+            "\nHTTP Status Code 401."
         )
     else:
         raise ConnectionError(
@@ -554,7 +569,7 @@ def get_cfbd_srs_ratings(
 
     json_data = response.json()
 
-    if return_as_dict == True:
+    if return_as_dict is True:
         return json_data
 
     final_df = pd.json_normalize(json_data)
@@ -574,9 +589,8 @@ def get_cfbd_sp_plus_conference_ratings(
     Allows you to get Success rate and equivalent Points per play (S&P+)
     ratings data from the CFBD API.
 
-    For more information about S&P+, consult the following webpages:
-    - https://www.sbnation.com/college-football/2017/10/13/16457830/college-football-advanced-stats-analytics-rankings
-    - https://collegefootballdata.com/sp/trends
+    For more information about S&P+, consult the following webpage:
+    https://collegefootballdata.com/sp/trends
 
     Parameters
     ----------
@@ -584,14 +598,16 @@ def get_cfbd_sp_plus_conference_ratings(
         Semi-optional argument.
         If `api_key` is null, this function will attempt to load a CFBD API key
         from the python environment, or from a file on this computer.
-        If `api_key` is not null, this function will automatically assume that the
+        If `api_key` is not null,
+        this function will automatically assume that the
         inputted `api_key` is a valid CFBD API key.
 
     `api_key_dir` (str, optional):
         Optional argument.
         If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null,
-        this function will try to find a CFBD API key file in this user's home directory.
+        this function will try to find
+        a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
         this function will assume that `api_key_dir` is a directory,
         and will try to find a CFBD API key file in that directory.
@@ -601,14 +617,16 @@ def get_cfbd_sp_plus_conference_ratings(
         Specifies the season you want S&P+ ratings data from.
         This must be specified, otherwise this package, and by extension
         the CFBD API, will not accept the request to get S&P+ ratings data.
-        This or `team` must be set to a valid non-null variable for this to function.
+        This or `team` must be set to a valid non-null variable
+        for this to function.
 
     `team` (str, optional):
         Optional argument.
         Specifies the season you want S&P+ ratings data from.
         This must be specified, otherwise this package, and by extension
         the CFBD API, will not accept the request to get S&P+ ratings data.
-        This or `season` must be set to a valid non-null variable for this to function.
+        This or `season` must be set to a valid non-null variable
+        for this to function.
 
     `conference` (str, optional):
         Optional argument.
@@ -619,7 +637,8 @@ def get_cfbd_sp_plus_conference_ratings(
 
     `return_as_dict` (bool, semi-optional):
         Semi-optional argument.
-        If you want this function to return the data as a dictionary (read: JSON object),
+        If you want this function to return
+        the data as a dictionary (read: JSON object),
         instead of a pandas `DataFrame` object,
         set `return_as_dict` to `True`.
 
@@ -634,7 +653,10 @@ def get_cfbd_sp_plus_conference_ratings(
     cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
 
     if cfbd_key != "tigersAreAwsome":
-        print("Using the user's API key declared in this script for this example.")
+        print(
+            "Using the user's API key declared in this script " +
+            "for this example."
+        )
 
         # Get S&P+ ratings data for the 2020 CFB season.
         print("Get S&P+ ratings data for the 2020 CFB season.")
@@ -647,7 +669,10 @@ def get_cfbd_sp_plus_conference_ratings(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_sp_plus_conference_ratings(
             api_key=cfbd_key,
             season=2020,
@@ -658,10 +683,11 @@ def get_cfbd_sp_plus_conference_ratings(
     else:
         # Alternatively, if the CFBD API key exists in this python environment,
         # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
-        # you could just call these functions directly, without setting the API key
-        # in the script.
+        # you could just call these functions directly,
+        # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded into this python environment for this example."
+            "Using the user's API key suposedly loaded " +
+            "into this python environment for this example."
         )
 
         # Get S&P+ ratings data for the 2020 CFB season.
@@ -674,7 +700,10 @@ def get_cfbd_sp_plus_conference_ratings(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_sp_plus_conference_ratings(
             season=2020,
             return_as_dict=True
@@ -691,17 +720,19 @@ def get_cfbd_sp_plus_conference_ratings(
 
     now = datetime.now()
     url = "https://api.collegefootballdata.com/ratings/sp/conferences"
-    row_df = pd.DataFrame()
+    # row_df = pd.DataFrame()
     final_df = pd.DataFrame()
 
-    if api_key != None:
+    if api_key is not None:
         real_api_key = api_key
         del api_key
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
     if real_api_key == "tigersAreAwsome":
-        raise ValueError("You actually need to change `cfbd_key` to your CFBD API key.")
+        raise ValueError(
+            "You actually need to change `cfbd_key` to your CFBD API key."
+        )
     elif "Bearer " in real_api_key:
         pass
     elif "Bearer" in real_api_key:
@@ -709,44 +740,49 @@ def get_cfbd_sp_plus_conference_ratings(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    # if season == None and team == None:
+    # if season is None and team is None:
     #     raise ValueError(
     #         "`season` and/or `team` must be set to a valid, "
     #         + "non-null value for this function to work."
     #     )
 
-    if season != None and (season > (now.year + 1)):
+    if season is not None and (season > (now.year + 1)):
         raise ValueError(f"`season` cannot be greater than {season}.")
-    elif season != None and season < 1869:
-        raise ValueError(f"`season` cannot be less than 1869.")
+    elif season is not None and season < 1869:
+        raise ValueError("`season` cannot be less than 1869.")
 
     # URL builder
-    ########################################################################################################################################################################################################
+    ##########################################################################
+
     # Required by the API
     url_elements = 0
 
-    if season != None and url_elements == 0:
+    if season is not None and url_elements == 0:
         url += f"?year={season}"
         url_elements += 1
-    elif season != None:
+    elif season is not None:
         url += f"&year={season}"
         url_elements += 1
 
-    if conference != None and url_elements == 0:
+    if conference is not None and url_elements == 0:
         url += f"?conference={conference}"
         url_elements += 1
-    elif conference != None:
+    elif conference is not None:
         url += f"&conference={conference}"
         url_elements += 1
 
-    headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
+    headers = {
+        "Authorization": f"{real_api_key}",
+        "accept": "application/json"
+    }
     response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
         pass
     elif response.status_code == 401:
         raise ConnectionRefusedError(
-            f"Could not connect. The connection was refused.\nHTTP Status Code 401."
+            "Could not connect. The connection was refused." +
+            "\nHTTP Status Code 401."
         )
     else:
         raise ConnectionError(
@@ -755,36 +791,35 @@ def get_cfbd_sp_plus_conference_ratings(
 
     json_data = response.json()
 
-    if return_as_dict == True:
+    if return_as_dict is True:
         return json_data
-
 
     final_df = pd.json_normalize(json_data)
     final_df.rename(
         columns={
-            "conference":"conference_name",
-            "rating":"S&P+_rating",
-            "secondOrderWins":"second_order_wins",
-            "offense.rating":"offense_S&P+_rating",
-            "offense.success":"offense_S&P+_success",
-            "offense.explosiveness":"offense_S&P+_esplosiveness",
-            "offense.rushing":"offense_S&P+_rushing",
-            "offense.passing":"offense_S&P+_passing",
-            "offense.standardDowns":"offense_S&P+_standard_downs",
-            "offense.passingDowns":"offense_S&P+_passing_downs",
-            "offense.runRate":"offense_S&P+_run_rate",
-            "offense.pace":"offense_S&P+_pace",
-            "defense.rating":"defense_S&P+_rating",
-            "defense.success":"defense_S&P+_success",
-            "defense.explosiveness":"defense_S&P+_esplosiveness",
-            "defense.rushing":"defense_S&P+_rushing",
-            "defense.passing":"defense_S&P+_passing",
-            "defense.standardDowns":"defense_S&P+_standard_downs",
-            "defense.passingDowns":"defense_S&P+_passing_downs",
-            "defense.havoc.total":"defense_S&P+_havoc_total",
-            "defense.havoc.frontSeven":"defense_S&P+_havoc_front_seven",
-            "defense.havoc.db":"defense_S&P+_havoc_db",
-            "specialTeams.rating":"defense_S&P+_special_teams_rating",
+            "conference": "conference_name",
+            "rating": "S&P+_rating",
+            "secondOrderWins": "second_order_wins",
+            "offense.rating": "offense_S&P+_rating",
+            "offense.success": "offense_S&P+_success",
+            "offense.explosiveness": "offense_S&P+_esplosiveness",
+            "offense.rushing": "offense_S&P+_rushing",
+            "offense.passing": "offense_S&P+_passing",
+            "offense.standardDowns": "offense_S&P+_standard_downs",
+            "offense.passingDowns": "offense_S&P+_passing_downs",
+            "offense.runRate": "offense_S&P+_run_rate",
+            "offense.pace": "offense_S&P+_pace",
+            "defense.rating": "defense_S&P+_rating",
+            "defense.success": "defense_S&P+_success",
+            "defense.explosiveness": "defense_S&P+_esplosiveness",
+            "defense.rushing": "defense_S&P+_rushing",
+            "defense.passing": "defense_S&P+_passing",
+            "defense.standardDowns": "defense_S&P+_standard_downs",
+            "defense.passingDowns": "defense_S&P+_passing_downs",
+            "defense.havoc.total": "defense_S&P+_havoc_total",
+            "defense.havoc.frontSeven": "defense_S&P+_havoc_front_seven",
+            "defense.havoc.db": "defense_S&P+_havoc_db",
+            "specialTeams.rating": "defense_S&P+_special_teams_rating",
         },
         inplace=True,
     )
@@ -814,14 +849,16 @@ def get_cfbd_elo_ratings(
         Semi-optional argument.
         If `api_key` is null, this function will attempt to load a CFBD API key
         from the python environment, or from a file on this computer.
-        If `api_key` is not null, this function will automatically assume that the
+        If `api_key` is not null,
+        this function will automatically assume that the
         inputted `api_key` is a valid CFBD API key.
 
     `api_key_dir` (str, optional):
         Optional argument.
         If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null,
-        this function will try to find a CFBD API key file in this user's home directory.
+        this function will try to find
+        a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
         this function will assume that `api_key_dir` is a directory,
         and will try to find a CFBD API key file in that directory.
@@ -831,7 +868,8 @@ def get_cfbd_elo_ratings(
         Specifies the season you want S&P+ ratings data from.
         This must be specified, otherwise this package, and by extension
         the CFBD API, will not accept the request to get S&P+ ratings data.
-        This or `team` must be set to a valid non-null variable for this to function.
+        This or `team` must be set to a valid non-null variable
+        for this to function.
 
     `week` (int, optional):
         Optional argument.
@@ -843,7 +881,8 @@ def get_cfbd_elo_ratings(
         Semi-optional argument.
         By defualt, this will be set to "postseason".
         If `season_type` is set to "regular",
-        the API will ignore postseason games (like bowls and CFP games) when calculating elo.
+        the API will ignore postseason games
+        (like bowls and CFP games) when calculating elo.
         If `season_type` is set to anything but "regular" or "postseason",
         a `ValueError()` will be raised.
 
@@ -852,7 +891,8 @@ def get_cfbd_elo_ratings(
         Specifies the season you want S&P+ ratings data from.
         This must be specified, otherwise this package, and by extension
         the CFBD API, will not accept the request to get S&P+ ratings data.
-        This or `season` must be set to a valid non-null variable for this to function.
+        This or `season` must be set to a valid non-null variable
+        for this to function.
 
     `conference` (str, optional):
         Optional argument.
@@ -863,7 +903,8 @@ def get_cfbd_elo_ratings(
 
     `return_as_dict` (bool, semi-optional):
         Semi-optional argument.
-        If you want this function to return the data as a dictionary (read: JSON object),
+        If you want this function to return
+        the data as a dictionary (read: JSON object),
         instead of a pandas `DataFrame` object,
         set `return_as_dict` to `True`.
 
@@ -878,7 +919,10 @@ def get_cfbd_elo_ratings(
     cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
 
     if cfbd_key != "tigersAreAwsome":
-        print("Using the user's API key declared in this script for this example.")
+        print(
+            "Using the user's API key declared in this script " +
+            "for this example."
+        )
 
         # Get Elo ratings data for the 2020 CFB season.
         print("Get Elo ratings data for the 2020 CFB season.")
@@ -899,8 +943,12 @@ def get_cfbd_elo_ratings(
         print(json_data)
         time.sleep(5)
 
-        # Get Elo ratings data for the 2020 CFB season, but only for games in the regular season.
-        print("Get Elo ratings data for the 2020 CFB season, but only for games in the regular season.")
+        # Get Elo ratings data for the 2020 CFB season,
+        # but only for games in the regular season.
+        print(
+            "Get Elo ratings data for the 2020 CFB season, " +
+            "but only for games in the regular season."
+        )
         json_data = get_cfbd_elo_ratings(
             api_key=cfbd_key,
             season=2020,
@@ -911,7 +959,10 @@ def get_cfbd_elo_ratings(
 
         # Get historical Elo ratings data for the
         # University of Cincinnati Football Team.
-        print("Get historical Elo ratings data for the University of Cincinnati Football Team.")
+        print(
+            "Get historical Elo ratings data for " +
+            "the University of Cincinnati Football Team."
+        )
         json_data = get_cfbd_elo_ratings(
             api_key=cfbd_key,
             team="Cincinnati"
@@ -922,7 +973,10 @@ def get_cfbd_elo_ratings(
 
         # Get Elo ratings data for teams competing in the
         # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
-        print("Get Elo ratings data for teams competing in the Atlantic Coast Confrence (ACC) in the 2021 CFB season.")
+        print(
+            "Get Elo ratings data for teams competing in " +
+            "the Atlantic Coast Confrence (ACC) in the 2021 CFB season."
+        )
         json_data = get_cfbd_elo_ratings(
             api_key=cfbd_key,
             season=2021,
@@ -933,7 +987,10 @@ def get_cfbd_elo_ratings(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_elo_ratings(
             api_key=cfbd_key,
             season=2020,
@@ -945,10 +1002,11 @@ def get_cfbd_elo_ratings(
     else:
         # Alternatively, if the CFBD API key exists in this python environment,
         # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
-        # you could just call these functions directly, without setting the API key
-        # in the script.
+        # you could just call these functions directly,
+        # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded into this python environment for this example."
+            "Using the user's API key suposedly loaded " +
+            "into this python environment for this example."
         )
 
         # Get Elo ratings data for the 2020 CFB season.
@@ -968,8 +1026,12 @@ def get_cfbd_elo_ratings(
         print(json_data)
         time.sleep(5)
 
-        # Get Elo ratings data for the 2020 CFB season, but only for games in the regular season.
-        print("Get Elo ratings data for the 2020 CFB season, but only for games in the regular season.")
+        # Get Elo ratings data for the 2020 CFB season,
+        # but only for games in the regular season.
+        print(
+            "Get Elo ratings data for the 2020 CFB season, " +
+            "but only for games in the regular season."
+        )
         json_data = get_cfbd_elo_ratings(
             season=2020,
             season_type="regular"
@@ -979,7 +1041,10 @@ def get_cfbd_elo_ratings(
 
         # Get historical Elo ratings data for the
         # University of Cincinnati Football Team.
-        print("Get historical Elo ratings data for the University of Cincinnati Football Team.")
+        print(
+            "Get historical Elo ratings data for " +
+            "the University of Cincinnati Football Team."
+        )
         json_data = get_cfbd_elo_ratings(
             team="Cincinnati"
         )
@@ -989,7 +1054,10 @@ def get_cfbd_elo_ratings(
 
         # Get Elo ratings data for teams competing in the
         # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
-        print("Get Elo ratings data for teams competing in the Atlantic Coast Confrence (ACC) in the 2021 CFB season.")
+        print(
+            "Get Elo ratings data for teams competing in " +
+            "the Atlantic Coast Confrence (ACC) in the 2021 CFB season."
+        )
         json_data = get_cfbd_elo_ratings(
             season=2021,
             conference="ACC"
@@ -999,7 +1067,10 @@ def get_cfbd_elo_ratings(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_elo_ratings(
             season=2020,
             team="Cincinnati",
@@ -1019,14 +1090,16 @@ def get_cfbd_elo_ratings(
     # row_df = pd.DataFrame()
     final_df = pd.DataFrame()
 
-    if api_key != None:
+    if api_key is not None:
         real_api_key = api_key
         del api_key
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
     if real_api_key == "tigersAreAwsome":
-        raise ValueError("You actually need to change `cfbd_key` to your CFBD API key.")
+        raise ValueError(
+            "You actually need to change `cfbd_key` to your CFBD API key."
+        )
     elif "Bearer " in real_api_key:
         pass
     elif "Bearer" in real_api_key:
@@ -1034,45 +1107,50 @@ def get_cfbd_elo_ratings(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    # if season == None and team == None:
+    # if season is None and team is None:
     #     raise ValueError(
     #         "`season` and/or `team` must be set to a valid, "
     #         + "non-null value for this function to work."
     #     )
 
-    if season != None and (season > (now.year + 1)):
+    if season is not None and (season > (now.year + 1)):
         raise ValueError(f"`season` cannot be greater than {season}.")
-    elif season != None and season < 1869:
-        raise ValueError(f"`season` cannot be less than 1869.")
+    elif season is not None and season < 1869:
+        raise ValueError("`season` cannot be less than 1869.")
 
     # URL builder
-    ########################################################################################################################################################################################################
+    ##########################################################################
+
     # Required by the API
 
-    if season != None and team != None:
+    if season is not None and team is not None:
         url += f"?year={season}&team={team}"
-    elif season != None:
+    elif season is not None:
         url += f"?year={season}"
-    elif team != None:
+    elif team is not None:
         url += f"?team={team}"
 
-    if week != None:
+    if week is not None:
         url += f"&week={week}"
 
-    if conference != None:
+    if conference is not None:
         url += f"&conference={conference}"
 
-    if season_type != None:
+    if season_type is not None:
         url += f"&seasonType={season_type}"
 
-    headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
+    headers = {
+        "Authorization": f"{real_api_key}",
+        "accept": "application/json"
+    }
     response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
         pass
     elif response.status_code == 401:
         raise ConnectionRefusedError(
-            f"Could not connect. The connection was refused.\nHTTP Status Code 401."
+            "Could not connect. The connection was refused." +
+            "\nHTTP Status Code 401."
         )
     else:
         raise ConnectionError(
@@ -1081,14 +1159,14 @@ def get_cfbd_elo_ratings(
 
     json_data = response.json()
 
-    if return_as_dict == True:
+    if return_as_dict is True:
         return json_data
 
     final_df = pd.json_normalize(json_data)
 
     final_df.rename(columns={"rating": "elo_rating"}, inplace=True)
 
-    if week != None and len(final_df) > 0:
+    if week is not None and len(final_df) > 0:
         final_df["week"] = week
     return final_df
 
@@ -1106,9 +1184,8 @@ def get_cfbd_fpi_ratings(
     Allows you to get Football Power Index (FPI) ratings data
     for CFB teams from the CFBD API.
 
-    For more information about FPI, consult the following webpages:
-    - https://www.espn.com/blog/statsinfo/post/_/id/122612/an-inside-look-at-college-fpi
-    - https://thepowerrank.com/guide-cfb-rankings/
+    For more information about FPI, consult the following webpage:
+    https://thepowerrank.com/guide-cfb-rankings/
 
     Parameters
     ----------
@@ -1116,14 +1193,16 @@ def get_cfbd_fpi_ratings(
         Semi-optional argument.
         If `api_key` is null, this function will attempt to load a CFBD API key
         from the python environment, or from a file on this computer.
-        If `api_key` is not null, this function will automatically assume that the
+        If `api_key` is not null,
+        this function will automatically assume that the
         inputted `api_key` is a valid CFBD API key.
 
     `api_key_dir` (str, optional):
         Optional argument.
         If `api_key` is set to am empty string, this variable is ignored.
         If `api_key_dir` is null, and `api_key` is null,
-        this function will try to find a CFBD API key file in this user's home directory.
+        this function will try to find
+        a CFBD API key file in this user's home directory.
         If `api_key_dir` is set to a string, and `api_key` is null,
         this function will assume that `api_key_dir` is a directory,
         and will try to find a CFBD API key file in that directory.
@@ -1133,7 +1212,8 @@ def get_cfbd_fpi_ratings(
         Specifies the season you want FPI ratings data from.
         This must be specified, otherwise this package, and by extension
         the CFBD API, will not accept the request to get FPI ratings data.
-        This or `team` must be set to a valid non-null variable for this to function.
+        This or `team` must be set to a valid non-null variable
+        for this to function.
 
     `week` (int, optional):
         Optional argument.
@@ -1146,7 +1226,8 @@ def get_cfbd_fpi_ratings(
         Specifies the season you want FPI ratings data from.
         This must be specified, otherwise this package, and by extension
         the CFBD API, will not accept the request to get FPI ratings data.
-        This or `season` must be set to a valid non-null variable for this to function.
+        This or `season` must be set to a valid non-null variable
+        for this to function.
 
     `conference` (str, optional):
         Optional argument.
@@ -1157,7 +1238,8 @@ def get_cfbd_fpi_ratings(
 
     `return_as_dict` (bool, semi-optional):
         Semi-optional argument.
-        If you want this function to return the data as a dictionary (read: JSON object),
+        If you want this function to return
+        the data as a dictionary (read: JSON object),
         instead of a pandas `DataFrame` object,
         set `return_as_dict` to `True`.
 
@@ -1172,7 +1254,10 @@ def get_cfbd_fpi_ratings(
     cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
 
     if cfbd_key != "tigersAreAwsome":
-        print("Using the user's API key declared in this script for this example.")
+        print(
+            "Using the user's API key declared in this script " +
+            "for this example."
+        )
 
         # Get FPI ratings data for the 2020 CFB season.
         print("Get FPI ratings data for the 2020 CFB season.")
@@ -1195,7 +1280,10 @@ def get_cfbd_fpi_ratings(
 
         # Get historical FPI ratings data for the
         # University of Cincinnati Football Team.
-        print("Get historical FPI ratings data for the University of Cincinnati Football Team.")
+        print(
+            "Get historical FPI ratings data for " +
+            "the University of Cincinnati Football Team."
+        )
         json_data = get_cfbd_fpi_ratings(
             api_key=cfbd_key,
             team="Cincinnati"
@@ -1206,7 +1294,10 @@ def get_cfbd_fpi_ratings(
 
         # Get FPI ratings data for teams competing in the
         # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
-        print("Get FPI ratings data for teams competing in the Atlantic Coast Confrence (ACC) in the 2021 CFB season.")
+        print(
+            "Get FPI ratings data for teams competing in the " +
+            "Atlantic Coast Confrence (ACC) in the 2021 CFB season."
+        )
         json_data = get_cfbd_fpi_ratings(
             api_key=cfbd_key,
             season=2021,
@@ -1217,7 +1308,10 @@ def get_cfbd_fpi_ratings(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_fpi_ratings(
             api_key=cfbd_key,
             season=2020,
@@ -1229,10 +1323,11 @@ def get_cfbd_fpi_ratings(
     else:
         # Alternatively, if the CFBD API key exists in this python environment,
         # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
-        # you could just call these functions directly, without setting the API key
-        # in the script.
+        # you could just call these functions directly,
+        # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded into this python environment for this example."
+            "Using the user's API key suposedly loaded " +
+            "into this python environment for this example."
         )
 
         # Get FPI ratings data for the 2020 CFB season.
@@ -1256,7 +1351,10 @@ def get_cfbd_fpi_ratings(
 
         # Get historical FPI ratings data for the
         # University of Cincinnati Football Team.
-        print("Get historical FPI ratings data for the University of Cincinnati Football Team.")
+        print(
+            "Get historical FPI ratings data for " +
+            "the University of Cincinnati Football Team."
+        )
         json_data = get_cfbd_fpi_ratings(
             team="Cincinnati"
         )
@@ -1266,7 +1364,10 @@ def get_cfbd_fpi_ratings(
 
         # Get FPI ratings data for teams competing in the
         # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
-        print("Get FPI ratings data for teams competing in the Atlantic Coast Confrence (ACC) in the 2021 CFB season.")
+        print(
+            "Get FPI ratings data for teams competing in the " +
+            "Atlantic Coast Confrence (ACC) in the 2021 CFB season."
+        )
         json_data = get_cfbd_fpi_ratings(
             season=2021,
             conference="ACC"
@@ -1276,7 +1377,10 @@ def get_cfbd_fpi_ratings(
 
         # You can also tell this function to just return the API call as
         # a Dictionary (read: JSON) object.
-        print("You can also tell this function to just return the API call as a Dictionary (read: JSON) object.")
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
         json_data = get_cfbd_fpi_ratings(
             season=2020,
             team="Cincinnati",
@@ -1298,14 +1402,16 @@ def get_cfbd_fpi_ratings(
     # row_df = pd.DataFrame()
     final_df = pd.DataFrame()
 
-    if api_key != None:
+    if api_key is not None:
         real_api_key = api_key
         del api_key
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
     if real_api_key == "tigersAreAwsome":
-        raise ValueError("You actually need to change `cfbd_key` to your CFBD API key.")
+        raise ValueError(
+            "You actually need to change `cfbd_key` to your CFBD API key."
+        )
     elif "Bearer " in real_api_key:
         pass
     elif "Bearer" in real_api_key:
@@ -1313,42 +1419,47 @@ def get_cfbd_fpi_ratings(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    if season == None and team == None:
+    if season is None and team is None:
         raise ValueError(
             "`season` and/or `team` must be set to a valid, "
             + "non-null value for this function to work."
         )
 
-    if season != None and (season > (now.year + 1)):
+    if season is not None and (season > (now.year + 1)):
         raise ValueError(f"`season` cannot be greater than {season}.")
-    elif season != None and season < 1869:
-        raise ValueError(f"`season` cannot be less than 1869.")
+    elif season is not None and season < 1869:
+        raise ValueError("`season` cannot be less than 1869.")
 
     # URL builder
-    ########################################################################################################################################################################################################
+    ##########################################################################
+
     # Required by the API
 
-    if season != None and team != None:
+    if season is not None and team is not None:
         url += f"?year={season}&team={team}"
-    elif season != None:
+    elif season is not None:
         url += f"?year={season}"
-    elif team != None:
+    elif team is not None:
         url += f"?team={team}"
 
-    if week != None:
+    if week is not None:
         url += f"&week={week}"
 
-    if conference != None:
+    if conference is not None:
         url += f"&conference={conference}"
 
-    headers = {"Authorization": f"{real_api_key}", "accept": "application/json"}
+    headers = {
+        "Authorization": f"{real_api_key}",
+        "accept": "application/json"
+    }
     response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
         pass
     elif response.status_code == 401:
         raise ConnectionRefusedError(
-            f"Could not connect. The connection was refused.\nHTTP Status Code 401."
+            "Could not connect. The connection was refused." +
+            "\nHTTP Status Code 401."
         )
     else:
         raise ConnectionError(
@@ -1357,7 +1468,7 @@ def get_cfbd_fpi_ratings(
 
     json_data = response.json()
 
-    if return_as_dict == True:
+    if return_as_dict is True:
         return json_data
 
     final_df = pd.json_normalize(json_data)
@@ -1371,7 +1482,8 @@ def get_cfbd_fpi_ratings(
             "resumeRanks.fpi": "fpi_rank",
             "resumeRanks.averageWinProbability": "resume_avg_win_probability",
             "resumeRanks.strengthOfSchedule": "resume_strength_of_schedule",
-            "resumeRanks.remaningStrengthOfSchedule": "resume_remaining_strength_of_schedule",
+            "resumeRanks.remaningStrengthOfSchedule":
+                "resume_remaining_strength_of_schedule",
             "resumeRanks.gameControl": "resume_game_control",
             "efficiencies.overall": "efficiency_overall",
             "efficiencies.offense": "efficiency_offense",

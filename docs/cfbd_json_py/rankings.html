@@ -29,7 +29,7 @@
             <h2>Contents</h2>
             <ul>
   <li><a href="#creation-date-08302023-0113-edt">Creation Date: 08/30/2023 01:13 EDT</a></li>
-  <li><a href="#last-updated-date-02242023-0330-pm-est">Last Updated Date: 02/24/2023 03:30 PM EST</a></li>
+  <li><a href="#last-updated-date-04042024-0510-pm-edt">Last Updated Date: 04/04/2024 05:10 PM EDT</a></li>
   <li><a href="#author-joseph-armstrong-armstrongjoseph08gmailcom">Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</a></li>
   <li><a href="#file-name-rankingspy">File Name: rankings.py</a></li>
   <li><a href="#purpose-houses-functions-pertaining-to-cfb-poll-data-within-the-cfbd-api">Purpose: Houses functions pertaining to CFB poll data within the CFBD API.</a></li>
@@ -60,7 +60,7 @@
 
                         <div class="docstring"><h1 id="creation-date-08302023-0113-edt">Creation Date: 08/30/2023 01:13 EDT</h1>
 
-<h1 id="last-updated-date-02242023-0330-pm-est">Last Updated Date: 02/24/2023 03:30 PM EST</h1>
+<h1 id="last-updated-date-04042024-0510-pm-edt">Last Updated Date: 04/04/2024 05:10 PM EDT</h1>
 
 <h1 id="author-joseph-armstrong-armstrongjoseph08gmailcom">Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</h1>
 
@@ -77,7 +77,7 @@
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a><span class="sd"># Creation Date: 08/30/2023 01:13 EDT</span>
-</span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="sd"># Last Updated Date: 02/24/2023 03:30 PM EST</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="sd"># Last Updated Date: 04/04/2024 05:10 PM EDT</span>
 </span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="sd"># Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a><span class="sd"># File Name: rankings.py</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a><span class="sd"># Purpose: Houses functions pertaining to CFB poll data within the CFBD API.</span>
@@ -137,7 +137,7 @@
 </span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>
 </span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="sd">        By default, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
 </span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a><span class="sd">        If you want CFB poll rankings data for non-regular season games,</span>
 </span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a><span class="sd">        set `season_type` to &quot;postseason&quot;.</span>
 </span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;,</span>
@@ -158,9 +158,9 @@
 </span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a><span class="sd">    from cfbd_json_py.rankings import get_cfbd_poll_rankings</span>
 </span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>
 </span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>
-</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a>
-</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a><span class="sd">        print(</span>
 </span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this &quot; +</span>
 </span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a><span class="sd">            &quot;script for this example.&quot;</span>
@@ -217,7 +217,7 @@
 </span><span id="L-140"><a href="#L-140"><span class="linenos">140</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-141"><a href="#L-141"><span class="linenos">141</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-142"><a href="#L-142"><span class="linenos">142</span></a><span class="sd">        print(</span>
-</span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded into &quot; +</span>
+</span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded into &quot; +</span>
 </span><span id="L-144"><a href="#L-144"><span class="linenos">144</span></a><span class="sd">            &quot;this python environment for this example.&quot;</span>
 </span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a><span class="sd">        )</span>
 </span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>
@@ -284,7 +284,7 @@
 </span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a>
-</span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-211"><a href="#L-211"><span class="linenos">211</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-212"><a href="#L-212"><span class="linenos">212</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-213"><a href="#L-213"><span class="linenos">213</span></a>        <span class="p">)</span>
@@ -457,7 +457,7 @@
 </span><span id="get_cfbd_poll_rankings-61"><a href="#get_cfbd_poll_rankings-61"><span class="linenos"> 61</span></a>
 </span><span id="get_cfbd_poll_rankings-62"><a href="#get_cfbd_poll_rankings-62"><span class="linenos"> 62</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="get_cfbd_poll_rankings-63"><a href="#get_cfbd_poll_rankings-63"><span class="linenos"> 63</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="get_cfbd_poll_rankings-64"><a href="#get_cfbd_poll_rankings-64"><span class="linenos"> 64</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="get_cfbd_poll_rankings-64"><a href="#get_cfbd_poll_rankings-64"><span class="linenos"> 64</span></a><span class="sd">        By default, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
 </span><span id="get_cfbd_poll_rankings-65"><a href="#get_cfbd_poll_rankings-65"><span class="linenos"> 65</span></a><span class="sd">        If you want CFB poll rankings data for non-regular season games,</span>
 </span><span id="get_cfbd_poll_rankings-66"><a href="#get_cfbd_poll_rankings-66"><span class="linenos"> 66</span></a><span class="sd">        set `season_type` to &quot;postseason&quot;.</span>
 </span><span id="get_cfbd_poll_rankings-67"><a href="#get_cfbd_poll_rankings-67"><span class="linenos"> 67</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;,</span>
@@ -478,9 +478,9 @@
 </span><span id="get_cfbd_poll_rankings-82"><a href="#get_cfbd_poll_rankings-82"><span class="linenos"> 82</span></a><span class="sd">    from cfbd_json_py.rankings import get_cfbd_poll_rankings</span>
 </span><span id="get_cfbd_poll_rankings-83"><a href="#get_cfbd_poll_rankings-83"><span class="linenos"> 83</span></a>
 </span><span id="get_cfbd_poll_rankings-84"><a href="#get_cfbd_poll_rankings-84"><span class="linenos"> 84</span></a>
-</span><span id="get_cfbd_poll_rankings-85"><a href="#get_cfbd_poll_rankings-85"><span class="linenos"> 85</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_poll_rankings-85"><a href="#get_cfbd_poll_rankings-85"><span class="linenos"> 85</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_poll_rankings-86"><a href="#get_cfbd_poll_rankings-86"><span class="linenos"> 86</span></a>
-</span><span id="get_cfbd_poll_rankings-87"><a href="#get_cfbd_poll_rankings-87"><span class="linenos"> 87</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_poll_rankings-87"><a href="#get_cfbd_poll_rankings-87"><span class="linenos"> 87</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_poll_rankings-88"><a href="#get_cfbd_poll_rankings-88"><span class="linenos"> 88</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_poll_rankings-89"><a href="#get_cfbd_poll_rankings-89"><span class="linenos"> 89</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this &quot; +</span>
 </span><span id="get_cfbd_poll_rankings-90"><a href="#get_cfbd_poll_rankings-90"><span class="linenos"> 90</span></a><span class="sd">            &quot;script for this example.&quot;</span>
@@ -537,7 +537,7 @@
 </span><span id="get_cfbd_poll_rankings-141"><a href="#get_cfbd_poll_rankings-141"><span class="linenos">141</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_poll_rankings-142"><a href="#get_cfbd_poll_rankings-142"><span class="linenos">142</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_poll_rankings-143"><a href="#get_cfbd_poll_rankings-143"><span class="linenos">143</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_poll_rankings-144"><a href="#get_cfbd_poll_rankings-144"><span class="linenos">144</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded into &quot; +</span>
+</span><span id="get_cfbd_poll_rankings-144"><a href="#get_cfbd_poll_rankings-144"><span class="linenos">144</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded into &quot; +</span>
 </span><span id="get_cfbd_poll_rankings-145"><a href="#get_cfbd_poll_rankings-145"><span class="linenos">145</span></a><span class="sd">            &quot;this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_poll_rankings-146"><a href="#get_cfbd_poll_rankings-146"><span class="linenos">146</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_poll_rankings-147"><a href="#get_cfbd_poll_rankings-147"><span class="linenos">147</span></a>
@@ -604,7 +604,7 @@
 </span><span id="get_cfbd_poll_rankings-208"><a href="#get_cfbd_poll_rankings-208"><span class="linenos">208</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_poll_rankings-209"><a href="#get_cfbd_poll_rankings-209"><span class="linenos">209</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_poll_rankings-210"><a href="#get_cfbd_poll_rankings-210"><span class="linenos">210</span></a>
-</span><span id="get_cfbd_poll_rankings-211"><a href="#get_cfbd_poll_rankings-211"><span class="linenos">211</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_poll_rankings-211"><a href="#get_cfbd_poll_rankings-211"><span class="linenos">211</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_poll_rankings-212"><a href="#get_cfbd_poll_rankings-212"><span class="linenos">212</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_poll_rankings-213"><a href="#get_cfbd_poll_rankings-213"><span class="linenos">213</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_poll_rankings-214"><a href="#get_cfbd_poll_rankings-214"><span class="linenos">214</span></a>        <span class="p">)</span>
@@ -756,7 +756,7 @@
 
 <p><code>season_type</code> (str, semi-optional):
     Semi-optional argument.
-    By defualt, this will be set to "regular", for the CFB regular season.
+    By default, this will be set to "regular", for the CFB regular season.
     If you want CFB poll rankings data for non-regular season games,
     set <code>season_type</code> to "postseason".
     If <code>season_type</code> is set to anything but "regular" or "postseason",
@@ -776,9 +776,9 @@
 from <a href="">cfbd_json_py.rankings</a> import get_cfbd_poll_rankings
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this " +
         "script for this example."
@@ -835,7 +835,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded into " +
+        "Using the user's API key supposedly loaded into " +
         "this python environment for this example."
     )
 

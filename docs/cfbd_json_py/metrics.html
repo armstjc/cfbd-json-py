@@ -29,7 +29,7 @@
             <h2>Contents</h2>
             <ul>
   <li><a href="#creation-date-08302023-0113-edt">Creation Date: 08/30/2023 01:13 EDT</a></li>
-  <li><a href="#last-updated-date-02242023-0330-pm-est">Last Updated Date: 02/24/2023 03:30 PM EST</a></li>
+  <li><a href="#last-updated-date-04042024-0510-pm-edt">Last Updated Date: 04/04/2024 05:10 PM EDT</a></li>
   <li><a href="#author-joseph-armstrong-armstrongjoseph08gmailcom">Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</a></li>
   <li><a href="#file-name-metricspy">File Name: metrics.py</a></li>
   <li><a href="#purpose-houses-functions-pertaining-to-various-cfb">Purpose: Houses functions pertaining to various CFB</a></li>
@@ -81,7 +81,7 @@
 
                         <div class="docstring"><h1 id="creation-date-08302023-0113-edt">Creation Date: 08/30/2023 01:13 EDT</h1>
 
-<h1 id="last-updated-date-02242023-0330-pm-est">Last Updated Date: 02/24/2023 03:30 PM EST</h1>
+<h1 id="last-updated-date-04042024-0510-pm-edt">Last Updated Date: 04/04/2024 05:10 PM EDT</h1>
 
 <h1 id="author-joseph-armstrong-armstrongjoseph08gmailcom">Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</h1>
 
@@ -101,7 +101,7 @@
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">   1</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos">   2</span></a><span class="sd"># Creation Date: 08/30/2023 01:13 EDT</span>
-</span><span id="L-3"><a href="#L-3"><span class="linenos">   3</span></a><span class="sd"># Last Updated Date: 02/24/2023 03:30 PM EST</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos">   3</span></a><span class="sd"># Last Updated Date: 04/04/2024 05:10 PM EDT</span>
 </span><span id="L-4"><a href="#L-4"><span class="linenos">   4</span></a><span class="sd"># Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos">   5</span></a><span class="sd"># File Name: metrics.py</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">   6</span></a><span class="sd"># Purpose: Houses functions pertaining to various CFB</span>
@@ -149,7 +149,7 @@
 </span><span id="L-48"><a href="#L-48"><span class="linenos">  48</span></a><span class="sd">    `distance` (int, mandatory):</span>
 </span><span id="L-49"><a href="#L-49"><span class="linenos">  49</span></a><span class="sd">        Mandatory argument.</span>
 </span><span id="L-50"><a href="#L-50"><span class="linenos">  50</span></a><span class="sd">        This variable should be set to the number of yards between</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos">  51</span></a><span class="sd">        the line of scrimage (LOS), and the first down line on the field.</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos">  51</span></a><span class="sd">        the line of scrimmage (LOS), and the first down line on the field.</span>
 </span><span id="L-52"><a href="#L-52"><span class="linenos">  52</span></a>
 </span><span id="L-53"><a href="#L-53"><span class="linenos">  53</span></a><span class="sd">    `api_key` (str, optional):</span>
 </span><span id="L-54"><a href="#L-54"><span class="linenos">  54</span></a><span class="sd">        Semi-optional argument.</span>
@@ -183,9 +183,9 @@
 </span><span id="L-82"><a href="#L-82"><span class="linenos">  82</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_predicted_ppa_from_down_distance</span>
 </span><span id="L-83"><a href="#L-83"><span class="linenos">  83</span></a>
 </span><span id="L-84"><a href="#L-84"><span class="linenos">  84</span></a>
-</span><span id="L-85"><a href="#L-85"><span class="linenos">  85</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos">  85</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-86"><a href="#L-86"><span class="linenos">  86</span></a>
-</span><span id="L-87"><a href="#L-87"><span class="linenos">  87</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-87"><a href="#L-87"><span class="linenos">  87</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-88"><a href="#L-88"><span class="linenos">  88</span></a><span class="sd">        print(</span>
 </span><span id="L-89"><a href="#L-89"><span class="linenos">  89</span></a><span class="sd">            &quot;Using the user&#39;s API key declared &quot; +</span>
 </span><span id="L-90"><a href="#L-90"><span class="linenos">  90</span></a><span class="sd">            &quot;in this script for this example.&quot;</span>
@@ -226,7 +226,7 @@
 </span><span id="L-125"><a href="#L-125"><span class="linenos"> 125</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-126"><a href="#L-126"><span class="linenos"> 126</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-127"><a href="#L-127"><span class="linenos"> 127</span></a><span class="sd">        print(</span>
-</span><span id="L-128"><a href="#L-128"><span class="linenos"> 128</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-128"><a href="#L-128"><span class="linenos"> 128</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-129"><a href="#L-129"><span class="linenos"> 129</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-130"><a href="#L-130"><span class="linenos"> 130</span></a><span class="sd">        )</span>
 </span><span id="L-131"><a href="#L-131"><span class="linenos"> 131</span></a>
@@ -261,9 +261,9 @@
 </span><span id="L-160"><a href="#L-160"><span class="linenos"> 160</span></a><span class="sd">    ```</span>
 </span><span id="L-161"><a href="#L-161"><span class="linenos"> 161</span></a><span class="sd">    Returns</span>
 </span><span id="L-162"><a href="#L-162"><span class="linenos"> 162</span></a><span class="sd">    ----------</span>
-</span><span id="L-163"><a href="#L-163"><span class="linenos"> 163</span></a><span class="sd">    A pandas `DataFrame` object with a calculated PPA from a dwon and distance,</span>
+</span><span id="L-163"><a href="#L-163"><span class="linenos"> 163</span></a><span class="sd">    A pandas `DataFrame` object with a calculated PPA from a down and distance,</span>
 </span><span id="L-164"><a href="#L-164"><span class="linenos"> 164</span></a><span class="sd">    or (if `return_as_dict` is set to `True`)</span>
-</span><span id="L-165"><a href="#L-165"><span class="linenos"> 165</span></a><span class="sd">    a dictionary object with a calculated PPA from a dwon and distance.</span>
+</span><span id="L-165"><a href="#L-165"><span class="linenos"> 165</span></a><span class="sd">    a dictionary object with a calculated PPA from a down and distance.</span>
 </span><span id="L-166"><a href="#L-166"><span class="linenos"> 166</span></a>
 </span><span id="L-167"><a href="#L-167"><span class="linenos"> 167</span></a>
 </span><span id="L-168"><a href="#L-168"><span class="linenos"> 168</span></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -279,7 +279,7 @@
 </span><span id="L-178"><a href="#L-178"><span class="linenos"> 178</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-179"><a href="#L-179"><span class="linenos"> 179</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-180"><a href="#L-180"><span class="linenos"> 180</span></a>
-</span><span id="L-181"><a href="#L-181"><span class="linenos"> 181</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-181"><a href="#L-181"><span class="linenos"> 181</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-182"><a href="#L-182"><span class="linenos"> 182</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-183"><a href="#L-183"><span class="linenos"> 183</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-184"><a href="#L-184"><span class="linenos"> 184</span></a>        <span class="p">)</span>
@@ -388,7 +388,7 @@
 </span><span id="L-287"><a href="#L-287"><span class="linenos"> 287</span></a><span class="sd">    Allows you to get team PPA data,</span>
 </span><span id="L-288"><a href="#L-288"><span class="linenos"> 288</span></a><span class="sd">    over an entire season,</span>
 </span><span id="L-289"><a href="#L-289"><span class="linenos"> 289</span></a><span class="sd">    with or without garbage time plays,</span>
-</span><span id="L-290"><a href="#L-290"><span class="linenos"> 290</span></a><span class="sd">    for a specificed team and/or time period.</span>
+</span><span id="L-290"><a href="#L-290"><span class="linenos"> 290</span></a><span class="sd">    for a specified team and/or time period.</span>
 </span><span id="L-291"><a href="#L-291"><span class="linenos"> 291</span></a>
 </span><span id="L-292"><a href="#L-292"><span class="linenos"> 292</span></a><span class="sd">    PPA is the CFBD API&#39;s equivalent metric to Expected Points Added (EPA).</span>
 </span><span id="L-293"><a href="#L-293"><span class="linenos"> 293</span></a>
@@ -420,7 +420,7 @@
 </span><span id="L-319"><a href="#L-319"><span class="linenos"> 319</span></a><span class="sd">        will be raised.</span>
 </span><span id="L-320"><a href="#L-320"><span class="linenos"> 320</span></a>
 </span><span id="L-321"><a href="#L-321"><span class="linenos"> 321</span></a><span class="sd">    `team` (str, optional):</span>
-</span><span id="L-322"><a href="#L-322"><span class="linenos"> 322</span></a><span class="sd">        Semi-ptional argument.</span>
+</span><span id="L-322"><a href="#L-322"><span class="linenos"> 322</span></a><span class="sd">        Semi-optional argument.</span>
 </span><span id="L-323"><a href="#L-323"><span class="linenos"> 323</span></a><span class="sd">        If you only want team PPA data for a specific team,</span>
 </span><span id="L-324"><a href="#L-324"><span class="linenos"> 324</span></a><span class="sd">        set `team` to the name of the team you want team PPA data from.</span>
 </span><span id="L-325"><a href="#L-325"><span class="linenos"> 325</span></a><span class="sd">        You MUST set `season` or `team` to a non-null value for</span>
@@ -430,10 +430,10 @@
 </span><span id="L-329"><a href="#L-329"><span class="linenos"> 329</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="L-330"><a href="#L-330"><span class="linenos"> 330</span></a><span class="sd">        Optional argument.</span>
 </span><span id="L-331"><a href="#L-331"><span class="linenos"> 331</span></a><span class="sd">        If you only want team PPA data from games</span>
-</span><span id="L-332"><a href="#L-332"><span class="linenos"> 332</span></a><span class="sd">        involving teams from a specific confrence,</span>
+</span><span id="L-332"><a href="#L-332"><span class="linenos"> 332</span></a><span class="sd">        involving teams from a specific conference,</span>
 </span><span id="L-333"><a href="#L-333"><span class="linenos"> 333</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="L-334"><a href="#L-334"><span class="linenos"> 334</span></a><span class="sd">        of the conference you want team PPA data from.</span>
-</span><span id="L-335"><a href="#L-335"><span class="linenos"> 335</span></a><span class="sd">        For a list of confrences,</span>
+</span><span id="L-335"><a href="#L-335"><span class="linenos"> 335</span></a><span class="sd">        For a list of conferences,</span>
 </span><span id="L-336"><a href="#L-336"><span class="linenos"> 336</span></a><span class="sd">        use the `cfbd_json_py.conferences.get_cfbd_conference_info()`</span>
 </span><span id="L-337"><a href="#L-337"><span class="linenos"> 337</span></a><span class="sd">        function.</span>
 </span><span id="L-338"><a href="#L-338"><span class="linenos"> 338</span></a>
@@ -460,9 +460,9 @@
 </span><span id="L-359"><a href="#L-359"><span class="linenos"> 359</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_team_season_ppa_data</span>
 </span><span id="L-360"><a href="#L-360"><span class="linenos"> 360</span></a>
 </span><span id="L-361"><a href="#L-361"><span class="linenos"> 361</span></a>
-</span><span id="L-362"><a href="#L-362"><span class="linenos"> 362</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-362"><a href="#L-362"><span class="linenos"> 362</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-363"><a href="#L-363"><span class="linenos"> 363</span></a>
-</span><span id="L-364"><a href="#L-364"><span class="linenos"> 364</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-364"><a href="#L-364"><span class="linenos"> 364</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-365"><a href="#L-365"><span class="linenos"> 365</span></a><span class="sd">        print(</span>
 </span><span id="L-366"><a href="#L-366"><span class="linenos"> 366</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-367"><a href="#L-367"><span class="linenos"> 367</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -536,7 +536,7 @@
 </span><span id="L-435"><a href="#L-435"><span class="linenos"> 435</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-436"><a href="#L-436"><span class="linenos"> 436</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-437"><a href="#L-437"><span class="linenos"> 437</span></a><span class="sd">        print(</span>
-</span><span id="L-438"><a href="#L-438"><span class="linenos"> 438</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded into &quot; +</span>
+</span><span id="L-438"><a href="#L-438"><span class="linenos"> 438</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded into &quot; +</span>
 </span><span id="L-439"><a href="#L-439"><span class="linenos"> 439</span></a><span class="sd">            &quot;this python environment for this example.&quot;</span>
 </span><span id="L-440"><a href="#L-440"><span class="linenos"> 440</span></a><span class="sd">        )</span>
 </span><span id="L-441"><a href="#L-441"><span class="linenos"> 441</span></a>
@@ -619,7 +619,7 @@
 </span><span id="L-518"><a href="#L-518"><span class="linenos"> 518</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-519"><a href="#L-519"><span class="linenos"> 519</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-520"><a href="#L-520"><span class="linenos"> 520</span></a>
-</span><span id="L-521"><a href="#L-521"><span class="linenos"> 521</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-521"><a href="#L-521"><span class="linenos"> 521</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-522"><a href="#L-522"><span class="linenos"> 522</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-523"><a href="#L-523"><span class="linenos"> 523</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-524"><a href="#L-524"><span class="linenos"> 524</span></a>        <span class="p">)</span>
@@ -752,7 +752,7 @@
 </span><span id="L-651"><a href="#L-651"><span class="linenos"> 651</span></a><span class="sd">    Allows you to get team PPA data,</span>
 </span><span id="L-652"><a href="#L-652"><span class="linenos"> 652</span></a><span class="sd">    at a game level,</span>
 </span><span id="L-653"><a href="#L-653"><span class="linenos"> 653</span></a><span class="sd">    with or without garbage time plays,</span>
-</span><span id="L-654"><a href="#L-654"><span class="linenos"> 654</span></a><span class="sd">    for a specificed team and/or time period.</span>
+</span><span id="L-654"><a href="#L-654"><span class="linenos"> 654</span></a><span class="sd">    for a specified team and/or time period.</span>
 </span><span id="L-655"><a href="#L-655"><span class="linenos"> 655</span></a>
 </span><span id="L-656"><a href="#L-656"><span class="linenos"> 656</span></a><span class="sd">    PPA is the CFBD API&#39;s equivalent metric to Expected Points Added (EPA).</span>
 </span><span id="L-657"><a href="#L-657"><span class="linenos"> 657</span></a>
@@ -797,7 +797,7 @@
 </span><span id="L-696"><a href="#L-696"><span class="linenos"> 696</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="L-697"><a href="#L-697"><span class="linenos"> 697</span></a><span class="sd">        Optional argument.</span>
 </span><span id="L-698"><a href="#L-698"><span class="linenos"> 698</span></a><span class="sd">        If you only want team game PPA data from games</span>
-</span><span id="L-699"><a href="#L-699"><span class="linenos"> 699</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="L-699"><a href="#L-699"><span class="linenos"> 699</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="L-700"><a href="#L-700"><span class="linenos"> 700</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="L-701"><a href="#L-701"><span class="linenos"> 701</span></a><span class="sd">        of the conference you want team game PPA data from.</span>
 </span><span id="L-702"><a href="#L-702"><span class="linenos"> 702</span></a>
@@ -811,7 +811,7 @@
 </span><span id="L-710"><a href="#L-710"><span class="linenos"> 710</span></a>
 </span><span id="L-711"><a href="#L-711"><span class="linenos"> 711</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="L-712"><a href="#L-712"><span class="linenos"> 712</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="L-713"><a href="#L-713"><span class="linenos"> 713</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="L-713"><a href="#L-713"><span class="linenos"> 713</span></a><span class="sd">        By default, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
 </span><span id="L-714"><a href="#L-714"><span class="linenos"> 714</span></a><span class="sd">        If you want team game PPA data for non-regular season games,</span>
 </span><span id="L-715"><a href="#L-715"><span class="linenos"> 715</span></a><span class="sd">        set `season_type` to &quot;postseason&quot;.</span>
 </span><span id="L-716"><a href="#L-716"><span class="linenos"> 716</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;,</span>
@@ -832,9 +832,9 @@
 </span><span id="L-731"><a href="#L-731"><span class="linenos"> 731</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_team_game_ppa_data</span>
 </span><span id="L-732"><a href="#L-732"><span class="linenos"> 732</span></a>
 </span><span id="L-733"><a href="#L-733"><span class="linenos"> 733</span></a>
-</span><span id="L-734"><a href="#L-734"><span class="linenos"> 734</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-734"><a href="#L-734"><span class="linenos"> 734</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-735"><a href="#L-735"><span class="linenos"> 735</span></a>
-</span><span id="L-736"><a href="#L-736"><span class="linenos"> 736</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-736"><a href="#L-736"><span class="linenos"> 736</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-737"><a href="#L-737"><span class="linenos"> 737</span></a><span class="sd">        print(</span>
 </span><span id="L-738"><a href="#L-738"><span class="linenos"> 738</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-739"><a href="#L-739"><span class="linenos"> 739</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -939,7 +939,7 @@
 </span><span id="L-838"><a href="#L-838"><span class="linenos"> 838</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-839"><a href="#L-839"><span class="linenos"> 839</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-840"><a href="#L-840"><span class="linenos"> 840</span></a><span class="sd">        print(</span>
-</span><span id="L-841"><a href="#L-841"><span class="linenos"> 841</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded into this &quot; +</span>
+</span><span id="L-841"><a href="#L-841"><span class="linenos"> 841</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded into this &quot; +</span>
 </span><span id="L-842"><a href="#L-842"><span class="linenos"> 842</span></a><span class="sd">            &quot;python environment for this example.&quot;</span>
 </span><span id="L-843"><a href="#L-843"><span class="linenos"> 843</span></a><span class="sd">        )</span>
 </span><span id="L-844"><a href="#L-844"><span class="linenos"> 844</span></a>
@@ -1051,7 +1051,7 @@
 </span><span id="L-950"><a href="#L-950"><span class="linenos"> 950</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-951"><a href="#L-951"><span class="linenos"> 951</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-952"><a href="#L-952"><span class="linenos"> 952</span></a>
-</span><span id="L-953"><a href="#L-953"><span class="linenos"> 953</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-953"><a href="#L-953"><span class="linenos"> 953</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-954"><a href="#L-954"><span class="linenos"> 954</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-955"><a href="#L-955"><span class="linenos"> 955</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-956"><a href="#L-956"><span class="linenos"> 956</span></a>        <span class="p">)</span>
@@ -1191,7 +1191,7 @@
 </span><span id="L-1090"><a href="#L-1090"><span class="linenos">1090</span></a><span class="sd">    Allows you to get player PPA data,</span>
 </span><span id="L-1091"><a href="#L-1091"><span class="linenos">1091</span></a><span class="sd">    at a game level,</span>
 </span><span id="L-1092"><a href="#L-1092"><span class="linenos">1092</span></a><span class="sd">    with or without garbage time plays,</span>
-</span><span id="L-1093"><a href="#L-1093"><span class="linenos">1093</span></a><span class="sd">    for a specificed time period and/or team.</span>
+</span><span id="L-1093"><a href="#L-1093"><span class="linenos">1093</span></a><span class="sd">    for a specified time period and/or team.</span>
 </span><span id="L-1094"><a href="#L-1094"><span class="linenos">1094</span></a>
 </span><span id="L-1095"><a href="#L-1095"><span class="linenos">1095</span></a><span class="sd">    PPA is the CFBD API&#39;s equivalent metric to Expected Points Added (EPA).</span>
 </span><span id="L-1096"><a href="#L-1096"><span class="linenos">1096</span></a>
@@ -1268,7 +1268,7 @@
 </span><span id="L-1167"><a href="#L-1167"><span class="linenos">1167</span></a>
 </span><span id="L-1168"><a href="#L-1168"><span class="linenos">1168</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="L-1169"><a href="#L-1169"><span class="linenos">1169</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="L-1170"><a href="#L-1170"><span class="linenos">1170</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="L-1170"><a href="#L-1170"><span class="linenos">1170</span></a><span class="sd">        By default, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
 </span><span id="L-1171"><a href="#L-1171"><span class="linenos">1171</span></a><span class="sd">        If you want player game PPA data for non-regular season games,</span>
 </span><span id="L-1172"><a href="#L-1172"><span class="linenos">1172</span></a><span class="sd">        set `season_type` to &quot;postseason&quot;.</span>
 </span><span id="L-1173"><a href="#L-1173"><span class="linenos">1173</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;,</span>
@@ -1289,9 +1289,9 @@
 </span><span id="L-1188"><a href="#L-1188"><span class="linenos">1188</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_player_game_ppa_data</span>
 </span><span id="L-1189"><a href="#L-1189"><span class="linenos">1189</span></a>
 </span><span id="L-1190"><a href="#L-1190"><span class="linenos">1190</span></a>
-</span><span id="L-1191"><a href="#L-1191"><span class="linenos">1191</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-1191"><a href="#L-1191"><span class="linenos">1191</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-1192"><a href="#L-1192"><span class="linenos">1192</span></a>
-</span><span id="L-1193"><a href="#L-1193"><span class="linenos">1193</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-1193"><a href="#L-1193"><span class="linenos">1193</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-1194"><a href="#L-1194"><span class="linenos">1194</span></a><span class="sd">        print(</span>
 </span><span id="L-1195"><a href="#L-1195"><span class="linenos">1195</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-1196"><a href="#L-1196"><span class="linenos">1196</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -1401,7 +1401,7 @@
 </span><span id="L-1300"><a href="#L-1300"><span class="linenos">1300</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-1301"><a href="#L-1301"><span class="linenos">1301</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-1302"><a href="#L-1302"><span class="linenos">1302</span></a><span class="sd">        print(</span>
-</span><span id="L-1303"><a href="#L-1303"><span class="linenos">1303</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded into &quot; +</span>
+</span><span id="L-1303"><a href="#L-1303"><span class="linenos">1303</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded into &quot; +</span>
 </span><span id="L-1304"><a href="#L-1304"><span class="linenos">1304</span></a><span class="sd">            &quot;this python environment for this example.&quot;</span>
 </span><span id="L-1305"><a href="#L-1305"><span class="linenos">1305</span></a><span class="sd">        )</span>
 </span><span id="L-1306"><a href="#L-1306"><span class="linenos">1306</span></a>
@@ -1517,7 +1517,7 @@
 </span><span id="L-1416"><a href="#L-1416"><span class="linenos">1416</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-1417"><a href="#L-1417"><span class="linenos">1417</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-1418"><a href="#L-1418"><span class="linenos">1418</span></a>
-</span><span id="L-1419"><a href="#L-1419"><span class="linenos">1419</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-1419"><a href="#L-1419"><span class="linenos">1419</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-1420"><a href="#L-1420"><span class="linenos">1420</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-1421"><a href="#L-1421"><span class="linenos">1421</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-1422"><a href="#L-1422"><span class="linenos">1422</span></a>        <span class="p">)</span>
@@ -1693,7 +1693,7 @@
 </span><span id="L-1592"><a href="#L-1592"><span class="linenos">1592</span></a><span class="sd">    Allows you to get player PPA data,</span>
 </span><span id="L-1593"><a href="#L-1593"><span class="linenos">1593</span></a><span class="sd">    at a season level,</span>
 </span><span id="L-1594"><a href="#L-1594"><span class="linenos">1594</span></a><span class="sd">    with or without garbage time plays,</span>
-</span><span id="L-1595"><a href="#L-1595"><span class="linenos">1595</span></a><span class="sd">    for a specificed time period and/or team.</span>
+</span><span id="L-1595"><a href="#L-1595"><span class="linenos">1595</span></a><span class="sd">    for a specified time period and/or team.</span>
 </span><span id="L-1596"><a href="#L-1596"><span class="linenos">1596</span></a>
 </span><span id="L-1597"><a href="#L-1597"><span class="linenos">1597</span></a><span class="sd">    PPA is the CFBD API&#39;s equivalent metric to Expected Points Added (EPA).</span>
 </span><span id="L-1598"><a href="#L-1598"><span class="linenos">1598</span></a>
@@ -1738,10 +1738,10 @@
 </span><span id="L-1637"><a href="#L-1637"><span class="linenos">1637</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="L-1638"><a href="#L-1638"><span class="linenos">1638</span></a><span class="sd">        Optional argument.</span>
 </span><span id="L-1639"><a href="#L-1639"><span class="linenos">1639</span></a><span class="sd">        If you only want player season PPA data from games</span>
-</span><span id="L-1640"><a href="#L-1640"><span class="linenos">1640</span></a><span class="sd">        involving teams from a specific confrence,</span>
+</span><span id="L-1640"><a href="#L-1640"><span class="linenos">1640</span></a><span class="sd">        involving teams from a specific conference,</span>
 </span><span id="L-1641"><a href="#L-1641"><span class="linenos">1641</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="L-1642"><a href="#L-1642"><span class="linenos">1642</span></a><span class="sd">        of the conference you want player season PPA data from.</span>
-</span><span id="L-1643"><a href="#L-1643"><span class="linenos">1643</span></a><span class="sd">        For a list of confrences,</span>
+</span><span id="L-1643"><a href="#L-1643"><span class="linenos">1643</span></a><span class="sd">        For a list of conferences,</span>
 </span><span id="L-1644"><a href="#L-1644"><span class="linenos">1644</span></a><span class="sd">        use the `cfbd_json_py.conferences.get_cfbd_conference_info()`</span>
 </span><span id="L-1645"><a href="#L-1645"><span class="linenos">1645</span></a><span class="sd">        function.</span>
 </span><span id="L-1646"><a href="#L-1646"><span class="linenos">1646</span></a>
@@ -1788,9 +1788,9 @@
 </span><span id="L-1687"><a href="#L-1687"><span class="linenos">1687</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_player_season_ppa_data</span>
 </span><span id="L-1688"><a href="#L-1688"><span class="linenos">1688</span></a>
 </span><span id="L-1689"><a href="#L-1689"><span class="linenos">1689</span></a>
-</span><span id="L-1690"><a href="#L-1690"><span class="linenos">1690</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-1690"><a href="#L-1690"><span class="linenos">1690</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-1691"><a href="#L-1691"><span class="linenos">1691</span></a>
-</span><span id="L-1692"><a href="#L-1692"><span class="linenos">1692</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-1692"><a href="#L-1692"><span class="linenos">1692</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-1693"><a href="#L-1693"><span class="linenos">1693</span></a><span class="sd">        print(</span>
 </span><span id="L-1694"><a href="#L-1694"><span class="linenos">1694</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-1695"><a href="#L-1695"><span class="linenos">1695</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -1858,11 +1858,11 @@
 </span><span id="L-1757"><a href="#L-1757"><span class="linenos">1757</span></a>
 </span><span id="L-1758"><a href="#L-1758"><span class="linenos">1758</span></a><span class="sd">        # Get player season PPA data from</span>
 </span><span id="L-1759"><a href="#L-1759"><span class="linenos">1759</span></a><span class="sd">        # former Ohio State and LSU QB Joe Burrow (player ID #3915511),</span>
-</span><span id="L-1760"><a href="#L-1760"><span class="linenos">1760</span></a><span class="sd">        # but exclude plays that occured in garbage time.</span>
+</span><span id="L-1760"><a href="#L-1760"><span class="linenos">1760</span></a><span class="sd">        # but exclude plays that occurred in garbage time.</span>
 </span><span id="L-1761"><a href="#L-1761"><span class="linenos">1761</span></a><span class="sd">        print(</span>
 </span><span id="L-1762"><a href="#L-1762"><span class="linenos">1762</span></a><span class="sd">            &quot;Get player season PPA data from former &quot; +</span>
 </span><span id="L-1763"><a href="#L-1763"><span class="linenos">1763</span></a><span class="sd">            &quot;Ohio State and LSU QB Joe Burrow (player ID #3915511), &quot; +</span>
-</span><span id="L-1764"><a href="#L-1764"><span class="linenos">1764</span></a><span class="sd">            &quot;but exclude plays that occured in garbage time.&quot;</span>
+</span><span id="L-1764"><a href="#L-1764"><span class="linenos">1764</span></a><span class="sd">            &quot;but exclude plays that occurred in garbage time.&quot;</span>
 </span><span id="L-1765"><a href="#L-1765"><span class="linenos">1765</span></a><span class="sd">        )</span>
 </span><span id="L-1766"><a href="#L-1766"><span class="linenos">1766</span></a><span class="sd">        json_data = get_cfbd_player_season_ppa_data(</span>
 </span><span id="L-1767"><a href="#L-1767"><span class="linenos">1767</span></a><span class="sd">            api_key=cfbd_key,</span>
@@ -1905,7 +1905,7 @@
 </span><span id="L-1804"><a href="#L-1804"><span class="linenos">1804</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-1805"><a href="#L-1805"><span class="linenos">1805</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-1806"><a href="#L-1806"><span class="linenos">1806</span></a><span class="sd">        print(</span>
-</span><span id="L-1807"><a href="#L-1807"><span class="linenos">1807</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded into &quot; +</span>
+</span><span id="L-1807"><a href="#L-1807"><span class="linenos">1807</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded into &quot; +</span>
 </span><span id="L-1808"><a href="#L-1808"><span class="linenos">1808</span></a><span class="sd">            &quot;this python environment for this example.&quot;</span>
 </span><span id="L-1809"><a href="#L-1809"><span class="linenos">1809</span></a><span class="sd">        )</span>
 </span><span id="L-1810"><a href="#L-1810"><span class="linenos">1810</span></a>
@@ -1966,11 +1966,11 @@
 </span><span id="L-1865"><a href="#L-1865"><span class="linenos">1865</span></a>
 </span><span id="L-1866"><a href="#L-1866"><span class="linenos">1866</span></a><span class="sd">        # Get player season PPA data from</span>
 </span><span id="L-1867"><a href="#L-1867"><span class="linenos">1867</span></a><span class="sd">        # former Ohio State and LSU QB Joe Burrow (player ID #3915511),</span>
-</span><span id="L-1868"><a href="#L-1868"><span class="linenos">1868</span></a><span class="sd">        # but exclude plays that occured in garbage time.</span>
+</span><span id="L-1868"><a href="#L-1868"><span class="linenos">1868</span></a><span class="sd">        # but exclude plays that occurred in garbage time.</span>
 </span><span id="L-1869"><a href="#L-1869"><span class="linenos">1869</span></a><span class="sd">        print(</span>
 </span><span id="L-1870"><a href="#L-1870"><span class="linenos">1870</span></a><span class="sd">            &quot;Get player season PPA data from former &quot; +</span>
 </span><span id="L-1871"><a href="#L-1871"><span class="linenos">1871</span></a><span class="sd">            &quot;Ohio State and LSU QB Joe Burrow (player ID #3915511), &quot; +</span>
-</span><span id="L-1872"><a href="#L-1872"><span class="linenos">1872</span></a><span class="sd">            &quot;but exclude plays that occured in garbage time.&quot;</span>
+</span><span id="L-1872"><a href="#L-1872"><span class="linenos">1872</span></a><span class="sd">            &quot;but exclude plays that occurred in garbage time.&quot;</span>
 </span><span id="L-1873"><a href="#L-1873"><span class="linenos">1873</span></a><span class="sd">        )</span>
 </span><span id="L-1874"><a href="#L-1874"><span class="linenos">1874</span></a><span class="sd">        json_data = get_cfbd_player_season_ppa_data(</span>
 </span><span id="L-1875"><a href="#L-1875"><span class="linenos">1875</span></a><span class="sd">            player_id=3915511,</span>
@@ -2025,7 +2025,7 @@
 </span><span id="L-1924"><a href="#L-1924"><span class="linenos">1924</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-1925"><a href="#L-1925"><span class="linenos">1925</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-1926"><a href="#L-1926"><span class="linenos">1926</span></a>
-</span><span id="L-1927"><a href="#L-1927"><span class="linenos">1927</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-1927"><a href="#L-1927"><span class="linenos">1927</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-1928"><a href="#L-1928"><span class="linenos">1928</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-1929"><a href="#L-1929"><span class="linenos">1929</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-1930"><a href="#L-1930"><span class="linenos">1930</span></a>        <span class="p">)</span>
@@ -2168,7 +2168,7 @@
 </span><span id="L-2067"><a href="#L-2067"><span class="linenos">2067</span></a>    <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 </span><span id="L-2068"><a href="#L-2068"><span class="linenos">2068</span></a><span class="p">):</span>
 </span><span id="L-2069"><a href="#L-2069"><span class="linenos">2069</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-2070"><a href="#L-2070"><span class="linenos">2070</span></a><span class="sd">    Allows one to get win probabliity data for a given game ID.</span>
+</span><span id="L-2070"><a href="#L-2070"><span class="linenos">2070</span></a><span class="sd">    Allows one to get win probability data for a given game ID.</span>
 </span><span id="L-2071"><a href="#L-2071"><span class="linenos">2071</span></a>
 </span><span id="L-2072"><a href="#L-2072"><span class="linenos">2072</span></a><span class="sd">    Parameters</span>
 </span><span id="L-2073"><a href="#L-2073"><span class="linenos">2073</span></a><span class="sd">    ----------</span>
@@ -2211,18 +2211,18 @@
 </span><span id="L-2110"><a href="#L-2110"><span class="linenos">2110</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_game_win_probability_data</span>
 </span><span id="L-2111"><a href="#L-2111"><span class="linenos">2111</span></a>
 </span><span id="L-2112"><a href="#L-2112"><span class="linenos">2112</span></a>
-</span><span id="L-2113"><a href="#L-2113"><span class="linenos">2113</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-2113"><a href="#L-2113"><span class="linenos">2113</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-2114"><a href="#L-2114"><span class="linenos">2114</span></a>
-</span><span id="L-2115"><a href="#L-2115"><span class="linenos">2115</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-2115"><a href="#L-2115"><span class="linenos">2115</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-2116"><a href="#L-2116"><span class="linenos">2116</span></a><span class="sd">        print(</span>
 </span><span id="L-2117"><a href="#L-2117"><span class="linenos">2117</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-2118"><a href="#L-2118"><span class="linenos">2118</span></a><span class="sd">            &quot;for this example.&quot;</span>
 </span><span id="L-2119"><a href="#L-2119"><span class="linenos">2119</span></a><span class="sd">        )</span>
 </span><span id="L-2120"><a href="#L-2120"><span class="linenos">2120</span></a>
-</span><span id="L-2121"><a href="#L-2121"><span class="linenos">2121</span></a><span class="sd">        # Get the win probablility data for a 2017 game between</span>
+</span><span id="L-2121"><a href="#L-2121"><span class="linenos">2121</span></a><span class="sd">        # Get the win probability data for a 2017 game between</span>
 </span><span id="L-2122"><a href="#L-2122"><span class="linenos">2122</span></a><span class="sd">        # the University of Cincinnati and UConn (game ID #400941851).</span>
 </span><span id="L-2123"><a href="#L-2123"><span class="linenos">2123</span></a><span class="sd">        print(</span>
-</span><span id="L-2124"><a href="#L-2124"><span class="linenos">2124</span></a><span class="sd">            &quot;Get the win probablility data for a 2017 game between &quot; +</span>
+</span><span id="L-2124"><a href="#L-2124"><span class="linenos">2124</span></a><span class="sd">            &quot;Get the win probability data for a 2017 game between &quot; +</span>
 </span><span id="L-2125"><a href="#L-2125"><span class="linenos">2125</span></a><span class="sd">            &quot;the University of Cincinnati and UConn (game ID #400941851).&quot;</span>
 </span><span id="L-2126"><a href="#L-2126"><span class="linenos">2126</span></a><span class="sd">        )</span>
 </span><span id="L-2127"><a href="#L-2127"><span class="linenos">2127</span></a><span class="sd">        json_data = get_cfbd_game_win_probability_data(</span>
@@ -2232,11 +2232,11 @@
 </span><span id="L-2131"><a href="#L-2131"><span class="linenos">2131</span></a><span class="sd">        print(json_data)</span>
 </span><span id="L-2132"><a href="#L-2132"><span class="linenos">2132</span></a><span class="sd">        time.sleep(5)</span>
 </span><span id="L-2133"><a href="#L-2133"><span class="linenos">2133</span></a>
-</span><span id="L-2134"><a href="#L-2134"><span class="linenos">2134</span></a><span class="sd">        # Get the win probablility data for a 2023 game between</span>
+</span><span id="L-2134"><a href="#L-2134"><span class="linenos">2134</span></a><span class="sd">        # Get the win probability data for a 2023 game between</span>
 </span><span id="L-2135"><a href="#L-2135"><span class="linenos">2135</span></a><span class="sd">        # the University of Duke and</span>
 </span><span id="L-2136"><a href="#L-2136"><span class="linenos">2136</span></a><span class="sd">        # the University of Louisville (game ID #401525535).</span>
 </span><span id="L-2137"><a href="#L-2137"><span class="linenos">2137</span></a><span class="sd">        print(</span>
-</span><span id="L-2138"><a href="#L-2138"><span class="linenos">2138</span></a><span class="sd">            &quot;Get the win probablility data for a 2023 game between &quot; +</span>
+</span><span id="L-2138"><a href="#L-2138"><span class="linenos">2138</span></a><span class="sd">            &quot;Get the win probability data for a 2023 game between &quot; +</span>
 </span><span id="L-2139"><a href="#L-2139"><span class="linenos">2139</span></a><span class="sd">            &quot;the University of Duke and &quot; +</span>
 </span><span id="L-2140"><a href="#L-2140"><span class="linenos">2140</span></a><span class="sd">            &quot;the University of Louisville (game ID #401525535).&quot;</span>
 </span><span id="L-2141"><a href="#L-2141"><span class="linenos">2141</span></a><span class="sd">        )</span>
@@ -2267,14 +2267,14 @@
 </span><span id="L-2166"><a href="#L-2166"><span class="linenos">2166</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-2167"><a href="#L-2167"><span class="linenos">2167</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-2168"><a href="#L-2168"><span class="linenos">2168</span></a><span class="sd">        print(</span>
-</span><span id="L-2169"><a href="#L-2169"><span class="linenos">2169</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded into &quot; +</span>
+</span><span id="L-2169"><a href="#L-2169"><span class="linenos">2169</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded into &quot; +</span>
 </span><span id="L-2170"><a href="#L-2170"><span class="linenos">2170</span></a><span class="sd">            &quot;this python environment for this example.&quot;</span>
 </span><span id="L-2171"><a href="#L-2171"><span class="linenos">2171</span></a><span class="sd">        )</span>
 </span><span id="L-2172"><a href="#L-2172"><span class="linenos">2172</span></a>
-</span><span id="L-2173"><a href="#L-2173"><span class="linenos">2173</span></a><span class="sd">        # Get win probablility data for a 2017 game between</span>
+</span><span id="L-2173"><a href="#L-2173"><span class="linenos">2173</span></a><span class="sd">        # Get win probability data for a 2017 game between</span>
 </span><span id="L-2174"><a href="#L-2174"><span class="linenos">2174</span></a><span class="sd">        # the University of Cincinnati and UConn (game ID #400941851).</span>
 </span><span id="L-2175"><a href="#L-2175"><span class="linenos">2175</span></a><span class="sd">        print(</span>
-</span><span id="L-2176"><a href="#L-2176"><span class="linenos">2176</span></a><span class="sd">            &quot;Get the win probablility data for a 2017 game between &quot; +</span>
+</span><span id="L-2176"><a href="#L-2176"><span class="linenos">2176</span></a><span class="sd">            &quot;Get the win probability data for a 2017 game between &quot; +</span>
 </span><span id="L-2177"><a href="#L-2177"><span class="linenos">2177</span></a><span class="sd">            &quot;the University of Cincinnati and UConn (game ID #400941851).&quot;</span>
 </span><span id="L-2178"><a href="#L-2178"><span class="linenos">2178</span></a><span class="sd">        )</span>
 </span><span id="L-2179"><a href="#L-2179"><span class="linenos">2179</span></a><span class="sd">        json_data = get_cfbd_game_win_probability_data(</span>
@@ -2283,11 +2283,11 @@
 </span><span id="L-2182"><a href="#L-2182"><span class="linenos">2182</span></a><span class="sd">        print(json_data)</span>
 </span><span id="L-2183"><a href="#L-2183"><span class="linenos">2183</span></a><span class="sd">        time.sleep(5)</span>
 </span><span id="L-2184"><a href="#L-2184"><span class="linenos">2184</span></a>
-</span><span id="L-2185"><a href="#L-2185"><span class="linenos">2185</span></a><span class="sd">        # Get win probablility data for a 2023 game between</span>
+</span><span id="L-2185"><a href="#L-2185"><span class="linenos">2185</span></a><span class="sd">        # Get win probability data for a 2023 game between</span>
 </span><span id="L-2186"><a href="#L-2186"><span class="linenos">2186</span></a><span class="sd">        # the University of Duke and</span>
 </span><span id="L-2187"><a href="#L-2187"><span class="linenos">2187</span></a><span class="sd">        # the University of Louisville (game ID #401525535).</span>
 </span><span id="L-2188"><a href="#L-2188"><span class="linenos">2188</span></a><span class="sd">        print(</span>
-</span><span id="L-2189"><a href="#L-2189"><span class="linenos">2189</span></a><span class="sd">            &quot;Get the win probablility data for a 2023 game between &quot; +</span>
+</span><span id="L-2189"><a href="#L-2189"><span class="linenos">2189</span></a><span class="sd">            &quot;Get the win probability data for a 2023 game between &quot; +</span>
 </span><span id="L-2190"><a href="#L-2190"><span class="linenos">2190</span></a><span class="sd">            &quot;the University of Duke and &quot; +</span>
 </span><span id="L-2191"><a href="#L-2191"><span class="linenos">2191</span></a><span class="sd">            &quot;the University of Louisville (game ID #401525535).&quot;</span>
 </span><span id="L-2192"><a href="#L-2192"><span class="linenos">2192</span></a><span class="sd">        )</span>
@@ -2332,7 +2332,7 @@
 </span><span id="L-2231"><a href="#L-2231"><span class="linenos">2231</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-2232"><a href="#L-2232"><span class="linenos">2232</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-2233"><a href="#L-2233"><span class="linenos">2233</span></a>
-</span><span id="L-2234"><a href="#L-2234"><span class="linenos">2234</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-2234"><a href="#L-2234"><span class="linenos">2234</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-2235"><a href="#L-2235"><span class="linenos">2235</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-2236"><a href="#L-2236"><span class="linenos">2236</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-2237"><a href="#L-2237"><span class="linenos">2237</span></a>        <span class="p">)</span>
@@ -2393,8 +2393,8 @@
 </span><span id="L-2292"><a href="#L-2292"><span class="linenos">2292</span></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">wp_df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 </span><span id="L-2293"><a href="#L-2293"><span class="linenos">2293</span></a>        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
 </span><span id="L-2294"><a href="#L-2294"><span class="linenos">2294</span></a>            <span class="s2">&quot;The CFBD API accepted your inputs, &quot;</span>
-</span><span id="L-2295"><a href="#L-2295"><span class="linenos">2295</span></a>            <span class="o">+</span> <span class="s2">&quot;but found no data within your specified input paramaters.&quot;</span>
-</span><span id="L-2296"><a href="#L-2296"><span class="linenos">2296</span></a>            <span class="o">+</span> <span class="s2">&quot; Please double check your input paramaters.&quot;</span>
+</span><span id="L-2295"><a href="#L-2295"><span class="linenos">2295</span></a>            <span class="o">+</span> <span class="s2">&quot;but found no data within your specified input parameters.&quot;</span>
+</span><span id="L-2296"><a href="#L-2296"><span class="linenos">2296</span></a>            <span class="o">+</span> <span class="s2">&quot; Please double check your input parameters.&quot;</span>
 </span><span id="L-2297"><a href="#L-2297"><span class="linenos">2297</span></a>        <span class="p">)</span>
 </span><span id="L-2298"><a href="#L-2298"><span class="linenos">2298</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-2299"><a href="#L-2299"><span class="linenos">2299</span></a>        <span class="n">wp_df</span> <span class="o">=</span> <span class="n">wp_df</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s2">&quot;home_win_probability&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">})</span>
@@ -2414,7 +2414,7 @@
 </span><span id="L-2313"><a href="#L-2313"><span class="linenos">2313</span></a><span class="p">):</span>
 </span><span id="L-2314"><a href="#L-2314"><span class="linenos">2314</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-2315"><a href="#L-2315"><span class="linenos">2315</span></a><span class="sd">    Allows you to get pregame win probability data</span>
-</span><span id="L-2316"><a href="#L-2316"><span class="linenos">2316</span></a><span class="sd">    for games within a timeframe.</span>
+</span><span id="L-2316"><a href="#L-2316"><span class="linenos">2316</span></a><span class="sd">    for games within a time frame.</span>
 </span><span id="L-2317"><a href="#L-2317"><span class="linenos">2317</span></a>
 </span><span id="L-2318"><a href="#L-2318"><span class="linenos">2318</span></a><span class="sd">    Parameters</span>
 </span><span id="L-2319"><a href="#L-2319"><span class="linenos">2319</span></a><span class="sd">    ----------</span>
@@ -2446,14 +2446,14 @@
 </span><span id="L-2345"><a href="#L-2345"><span class="linenos">2345</span></a><span class="sd">        to load CFB game data from games in that season, and in that week.</span>
 </span><span id="L-2346"><a href="#L-2346"><span class="linenos">2346</span></a>
 </span><span id="L-2347"><a href="#L-2347"><span class="linenos">2347</span></a><span class="sd">    `team` (str, optional):</span>
-</span><span id="L-2348"><a href="#L-2348"><span class="linenos">2348</span></a><span class="sd">        Semi-ptional argument.</span>
+</span><span id="L-2348"><a href="#L-2348"><span class="linenos">2348</span></a><span class="sd">        Semi-optional argument.</span>
 </span><span id="L-2349"><a href="#L-2349"><span class="linenos">2349</span></a><span class="sd">        If you only want pregame win probability data for a specific team,</span>
 </span><span id="L-2350"><a href="#L-2350"><span class="linenos">2350</span></a><span class="sd">        set `team` to the name of the team</span>
 </span><span id="L-2351"><a href="#L-2351"><span class="linenos">2351</span></a><span class="sd">        you want pregame win probability data from.</span>
 </span><span id="L-2352"><a href="#L-2352"><span class="linenos">2352</span></a>
 </span><span id="L-2353"><a href="#L-2353"><span class="linenos">2353</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="L-2354"><a href="#L-2354"><span class="linenos">2354</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="L-2355"><a href="#L-2355"><span class="linenos">2355</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="L-2355"><a href="#L-2355"><span class="linenos">2355</span></a><span class="sd">        By default, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
 </span><span id="L-2356"><a href="#L-2356"><span class="linenos">2356</span></a><span class="sd">        If you want CFB game information for non-regular season games,</span>
 </span><span id="L-2357"><a href="#L-2357"><span class="linenos">2357</span></a><span class="sd">        set `season_type` to &quot;postseason&quot;.</span>
 </span><span id="L-2358"><a href="#L-2358"><span class="linenos">2358</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;,</span>
@@ -2474,9 +2474,9 @@
 </span><span id="L-2373"><a href="#L-2373"><span class="linenos">2373</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_pregame_win_probability_data</span>
 </span><span id="L-2374"><a href="#L-2374"><span class="linenos">2374</span></a>
 </span><span id="L-2375"><a href="#L-2375"><span class="linenos">2375</span></a>
-</span><span id="L-2376"><a href="#L-2376"><span class="linenos">2376</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-2376"><a href="#L-2376"><span class="linenos">2376</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-2377"><a href="#L-2377"><span class="linenos">2377</span></a>
-</span><span id="L-2378"><a href="#L-2378"><span class="linenos">2378</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-2378"><a href="#L-2378"><span class="linenos">2378</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-2379"><a href="#L-2379"><span class="linenos">2379</span></a><span class="sd">        print(</span>
 </span><span id="L-2380"><a href="#L-2380"><span class="linenos">2380</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-2381"><a href="#L-2381"><span class="linenos">2381</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -2557,7 +2557,7 @@
 </span><span id="L-2456"><a href="#L-2456"><span class="linenos">2456</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-2457"><a href="#L-2457"><span class="linenos">2457</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-2458"><a href="#L-2458"><span class="linenos">2458</span></a><span class="sd">        print(</span>
-</span><span id="L-2459"><a href="#L-2459"><span class="linenos">2459</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-2459"><a href="#L-2459"><span class="linenos">2459</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-2460"><a href="#L-2460"><span class="linenos">2460</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-2461"><a href="#L-2461"><span class="linenos">2461</span></a><span class="sd">        )</span>
 </span><span id="L-2462"><a href="#L-2462"><span class="linenos">2462</span></a>
@@ -2647,7 +2647,7 @@
 </span><span id="L-2546"><a href="#L-2546"><span class="linenos">2546</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-2547"><a href="#L-2547"><span class="linenos">2547</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-2548"><a href="#L-2548"><span class="linenos">2548</span></a>
-</span><span id="L-2549"><a href="#L-2549"><span class="linenos">2549</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-2549"><a href="#L-2549"><span class="linenos">2549</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-2550"><a href="#L-2550"><span class="linenos">2550</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-2551"><a href="#L-2551"><span class="linenos">2551</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-2552"><a href="#L-2552"><span class="linenos">2552</span></a>        <span class="p">)</span>
@@ -2745,8 +2745,8 @@
 </span><span id="L-2644"><a href="#L-2644"><span class="linenos">2644</span></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">wp_df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 </span><span id="L-2645"><a href="#L-2645"><span class="linenos">2645</span></a>        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
 </span><span id="L-2646"><a href="#L-2646"><span class="linenos">2646</span></a>            <span class="s2">&quot;The CFBD API accepted your inputs, &quot;</span>
-</span><span id="L-2647"><a href="#L-2647"><span class="linenos">2647</span></a>            <span class="o">+</span> <span class="s2">&quot;but found no data within your specified input paramaters.&quot;</span>
-</span><span id="L-2648"><a href="#L-2648"><span class="linenos">2648</span></a>            <span class="o">+</span> <span class="s2">&quot; Please double check your input paramaters.&quot;</span>
+</span><span id="L-2647"><a href="#L-2647"><span class="linenos">2647</span></a>            <span class="o">+</span> <span class="s2">&quot;but found no data within your specified input parameters.&quot;</span>
+</span><span id="L-2648"><a href="#L-2648"><span class="linenos">2648</span></a>            <span class="o">+</span> <span class="s2">&quot; Please double check your input parameters.&quot;</span>
 </span><span id="L-2649"><a href="#L-2649"><span class="linenos">2649</span></a>        <span class="p">)</span>
 </span><span id="L-2650"><a href="#L-2650"><span class="linenos">2650</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-2651"><a href="#L-2651"><span class="linenos">2651</span></a>        <span class="n">wp_df</span> <span class="o">=</span> <span class="n">wp_df</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s2">&quot;home_win_probability&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">})</span>
@@ -2759,7 +2759,7 @@
 </span><span id="L-2658"><a href="#L-2658"><span class="linenos">2658</span></a>    <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">api_key_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 </span><span id="L-2659"><a href="#L-2659"><span class="linenos">2659</span></a><span class="p">):</span>
 </span><span id="L-2660"><a href="#L-2660"><span class="linenos">2660</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-2661"><a href="#L-2661"><span class="linenos">2661</span></a><span class="sd">    Retrives Expected Points data for field goals from the CFBD API.</span>
+</span><span id="L-2661"><a href="#L-2661"><span class="linenos">2661</span></a><span class="sd">    Retrieves Expected Points data for field goals from the CFBD API.</span>
 </span><span id="L-2662"><a href="#L-2662"><span class="linenos">2662</span></a>
 </span><span id="L-2663"><a href="#L-2663"><span class="linenos">2663</span></a><span class="sd">    Parameters</span>
 </span><span id="L-2664"><a href="#L-2664"><span class="linenos">2664</span></a><span class="sd">    ----------</span>
@@ -2796,9 +2796,9 @@
 </span><span id="L-2695"><a href="#L-2695"><span class="linenos">2695</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_fg_expected_points</span>
 </span><span id="L-2696"><a href="#L-2696"><span class="linenos">2696</span></a>
 </span><span id="L-2697"><a href="#L-2697"><span class="linenos">2697</span></a>
-</span><span id="L-2698"><a href="#L-2698"><span class="linenos">2698</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-2698"><a href="#L-2698"><span class="linenos">2698</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-2699"><a href="#L-2699"><span class="linenos">2699</span></a>
-</span><span id="L-2700"><a href="#L-2700"><span class="linenos">2700</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-2700"><a href="#L-2700"><span class="linenos">2700</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-2701"><a href="#L-2701"><span class="linenos">2701</span></a><span class="sd">        print(</span>
 </span><span id="L-2702"><a href="#L-2702"><span class="linenos">2702</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-2703"><a href="#L-2703"><span class="linenos">2703</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -2835,7 +2835,7 @@
 </span><span id="L-2734"><a href="#L-2734"><span class="linenos">2734</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-2735"><a href="#L-2735"><span class="linenos">2735</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-2736"><a href="#L-2736"><span class="linenos">2736</span></a><span class="sd">        print(</span>
-</span><span id="L-2737"><a href="#L-2737"><span class="linenos">2737</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-2737"><a href="#L-2737"><span class="linenos">2737</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-2738"><a href="#L-2738"><span class="linenos">2738</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-2739"><a href="#L-2739"><span class="linenos">2739</span></a><span class="sd">        )</span>
 </span><span id="L-2740"><a href="#L-2740"><span class="linenos">2740</span></a>
@@ -2882,7 +2882,7 @@
 </span><span id="L-2781"><a href="#L-2781"><span class="linenos">2781</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-2782"><a href="#L-2782"><span class="linenos">2782</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-2783"><a href="#L-2783"><span class="linenos">2783</span></a>
-</span><span id="L-2784"><a href="#L-2784"><span class="linenos">2784</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-2784"><a href="#L-2784"><span class="linenos">2784</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-2785"><a href="#L-2785"><span class="linenos">2785</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-2786"><a href="#L-2786"><span class="linenos">2786</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-2787"><a href="#L-2787"><span class="linenos">2787</span></a>        <span class="p">)</span>
@@ -2971,7 +2971,7 @@
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-49"><a href="#get_cfbd_predicted_ppa_from_down_distance-49"><span class="linenos"> 49</span></a><span class="sd">    `distance` (int, mandatory):</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-50"><a href="#get_cfbd_predicted_ppa_from_down_distance-50"><span class="linenos"> 50</span></a><span class="sd">        Mandatory argument.</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-51"><a href="#get_cfbd_predicted_ppa_from_down_distance-51"><span class="linenos"> 51</span></a><span class="sd">        This variable should be set to the number of yards between</span>
-</span><span id="get_cfbd_predicted_ppa_from_down_distance-52"><a href="#get_cfbd_predicted_ppa_from_down_distance-52"><span class="linenos"> 52</span></a><span class="sd">        the line of scrimage (LOS), and the first down line on the field.</span>
+</span><span id="get_cfbd_predicted_ppa_from_down_distance-52"><a href="#get_cfbd_predicted_ppa_from_down_distance-52"><span class="linenos"> 52</span></a><span class="sd">        the line of scrimmage (LOS), and the first down line on the field.</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-53"><a href="#get_cfbd_predicted_ppa_from_down_distance-53"><span class="linenos"> 53</span></a>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-54"><a href="#get_cfbd_predicted_ppa_from_down_distance-54"><span class="linenos"> 54</span></a><span class="sd">    `api_key` (str, optional):</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-55"><a href="#get_cfbd_predicted_ppa_from_down_distance-55"><span class="linenos"> 55</span></a><span class="sd">        Semi-optional argument.</span>
@@ -3005,9 +3005,9 @@
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-83"><a href="#get_cfbd_predicted_ppa_from_down_distance-83"><span class="linenos"> 83</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_predicted_ppa_from_down_distance</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-84"><a href="#get_cfbd_predicted_ppa_from_down_distance-84"><span class="linenos"> 84</span></a>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-85"><a href="#get_cfbd_predicted_ppa_from_down_distance-85"><span class="linenos"> 85</span></a>
-</span><span id="get_cfbd_predicted_ppa_from_down_distance-86"><a href="#get_cfbd_predicted_ppa_from_down_distance-86"><span class="linenos"> 86</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_predicted_ppa_from_down_distance-86"><a href="#get_cfbd_predicted_ppa_from_down_distance-86"><span class="linenos"> 86</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-87"><a href="#get_cfbd_predicted_ppa_from_down_distance-87"><span class="linenos"> 87</span></a>
-</span><span id="get_cfbd_predicted_ppa_from_down_distance-88"><a href="#get_cfbd_predicted_ppa_from_down_distance-88"><span class="linenos"> 88</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_predicted_ppa_from_down_distance-88"><a href="#get_cfbd_predicted_ppa_from_down_distance-88"><span class="linenos"> 88</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-89"><a href="#get_cfbd_predicted_ppa_from_down_distance-89"><span class="linenos"> 89</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-90"><a href="#get_cfbd_predicted_ppa_from_down_distance-90"><span class="linenos"> 90</span></a><span class="sd">            &quot;Using the user&#39;s API key declared &quot; +</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-91"><a href="#get_cfbd_predicted_ppa_from_down_distance-91"><span class="linenos"> 91</span></a><span class="sd">            &quot;in this script for this example.&quot;</span>
@@ -3048,7 +3048,7 @@
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-126"><a href="#get_cfbd_predicted_ppa_from_down_distance-126"><span class="linenos">126</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-127"><a href="#get_cfbd_predicted_ppa_from_down_distance-127"><span class="linenos">127</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-128"><a href="#get_cfbd_predicted_ppa_from_down_distance-128"><span class="linenos">128</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_predicted_ppa_from_down_distance-129"><a href="#get_cfbd_predicted_ppa_from_down_distance-129"><span class="linenos">129</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_predicted_ppa_from_down_distance-129"><a href="#get_cfbd_predicted_ppa_from_down_distance-129"><span class="linenos">129</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-130"><a href="#get_cfbd_predicted_ppa_from_down_distance-130"><span class="linenos">130</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-131"><a href="#get_cfbd_predicted_ppa_from_down_distance-131"><span class="linenos">131</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-132"><a href="#get_cfbd_predicted_ppa_from_down_distance-132"><span class="linenos">132</span></a>
@@ -3083,9 +3083,9 @@
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-161"><a href="#get_cfbd_predicted_ppa_from_down_distance-161"><span class="linenos">161</span></a><span class="sd">    ```</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-162"><a href="#get_cfbd_predicted_ppa_from_down_distance-162"><span class="linenos">162</span></a><span class="sd">    Returns</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-163"><a href="#get_cfbd_predicted_ppa_from_down_distance-163"><span class="linenos">163</span></a><span class="sd">    ----------</span>
-</span><span id="get_cfbd_predicted_ppa_from_down_distance-164"><a href="#get_cfbd_predicted_ppa_from_down_distance-164"><span class="linenos">164</span></a><span class="sd">    A pandas `DataFrame` object with a calculated PPA from a dwon and distance,</span>
+</span><span id="get_cfbd_predicted_ppa_from_down_distance-164"><a href="#get_cfbd_predicted_ppa_from_down_distance-164"><span class="linenos">164</span></a><span class="sd">    A pandas `DataFrame` object with a calculated PPA from a down and distance,</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-165"><a href="#get_cfbd_predicted_ppa_from_down_distance-165"><span class="linenos">165</span></a><span class="sd">    or (if `return_as_dict` is set to `True`)</span>
-</span><span id="get_cfbd_predicted_ppa_from_down_distance-166"><a href="#get_cfbd_predicted_ppa_from_down_distance-166"><span class="linenos">166</span></a><span class="sd">    a dictionary object with a calculated PPA from a dwon and distance.</span>
+</span><span id="get_cfbd_predicted_ppa_from_down_distance-166"><a href="#get_cfbd_predicted_ppa_from_down_distance-166"><span class="linenos">166</span></a><span class="sd">    a dictionary object with a calculated PPA from a down and distance.</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-167"><a href="#get_cfbd_predicted_ppa_from_down_distance-167"><span class="linenos">167</span></a>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-168"><a href="#get_cfbd_predicted_ppa_from_down_distance-168"><span class="linenos">168</span></a>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-169"><a href="#get_cfbd_predicted_ppa_from_down_distance-169"><span class="linenos">169</span></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -3101,7 +3101,7 @@
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-179"><a href="#get_cfbd_predicted_ppa_from_down_distance-179"><span class="linenos">179</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-180"><a href="#get_cfbd_predicted_ppa_from_down_distance-180"><span class="linenos">180</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-181"><a href="#get_cfbd_predicted_ppa_from_down_distance-181"><span class="linenos">181</span></a>
-</span><span id="get_cfbd_predicted_ppa_from_down_distance-182"><a href="#get_cfbd_predicted_ppa_from_down_distance-182"><span class="linenos">182</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_predicted_ppa_from_down_distance-182"><a href="#get_cfbd_predicted_ppa_from_down_distance-182"><span class="linenos">182</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-183"><a href="#get_cfbd_predicted_ppa_from_down_distance-183"><span class="linenos">183</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-184"><a href="#get_cfbd_predicted_ppa_from_down_distance-184"><span class="linenos">184</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_predicted_ppa_from_down_distance-185"><a href="#get_cfbd_predicted_ppa_from_down_distance-185"><span class="linenos">185</span></a>        <span class="p">)</span>
@@ -3220,7 +3220,7 @@ on the opponent's 1 yard line.</p>
 <p><code>distance</code> (int, mandatory):
     Mandatory argument.
     This variable should be set to the number of yards between
-    the line of scrimage (LOS), and the first down line on the field.</p>
+    the line of scrimmage (LOS), and the first down line on the field.</p>
 
 <p><code>api_key</code> (str, optional):
     Semi-optional argument.
@@ -3253,9 +3253,9 @@ on the opponent's 1 yard line.</p>
 from <a href="">cfbd_json_py.metrics</a> import get_cfbd_predicted_ppa_from_down_distance
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared " +
         "in this script for this example."
@@ -3296,7 +3296,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 
@@ -3332,9 +3332,9 @@ else:
 
 <h2 id="returns">Returns</h2>
 
-<p>A pandas <code>DataFrame</code> object with a calculated PPA from a dwon and distance,
+<p>A pandas <code>DataFrame</code> object with a calculated PPA from a down and distance,
 or (if <code>return_as_dict</code> is set to <code>True</code>)
-a dictionary object with a calculated PPA from a dwon and distance.</p>
+a dictionary object with a calculated PPA from a down and distance.</p>
 </div>
 
 
@@ -3364,7 +3364,7 @@ a dictionary object with a calculated PPA from a dwon and distance.</p>
 </span><span id="get_cfbd_team_season_ppa_data-288"><a href="#get_cfbd_team_season_ppa_data-288"><span class="linenos">288</span></a><span class="sd">    Allows you to get team PPA data,</span>
 </span><span id="get_cfbd_team_season_ppa_data-289"><a href="#get_cfbd_team_season_ppa_data-289"><span class="linenos">289</span></a><span class="sd">    over an entire season,</span>
 </span><span id="get_cfbd_team_season_ppa_data-290"><a href="#get_cfbd_team_season_ppa_data-290"><span class="linenos">290</span></a><span class="sd">    with or without garbage time plays,</span>
-</span><span id="get_cfbd_team_season_ppa_data-291"><a href="#get_cfbd_team_season_ppa_data-291"><span class="linenos">291</span></a><span class="sd">    for a specificed team and/or time period.</span>
+</span><span id="get_cfbd_team_season_ppa_data-291"><a href="#get_cfbd_team_season_ppa_data-291"><span class="linenos">291</span></a><span class="sd">    for a specified team and/or time period.</span>
 </span><span id="get_cfbd_team_season_ppa_data-292"><a href="#get_cfbd_team_season_ppa_data-292"><span class="linenos">292</span></a>
 </span><span id="get_cfbd_team_season_ppa_data-293"><a href="#get_cfbd_team_season_ppa_data-293"><span class="linenos">293</span></a><span class="sd">    PPA is the CFBD API&#39;s equivalent metric to Expected Points Added (EPA).</span>
 </span><span id="get_cfbd_team_season_ppa_data-294"><a href="#get_cfbd_team_season_ppa_data-294"><span class="linenos">294</span></a>
@@ -3396,7 +3396,7 @@ a dictionary object with a calculated PPA from a dwon and distance.</p>
 </span><span id="get_cfbd_team_season_ppa_data-320"><a href="#get_cfbd_team_season_ppa_data-320"><span class="linenos">320</span></a><span class="sd">        will be raised.</span>
 </span><span id="get_cfbd_team_season_ppa_data-321"><a href="#get_cfbd_team_season_ppa_data-321"><span class="linenos">321</span></a>
 </span><span id="get_cfbd_team_season_ppa_data-322"><a href="#get_cfbd_team_season_ppa_data-322"><span class="linenos">322</span></a><span class="sd">    `team` (str, optional):</span>
-</span><span id="get_cfbd_team_season_ppa_data-323"><a href="#get_cfbd_team_season_ppa_data-323"><span class="linenos">323</span></a><span class="sd">        Semi-ptional argument.</span>
+</span><span id="get_cfbd_team_season_ppa_data-323"><a href="#get_cfbd_team_season_ppa_data-323"><span class="linenos">323</span></a><span class="sd">        Semi-optional argument.</span>
 </span><span id="get_cfbd_team_season_ppa_data-324"><a href="#get_cfbd_team_season_ppa_data-324"><span class="linenos">324</span></a><span class="sd">        If you only want team PPA data for a specific team,</span>
 </span><span id="get_cfbd_team_season_ppa_data-325"><a href="#get_cfbd_team_season_ppa_data-325"><span class="linenos">325</span></a><span class="sd">        set `team` to the name of the team you want team PPA data from.</span>
 </span><span id="get_cfbd_team_season_ppa_data-326"><a href="#get_cfbd_team_season_ppa_data-326"><span class="linenos">326</span></a><span class="sd">        You MUST set `season` or `team` to a non-null value for</span>
@@ -3406,10 +3406,10 @@ a dictionary object with a calculated PPA from a dwon and distance.</p>
 </span><span id="get_cfbd_team_season_ppa_data-330"><a href="#get_cfbd_team_season_ppa_data-330"><span class="linenos">330</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="get_cfbd_team_season_ppa_data-331"><a href="#get_cfbd_team_season_ppa_data-331"><span class="linenos">331</span></a><span class="sd">        Optional argument.</span>
 </span><span id="get_cfbd_team_season_ppa_data-332"><a href="#get_cfbd_team_season_ppa_data-332"><span class="linenos">332</span></a><span class="sd">        If you only want team PPA data from games</span>
-</span><span id="get_cfbd_team_season_ppa_data-333"><a href="#get_cfbd_team_season_ppa_data-333"><span class="linenos">333</span></a><span class="sd">        involving teams from a specific confrence,</span>
+</span><span id="get_cfbd_team_season_ppa_data-333"><a href="#get_cfbd_team_season_ppa_data-333"><span class="linenos">333</span></a><span class="sd">        involving teams from a specific conference,</span>
 </span><span id="get_cfbd_team_season_ppa_data-334"><a href="#get_cfbd_team_season_ppa_data-334"><span class="linenos">334</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="get_cfbd_team_season_ppa_data-335"><a href="#get_cfbd_team_season_ppa_data-335"><span class="linenos">335</span></a><span class="sd">        of the conference you want team PPA data from.</span>
-</span><span id="get_cfbd_team_season_ppa_data-336"><a href="#get_cfbd_team_season_ppa_data-336"><span class="linenos">336</span></a><span class="sd">        For a list of confrences,</span>
+</span><span id="get_cfbd_team_season_ppa_data-336"><a href="#get_cfbd_team_season_ppa_data-336"><span class="linenos">336</span></a><span class="sd">        For a list of conferences,</span>
 </span><span id="get_cfbd_team_season_ppa_data-337"><a href="#get_cfbd_team_season_ppa_data-337"><span class="linenos">337</span></a><span class="sd">        use the `cfbd_json_py.conferences.get_cfbd_conference_info()`</span>
 </span><span id="get_cfbd_team_season_ppa_data-338"><a href="#get_cfbd_team_season_ppa_data-338"><span class="linenos">338</span></a><span class="sd">        function.</span>
 </span><span id="get_cfbd_team_season_ppa_data-339"><a href="#get_cfbd_team_season_ppa_data-339"><span class="linenos">339</span></a>
@@ -3436,9 +3436,9 @@ a dictionary object with a calculated PPA from a dwon and distance.</p>
 </span><span id="get_cfbd_team_season_ppa_data-360"><a href="#get_cfbd_team_season_ppa_data-360"><span class="linenos">360</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_team_season_ppa_data</span>
 </span><span id="get_cfbd_team_season_ppa_data-361"><a href="#get_cfbd_team_season_ppa_data-361"><span class="linenos">361</span></a>
 </span><span id="get_cfbd_team_season_ppa_data-362"><a href="#get_cfbd_team_season_ppa_data-362"><span class="linenos">362</span></a>
-</span><span id="get_cfbd_team_season_ppa_data-363"><a href="#get_cfbd_team_season_ppa_data-363"><span class="linenos">363</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_team_season_ppa_data-363"><a href="#get_cfbd_team_season_ppa_data-363"><span class="linenos">363</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_team_season_ppa_data-364"><a href="#get_cfbd_team_season_ppa_data-364"><span class="linenos">364</span></a>
-</span><span id="get_cfbd_team_season_ppa_data-365"><a href="#get_cfbd_team_season_ppa_data-365"><span class="linenos">365</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_team_season_ppa_data-365"><a href="#get_cfbd_team_season_ppa_data-365"><span class="linenos">365</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_team_season_ppa_data-366"><a href="#get_cfbd_team_season_ppa_data-366"><span class="linenos">366</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_team_season_ppa_data-367"><a href="#get_cfbd_team_season_ppa_data-367"><span class="linenos">367</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_team_season_ppa_data-368"><a href="#get_cfbd_team_season_ppa_data-368"><span class="linenos">368</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -3512,7 +3512,7 @@ a dictionary object with a calculated PPA from a dwon and distance.</p>
 </span><span id="get_cfbd_team_season_ppa_data-436"><a href="#get_cfbd_team_season_ppa_data-436"><span class="linenos">436</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_team_season_ppa_data-437"><a href="#get_cfbd_team_season_ppa_data-437"><span class="linenos">437</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_team_season_ppa_data-438"><a href="#get_cfbd_team_season_ppa_data-438"><span class="linenos">438</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_team_season_ppa_data-439"><a href="#get_cfbd_team_season_ppa_data-439"><span class="linenos">439</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded into &quot; +</span>
+</span><span id="get_cfbd_team_season_ppa_data-439"><a href="#get_cfbd_team_season_ppa_data-439"><span class="linenos">439</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded into &quot; +</span>
 </span><span id="get_cfbd_team_season_ppa_data-440"><a href="#get_cfbd_team_season_ppa_data-440"><span class="linenos">440</span></a><span class="sd">            &quot;this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_team_season_ppa_data-441"><a href="#get_cfbd_team_season_ppa_data-441"><span class="linenos">441</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_team_season_ppa_data-442"><a href="#get_cfbd_team_season_ppa_data-442"><span class="linenos">442</span></a>
@@ -3595,7 +3595,7 @@ a dictionary object with a calculated PPA from a dwon and distance.</p>
 </span><span id="get_cfbd_team_season_ppa_data-519"><a href="#get_cfbd_team_season_ppa_data-519"><span class="linenos">519</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_team_season_ppa_data-520"><a href="#get_cfbd_team_season_ppa_data-520"><span class="linenos">520</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_team_season_ppa_data-521"><a href="#get_cfbd_team_season_ppa_data-521"><span class="linenos">521</span></a>
-</span><span id="get_cfbd_team_season_ppa_data-522"><a href="#get_cfbd_team_season_ppa_data-522"><span class="linenos">522</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_team_season_ppa_data-522"><a href="#get_cfbd_team_season_ppa_data-522"><span class="linenos">522</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_team_season_ppa_data-523"><a href="#get_cfbd_team_season_ppa_data-523"><span class="linenos">523</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_team_season_ppa_data-524"><a href="#get_cfbd_team_season_ppa_data-524"><span class="linenos">524</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_team_season_ppa_data-525"><a href="#get_cfbd_team_season_ppa_data-525"><span class="linenos">525</span></a>        <span class="p">)</span>
@@ -3717,7 +3717,7 @@ a dictionary object with a calculated PPA from a dwon and distance.</p>
             <div class="docstring"><p>Allows you to get team PPA data,
 over an entire season,
 with or without garbage time plays,
-for a specificed team and/or time period.</p>
+for a specified team and/or time period.</p>
 
 <p>PPA is the CFBD API's equivalent metric to Expected Points Added (EPA).</p>
 
@@ -3749,7 +3749,7 @@ for a specificed team and/or time period.</p>
     will be raised.</p>
 
 <p><code>team</code> (str, optional):
-    Semi-ptional argument.
+    Semi-optional argument.
     If you only want team PPA data for a specific team,
     set <code>team</code> to the name of the team you want team PPA data from.
     You MUST set <code>season</code> or <code>team</code> to a non-null value for
@@ -3759,10 +3759,10 @@ for a specificed team and/or time period.</p>
 <p><code>conference</code> (str, optional):
     Optional argument.
     If you only want team PPA data from games
-    involving teams from a specific confrence,
+    involving teams from a specific conference,
     set <code>conference</code> to the abbreviation
     of the conference you want team PPA data from.
-    For a list of confrences,
+    For a list of conferences,
     use the <code><a href="conferences.html#get_cfbd_conference_info">cfbd_json_py.conferences.get_cfbd_conference_info()</a></code>
     function.</p>
 
@@ -3788,9 +3788,9 @@ for a specificed team and/or time period.</p>
 from <a href="">cfbd_json_py.metrics</a> import get_cfbd_team_season_ppa_data
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -3864,7 +3864,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded into " +
+        "Using the user's API key supposedly loaded into " +
         "this python environment for this example."
     )
 
@@ -3962,7 +3962,7 @@ a dictionary object with a team season PPA data.</p>
 </span><span id="get_cfbd_team_game_ppa_data-652"><a href="#get_cfbd_team_game_ppa_data-652"><span class="linenos"> 652</span></a><span class="sd">    Allows you to get team PPA data,</span>
 </span><span id="get_cfbd_team_game_ppa_data-653"><a href="#get_cfbd_team_game_ppa_data-653"><span class="linenos"> 653</span></a><span class="sd">    at a game level,</span>
 </span><span id="get_cfbd_team_game_ppa_data-654"><a href="#get_cfbd_team_game_ppa_data-654"><span class="linenos"> 654</span></a><span class="sd">    with or without garbage time plays,</span>
-</span><span id="get_cfbd_team_game_ppa_data-655"><a href="#get_cfbd_team_game_ppa_data-655"><span class="linenos"> 655</span></a><span class="sd">    for a specificed team and/or time period.</span>
+</span><span id="get_cfbd_team_game_ppa_data-655"><a href="#get_cfbd_team_game_ppa_data-655"><span class="linenos"> 655</span></a><span class="sd">    for a specified team and/or time period.</span>
 </span><span id="get_cfbd_team_game_ppa_data-656"><a href="#get_cfbd_team_game_ppa_data-656"><span class="linenos"> 656</span></a>
 </span><span id="get_cfbd_team_game_ppa_data-657"><a href="#get_cfbd_team_game_ppa_data-657"><span class="linenos"> 657</span></a><span class="sd">    PPA is the CFBD API&#39;s equivalent metric to Expected Points Added (EPA).</span>
 </span><span id="get_cfbd_team_game_ppa_data-658"><a href="#get_cfbd_team_game_ppa_data-658"><span class="linenos"> 658</span></a>
@@ -4007,7 +4007,7 @@ a dictionary object with a team season PPA data.</p>
 </span><span id="get_cfbd_team_game_ppa_data-697"><a href="#get_cfbd_team_game_ppa_data-697"><span class="linenos"> 697</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="get_cfbd_team_game_ppa_data-698"><a href="#get_cfbd_team_game_ppa_data-698"><span class="linenos"> 698</span></a><span class="sd">        Optional argument.</span>
 </span><span id="get_cfbd_team_game_ppa_data-699"><a href="#get_cfbd_team_game_ppa_data-699"><span class="linenos"> 699</span></a><span class="sd">        If you only want team game PPA data from games</span>
-</span><span id="get_cfbd_team_game_ppa_data-700"><a href="#get_cfbd_team_game_ppa_data-700"><span class="linenos"> 700</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="get_cfbd_team_game_ppa_data-700"><a href="#get_cfbd_team_game_ppa_data-700"><span class="linenos"> 700</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="get_cfbd_team_game_ppa_data-701"><a href="#get_cfbd_team_game_ppa_data-701"><span class="linenos"> 701</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="get_cfbd_team_game_ppa_data-702"><a href="#get_cfbd_team_game_ppa_data-702"><span class="linenos"> 702</span></a><span class="sd">        of the conference you want team game PPA data from.</span>
 </span><span id="get_cfbd_team_game_ppa_data-703"><a href="#get_cfbd_team_game_ppa_data-703"><span class="linenos"> 703</span></a>
@@ -4021,7 +4021,7 @@ a dictionary object with a team season PPA data.</p>
 </span><span id="get_cfbd_team_game_ppa_data-711"><a href="#get_cfbd_team_game_ppa_data-711"><span class="linenos"> 711</span></a>
 </span><span id="get_cfbd_team_game_ppa_data-712"><a href="#get_cfbd_team_game_ppa_data-712"><span class="linenos"> 712</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="get_cfbd_team_game_ppa_data-713"><a href="#get_cfbd_team_game_ppa_data-713"><span class="linenos"> 713</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="get_cfbd_team_game_ppa_data-714"><a href="#get_cfbd_team_game_ppa_data-714"><span class="linenos"> 714</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="get_cfbd_team_game_ppa_data-714"><a href="#get_cfbd_team_game_ppa_data-714"><span class="linenos"> 714</span></a><span class="sd">        By default, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
 </span><span id="get_cfbd_team_game_ppa_data-715"><a href="#get_cfbd_team_game_ppa_data-715"><span class="linenos"> 715</span></a><span class="sd">        If you want team game PPA data for non-regular season games,</span>
 </span><span id="get_cfbd_team_game_ppa_data-716"><a href="#get_cfbd_team_game_ppa_data-716"><span class="linenos"> 716</span></a><span class="sd">        set `season_type` to &quot;postseason&quot;.</span>
 </span><span id="get_cfbd_team_game_ppa_data-717"><a href="#get_cfbd_team_game_ppa_data-717"><span class="linenos"> 717</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;,</span>
@@ -4042,9 +4042,9 @@ a dictionary object with a team season PPA data.</p>
 </span><span id="get_cfbd_team_game_ppa_data-732"><a href="#get_cfbd_team_game_ppa_data-732"><span class="linenos"> 732</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_team_game_ppa_data</span>
 </span><span id="get_cfbd_team_game_ppa_data-733"><a href="#get_cfbd_team_game_ppa_data-733"><span class="linenos"> 733</span></a>
 </span><span id="get_cfbd_team_game_ppa_data-734"><a href="#get_cfbd_team_game_ppa_data-734"><span class="linenos"> 734</span></a>
-</span><span id="get_cfbd_team_game_ppa_data-735"><a href="#get_cfbd_team_game_ppa_data-735"><span class="linenos"> 735</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_team_game_ppa_data-735"><a href="#get_cfbd_team_game_ppa_data-735"><span class="linenos"> 735</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_team_game_ppa_data-736"><a href="#get_cfbd_team_game_ppa_data-736"><span class="linenos"> 736</span></a>
-</span><span id="get_cfbd_team_game_ppa_data-737"><a href="#get_cfbd_team_game_ppa_data-737"><span class="linenos"> 737</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_team_game_ppa_data-737"><a href="#get_cfbd_team_game_ppa_data-737"><span class="linenos"> 737</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_team_game_ppa_data-738"><a href="#get_cfbd_team_game_ppa_data-738"><span class="linenos"> 738</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_team_game_ppa_data-739"><a href="#get_cfbd_team_game_ppa_data-739"><span class="linenos"> 739</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_team_game_ppa_data-740"><a href="#get_cfbd_team_game_ppa_data-740"><span class="linenos"> 740</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -4149,7 +4149,7 @@ a dictionary object with a team season PPA data.</p>
 </span><span id="get_cfbd_team_game_ppa_data-839"><a href="#get_cfbd_team_game_ppa_data-839"><span class="linenos"> 839</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_team_game_ppa_data-840"><a href="#get_cfbd_team_game_ppa_data-840"><span class="linenos"> 840</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_team_game_ppa_data-841"><a href="#get_cfbd_team_game_ppa_data-841"><span class="linenos"> 841</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_team_game_ppa_data-842"><a href="#get_cfbd_team_game_ppa_data-842"><span class="linenos"> 842</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded into this &quot; +</span>
+</span><span id="get_cfbd_team_game_ppa_data-842"><a href="#get_cfbd_team_game_ppa_data-842"><span class="linenos"> 842</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded into this &quot; +</span>
 </span><span id="get_cfbd_team_game_ppa_data-843"><a href="#get_cfbd_team_game_ppa_data-843"><span class="linenos"> 843</span></a><span class="sd">            &quot;python environment for this example.&quot;</span>
 </span><span id="get_cfbd_team_game_ppa_data-844"><a href="#get_cfbd_team_game_ppa_data-844"><span class="linenos"> 844</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_team_game_ppa_data-845"><a href="#get_cfbd_team_game_ppa_data-845"><span class="linenos"> 845</span></a>
@@ -4261,7 +4261,7 @@ a dictionary object with a team season PPA data.</p>
 </span><span id="get_cfbd_team_game_ppa_data-951"><a href="#get_cfbd_team_game_ppa_data-951"><span class="linenos"> 951</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_team_game_ppa_data-952"><a href="#get_cfbd_team_game_ppa_data-952"><span class="linenos"> 952</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_team_game_ppa_data-953"><a href="#get_cfbd_team_game_ppa_data-953"><span class="linenos"> 953</span></a>
-</span><span id="get_cfbd_team_game_ppa_data-954"><a href="#get_cfbd_team_game_ppa_data-954"><span class="linenos"> 954</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_team_game_ppa_data-954"><a href="#get_cfbd_team_game_ppa_data-954"><span class="linenos"> 954</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_team_game_ppa_data-955"><a href="#get_cfbd_team_game_ppa_data-955"><span class="linenos"> 955</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_team_game_ppa_data-956"><a href="#get_cfbd_team_game_ppa_data-956"><span class="linenos"> 956</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_team_game_ppa_data-957"><a href="#get_cfbd_team_game_ppa_data-957"><span class="linenos"> 957</span></a>        <span class="p">)</span>
@@ -4387,7 +4387,7 @@ a dictionary object with a team season PPA data.</p>
             <div class="docstring"><p>Allows you to get team PPA data,
 at a game level,
 with or without garbage time plays,
-for a specificed team and/or time period.</p>
+for a specified team and/or time period.</p>
 
 <p>PPA is the CFBD API's equivalent metric to Expected Points Added (EPA).</p>
 
@@ -4432,7 +4432,7 @@ for a specificed team and/or time period.</p>
 <p><code>conference</code> (str, optional):
     Optional argument.
     If you only want team game PPA data from games
-    involving teams a specific confrence,
+    involving teams a specific conference,
     set <code>conference</code> to the abbreviation
     of the conference you want team game PPA data from.</p>
 
@@ -4446,7 +4446,7 @@ for a specificed team and/or time period.</p>
 
 <p><code>season_type</code> (str, semi-optional):
     Semi-optional argument.
-    By defualt, this will be set to "regular", for the CFB regular season.
+    By default, this will be set to "regular", for the CFB regular season.
     If you want team game PPA data for non-regular season games,
     set <code>season_type</code> to "postseason".
     If <code>season_type</code> is set to anything but "regular" or "postseason",
@@ -4466,9 +4466,9 @@ for a specificed team and/or time period.</p>
 from <a href="">cfbd_json_py.metrics</a> import get_cfbd_team_game_ppa_data
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -4573,7 +4573,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded into this " +
+        "Using the user's API key supposedly loaded into this " +
         "python environment for this example."
     )
 
@@ -4703,7 +4703,7 @@ a dictionary object with team PPA data.</p>
 </span><span id="get_cfbd_player_game_ppa_data-1091"><a href="#get_cfbd_player_game_ppa_data-1091"><span class="linenos">1091</span></a><span class="sd">    Allows you to get player PPA data,</span>
 </span><span id="get_cfbd_player_game_ppa_data-1092"><a href="#get_cfbd_player_game_ppa_data-1092"><span class="linenos">1092</span></a><span class="sd">    at a game level,</span>
 </span><span id="get_cfbd_player_game_ppa_data-1093"><a href="#get_cfbd_player_game_ppa_data-1093"><span class="linenos">1093</span></a><span class="sd">    with or without garbage time plays,</span>
-</span><span id="get_cfbd_player_game_ppa_data-1094"><a href="#get_cfbd_player_game_ppa_data-1094"><span class="linenos">1094</span></a><span class="sd">    for a specificed time period and/or team.</span>
+</span><span id="get_cfbd_player_game_ppa_data-1094"><a href="#get_cfbd_player_game_ppa_data-1094"><span class="linenos">1094</span></a><span class="sd">    for a specified time period and/or team.</span>
 </span><span id="get_cfbd_player_game_ppa_data-1095"><a href="#get_cfbd_player_game_ppa_data-1095"><span class="linenos">1095</span></a>
 </span><span id="get_cfbd_player_game_ppa_data-1096"><a href="#get_cfbd_player_game_ppa_data-1096"><span class="linenos">1096</span></a><span class="sd">    PPA is the CFBD API&#39;s equivalent metric to Expected Points Added (EPA).</span>
 </span><span id="get_cfbd_player_game_ppa_data-1097"><a href="#get_cfbd_player_game_ppa_data-1097"><span class="linenos">1097</span></a>
@@ -4780,7 +4780,7 @@ a dictionary object with team PPA data.</p>
 </span><span id="get_cfbd_player_game_ppa_data-1168"><a href="#get_cfbd_player_game_ppa_data-1168"><span class="linenos">1168</span></a>
 </span><span id="get_cfbd_player_game_ppa_data-1169"><a href="#get_cfbd_player_game_ppa_data-1169"><span class="linenos">1169</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="get_cfbd_player_game_ppa_data-1170"><a href="#get_cfbd_player_game_ppa_data-1170"><span class="linenos">1170</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="get_cfbd_player_game_ppa_data-1171"><a href="#get_cfbd_player_game_ppa_data-1171"><span class="linenos">1171</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="get_cfbd_player_game_ppa_data-1171"><a href="#get_cfbd_player_game_ppa_data-1171"><span class="linenos">1171</span></a><span class="sd">        By default, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
 </span><span id="get_cfbd_player_game_ppa_data-1172"><a href="#get_cfbd_player_game_ppa_data-1172"><span class="linenos">1172</span></a><span class="sd">        If you want player game PPA data for non-regular season games,</span>
 </span><span id="get_cfbd_player_game_ppa_data-1173"><a href="#get_cfbd_player_game_ppa_data-1173"><span class="linenos">1173</span></a><span class="sd">        set `season_type` to &quot;postseason&quot;.</span>
 </span><span id="get_cfbd_player_game_ppa_data-1174"><a href="#get_cfbd_player_game_ppa_data-1174"><span class="linenos">1174</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;,</span>
@@ -4801,9 +4801,9 @@ a dictionary object with team PPA data.</p>
 </span><span id="get_cfbd_player_game_ppa_data-1189"><a href="#get_cfbd_player_game_ppa_data-1189"><span class="linenos">1189</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_player_game_ppa_data</span>
 </span><span id="get_cfbd_player_game_ppa_data-1190"><a href="#get_cfbd_player_game_ppa_data-1190"><span class="linenos">1190</span></a>
 </span><span id="get_cfbd_player_game_ppa_data-1191"><a href="#get_cfbd_player_game_ppa_data-1191"><span class="linenos">1191</span></a>
-</span><span id="get_cfbd_player_game_ppa_data-1192"><a href="#get_cfbd_player_game_ppa_data-1192"><span class="linenos">1192</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_player_game_ppa_data-1192"><a href="#get_cfbd_player_game_ppa_data-1192"><span class="linenos">1192</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_player_game_ppa_data-1193"><a href="#get_cfbd_player_game_ppa_data-1193"><span class="linenos">1193</span></a>
-</span><span id="get_cfbd_player_game_ppa_data-1194"><a href="#get_cfbd_player_game_ppa_data-1194"><span class="linenos">1194</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_player_game_ppa_data-1194"><a href="#get_cfbd_player_game_ppa_data-1194"><span class="linenos">1194</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_player_game_ppa_data-1195"><a href="#get_cfbd_player_game_ppa_data-1195"><span class="linenos">1195</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_player_game_ppa_data-1196"><a href="#get_cfbd_player_game_ppa_data-1196"><span class="linenos">1196</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_player_game_ppa_data-1197"><a href="#get_cfbd_player_game_ppa_data-1197"><span class="linenos">1197</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -4913,7 +4913,7 @@ a dictionary object with team PPA data.</p>
 </span><span id="get_cfbd_player_game_ppa_data-1301"><a href="#get_cfbd_player_game_ppa_data-1301"><span class="linenos">1301</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_player_game_ppa_data-1302"><a href="#get_cfbd_player_game_ppa_data-1302"><span class="linenos">1302</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_player_game_ppa_data-1303"><a href="#get_cfbd_player_game_ppa_data-1303"><span class="linenos">1303</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_player_game_ppa_data-1304"><a href="#get_cfbd_player_game_ppa_data-1304"><span class="linenos">1304</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded into &quot; +</span>
+</span><span id="get_cfbd_player_game_ppa_data-1304"><a href="#get_cfbd_player_game_ppa_data-1304"><span class="linenos">1304</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded into &quot; +</span>
 </span><span id="get_cfbd_player_game_ppa_data-1305"><a href="#get_cfbd_player_game_ppa_data-1305"><span class="linenos">1305</span></a><span class="sd">            &quot;this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_player_game_ppa_data-1306"><a href="#get_cfbd_player_game_ppa_data-1306"><span class="linenos">1306</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_player_game_ppa_data-1307"><a href="#get_cfbd_player_game_ppa_data-1307"><span class="linenos">1307</span></a>
@@ -5029,7 +5029,7 @@ a dictionary object with team PPA data.</p>
 </span><span id="get_cfbd_player_game_ppa_data-1417"><a href="#get_cfbd_player_game_ppa_data-1417"><span class="linenos">1417</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_player_game_ppa_data-1418"><a href="#get_cfbd_player_game_ppa_data-1418"><span class="linenos">1418</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_player_game_ppa_data-1419"><a href="#get_cfbd_player_game_ppa_data-1419"><span class="linenos">1419</span></a>
-</span><span id="get_cfbd_player_game_ppa_data-1420"><a href="#get_cfbd_player_game_ppa_data-1420"><span class="linenos">1420</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_player_game_ppa_data-1420"><a href="#get_cfbd_player_game_ppa_data-1420"><span class="linenos">1420</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_player_game_ppa_data-1421"><a href="#get_cfbd_player_game_ppa_data-1421"><span class="linenos">1421</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_player_game_ppa_data-1422"><a href="#get_cfbd_player_game_ppa_data-1422"><span class="linenos">1422</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_player_game_ppa_data-1423"><a href="#get_cfbd_player_game_ppa_data-1423"><span class="linenos">1423</span></a>        <span class="p">)</span>
@@ -5193,7 +5193,7 @@ a dictionary object with team PPA data.</p>
             <div class="docstring"><p>Allows you to get player PPA data,
 at a game level,
 with or without garbage time plays,
-for a specificed time period and/or team.</p>
+for a specified time period and/or team.</p>
 
 <p>PPA is the CFBD API's equivalent metric to Expected Points Added (EPA).</p>
 
@@ -5269,7 +5269,7 @@ for a specificed time period and/or team.</p>
 
 <p><code>season_type</code> (str, semi-optional):
     Semi-optional argument.
-    By defualt, this will be set to "regular", for the CFB regular season.
+    By default, this will be set to "regular", for the CFB regular season.
     If you want player game PPA data for non-regular season games,
     set <code>season_type</code> to "postseason".
     If <code>season_type</code> is set to anything but "regular" or "postseason",
@@ -5289,9 +5289,9 @@ for a specificed time period and/or team.</p>
 from <a href="">cfbd_json_py.metrics</a> import get_cfbd_player_game_ppa_data
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -5401,7 +5401,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded into " +
+        "Using the user's API key supposedly loaded into " +
         "this python environment for this example."
     )
 
@@ -5533,7 +5533,7 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_player_season_ppa_data-1593"><a href="#get_cfbd_player_season_ppa_data-1593"><span class="linenos">1593</span></a><span class="sd">    Allows you to get player PPA data,</span>
 </span><span id="get_cfbd_player_season_ppa_data-1594"><a href="#get_cfbd_player_season_ppa_data-1594"><span class="linenos">1594</span></a><span class="sd">    at a season level,</span>
 </span><span id="get_cfbd_player_season_ppa_data-1595"><a href="#get_cfbd_player_season_ppa_data-1595"><span class="linenos">1595</span></a><span class="sd">    with or without garbage time plays,</span>
-</span><span id="get_cfbd_player_season_ppa_data-1596"><a href="#get_cfbd_player_season_ppa_data-1596"><span class="linenos">1596</span></a><span class="sd">    for a specificed time period and/or team.</span>
+</span><span id="get_cfbd_player_season_ppa_data-1596"><a href="#get_cfbd_player_season_ppa_data-1596"><span class="linenos">1596</span></a><span class="sd">    for a specified time period and/or team.</span>
 </span><span id="get_cfbd_player_season_ppa_data-1597"><a href="#get_cfbd_player_season_ppa_data-1597"><span class="linenos">1597</span></a>
 </span><span id="get_cfbd_player_season_ppa_data-1598"><a href="#get_cfbd_player_season_ppa_data-1598"><span class="linenos">1598</span></a><span class="sd">    PPA is the CFBD API&#39;s equivalent metric to Expected Points Added (EPA).</span>
 </span><span id="get_cfbd_player_season_ppa_data-1599"><a href="#get_cfbd_player_season_ppa_data-1599"><span class="linenos">1599</span></a>
@@ -5578,10 +5578,10 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_player_season_ppa_data-1638"><a href="#get_cfbd_player_season_ppa_data-1638"><span class="linenos">1638</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="get_cfbd_player_season_ppa_data-1639"><a href="#get_cfbd_player_season_ppa_data-1639"><span class="linenos">1639</span></a><span class="sd">        Optional argument.</span>
 </span><span id="get_cfbd_player_season_ppa_data-1640"><a href="#get_cfbd_player_season_ppa_data-1640"><span class="linenos">1640</span></a><span class="sd">        If you only want player season PPA data from games</span>
-</span><span id="get_cfbd_player_season_ppa_data-1641"><a href="#get_cfbd_player_season_ppa_data-1641"><span class="linenos">1641</span></a><span class="sd">        involving teams from a specific confrence,</span>
+</span><span id="get_cfbd_player_season_ppa_data-1641"><a href="#get_cfbd_player_season_ppa_data-1641"><span class="linenos">1641</span></a><span class="sd">        involving teams from a specific conference,</span>
 </span><span id="get_cfbd_player_season_ppa_data-1642"><a href="#get_cfbd_player_season_ppa_data-1642"><span class="linenos">1642</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="get_cfbd_player_season_ppa_data-1643"><a href="#get_cfbd_player_season_ppa_data-1643"><span class="linenos">1643</span></a><span class="sd">        of the conference you want player season PPA data from.</span>
-</span><span id="get_cfbd_player_season_ppa_data-1644"><a href="#get_cfbd_player_season_ppa_data-1644"><span class="linenos">1644</span></a><span class="sd">        For a list of confrences,</span>
+</span><span id="get_cfbd_player_season_ppa_data-1644"><a href="#get_cfbd_player_season_ppa_data-1644"><span class="linenos">1644</span></a><span class="sd">        For a list of conferences,</span>
 </span><span id="get_cfbd_player_season_ppa_data-1645"><a href="#get_cfbd_player_season_ppa_data-1645"><span class="linenos">1645</span></a><span class="sd">        use the `cfbd_json_py.conferences.get_cfbd_conference_info()`</span>
 </span><span id="get_cfbd_player_season_ppa_data-1646"><a href="#get_cfbd_player_season_ppa_data-1646"><span class="linenos">1646</span></a><span class="sd">        function.</span>
 </span><span id="get_cfbd_player_season_ppa_data-1647"><a href="#get_cfbd_player_season_ppa_data-1647"><span class="linenos">1647</span></a>
@@ -5628,9 +5628,9 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_player_season_ppa_data-1688"><a href="#get_cfbd_player_season_ppa_data-1688"><span class="linenos">1688</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_player_season_ppa_data</span>
 </span><span id="get_cfbd_player_season_ppa_data-1689"><a href="#get_cfbd_player_season_ppa_data-1689"><span class="linenos">1689</span></a>
 </span><span id="get_cfbd_player_season_ppa_data-1690"><a href="#get_cfbd_player_season_ppa_data-1690"><span class="linenos">1690</span></a>
-</span><span id="get_cfbd_player_season_ppa_data-1691"><a href="#get_cfbd_player_season_ppa_data-1691"><span class="linenos">1691</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_player_season_ppa_data-1691"><a href="#get_cfbd_player_season_ppa_data-1691"><span class="linenos">1691</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_player_season_ppa_data-1692"><a href="#get_cfbd_player_season_ppa_data-1692"><span class="linenos">1692</span></a>
-</span><span id="get_cfbd_player_season_ppa_data-1693"><a href="#get_cfbd_player_season_ppa_data-1693"><span class="linenos">1693</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_player_season_ppa_data-1693"><a href="#get_cfbd_player_season_ppa_data-1693"><span class="linenos">1693</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_player_season_ppa_data-1694"><a href="#get_cfbd_player_season_ppa_data-1694"><span class="linenos">1694</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_player_season_ppa_data-1695"><a href="#get_cfbd_player_season_ppa_data-1695"><span class="linenos">1695</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_player_season_ppa_data-1696"><a href="#get_cfbd_player_season_ppa_data-1696"><span class="linenos">1696</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -5698,11 +5698,11 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_player_season_ppa_data-1758"><a href="#get_cfbd_player_season_ppa_data-1758"><span class="linenos">1758</span></a>
 </span><span id="get_cfbd_player_season_ppa_data-1759"><a href="#get_cfbd_player_season_ppa_data-1759"><span class="linenos">1759</span></a><span class="sd">        # Get player season PPA data from</span>
 </span><span id="get_cfbd_player_season_ppa_data-1760"><a href="#get_cfbd_player_season_ppa_data-1760"><span class="linenos">1760</span></a><span class="sd">        # former Ohio State and LSU QB Joe Burrow (player ID #3915511),</span>
-</span><span id="get_cfbd_player_season_ppa_data-1761"><a href="#get_cfbd_player_season_ppa_data-1761"><span class="linenos">1761</span></a><span class="sd">        # but exclude plays that occured in garbage time.</span>
+</span><span id="get_cfbd_player_season_ppa_data-1761"><a href="#get_cfbd_player_season_ppa_data-1761"><span class="linenos">1761</span></a><span class="sd">        # but exclude plays that occurred in garbage time.</span>
 </span><span id="get_cfbd_player_season_ppa_data-1762"><a href="#get_cfbd_player_season_ppa_data-1762"><span class="linenos">1762</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_player_season_ppa_data-1763"><a href="#get_cfbd_player_season_ppa_data-1763"><span class="linenos">1763</span></a><span class="sd">            &quot;Get player season PPA data from former &quot; +</span>
 </span><span id="get_cfbd_player_season_ppa_data-1764"><a href="#get_cfbd_player_season_ppa_data-1764"><span class="linenos">1764</span></a><span class="sd">            &quot;Ohio State and LSU QB Joe Burrow (player ID #3915511), &quot; +</span>
-</span><span id="get_cfbd_player_season_ppa_data-1765"><a href="#get_cfbd_player_season_ppa_data-1765"><span class="linenos">1765</span></a><span class="sd">            &quot;but exclude plays that occured in garbage time.&quot;</span>
+</span><span id="get_cfbd_player_season_ppa_data-1765"><a href="#get_cfbd_player_season_ppa_data-1765"><span class="linenos">1765</span></a><span class="sd">            &quot;but exclude plays that occurred in garbage time.&quot;</span>
 </span><span id="get_cfbd_player_season_ppa_data-1766"><a href="#get_cfbd_player_season_ppa_data-1766"><span class="linenos">1766</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_player_season_ppa_data-1767"><a href="#get_cfbd_player_season_ppa_data-1767"><span class="linenos">1767</span></a><span class="sd">        json_data = get_cfbd_player_season_ppa_data(</span>
 </span><span id="get_cfbd_player_season_ppa_data-1768"><a href="#get_cfbd_player_season_ppa_data-1768"><span class="linenos">1768</span></a><span class="sd">            api_key=cfbd_key,</span>
@@ -5745,7 +5745,7 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_player_season_ppa_data-1805"><a href="#get_cfbd_player_season_ppa_data-1805"><span class="linenos">1805</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_player_season_ppa_data-1806"><a href="#get_cfbd_player_season_ppa_data-1806"><span class="linenos">1806</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_player_season_ppa_data-1807"><a href="#get_cfbd_player_season_ppa_data-1807"><span class="linenos">1807</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_player_season_ppa_data-1808"><a href="#get_cfbd_player_season_ppa_data-1808"><span class="linenos">1808</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded into &quot; +</span>
+</span><span id="get_cfbd_player_season_ppa_data-1808"><a href="#get_cfbd_player_season_ppa_data-1808"><span class="linenos">1808</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded into &quot; +</span>
 </span><span id="get_cfbd_player_season_ppa_data-1809"><a href="#get_cfbd_player_season_ppa_data-1809"><span class="linenos">1809</span></a><span class="sd">            &quot;this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_player_season_ppa_data-1810"><a href="#get_cfbd_player_season_ppa_data-1810"><span class="linenos">1810</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_player_season_ppa_data-1811"><a href="#get_cfbd_player_season_ppa_data-1811"><span class="linenos">1811</span></a>
@@ -5806,11 +5806,11 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_player_season_ppa_data-1866"><a href="#get_cfbd_player_season_ppa_data-1866"><span class="linenos">1866</span></a>
 </span><span id="get_cfbd_player_season_ppa_data-1867"><a href="#get_cfbd_player_season_ppa_data-1867"><span class="linenos">1867</span></a><span class="sd">        # Get player season PPA data from</span>
 </span><span id="get_cfbd_player_season_ppa_data-1868"><a href="#get_cfbd_player_season_ppa_data-1868"><span class="linenos">1868</span></a><span class="sd">        # former Ohio State and LSU QB Joe Burrow (player ID #3915511),</span>
-</span><span id="get_cfbd_player_season_ppa_data-1869"><a href="#get_cfbd_player_season_ppa_data-1869"><span class="linenos">1869</span></a><span class="sd">        # but exclude plays that occured in garbage time.</span>
+</span><span id="get_cfbd_player_season_ppa_data-1869"><a href="#get_cfbd_player_season_ppa_data-1869"><span class="linenos">1869</span></a><span class="sd">        # but exclude plays that occurred in garbage time.</span>
 </span><span id="get_cfbd_player_season_ppa_data-1870"><a href="#get_cfbd_player_season_ppa_data-1870"><span class="linenos">1870</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_player_season_ppa_data-1871"><a href="#get_cfbd_player_season_ppa_data-1871"><span class="linenos">1871</span></a><span class="sd">            &quot;Get player season PPA data from former &quot; +</span>
 </span><span id="get_cfbd_player_season_ppa_data-1872"><a href="#get_cfbd_player_season_ppa_data-1872"><span class="linenos">1872</span></a><span class="sd">            &quot;Ohio State and LSU QB Joe Burrow (player ID #3915511), &quot; +</span>
-</span><span id="get_cfbd_player_season_ppa_data-1873"><a href="#get_cfbd_player_season_ppa_data-1873"><span class="linenos">1873</span></a><span class="sd">            &quot;but exclude plays that occured in garbage time.&quot;</span>
+</span><span id="get_cfbd_player_season_ppa_data-1873"><a href="#get_cfbd_player_season_ppa_data-1873"><span class="linenos">1873</span></a><span class="sd">            &quot;but exclude plays that occurred in garbage time.&quot;</span>
 </span><span id="get_cfbd_player_season_ppa_data-1874"><a href="#get_cfbd_player_season_ppa_data-1874"><span class="linenos">1874</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_player_season_ppa_data-1875"><a href="#get_cfbd_player_season_ppa_data-1875"><span class="linenos">1875</span></a><span class="sd">        json_data = get_cfbd_player_season_ppa_data(</span>
 </span><span id="get_cfbd_player_season_ppa_data-1876"><a href="#get_cfbd_player_season_ppa_data-1876"><span class="linenos">1876</span></a><span class="sd">            player_id=3915511,</span>
@@ -5865,7 +5865,7 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_player_season_ppa_data-1925"><a href="#get_cfbd_player_season_ppa_data-1925"><span class="linenos">1925</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_player_season_ppa_data-1926"><a href="#get_cfbd_player_season_ppa_data-1926"><span class="linenos">1926</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_player_season_ppa_data-1927"><a href="#get_cfbd_player_season_ppa_data-1927"><span class="linenos">1927</span></a>
-</span><span id="get_cfbd_player_season_ppa_data-1928"><a href="#get_cfbd_player_season_ppa_data-1928"><span class="linenos">1928</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_player_season_ppa_data-1928"><a href="#get_cfbd_player_season_ppa_data-1928"><span class="linenos">1928</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_player_season_ppa_data-1929"><a href="#get_cfbd_player_season_ppa_data-1929"><span class="linenos">1929</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_player_season_ppa_data-1930"><a href="#get_cfbd_player_season_ppa_data-1930"><span class="linenos">1930</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_player_season_ppa_data-1931"><a href="#get_cfbd_player_season_ppa_data-1931"><span class="linenos">1931</span></a>        <span class="p">)</span>
@@ -6005,7 +6005,7 @@ a dictionary object with player PPA data.</p>
             <div class="docstring"><p>Allows you to get player PPA data,
 at a season level,
 with or without garbage time plays,
-for a specificed time period and/or team.</p>
+for a specified time period and/or team.</p>
 
 <p>PPA is the CFBD API's equivalent metric to Expected Points Added (EPA).</p>
 
@@ -6048,10 +6048,10 @@ for a specificed time period and/or team.</p>
 <p><code>conference</code> (str, optional):
     Optional argument.
     If you only want player season PPA data from games
-    involving teams from a specific confrence,
+    involving teams from a specific conference,
     set <code>conference</code> to the abbreviation
     of the conference you want player season PPA data from.
-    For a list of confrences,
+    For a list of conferences,
     use the <code><a href="conferences.html#get_cfbd_conference_info">cfbd_json_py.conferences.get_cfbd_conference_info()</a></code>
     function.</p>
 
@@ -6096,9 +6096,9 @@ for a specificed time period and/or team.</p>
 from <a href="">cfbd_json_py.metrics</a> import get_cfbd_player_season_ppa_data
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -6166,11 +6166,11 @@ if cfbd_key != "tigersAreAwsome":
 
     # Get player season PPA data from
     # former Ohio State and LSU QB Joe Burrow (player ID #3915511),
-    # but exclude plays that occured in garbage time.
+    # but exclude plays that occurred in garbage time.
     print(
         "Get player season PPA data from former " +
         "Ohio State and LSU QB Joe Burrow (player ID #3915511), " +
-        "but exclude plays that occured in garbage time."
+        "but exclude plays that occurred in garbage time."
     )
     json_data = get_cfbd_player_season_ppa_data(
         api_key=cfbd_key,
@@ -6213,7 +6213,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded into " +
+        "Using the user's API key supposedly loaded into " +
         "this python environment for this example."
     )
 
@@ -6274,11 +6274,11 @@ else:
 
     # Get player season PPA data from
     # former Ohio State and LSU QB Joe Burrow (player ID #3915511),
-    # but exclude plays that occured in garbage time.
+    # but exclude plays that occurred in garbage time.
     print(
         "Get player season PPA data from former " +
         "Ohio State and LSU QB Joe Burrow (player ID #3915511), " +
-        "but exclude plays that occured in garbage time."
+        "but exclude plays that occurred in garbage time."
     )
     json_data = get_cfbd_player_season_ppa_data(
         player_id=3915511,
@@ -6341,7 +6341,7 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_game_win_probability_data-2068"><a href="#get_cfbd_game_win_probability_data-2068"><span class="linenos">2068</span></a>    <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 </span><span id="get_cfbd_game_win_probability_data-2069"><a href="#get_cfbd_game_win_probability_data-2069"><span class="linenos">2069</span></a><span class="p">):</span>
 </span><span id="get_cfbd_game_win_probability_data-2070"><a href="#get_cfbd_game_win_probability_data-2070"><span class="linenos">2070</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="get_cfbd_game_win_probability_data-2071"><a href="#get_cfbd_game_win_probability_data-2071"><span class="linenos">2071</span></a><span class="sd">    Allows one to get win probabliity data for a given game ID.</span>
+</span><span id="get_cfbd_game_win_probability_data-2071"><a href="#get_cfbd_game_win_probability_data-2071"><span class="linenos">2071</span></a><span class="sd">    Allows one to get win probability data for a given game ID.</span>
 </span><span id="get_cfbd_game_win_probability_data-2072"><a href="#get_cfbd_game_win_probability_data-2072"><span class="linenos">2072</span></a>
 </span><span id="get_cfbd_game_win_probability_data-2073"><a href="#get_cfbd_game_win_probability_data-2073"><span class="linenos">2073</span></a><span class="sd">    Parameters</span>
 </span><span id="get_cfbd_game_win_probability_data-2074"><a href="#get_cfbd_game_win_probability_data-2074"><span class="linenos">2074</span></a><span class="sd">    ----------</span>
@@ -6384,18 +6384,18 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_game_win_probability_data-2111"><a href="#get_cfbd_game_win_probability_data-2111"><span class="linenos">2111</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_game_win_probability_data</span>
 </span><span id="get_cfbd_game_win_probability_data-2112"><a href="#get_cfbd_game_win_probability_data-2112"><span class="linenos">2112</span></a>
 </span><span id="get_cfbd_game_win_probability_data-2113"><a href="#get_cfbd_game_win_probability_data-2113"><span class="linenos">2113</span></a>
-</span><span id="get_cfbd_game_win_probability_data-2114"><a href="#get_cfbd_game_win_probability_data-2114"><span class="linenos">2114</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_game_win_probability_data-2114"><a href="#get_cfbd_game_win_probability_data-2114"><span class="linenos">2114</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_game_win_probability_data-2115"><a href="#get_cfbd_game_win_probability_data-2115"><span class="linenos">2115</span></a>
-</span><span id="get_cfbd_game_win_probability_data-2116"><a href="#get_cfbd_game_win_probability_data-2116"><span class="linenos">2116</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_game_win_probability_data-2116"><a href="#get_cfbd_game_win_probability_data-2116"><span class="linenos">2116</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_game_win_probability_data-2117"><a href="#get_cfbd_game_win_probability_data-2117"><span class="linenos">2117</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_game_win_probability_data-2118"><a href="#get_cfbd_game_win_probability_data-2118"><span class="linenos">2118</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_game_win_probability_data-2119"><a href="#get_cfbd_game_win_probability_data-2119"><span class="linenos">2119</span></a><span class="sd">            &quot;for this example.&quot;</span>
 </span><span id="get_cfbd_game_win_probability_data-2120"><a href="#get_cfbd_game_win_probability_data-2120"><span class="linenos">2120</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_game_win_probability_data-2121"><a href="#get_cfbd_game_win_probability_data-2121"><span class="linenos">2121</span></a>
-</span><span id="get_cfbd_game_win_probability_data-2122"><a href="#get_cfbd_game_win_probability_data-2122"><span class="linenos">2122</span></a><span class="sd">        # Get the win probablility data for a 2017 game between</span>
+</span><span id="get_cfbd_game_win_probability_data-2122"><a href="#get_cfbd_game_win_probability_data-2122"><span class="linenos">2122</span></a><span class="sd">        # Get the win probability data for a 2017 game between</span>
 </span><span id="get_cfbd_game_win_probability_data-2123"><a href="#get_cfbd_game_win_probability_data-2123"><span class="linenos">2123</span></a><span class="sd">        # the University of Cincinnati and UConn (game ID #400941851).</span>
 </span><span id="get_cfbd_game_win_probability_data-2124"><a href="#get_cfbd_game_win_probability_data-2124"><span class="linenos">2124</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_game_win_probability_data-2125"><a href="#get_cfbd_game_win_probability_data-2125"><span class="linenos">2125</span></a><span class="sd">            &quot;Get the win probablility data for a 2017 game between &quot; +</span>
+</span><span id="get_cfbd_game_win_probability_data-2125"><a href="#get_cfbd_game_win_probability_data-2125"><span class="linenos">2125</span></a><span class="sd">            &quot;Get the win probability data for a 2017 game between &quot; +</span>
 </span><span id="get_cfbd_game_win_probability_data-2126"><a href="#get_cfbd_game_win_probability_data-2126"><span class="linenos">2126</span></a><span class="sd">            &quot;the University of Cincinnati and UConn (game ID #400941851).&quot;</span>
 </span><span id="get_cfbd_game_win_probability_data-2127"><a href="#get_cfbd_game_win_probability_data-2127"><span class="linenos">2127</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_game_win_probability_data-2128"><a href="#get_cfbd_game_win_probability_data-2128"><span class="linenos">2128</span></a><span class="sd">        json_data = get_cfbd_game_win_probability_data(</span>
@@ -6405,11 +6405,11 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_game_win_probability_data-2132"><a href="#get_cfbd_game_win_probability_data-2132"><span class="linenos">2132</span></a><span class="sd">        print(json_data)</span>
 </span><span id="get_cfbd_game_win_probability_data-2133"><a href="#get_cfbd_game_win_probability_data-2133"><span class="linenos">2133</span></a><span class="sd">        time.sleep(5)</span>
 </span><span id="get_cfbd_game_win_probability_data-2134"><a href="#get_cfbd_game_win_probability_data-2134"><span class="linenos">2134</span></a>
-</span><span id="get_cfbd_game_win_probability_data-2135"><a href="#get_cfbd_game_win_probability_data-2135"><span class="linenos">2135</span></a><span class="sd">        # Get the win probablility data for a 2023 game between</span>
+</span><span id="get_cfbd_game_win_probability_data-2135"><a href="#get_cfbd_game_win_probability_data-2135"><span class="linenos">2135</span></a><span class="sd">        # Get the win probability data for a 2023 game between</span>
 </span><span id="get_cfbd_game_win_probability_data-2136"><a href="#get_cfbd_game_win_probability_data-2136"><span class="linenos">2136</span></a><span class="sd">        # the University of Duke and</span>
 </span><span id="get_cfbd_game_win_probability_data-2137"><a href="#get_cfbd_game_win_probability_data-2137"><span class="linenos">2137</span></a><span class="sd">        # the University of Louisville (game ID #401525535).</span>
 </span><span id="get_cfbd_game_win_probability_data-2138"><a href="#get_cfbd_game_win_probability_data-2138"><span class="linenos">2138</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_game_win_probability_data-2139"><a href="#get_cfbd_game_win_probability_data-2139"><span class="linenos">2139</span></a><span class="sd">            &quot;Get the win probablility data for a 2023 game between &quot; +</span>
+</span><span id="get_cfbd_game_win_probability_data-2139"><a href="#get_cfbd_game_win_probability_data-2139"><span class="linenos">2139</span></a><span class="sd">            &quot;Get the win probability data for a 2023 game between &quot; +</span>
 </span><span id="get_cfbd_game_win_probability_data-2140"><a href="#get_cfbd_game_win_probability_data-2140"><span class="linenos">2140</span></a><span class="sd">            &quot;the University of Duke and &quot; +</span>
 </span><span id="get_cfbd_game_win_probability_data-2141"><a href="#get_cfbd_game_win_probability_data-2141"><span class="linenos">2141</span></a><span class="sd">            &quot;the University of Louisville (game ID #401525535).&quot;</span>
 </span><span id="get_cfbd_game_win_probability_data-2142"><a href="#get_cfbd_game_win_probability_data-2142"><span class="linenos">2142</span></a><span class="sd">        )</span>
@@ -6440,14 +6440,14 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_game_win_probability_data-2167"><a href="#get_cfbd_game_win_probability_data-2167"><span class="linenos">2167</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_game_win_probability_data-2168"><a href="#get_cfbd_game_win_probability_data-2168"><span class="linenos">2168</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_game_win_probability_data-2169"><a href="#get_cfbd_game_win_probability_data-2169"><span class="linenos">2169</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_game_win_probability_data-2170"><a href="#get_cfbd_game_win_probability_data-2170"><span class="linenos">2170</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded into &quot; +</span>
+</span><span id="get_cfbd_game_win_probability_data-2170"><a href="#get_cfbd_game_win_probability_data-2170"><span class="linenos">2170</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded into &quot; +</span>
 </span><span id="get_cfbd_game_win_probability_data-2171"><a href="#get_cfbd_game_win_probability_data-2171"><span class="linenos">2171</span></a><span class="sd">            &quot;this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_game_win_probability_data-2172"><a href="#get_cfbd_game_win_probability_data-2172"><span class="linenos">2172</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_game_win_probability_data-2173"><a href="#get_cfbd_game_win_probability_data-2173"><span class="linenos">2173</span></a>
-</span><span id="get_cfbd_game_win_probability_data-2174"><a href="#get_cfbd_game_win_probability_data-2174"><span class="linenos">2174</span></a><span class="sd">        # Get win probablility data for a 2017 game between</span>
+</span><span id="get_cfbd_game_win_probability_data-2174"><a href="#get_cfbd_game_win_probability_data-2174"><span class="linenos">2174</span></a><span class="sd">        # Get win probability data for a 2017 game between</span>
 </span><span id="get_cfbd_game_win_probability_data-2175"><a href="#get_cfbd_game_win_probability_data-2175"><span class="linenos">2175</span></a><span class="sd">        # the University of Cincinnati and UConn (game ID #400941851).</span>
 </span><span id="get_cfbd_game_win_probability_data-2176"><a href="#get_cfbd_game_win_probability_data-2176"><span class="linenos">2176</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_game_win_probability_data-2177"><a href="#get_cfbd_game_win_probability_data-2177"><span class="linenos">2177</span></a><span class="sd">            &quot;Get the win probablility data for a 2017 game between &quot; +</span>
+</span><span id="get_cfbd_game_win_probability_data-2177"><a href="#get_cfbd_game_win_probability_data-2177"><span class="linenos">2177</span></a><span class="sd">            &quot;Get the win probability data for a 2017 game between &quot; +</span>
 </span><span id="get_cfbd_game_win_probability_data-2178"><a href="#get_cfbd_game_win_probability_data-2178"><span class="linenos">2178</span></a><span class="sd">            &quot;the University of Cincinnati and UConn (game ID #400941851).&quot;</span>
 </span><span id="get_cfbd_game_win_probability_data-2179"><a href="#get_cfbd_game_win_probability_data-2179"><span class="linenos">2179</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_game_win_probability_data-2180"><a href="#get_cfbd_game_win_probability_data-2180"><span class="linenos">2180</span></a><span class="sd">        json_data = get_cfbd_game_win_probability_data(</span>
@@ -6456,11 +6456,11 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_game_win_probability_data-2183"><a href="#get_cfbd_game_win_probability_data-2183"><span class="linenos">2183</span></a><span class="sd">        print(json_data)</span>
 </span><span id="get_cfbd_game_win_probability_data-2184"><a href="#get_cfbd_game_win_probability_data-2184"><span class="linenos">2184</span></a><span class="sd">        time.sleep(5)</span>
 </span><span id="get_cfbd_game_win_probability_data-2185"><a href="#get_cfbd_game_win_probability_data-2185"><span class="linenos">2185</span></a>
-</span><span id="get_cfbd_game_win_probability_data-2186"><a href="#get_cfbd_game_win_probability_data-2186"><span class="linenos">2186</span></a><span class="sd">        # Get win probablility data for a 2023 game between</span>
+</span><span id="get_cfbd_game_win_probability_data-2186"><a href="#get_cfbd_game_win_probability_data-2186"><span class="linenos">2186</span></a><span class="sd">        # Get win probability data for a 2023 game between</span>
 </span><span id="get_cfbd_game_win_probability_data-2187"><a href="#get_cfbd_game_win_probability_data-2187"><span class="linenos">2187</span></a><span class="sd">        # the University of Duke and</span>
 </span><span id="get_cfbd_game_win_probability_data-2188"><a href="#get_cfbd_game_win_probability_data-2188"><span class="linenos">2188</span></a><span class="sd">        # the University of Louisville (game ID #401525535).</span>
 </span><span id="get_cfbd_game_win_probability_data-2189"><a href="#get_cfbd_game_win_probability_data-2189"><span class="linenos">2189</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_game_win_probability_data-2190"><a href="#get_cfbd_game_win_probability_data-2190"><span class="linenos">2190</span></a><span class="sd">            &quot;Get the win probablility data for a 2023 game between &quot; +</span>
+</span><span id="get_cfbd_game_win_probability_data-2190"><a href="#get_cfbd_game_win_probability_data-2190"><span class="linenos">2190</span></a><span class="sd">            &quot;Get the win probability data for a 2023 game between &quot; +</span>
 </span><span id="get_cfbd_game_win_probability_data-2191"><a href="#get_cfbd_game_win_probability_data-2191"><span class="linenos">2191</span></a><span class="sd">            &quot;the University of Duke and &quot; +</span>
 </span><span id="get_cfbd_game_win_probability_data-2192"><a href="#get_cfbd_game_win_probability_data-2192"><span class="linenos">2192</span></a><span class="sd">            &quot;the University of Louisville (game ID #401525535).&quot;</span>
 </span><span id="get_cfbd_game_win_probability_data-2193"><a href="#get_cfbd_game_win_probability_data-2193"><span class="linenos">2193</span></a><span class="sd">        )</span>
@@ -6505,7 +6505,7 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_game_win_probability_data-2232"><a href="#get_cfbd_game_win_probability_data-2232"><span class="linenos">2232</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_game_win_probability_data-2233"><a href="#get_cfbd_game_win_probability_data-2233"><span class="linenos">2233</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_game_win_probability_data-2234"><a href="#get_cfbd_game_win_probability_data-2234"><span class="linenos">2234</span></a>
-</span><span id="get_cfbd_game_win_probability_data-2235"><a href="#get_cfbd_game_win_probability_data-2235"><span class="linenos">2235</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_game_win_probability_data-2235"><a href="#get_cfbd_game_win_probability_data-2235"><span class="linenos">2235</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_game_win_probability_data-2236"><a href="#get_cfbd_game_win_probability_data-2236"><span class="linenos">2236</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_game_win_probability_data-2237"><a href="#get_cfbd_game_win_probability_data-2237"><span class="linenos">2237</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_game_win_probability_data-2238"><a href="#get_cfbd_game_win_probability_data-2238"><span class="linenos">2238</span></a>        <span class="p">)</span>
@@ -6566,8 +6566,8 @@ a dictionary object with player PPA data.</p>
 </span><span id="get_cfbd_game_win_probability_data-2293"><a href="#get_cfbd_game_win_probability_data-2293"><span class="linenos">2293</span></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">wp_df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 </span><span id="get_cfbd_game_win_probability_data-2294"><a href="#get_cfbd_game_win_probability_data-2294"><span class="linenos">2294</span></a>        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
 </span><span id="get_cfbd_game_win_probability_data-2295"><a href="#get_cfbd_game_win_probability_data-2295"><span class="linenos">2295</span></a>            <span class="s2">&quot;The CFBD API accepted your inputs, &quot;</span>
-</span><span id="get_cfbd_game_win_probability_data-2296"><a href="#get_cfbd_game_win_probability_data-2296"><span class="linenos">2296</span></a>            <span class="o">+</span> <span class="s2">&quot;but found no data within your specified input paramaters.&quot;</span>
-</span><span id="get_cfbd_game_win_probability_data-2297"><a href="#get_cfbd_game_win_probability_data-2297"><span class="linenos">2297</span></a>            <span class="o">+</span> <span class="s2">&quot; Please double check your input paramaters.&quot;</span>
+</span><span id="get_cfbd_game_win_probability_data-2296"><a href="#get_cfbd_game_win_probability_data-2296"><span class="linenos">2296</span></a>            <span class="o">+</span> <span class="s2">&quot;but found no data within your specified input parameters.&quot;</span>
+</span><span id="get_cfbd_game_win_probability_data-2297"><a href="#get_cfbd_game_win_probability_data-2297"><span class="linenos">2297</span></a>            <span class="o">+</span> <span class="s2">&quot; Please double check your input parameters.&quot;</span>
 </span><span id="get_cfbd_game_win_probability_data-2298"><a href="#get_cfbd_game_win_probability_data-2298"><span class="linenos">2298</span></a>        <span class="p">)</span>
 </span><span id="get_cfbd_game_win_probability_data-2299"><a href="#get_cfbd_game_win_probability_data-2299"><span class="linenos">2299</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_game_win_probability_data-2300"><a href="#get_cfbd_game_win_probability_data-2300"><span class="linenos">2300</span></a>        <span class="n">wp_df</span> <span class="o">=</span> <span class="n">wp_df</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s2">&quot;home_win_probability&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">})</span>
@@ -6577,7 +6577,7 @@ a dictionary object with player PPA data.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Allows one to get win probabliity data for a given game ID.</p>
+            <div class="docstring"><p>Allows one to get win probability data for a given game ID.</p>
 
 <h2 id="parameters">Parameters</h2>
 
@@ -6618,18 +6618,18 @@ a dictionary object with player PPA data.</p>
 from <a href="">cfbd_json_py.metrics</a> import get_cfbd_game_win_probability_data
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
     )
 
-    # Get the win probablility data for a 2017 game between
+    # Get the win probability data for a 2017 game between
     # the University of Cincinnati and UConn (game ID #400941851).
     print(
-        "Get the win probablility data for a 2017 game between " +
+        "Get the win probability data for a 2017 game between " +
         "the University of Cincinnati and UConn (game ID #400941851)."
     )
     json_data = get_cfbd_game_win_probability_data(
@@ -6639,11 +6639,11 @@ if cfbd_key != "tigersAreAwsome":
     print(json_data)
     time.sleep(5)
 
-    # Get the win probablility data for a 2023 game between
+    # Get the win probability data for a 2023 game between
     # the University of Duke and
     # the University of Louisville (game ID #401525535).
     print(
-        "Get the win probablility data for a 2023 game between " +
+        "Get the win probability data for a 2023 game between " +
         "the University of Duke and " +
         "the University of Louisville (game ID #401525535)."
     )
@@ -6674,14 +6674,14 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded into " +
+        "Using the user's API key supposedly loaded into " +
         "this python environment for this example."
     )
 
-    # Get win probablility data for a 2017 game between
+    # Get win probability data for a 2017 game between
     # the University of Cincinnati and UConn (game ID #400941851).
     print(
-        "Get the win probablility data for a 2017 game between " +
+        "Get the win probability data for a 2017 game between " +
         "the University of Cincinnati and UConn (game ID #400941851)."
     )
     json_data = get_cfbd_game_win_probability_data(
@@ -6690,11 +6690,11 @@ else:
     print(json_data)
     time.sleep(5)
 
-    # Get win probablility data for a 2023 game between
+    # Get win probability data for a 2023 game between
     # the University of Duke and
     # the University of Louisville (game ID #401525535).
     print(
-        "Get the win probablility data for a 2023 game between " +
+        "Get the win probability data for a 2023 game between " +
         "the University of Duke and " +
         "the University of Louisville (game ID #401525535)."
     )
@@ -6751,7 +6751,7 @@ a dictionary object with win probability data at the play-by-play level.</p>
 </span><span id="get_cfbd_pregame_win_probability_data-2314"><a href="#get_cfbd_pregame_win_probability_data-2314"><span class="linenos">2314</span></a><span class="p">):</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2315"><a href="#get_cfbd_pregame_win_probability_data-2315"><span class="linenos">2315</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2316"><a href="#get_cfbd_pregame_win_probability_data-2316"><span class="linenos">2316</span></a><span class="sd">    Allows you to get pregame win probability data</span>
-</span><span id="get_cfbd_pregame_win_probability_data-2317"><a href="#get_cfbd_pregame_win_probability_data-2317"><span class="linenos">2317</span></a><span class="sd">    for games within a timeframe.</span>
+</span><span id="get_cfbd_pregame_win_probability_data-2317"><a href="#get_cfbd_pregame_win_probability_data-2317"><span class="linenos">2317</span></a><span class="sd">    for games within a time frame.</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2318"><a href="#get_cfbd_pregame_win_probability_data-2318"><span class="linenos">2318</span></a>
 </span><span id="get_cfbd_pregame_win_probability_data-2319"><a href="#get_cfbd_pregame_win_probability_data-2319"><span class="linenos">2319</span></a><span class="sd">    Parameters</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2320"><a href="#get_cfbd_pregame_win_probability_data-2320"><span class="linenos">2320</span></a><span class="sd">    ----------</span>
@@ -6783,14 +6783,14 @@ a dictionary object with win probability data at the play-by-play level.</p>
 </span><span id="get_cfbd_pregame_win_probability_data-2346"><a href="#get_cfbd_pregame_win_probability_data-2346"><span class="linenos">2346</span></a><span class="sd">        to load CFB game data from games in that season, and in that week.</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2347"><a href="#get_cfbd_pregame_win_probability_data-2347"><span class="linenos">2347</span></a>
 </span><span id="get_cfbd_pregame_win_probability_data-2348"><a href="#get_cfbd_pregame_win_probability_data-2348"><span class="linenos">2348</span></a><span class="sd">    `team` (str, optional):</span>
-</span><span id="get_cfbd_pregame_win_probability_data-2349"><a href="#get_cfbd_pregame_win_probability_data-2349"><span class="linenos">2349</span></a><span class="sd">        Semi-ptional argument.</span>
+</span><span id="get_cfbd_pregame_win_probability_data-2349"><a href="#get_cfbd_pregame_win_probability_data-2349"><span class="linenos">2349</span></a><span class="sd">        Semi-optional argument.</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2350"><a href="#get_cfbd_pregame_win_probability_data-2350"><span class="linenos">2350</span></a><span class="sd">        If you only want pregame win probability data for a specific team,</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2351"><a href="#get_cfbd_pregame_win_probability_data-2351"><span class="linenos">2351</span></a><span class="sd">        set `team` to the name of the team</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2352"><a href="#get_cfbd_pregame_win_probability_data-2352"><span class="linenos">2352</span></a><span class="sd">        you want pregame win probability data from.</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2353"><a href="#get_cfbd_pregame_win_probability_data-2353"><span class="linenos">2353</span></a>
 </span><span id="get_cfbd_pregame_win_probability_data-2354"><a href="#get_cfbd_pregame_win_probability_data-2354"><span class="linenos">2354</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2355"><a href="#get_cfbd_pregame_win_probability_data-2355"><span class="linenos">2355</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="get_cfbd_pregame_win_probability_data-2356"><a href="#get_cfbd_pregame_win_probability_data-2356"><span class="linenos">2356</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="get_cfbd_pregame_win_probability_data-2356"><a href="#get_cfbd_pregame_win_probability_data-2356"><span class="linenos">2356</span></a><span class="sd">        By default, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2357"><a href="#get_cfbd_pregame_win_probability_data-2357"><span class="linenos">2357</span></a><span class="sd">        If you want CFB game information for non-regular season games,</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2358"><a href="#get_cfbd_pregame_win_probability_data-2358"><span class="linenos">2358</span></a><span class="sd">        set `season_type` to &quot;postseason&quot;.</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2359"><a href="#get_cfbd_pregame_win_probability_data-2359"><span class="linenos">2359</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;,</span>
@@ -6811,9 +6811,9 @@ a dictionary object with win probability data at the play-by-play level.</p>
 </span><span id="get_cfbd_pregame_win_probability_data-2374"><a href="#get_cfbd_pregame_win_probability_data-2374"><span class="linenos">2374</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_pregame_win_probability_data</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2375"><a href="#get_cfbd_pregame_win_probability_data-2375"><span class="linenos">2375</span></a>
 </span><span id="get_cfbd_pregame_win_probability_data-2376"><a href="#get_cfbd_pregame_win_probability_data-2376"><span class="linenos">2376</span></a>
-</span><span id="get_cfbd_pregame_win_probability_data-2377"><a href="#get_cfbd_pregame_win_probability_data-2377"><span class="linenos">2377</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_pregame_win_probability_data-2377"><a href="#get_cfbd_pregame_win_probability_data-2377"><span class="linenos">2377</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2378"><a href="#get_cfbd_pregame_win_probability_data-2378"><span class="linenos">2378</span></a>
-</span><span id="get_cfbd_pregame_win_probability_data-2379"><a href="#get_cfbd_pregame_win_probability_data-2379"><span class="linenos">2379</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_pregame_win_probability_data-2379"><a href="#get_cfbd_pregame_win_probability_data-2379"><span class="linenos">2379</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2380"><a href="#get_cfbd_pregame_win_probability_data-2380"><span class="linenos">2380</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2381"><a href="#get_cfbd_pregame_win_probability_data-2381"><span class="linenos">2381</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2382"><a href="#get_cfbd_pregame_win_probability_data-2382"><span class="linenos">2382</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -6894,7 +6894,7 @@ a dictionary object with win probability data at the play-by-play level.</p>
 </span><span id="get_cfbd_pregame_win_probability_data-2457"><a href="#get_cfbd_pregame_win_probability_data-2457"><span class="linenos">2457</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2458"><a href="#get_cfbd_pregame_win_probability_data-2458"><span class="linenos">2458</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2459"><a href="#get_cfbd_pregame_win_probability_data-2459"><span class="linenos">2459</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_pregame_win_probability_data-2460"><a href="#get_cfbd_pregame_win_probability_data-2460"><span class="linenos">2460</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_pregame_win_probability_data-2460"><a href="#get_cfbd_pregame_win_probability_data-2460"><span class="linenos">2460</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2461"><a href="#get_cfbd_pregame_win_probability_data-2461"><span class="linenos">2461</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2462"><a href="#get_cfbd_pregame_win_probability_data-2462"><span class="linenos">2462</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2463"><a href="#get_cfbd_pregame_win_probability_data-2463"><span class="linenos">2463</span></a>
@@ -6984,7 +6984,7 @@ a dictionary object with win probability data at the play-by-play level.</p>
 </span><span id="get_cfbd_pregame_win_probability_data-2547"><a href="#get_cfbd_pregame_win_probability_data-2547"><span class="linenos">2547</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2548"><a href="#get_cfbd_pregame_win_probability_data-2548"><span class="linenos">2548</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2549"><a href="#get_cfbd_pregame_win_probability_data-2549"><span class="linenos">2549</span></a>
-</span><span id="get_cfbd_pregame_win_probability_data-2550"><a href="#get_cfbd_pregame_win_probability_data-2550"><span class="linenos">2550</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_pregame_win_probability_data-2550"><a href="#get_cfbd_pregame_win_probability_data-2550"><span class="linenos">2550</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2551"><a href="#get_cfbd_pregame_win_probability_data-2551"><span class="linenos">2551</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2552"><a href="#get_cfbd_pregame_win_probability_data-2552"><span class="linenos">2552</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2553"><a href="#get_cfbd_pregame_win_probability_data-2553"><span class="linenos">2553</span></a>        <span class="p">)</span>
@@ -7082,8 +7082,8 @@ a dictionary object with win probability data at the play-by-play level.</p>
 </span><span id="get_cfbd_pregame_win_probability_data-2645"><a href="#get_cfbd_pregame_win_probability_data-2645"><span class="linenos">2645</span></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">wp_df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2646"><a href="#get_cfbd_pregame_win_probability_data-2646"><span class="linenos">2646</span></a>        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2647"><a href="#get_cfbd_pregame_win_probability_data-2647"><span class="linenos">2647</span></a>            <span class="s2">&quot;The CFBD API accepted your inputs, &quot;</span>
-</span><span id="get_cfbd_pregame_win_probability_data-2648"><a href="#get_cfbd_pregame_win_probability_data-2648"><span class="linenos">2648</span></a>            <span class="o">+</span> <span class="s2">&quot;but found no data within your specified input paramaters.&quot;</span>
-</span><span id="get_cfbd_pregame_win_probability_data-2649"><a href="#get_cfbd_pregame_win_probability_data-2649"><span class="linenos">2649</span></a>            <span class="o">+</span> <span class="s2">&quot; Please double check your input paramaters.&quot;</span>
+</span><span id="get_cfbd_pregame_win_probability_data-2648"><a href="#get_cfbd_pregame_win_probability_data-2648"><span class="linenos">2648</span></a>            <span class="o">+</span> <span class="s2">&quot;but found no data within your specified input parameters.&quot;</span>
+</span><span id="get_cfbd_pregame_win_probability_data-2649"><a href="#get_cfbd_pregame_win_probability_data-2649"><span class="linenos">2649</span></a>            <span class="o">+</span> <span class="s2">&quot; Please double check your input parameters.&quot;</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2650"><a href="#get_cfbd_pregame_win_probability_data-2650"><span class="linenos">2650</span></a>        <span class="p">)</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2651"><a href="#get_cfbd_pregame_win_probability_data-2651"><span class="linenos">2651</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_pregame_win_probability_data-2652"><a href="#get_cfbd_pregame_win_probability_data-2652"><span class="linenos">2652</span></a>        <span class="n">wp_df</span> <span class="o">=</span> <span class="n">wp_df</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s2">&quot;home_win_probability&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">})</span>
@@ -7094,7 +7094,7 @@ a dictionary object with win probability data at the play-by-play level.</p>
 
 
             <div class="docstring"><p>Allows you to get pregame win probability data
-for games within a timeframe.</p>
+for games within a time frame.</p>
 
 <h2 id="parameters">Parameters</h2>
 
@@ -7126,14 +7126,14 @@ for games within a timeframe.</p>
     to load CFB game data from games in that season, and in that week.</p>
 
 <p><code>team</code> (str, optional):
-    Semi-ptional argument.
+    Semi-optional argument.
     If you only want pregame win probability data for a specific team,
     set <code>team</code> to the name of the team
     you want pregame win probability data from.</p>
 
 <p><code>season_type</code> (str, semi-optional):
     Semi-optional argument.
-    By defualt, this will be set to "regular", for the CFB regular season.
+    By default, this will be set to "regular", for the CFB regular season.
     If you want CFB game information for non-regular season games,
     set <code>season_type</code> to "postseason".
     If <code>season_type</code> is set to anything but "regular" or "postseason",
@@ -7153,9 +7153,9 @@ for games within a timeframe.</p>
 from <a href="">cfbd_json_py.metrics</a> import get_cfbd_pregame_win_probability_data
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -7236,7 +7236,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 
@@ -7331,7 +7331,7 @@ a dictionary object with a pregame win probability data.</p>
 </span><span id="get_cfbd_fg_expected_points-2659"><a href="#get_cfbd_fg_expected_points-2659"><span class="linenos">2659</span></a>    <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">api_key_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 </span><span id="get_cfbd_fg_expected_points-2660"><a href="#get_cfbd_fg_expected_points-2660"><span class="linenos">2660</span></a><span class="p">):</span>
 </span><span id="get_cfbd_fg_expected_points-2661"><a href="#get_cfbd_fg_expected_points-2661"><span class="linenos">2661</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="get_cfbd_fg_expected_points-2662"><a href="#get_cfbd_fg_expected_points-2662"><span class="linenos">2662</span></a><span class="sd">    Retrives Expected Points data for field goals from the CFBD API.</span>
+</span><span id="get_cfbd_fg_expected_points-2662"><a href="#get_cfbd_fg_expected_points-2662"><span class="linenos">2662</span></a><span class="sd">    Retrieves Expected Points data for field goals from the CFBD API.</span>
 </span><span id="get_cfbd_fg_expected_points-2663"><a href="#get_cfbd_fg_expected_points-2663"><span class="linenos">2663</span></a>
 </span><span id="get_cfbd_fg_expected_points-2664"><a href="#get_cfbd_fg_expected_points-2664"><span class="linenos">2664</span></a><span class="sd">    Parameters</span>
 </span><span id="get_cfbd_fg_expected_points-2665"><a href="#get_cfbd_fg_expected_points-2665"><span class="linenos">2665</span></a><span class="sd">    ----------</span>
@@ -7368,9 +7368,9 @@ a dictionary object with a pregame win probability data.</p>
 </span><span id="get_cfbd_fg_expected_points-2696"><a href="#get_cfbd_fg_expected_points-2696"><span class="linenos">2696</span></a><span class="sd">    from cfbd_json_py.metrics import get_cfbd_fg_expected_points</span>
 </span><span id="get_cfbd_fg_expected_points-2697"><a href="#get_cfbd_fg_expected_points-2697"><span class="linenos">2697</span></a>
 </span><span id="get_cfbd_fg_expected_points-2698"><a href="#get_cfbd_fg_expected_points-2698"><span class="linenos">2698</span></a>
-</span><span id="get_cfbd_fg_expected_points-2699"><a href="#get_cfbd_fg_expected_points-2699"><span class="linenos">2699</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_fg_expected_points-2699"><a href="#get_cfbd_fg_expected_points-2699"><span class="linenos">2699</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_fg_expected_points-2700"><a href="#get_cfbd_fg_expected_points-2700"><span class="linenos">2700</span></a>
-</span><span id="get_cfbd_fg_expected_points-2701"><a href="#get_cfbd_fg_expected_points-2701"><span class="linenos">2701</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_fg_expected_points-2701"><a href="#get_cfbd_fg_expected_points-2701"><span class="linenos">2701</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_fg_expected_points-2702"><a href="#get_cfbd_fg_expected_points-2702"><span class="linenos">2702</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_fg_expected_points-2703"><a href="#get_cfbd_fg_expected_points-2703"><span class="linenos">2703</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_fg_expected_points-2704"><a href="#get_cfbd_fg_expected_points-2704"><span class="linenos">2704</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -7407,7 +7407,7 @@ a dictionary object with a pregame win probability data.</p>
 </span><span id="get_cfbd_fg_expected_points-2735"><a href="#get_cfbd_fg_expected_points-2735"><span class="linenos">2735</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_fg_expected_points-2736"><a href="#get_cfbd_fg_expected_points-2736"><span class="linenos">2736</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_fg_expected_points-2737"><a href="#get_cfbd_fg_expected_points-2737"><span class="linenos">2737</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_fg_expected_points-2738"><a href="#get_cfbd_fg_expected_points-2738"><span class="linenos">2738</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_fg_expected_points-2738"><a href="#get_cfbd_fg_expected_points-2738"><span class="linenos">2738</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_fg_expected_points-2739"><a href="#get_cfbd_fg_expected_points-2739"><span class="linenos">2739</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_fg_expected_points-2740"><a href="#get_cfbd_fg_expected_points-2740"><span class="linenos">2740</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_fg_expected_points-2741"><a href="#get_cfbd_fg_expected_points-2741"><span class="linenos">2741</span></a>
@@ -7454,7 +7454,7 @@ a dictionary object with a pregame win probability data.</p>
 </span><span id="get_cfbd_fg_expected_points-2782"><a href="#get_cfbd_fg_expected_points-2782"><span class="linenos">2782</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_fg_expected_points-2783"><a href="#get_cfbd_fg_expected_points-2783"><span class="linenos">2783</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_fg_expected_points-2784"><a href="#get_cfbd_fg_expected_points-2784"><span class="linenos">2784</span></a>
-</span><span id="get_cfbd_fg_expected_points-2785"><a href="#get_cfbd_fg_expected_points-2785"><span class="linenos">2785</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_fg_expected_points-2785"><a href="#get_cfbd_fg_expected_points-2785"><span class="linenos">2785</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_fg_expected_points-2786"><a href="#get_cfbd_fg_expected_points-2786"><span class="linenos">2786</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_fg_expected_points-2787"><a href="#get_cfbd_fg_expected_points-2787"><span class="linenos">2787</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_fg_expected_points-2788"><a href="#get_cfbd_fg_expected_points-2788"><span class="linenos">2788</span></a>        <span class="p">)</span>
@@ -7500,7 +7500,7 @@ a dictionary object with a pregame win probability data.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Retrives Expected Points data for field goals from the CFBD API.</p>
+            <div class="docstring"><p>Retrieves Expected Points data for field goals from the CFBD API.</p>
 
 <h2 id="parameters">Parameters</h2>
 
@@ -7536,9 +7536,9 @@ a dictionary object with a pregame win probability data.</p>
 from <a href="">cfbd_json_py.metrics</a> import get_cfbd_fg_expected_points
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -7575,7 +7575,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 

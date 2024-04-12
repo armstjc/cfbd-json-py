@@ -1,6 +1,6 @@
 """
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: betting.py
 # Purpose: Houses functions pertaining to betting data within the CFBD API.
@@ -35,14 +35,14 @@ def get_cfbd_betting_lines(
     return_as_dict: bool = False,
 ):
     """
-    Retrives betting information from the CFBD API for a given season,
+    Retrieves betting information from the CFBD API for a given season,
     or you could only get betting information for a single game.
 
     Parameters
     ----------
 
     `season` (int, mandatory):
-        The season you want to retrive betting information from.
+        The season you want to retrieve betting information from.
 
     `api_key` (str, optional):
         Semi-optional argument.
@@ -66,7 +66,7 @@ def get_cfbd_betting_lines(
         Optional argument.
         If `game_id` is set to a game ID,
         `get_cfb_betting_lines()` will try to get
-        all betting informaiton for that game ID.
+        all betting information for that game ID.
 
     `week` (int, optional):
         Optional argument.
@@ -75,7 +75,7 @@ def get_cfbd_betting_lines(
 
     `season_type` (str, semi-optional):
         Semi-optional argument.
-        By defualt, this will be set to "regular", for the CFB regular season.
+        By default, this will be set to "regular", for the CFB regular season.
         If you want postseason betting data, set `season_type` to "postseason".
         If `season_type` is set to anything but "regular" or "postseason",
         a `ValueError()` will be raised.
@@ -105,9 +105,9 @@ def get_cfbd_betting_lines(
     `conference` (str, optional):
         Optional argument.
         If you only want betting information from games
-        involving teams a specific confrence,
+        involving teams a specific conference,
         set `conference` to the abbreviation
-        of the conference you want betting informaiton from.
+        of the conference you want betting information from.
 
     `year` (int):
         Alternative keyword for `season`
@@ -132,9 +132,9 @@ def get_cfbd_betting_lines(
 
     from cfbd_json_py.betting import get_cfbd_betting_lines
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key is not "tigersAreAwsome":
+    if cfbd_key is not "tigersAreAwesome":
         print(
             "Using the user's API key declared " +
             "in this script for this example."
@@ -252,7 +252,7 @@ def get_cfbd_betting_lines(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -402,16 +402,6 @@ def get_cfbd_betting_lines(
     elif away is not None:
         away_team = away
 
-    # if conference is not None and conference is not None \
-    #     and (conferenceis notconference):
-    #     raise ValueError(
-    #         "Inconsistent inputs for `conference` and `conference`."+
-    #         "\nPlease use either `conference` OR `conference` "+
-    #         "when calling this function"
-    #     )
-    # elif conference is not None:
-    #     conference = conference
-
     del year, home, away
 
     if game_id is not None and season is not None:
@@ -439,7 +429,7 @@ def get_cfbd_betting_lines(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )

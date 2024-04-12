@@ -1,6 +1,6 @@
 """
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: plays.py
 # Purpose: Houses functions pertaining to CFB play data within the CFBD API.
@@ -76,7 +76,7 @@ def get_cfbd_pbp_data(
 
     `season_type` (str, semi-optional):
         Semi-optional argument.
-        By defualt, this will be set to "regular", for the CFB regular season.
+        By default, this will be set to "regular", for the CFB regular season.
         If you want CFB poll rankings data for non-regular season games,
         set `season_type` to "postseason".
         If `season_type` is set to anything but "regular" or "postseason",
@@ -97,30 +97,30 @@ def get_cfbd_pbp_data(
     `conference` (str, optional):
         Optional argument.
         If you only want CFB drive data from games
-        involving teams from a specific confrence,
+        involving teams from a specific conference,
         set `conference` to the abbreviation
         of the conference you want CFB drive data from.
-        For a list of confrences,
+        For a list of conferences,
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
         function.
 
     `offensive_conference` (str, optional):
         Optional argument.
         If you only want CFB drive data from games
-        where the offensive team is from a specific confrenece,
+        where the offensive team is from a specific conference,
         set `conference` to the abbreviation
         of the conference you want CFB drive data from.
-        For a list of confrences,
+        For a list of conferences,
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
         function.
 
     `defensive_conference` (str, optional):
         Optional argument.
         If you only want CFB drive data from games
-        where the defensive team is from a specific confrenece,
+        where the defensive team is from a specific conference,
         set `conference` to the abbreviation
         of the conference you want CFB drive data from.
-        For a list of confrences,
+        For a list of conferences,
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
         function.
 
@@ -129,7 +129,7 @@ def get_cfbd_pbp_data(
         If want to drill down, and only get plays of a specific type,
         (like rushing, passing, kicking plays),
         set `play_type` to the ID for the play type you want returned.
-        To retrive a list of valid play type IDs,
+        To retrieve a list of valid play type IDs,
         use `cfbd_json_py.plays.get_cfbd_pbp_play_types()`.
 
     `ncaa_division` (str, semi-optional):
@@ -138,8 +138,8 @@ def get_cfbd_pbp_data(
         short for the Football Bowl Subdivision (FBS),
         formerly known as D1-A (read as "division one single A"),
         the highest level in the NCAA football pyramid,
-        where teams can scolarship up to 85 players
-        on their football team soley for athletic ability,
+        where teams can scholarship up to 85 players
+        on their football team solely for athletic ability,
         and often have the largest athletics budgets
         within the NCAA.
 
@@ -147,17 +147,18 @@ def get_cfbd_pbp_data(
         - "fcs": Football Championship Subdivision (FCS),
             formerly known as D1-AA (read as "division one double A").
             An FCS school is still in the 1st division of the NCAA,
-            making them elligable for the March Madness tournament,
+            making them eligible for the March Madness tournament,
             but may not have the resources to compete at the FBS level
-            at this time. FCS schools are limited to 63 athletic scolarships
+            at this time. FCS schools are limited to 63 athletic scholarships
             for football.
         - "ii": NCAA Division II. Schools in this and D3 are not
-            elligable for the March Madness tournament,
-            and are limited to 36 athletic scolarships for their football team.
+            eligible for the March Madness tournament,
+            and are limited to 36 athletic scholarships
+            for their football team.
         - "iii": NCAA Division III. The largest single division within the
             NCAA football pyramid.
             D3 schools have the distinction of being part of
-            the only NCAA division that cannot give out scolarships soley
+            the only NCAA division that cannot give out scholarships solely
             for athletic ability.
 
 
@@ -176,9 +177,9 @@ def get_cfbd_pbp_data(
     from cfbd_json_py.plays import get_cfbd_pbp_data
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -333,7 +334,7 @@ def get_cfbd_pbp_data(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -497,7 +498,7 @@ def get_cfbd_pbp_data(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -692,7 +693,7 @@ def get_cfbd_pbp_play_types(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -809,12 +810,12 @@ def get_cfbd_pbp_stats(
         If want to drill down, and only get plays of a specific type,
         (like rushing, passing, kicking plays),
         set `play_type` to the ID for the play type you want returned.
-        To retrive a list of valid play type IDs,
+        To retrieve a list of valid play type IDs,
         use `cfbd_json_py.plays.get_cfbd_pbp_play_types()`.
 
     `season_type` (str, semi-optional):
         Semi-optional argument.
-        By defualt, this will be set to "regular", for the CFB regular season.
+        By default, this will be set to "regular", for the CFB regular season.
         If you want CFB poll rankings data for non-regular season games,
         set `season_type` to "postseason".
         If `season_type` is set to anything but "regular" or "postseason",
@@ -823,10 +824,10 @@ def get_cfbd_pbp_stats(
     `conference` (str, optional):
         Optional argument.
         If you only want CFB drive data from games
-        involving teams from a specific confrence,
+        involving teams from a specific conference,
         set `conference` to the abbreviation
         of the conference you want CFB drive data from.
-        For a list of confrences,
+        For a list of conferences,
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
         function.
 
@@ -845,9 +846,9 @@ def get_cfbd_pbp_stats(
     from cfbd_json_py.plays import get_cfbd_pbp_stats
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -960,7 +961,7 @@ def get_cfbd_pbp_stats(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -1069,7 +1070,7 @@ def get_cfbd_pbp_stats(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -1099,7 +1100,7 @@ def get_cfbd_pbp_stats(
         logging.warn(
             "This endpoint only returns the top 1,000 results. "
             + "Not setting a value for `season` or `game_id` "
-            + "is not a reccomended practice."
+            + "is not a recommended practice."
         )
     elif season is not None and game_id is None:
         logging.warn(
@@ -1273,7 +1274,7 @@ def get_cfbd_pbp_stat_types(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -1322,7 +1323,7 @@ def get_cfbd_pbp_stat_types(
 
 ###############################################################################
 # Patreon Only Functions.
-#   No cacheing, because the entire point of these functions are to get people
+#   No caching, because the entire point of these functions are to get people
 #   data ASAP, and right before kickoff.
 ###############################################################################
 

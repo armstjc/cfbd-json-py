@@ -1,5 +1,9 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.1.2: The "Spell Check" update
+- Fixed spelling errors previously present in earlier versions of this python package.
+- Updated the package version to `0.1.2`.
+
 ## 0.1.1: The "housekeeping" update
 - Cleaned up the formatting of all functions and python code.
 - Updated the package version to `0.1.1`.
@@ -13,7 +17,7 @@
 
 - Implemented `cfbd_json_py.ratings.get_cfbd_fpi_ratings()`, a function that allows a user to get Football Power Index (FPI) ratings data directly from the CFBD API.  
 - Implemented `cfbd_json_py.ratings.get_cfbd_elo_ratings()`, a function that allows a user to get Elo ratings data directly from the CFBD API.  
-- Implemented `cfbd_json_py.ratings.get_cfbd_sp_plus_conference_ratings()`, a function that allows a user to get Success rate and equivalent Points per play (S&P+) ratings data, grouped by confrence, directly from the CFBD API.  
+- Implemented `cfbd_json_py.ratings.get_cfbd_sp_plus_conference_ratings()`, a function that allows a user to get Success rate and equivalent Points per play (S&P+) ratings data, grouped by conference, directly from the CFBD API.  
 - Implemented `cfbd_json_py.ratings.get_cfbd_sp_plus_ratings()`, a function that allows a user to get Success rate and equivalent Points per play (S&P+) ratings data, directly from the CFBD API.  
 - Implemented `cfbd_json_py.ratings.get_cfbd_sp_plus_ratings()`, a function that allows a user to get Simple Rating System (SRS) ratings data, directly from the CFBD API.  
 - Updated the package version to `0.0.20`.
@@ -24,14 +28,14 @@
 - Implemented `cfbd_json_py.stats.get_cfbd_advanced_team_game_stats()`, a function that allows a user to get advanced CFB team game stats, from the CFBD API.
 - Implemented `cfbd_json_py.stats.get_cfbd_advanced_team_season_stats()`, a function that allows a user to get advanced CFB team season stats, from the CFBD API.
 - Implemented `cfbd_json_py.stats.get_cfbd_team_season_stats()`, a function that allows a user to get CFB team season stats, from the CFBD API.
-- Implemented `cfbd_json_py.metrics.get_cfbd_fg_expected_points()`, a fucntion based off of the recently added `/metrics/fg/ep` endpoint to the CFBD API in version `4.5.2`,  which returns the expected points of a field goal for every yard line on a football field.
+- Implemented `cfbd_json_py.metrics.get_cfbd_fg_expected_points()`, a function based off of the recently added `/metrics/fg/ep` endpoint to the CFBD API in version `4.5.2`,  which returns the expected points of a field goal for every yard line on a football field.
 - Updated the package's GitHub repo to identify the current version of the CFBD API as `"4.5.2"` instead of `"4.5.1"`
 - Updated the package version to `0.0.19`.
 
 
 ## 0.0.18: The "recruiting" Update
 - Implemented `cfbd_json_py.recruiting.get_cfbd_team_recruiting_group_ratings()`, a function that allows a user to get CFB recruiting data, grouped by the team and position, from the CFBD API.
-- Implemented `cfbd_json_py.recruiting.get_cfbd_team_recruiting_ratings()`, a function that allows a user to get team recruting rankings, from the CFBD API.
+- Implemented `cfbd_json_py.recruiting.get_cfbd_team_recruiting_ratings()`, a function that allows a user to get team recruiting rankings, from the CFBD API.
 - Implemented `cfbd_json_py.recruiting.get_cfbd_player_recruit_ratings()`, a function that allows a user to get a list of players recruited to CFB teams, from the CFBD API.
 - Updated the package version to `0.0.18`.
 
@@ -44,7 +48,7 @@
 - Updated the package version to `0.0.17`.
 
 ## 0.0.16: The "Maintenance" Update
-- **NOTE**: This update is to push the prevous `0.0.15` update to PyPi.
+- **NOTE**: This update is to push the previous `0.0.15` update to PyPi.
 - Implemented `cfbd_json_py.teams.get_cfbd_team_information()`, a function that allows a user to get CFB team information from the CFBD API.
 - Updated the package version to `0.0.16`.
 
@@ -79,7 +83,7 @@
 - Implemented `cfbd_json_py.players.get_cfbd_player_usage()`, a function that allows a user to get player usage data from the CFBD API.
 - Implemented `cfbd_json_py.players.get_cfbd_pregame_win_probability_data()`, a function that allows a user to lookup known players in the CFBD API.
 - Updated the function descriptions for `cfbd_json_py.games.get_cfbd_player_game_stats()`, and added a `["season"]` column to the function's output, should `return_as_dict = False`.
-- Updated the validation logic for the `season` input variable for the following functions, by alowing a user to lookup data for the next CFB season:
+- Updated the validation logic for the `season` input variable for the following functions, by allowing a user to lookup data for the next CFB season:
   - `cfbd_json_py.drives.get_cfbd_drives_info()`
   - `cfbd_json_py.games.get_cfbd_games()`
   - `cfbd_json_py.games.get_cfbd_season_weeks()`
@@ -117,12 +121,12 @@
 
 ## 0.0.8: The "Games" Update
 
-- Implemented `cfbd_json_py.games.get_cfbd_player_advanced_game_stats()`, a function that allows a user to get advanced player game stats for actual CFB games in a specific timeframe, from the CFBD API.
-- Implemented `cfbd_json_py.games.get_cfbd_player_game_stats()`, a function that allows a user to get player game stats for actual CFB games in a specific timeframe, from the CFBD API.
-- Implemented `cfbd_json_py.games.get_cfbd_game_media_info()`, a function that allows a user to get a list of known broadcasters for actual CFB games in a specific timeframe, from the CFBD API.
-- Implemented `cfbd_json_py.games.get_cfbd_season_weeks()`, a function that allows a user to get a list of weeks that occured in a given CFB season from the CFBD API.
+- Implemented `cfbd_json_py.games.get_cfbd_player_advanced_game_stats()`, a function that allows a user to get advanced player game stats for actual CFB games in a specific time frame, from the CFBD API.
+- Implemented `cfbd_json_py.games.get_cfbd_player_game_stats()`, a function that allows a user to get player game stats for actual CFB games in a specific time frame, from the CFBD API.
+- Implemented `cfbd_json_py.games.get_cfbd_game_media_info()`, a function that allows a user to get a list of known broadcasters for actual CFB games in a specific time frame, from the CFBD API.
+- Implemented `cfbd_json_py.games.get_cfbd_season_weeks()`, a function that allows a user to get a list of weeks that occurred in a given CFB season from the CFBD API.
 - Implemented `cfbd_json_py.games.get_cfbd_team_records()`, a function that allows a user to get team records data from the CFBD API.
-- Fixed multiple bugs that would prevent a user from properly calling `cfbd_json_py.games.get_cfbd_games()` in certian edge cases.
+- Fixed multiple bugs that would prevent a user from properly calling `cfbd_json_py.games.get_cfbd_games()` in certain edge cases.
 - Attempted a fix for the `generate_docs.yml` GitHub Workflow to allow it to call `pdoc` properly within GitHub Actions.
 - Updated the package version to `0.0.8`.
 
@@ -131,8 +135,8 @@
 - Implemented `cfbd_json_py.games.get_cfbd_games()`, a function that allows a user to get game/schedule data from the CFBD API.
 - Added a Docs webpage framework to this package by using [pdoc](https://pdoc.dev/)
 - Added `cfbd_json_py._early_access`, a section specifically for CFBD API endpoints that exist, but aren't implemented yet by this python package.
-- Added python file descriptors to track changes, detail when a file was first created, and explian the python file's purpose.
-- Implemented the `check_cfbd_api_compatability.py` python script, a script that checks if this python package is compatible with the most recent version of the CFBD API, and raises a `ValueError()` if that isn't the case.
+- Added python file descriptors to track changes, detail when a file was first created, and explain the python file's purpose.
+- Implemented the `check_cfbd_api_compatibility.py` python script, a script that checks if this python package is compatible with the most recent version of the CFBD API, and raises a `ValueError()` if that isn't the case.
 - Updated the package version to `0.0.7`.
 
 ## 0.0.6: The "Drives" Update.
@@ -155,14 +159,14 @@
 
 ## 0.0.4: The "Conferences" Update.
 
-- Implemented `cfbd_json_py.conferences.get_cfbd_conference_info()`, a function that allows a user to get CFB confrence info from the CFBD API.
+- Implemented `cfbd_json_py.conferences.get_cfbd_conference_info()`, a function that allows a user to get CFB conference info from the CFBD API.
 - Updated the package version to `0.0.4`.
 
 ## 0.0.3: The "Coaches" Update.
 
-- Implemented `cfbd_json_py.coaches.get_cfbd_coaches_info()`, a function that allows a user to get CFB head coach information from a specified season, timeframe, team, or name.
+- Implemented `cfbd_json_py.coaches.get_cfbd_coaches_info()`, a function that allows a user to get CFB head coach information from a specified season, time frame, team, or name.
 - Updated the sample script found in the help guide for `cfbd_json_py.betting.get_cfbd_betting_lines()`.
-- Fixed a bug in `cfbd_json_py.betting.get_cfbd_betting_lines()` that would always result in the function not recognizing if the inputed `api_key` is the placeholder key inside the sample script for this function.
+- Fixed a bug in `cfbd_json_py.betting.get_cfbd_betting_lines()` that would always result in the function not recognizing if the imputed `api_key` is the placeholder key inside the sample script for this function.
 - Updated the package version to `0.0.3`.
 
 ## 0.0.2: The "Betting" Update.

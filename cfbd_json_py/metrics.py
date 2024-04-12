@@ -1,6 +1,6 @@
 """
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: metrics.py
 # Purpose: Houses functions pertaining to various CFB
@@ -48,7 +48,7 @@ def get_cfbd_predicted_ppa_from_down_distance(
     `distance` (int, mandatory):
         Mandatory argument.
         This variable should be set to the number of yards between
-        the line of scrimage (LOS), and the first down line on the field.
+        the line of scrimmage (LOS), and the first down line on the field.
 
     `api_key` (str, optional):
         Semi-optional argument.
@@ -82,9 +82,9 @@ def get_cfbd_predicted_ppa_from_down_distance(
     from cfbd_json_py.metrics import get_cfbd_predicted_ppa_from_down_distance
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared " +
             "in this script for this example."
@@ -125,7 +125,7 @@ def get_cfbd_predicted_ppa_from_down_distance(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -160,9 +160,9 @@ def get_cfbd_predicted_ppa_from_down_distance(
     ```
     Returns
     ----------
-    A pandas `DataFrame` object with a calculated PPA from a dwon and distance,
+    A pandas `DataFrame` object with a calculated PPA from a down and distance,
     or (if `return_as_dict` is set to `True`)
-    a dictionary object with a calculated PPA from a dwon and distance.
+    a dictionary object with a calculated PPA from a down and distance.
 
 
     """
@@ -178,7 +178,7 @@ def get_cfbd_predicted_ppa_from_down_distance(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -287,7 +287,7 @@ def get_cfbd_team_season_ppa_data(
     Allows you to get team PPA data,
     over an entire season,
     with or without garbage time plays,
-    for a specificed team and/or time period.
+    for a specified team and/or time period.
 
     PPA is the CFBD API's equivalent metric to Expected Points Added (EPA).
 
@@ -319,7 +319,7 @@ def get_cfbd_team_season_ppa_data(
         will be raised.
 
     `team` (str, optional):
-        Semi-ptional argument.
+        Semi-optional argument.
         If you only want team PPA data for a specific team,
         set `team` to the name of the team you want team PPA data from.
         You MUST set `season` or `team` to a non-null value for
@@ -329,10 +329,10 @@ def get_cfbd_team_season_ppa_data(
     `conference` (str, optional):
         Optional argument.
         If you only want team PPA data from games
-        involving teams from a specific confrence,
+        involving teams from a specific conference,
         set `conference` to the abbreviation
         of the conference you want team PPA data from.
-        For a list of confrences,
+        For a list of conferences,
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
         function.
 
@@ -359,9 +359,9 @@ def get_cfbd_team_season_ppa_data(
     from cfbd_json_py.metrics import get_cfbd_team_season_ppa_data
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -435,7 +435,7 @@ def get_cfbd_team_season_ppa_data(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded into " +
+            "Using the user's API key supposedly loaded into " +
             "this python environment for this example."
         )
 
@@ -518,7 +518,7 @@ def get_cfbd_team_season_ppa_data(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -651,7 +651,7 @@ def get_cfbd_team_game_ppa_data(
     Allows you to get team PPA data,
     at a game level,
     with or without garbage time plays,
-    for a specificed team and/or time period.
+    for a specified team and/or time period.
 
     PPA is the CFBD API's equivalent metric to Expected Points Added (EPA).
 
@@ -696,7 +696,7 @@ def get_cfbd_team_game_ppa_data(
     `conference` (str, optional):
         Optional argument.
         If you only want team game PPA data from games
-        involving teams a specific confrence,
+        involving teams a specific conference,
         set `conference` to the abbreviation
         of the conference you want team game PPA data from.
 
@@ -710,7 +710,7 @@ def get_cfbd_team_game_ppa_data(
 
     `season_type` (str, semi-optional):
         Semi-optional argument.
-        By defualt, this will be set to "regular", for the CFB regular season.
+        By default, this will be set to "regular", for the CFB regular season.
         If you want team game PPA data for non-regular season games,
         set `season_type` to "postseason".
         If `season_type` is set to anything but "regular" or "postseason",
@@ -731,9 +731,9 @@ def get_cfbd_team_game_ppa_data(
     from cfbd_json_py.metrics import get_cfbd_team_game_ppa_data
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -838,7 +838,7 @@ def get_cfbd_team_game_ppa_data(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded into this " +
+            "Using the user's API key supposedly loaded into this " +
             "python environment for this example."
         )
 
@@ -950,7 +950,7 @@ def get_cfbd_team_game_ppa_data(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -1090,7 +1090,7 @@ def get_cfbd_player_game_ppa_data(
     Allows you to get player PPA data,
     at a game level,
     with or without garbage time plays,
-    for a specificed time period and/or team.
+    for a specified time period and/or team.
 
     PPA is the CFBD API's equivalent metric to Expected Points Added (EPA).
 
@@ -1167,7 +1167,7 @@ def get_cfbd_player_game_ppa_data(
 
     `season_type` (str, semi-optional):
         Semi-optional argument.
-        By defualt, this will be set to "regular", for the CFB regular season.
+        By default, this will be set to "regular", for the CFB regular season.
         If you want player game PPA data for non-regular season games,
         set `season_type` to "postseason".
         If `season_type` is set to anything but "regular" or "postseason",
@@ -1188,9 +1188,9 @@ def get_cfbd_player_game_ppa_data(
     from cfbd_json_py.metrics import get_cfbd_player_game_ppa_data
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -1300,7 +1300,7 @@ def get_cfbd_player_game_ppa_data(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded into " +
+            "Using the user's API key supposedly loaded into " +
             "this python environment for this example."
         )
 
@@ -1416,7 +1416,7 @@ def get_cfbd_player_game_ppa_data(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -1592,7 +1592,7 @@ def get_cfbd_player_season_ppa_data(
     Allows you to get player PPA data,
     at a season level,
     with or without garbage time plays,
-    for a specificed time period and/or team.
+    for a specified time period and/or team.
 
     PPA is the CFBD API's equivalent metric to Expected Points Added (EPA).
 
@@ -1637,10 +1637,10 @@ def get_cfbd_player_season_ppa_data(
     `conference` (str, optional):
         Optional argument.
         If you only want player season PPA data from games
-        involving teams from a specific confrence,
+        involving teams from a specific conference,
         set `conference` to the abbreviation
         of the conference you want player season PPA data from.
-        For a list of confrences,
+        For a list of conferences,
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
         function.
 
@@ -1687,9 +1687,9 @@ def get_cfbd_player_season_ppa_data(
     from cfbd_json_py.metrics import get_cfbd_player_season_ppa_data
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -1757,11 +1757,11 @@ def get_cfbd_player_season_ppa_data(
 
         # Get player season PPA data from
         # former Ohio State and LSU QB Joe Burrow (player ID #3915511),
-        # but exclude plays that occured in garbage time.
+        # but exclude plays that occurred in garbage time.
         print(
             "Get player season PPA data from former " +
             "Ohio State and LSU QB Joe Burrow (player ID #3915511), " +
-            "but exclude plays that occured in garbage time."
+            "but exclude plays that occurred in garbage time."
         )
         json_data = get_cfbd_player_season_ppa_data(
             api_key=cfbd_key,
@@ -1804,7 +1804,7 @@ def get_cfbd_player_season_ppa_data(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded into " +
+            "Using the user's API key supposedly loaded into " +
             "this python environment for this example."
         )
 
@@ -1865,11 +1865,11 @@ def get_cfbd_player_season_ppa_data(
 
         # Get player season PPA data from
         # former Ohio State and LSU QB Joe Burrow (player ID #3915511),
-        # but exclude plays that occured in garbage time.
+        # but exclude plays that occurred in garbage time.
         print(
             "Get player season PPA data from former " +
             "Ohio State and LSU QB Joe Burrow (player ID #3915511), " +
-            "but exclude plays that occured in garbage time."
+            "but exclude plays that occurred in garbage time."
         )
         json_data = get_cfbd_player_season_ppa_data(
             player_id=3915511,
@@ -1924,7 +1924,7 @@ def get_cfbd_player_season_ppa_data(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -2067,7 +2067,7 @@ def get_cfbd_game_win_probability_data(
     return_as_dict: bool = False,
 ):
     """
-    Allows one to get win probabliity data for a given game ID.
+    Allows one to get win probability data for a given game ID.
 
     Parameters
     ----------
@@ -2110,18 +2110,18 @@ def get_cfbd_game_win_probability_data(
     from cfbd_json_py.metrics import get_cfbd_game_win_probability_data
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
         )
 
-        # Get the win probablility data for a 2017 game between
+        # Get the win probability data for a 2017 game between
         # the University of Cincinnati and UConn (game ID #400941851).
         print(
-            "Get the win probablility data for a 2017 game between " +
+            "Get the win probability data for a 2017 game between " +
             "the University of Cincinnati and UConn (game ID #400941851)."
         )
         json_data = get_cfbd_game_win_probability_data(
@@ -2131,11 +2131,11 @@ def get_cfbd_game_win_probability_data(
         print(json_data)
         time.sleep(5)
 
-        # Get the win probablility data for a 2023 game between
+        # Get the win probability data for a 2023 game between
         # the University of Duke and
         # the University of Louisville (game ID #401525535).
         print(
-            "Get the win probablility data for a 2023 game between " +
+            "Get the win probability data for a 2023 game between " +
             "the University of Duke and " +
             "the University of Louisville (game ID #401525535)."
         )
@@ -2166,14 +2166,14 @@ def get_cfbd_game_win_probability_data(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded into " +
+            "Using the user's API key supposedly loaded into " +
             "this python environment for this example."
         )
 
-        # Get win probablility data for a 2017 game between
+        # Get win probability data for a 2017 game between
         # the University of Cincinnati and UConn (game ID #400941851).
         print(
-            "Get the win probablility data for a 2017 game between " +
+            "Get the win probability data for a 2017 game between " +
             "the University of Cincinnati and UConn (game ID #400941851)."
         )
         json_data = get_cfbd_game_win_probability_data(
@@ -2182,11 +2182,11 @@ def get_cfbd_game_win_probability_data(
         print(json_data)
         time.sleep(5)
 
-        # Get win probablility data for a 2023 game between
+        # Get win probability data for a 2023 game between
         # the University of Duke and
         # the University of Louisville (game ID #401525535).
         print(
-            "Get the win probablility data for a 2023 game between " +
+            "Get the win probability data for a 2023 game between " +
             "the University of Duke and " +
             "the University of Louisville (game ID #401525535)."
         )
@@ -2231,7 +2231,7 @@ def get_cfbd_game_win_probability_data(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -2292,8 +2292,8 @@ def get_cfbd_game_win_probability_data(
     if len(wp_df) == 0:
         logging.error(
             "The CFBD API accepted your inputs, "
-            + "but found no data within your specified input paramaters."
-            + " Please double check your input paramaters."
+            + "but found no data within your specified input parameters."
+            + " Please double check your input parameters."
         )
     else:
         wp_df = wp_df.astype({"home_win_probability": "float"})
@@ -2313,7 +2313,7 @@ def get_cfbd_pregame_win_probability_data(
 ):
     """
     Allows you to get pregame win probability data
-    for games within a timeframe.
+    for games within a time frame.
 
     Parameters
     ----------
@@ -2345,14 +2345,14 @@ def get_cfbd_pregame_win_probability_data(
         to load CFB game data from games in that season, and in that week.
 
     `team` (str, optional):
-        Semi-ptional argument.
+        Semi-optional argument.
         If you only want pregame win probability data for a specific team,
         set `team` to the name of the team
         you want pregame win probability data from.
 
     `season_type` (str, semi-optional):
         Semi-optional argument.
-        By defualt, this will be set to "regular", for the CFB regular season.
+        By default, this will be set to "regular", for the CFB regular season.
         If you want CFB game information for non-regular season games,
         set `season_type` to "postseason".
         If `season_type` is set to anything but "regular" or "postseason",
@@ -2373,9 +2373,9 @@ def get_cfbd_pregame_win_probability_data(
     from cfbd_json_py.metrics import get_cfbd_pregame_win_probability_data
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -2456,7 +2456,7 @@ def get_cfbd_pregame_win_probability_data(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -2546,7 +2546,7 @@ def get_cfbd_pregame_win_probability_data(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -2644,8 +2644,8 @@ def get_cfbd_pregame_win_probability_data(
     if len(wp_df) == 0:
         logging.error(
             "The CFBD API accepted your inputs, "
-            + "but found no data within your specified input paramaters."
-            + " Please double check your input paramaters."
+            + "but found no data within your specified input parameters."
+            + " Please double check your input parameters."
         )
     else:
         wp_df = wp_df.astype({"home_win_probability": "float"})
@@ -2658,7 +2658,7 @@ def get_cfbd_fg_expected_points(
     api_key: str = None, api_key_dir: str = None, return_as_dict: bool = False
 ):
     """
-    Retrives Expected Points data for field goals from the CFBD API.
+    Retrieves Expected Points data for field goals from the CFBD API.
 
     Parameters
     ----------
@@ -2695,9 +2695,9 @@ def get_cfbd_fg_expected_points(
     from cfbd_json_py.metrics import get_cfbd_fg_expected_points
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -2734,7 +2734,7 @@ def get_cfbd_fg_expected_points(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -2781,7 +2781,7 @@ def get_cfbd_fg_expected_points(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )

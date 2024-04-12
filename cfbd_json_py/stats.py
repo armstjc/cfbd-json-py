@@ -1,6 +1,6 @@
 """
 # Creation Date: 08/30/2023 01:13 PM EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: stats.py
 # Purpose: Houses functions pertaining to CFB team/player
@@ -28,7 +28,7 @@ def get_cfbd_team_season_stats(
     start_week: int = None,
     end_week: int = None,
     return_as_dict: bool = False,
-    use_origional_column_names: bool = False,
+    use_original_column_names: bool = False,
 ):
     """
     Allows you to get CFB team season stats data from the CFBD API.
@@ -75,7 +75,7 @@ def get_cfbd_team_season_stats(
     `conference` (str, optional):
         Optional argument.
         If you only want team season stats from games
-        involving teams a specific confrence,
+        involving teams a specific conference,
         set `conference` to the abbreviation
         of the conference you want stats from.
 
@@ -118,9 +118,9 @@ def get_cfbd_team_season_stats(
     from cfbd_json_py.stats import get_cfbd_team_season_stats
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -137,10 +137,10 @@ def get_cfbd_team_season_stats(
 
 
         # Get team season stats for teams competing in
-        # the Big 10 (B1G) Confrence the 2020 CFB season.
+        # the Big 10 (B1G) conference the 2020 CFB season.
         print(
             "Get team season stats for teams competing in " +
-            "the Big 10 (B1G) Confrence the 2020 CFB season."
+            "the Big 10 (B1G) conference the 2020 CFB season."
         )
         json_data = get_cfbd_team_season_stats(
             api_key=cfbd_key,
@@ -181,7 +181,7 @@ def get_cfbd_team_season_stats(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -196,10 +196,10 @@ def get_cfbd_team_season_stats(
 
 
         # Get team season stats for teams competing in
-        # the Big 10 (B1G) Confrence the 2020 CFB season.
+        # the Big 10 (B1G) conference the 2020 CFB season.
         print(
             "Get team season stats for teams competing in " +
-            "the Big 10 (B1G) Confrence the 2020 CFB season."
+            "the Big 10 (B1G) conference the 2020 CFB season."
         )
         json_data = get_cfbd_team_season_stats(
             conference="B1G",
@@ -298,7 +298,7 @@ def get_cfbd_team_season_stats(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -720,9 +720,9 @@ def get_cfbd_advanced_team_season_stats(
     from cfbd_json_py.stats import get_cfbd_advanced_team_season_stats
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -800,7 +800,7 @@ def get_cfbd_advanced_team_season_stats(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -883,7 +883,7 @@ def get_cfbd_advanced_team_season_stats(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -1009,10 +1009,10 @@ def get_cfbd_advanced_team_season_stats(
             row_df["offense_open_field_yards_avg"] = team["offense"][
                 "openFieldYards"
             ]
-            row_df["offense_open_field_yards_otal"] = team["offense"][
+            row_df["offense_open_field_yards_total"] = team["offense"][
                 "secondLevelYardsTotal"
             ]
-            row_df["offense_total_opportunies"] = team["offense"][
+            row_df["offense_total_opportunities"] = team["offense"][
                 "totalOpportunies"
             ]
             row_df["offense_points_per_opportunity"] = team["offense"][
@@ -1103,10 +1103,10 @@ def get_cfbd_advanced_team_season_stats(
             row_df["defense_open_field_yards_avg"] = team["defense"][
                 "openFieldYards"
             ]
-            row_df["defense_open_field_yards_otal"] = team["defense"][
+            row_df["defense_open_field_yards_total"] = team["defense"][
                 "secondLevelYardsTotal"
             ]
-            row_df["defense_total_opportunies"] = team["defense"][
+            row_df["defense_total_opportunities"] = team["defense"][
                 "totalOpportunies"
             ]
             row_df["defense_points_per_opportunity"] = team["defense"][
@@ -1255,7 +1255,7 @@ def get_cfbd_advanced_team_game_stats(
 
     `season_type` (str, semi-optional):
         Semi-optional argument.
-        By defualt, this will be set to "regular", for the CFB regular season.
+        By default, this will be set to "regular", for the CFB regular season.
         If you want CFB team game stats, set `season_type` to "postseason".
         If `season_type` is set to anything but "regular" or "postseason",
         a `ValueError()` will be raised.
@@ -1276,9 +1276,9 @@ def get_cfbd_advanced_team_game_stats(
     from cfbd_json_py.stats import get_cfbd_advanced_team_game_stats
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -1331,10 +1331,10 @@ def get_cfbd_advanced_team_game_stats(
         time.sleep(5)
 
         # Get advanced CFBD team game stats for teams that faced off
-        # agianst the Ohio Bobcats Football Team in the 2020 CFB season.
+        # against the Ohio Bobcats Football Team in the 2020 CFB season.
         print(
             "Get advanced CFBD team game stats for teams that " +
-            "faced off agianst the Ohio Bobcats Football Team " +
+            "faced off against the Ohio Bobcats Football Team " +
             "in the 2020 CFB season."
         )
         json_data = get_cfbd_advanced_team_game_stats(
@@ -1380,7 +1380,7 @@ def get_cfbd_advanced_team_game_stats(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -1427,10 +1427,10 @@ def get_cfbd_advanced_team_game_stats(
         time.sleep(5)
 
         # Get advanced CFBD team game stats for teams that faced off
-        # agianst the Ohio Bobcats Football Team in the 2020 CFB season.
+        # against the Ohio Bobcats Football Team in the 2020 CFB season.
         print(
             "Get advanced CFBD team game stats for teams that " +
-            "faced off agianst the Ohio Bobcats Football Team " +
+            "faced off against the Ohio Bobcats Football Team " +
             "in the 2020 CFB season."
         )
         json_data = get_cfbd_advanced_team_game_stats(
@@ -1485,7 +1485,7 @@ def get_cfbd_advanced_team_game_stats(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -1618,7 +1618,7 @@ def get_cfbd_advanced_team_game_stats(
             row_df["offense_open_field_yards_avg"] = team["offense"][
                 "openFieldYards"
             ]
-            row_df["offense_open_field_yards_otal"] = team["offense"][
+            row_df["offense_open_field_yards_total"] = team["offense"][
                 "secondLevelYardsTotal"
             ]
 
@@ -1685,10 +1685,10 @@ def get_cfbd_advanced_team_game_stats(
             row_df["defense_open_field_yards_avg"] = team["defense"][
                 "openFieldYards"
             ]
-            row_df["defense_open_field_yards_otal"] = team["defense"][
+            row_df["defense_open_field_yards_total"] = team["defense"][
                 "secondLevelYardsTotal"
             ]
-            row_df["defense_total_opportunies"] = team["defense"][
+            row_df["defense_total_opportunities"] = team["defense"][
                 "totalOpportunies"
             ]
             row_df["defense_points_per_opportunity"] = team["defense"][
@@ -1785,9 +1785,9 @@ def get_cfbd_team_stat_categories(
     from cfbd_json_py.stats import get_cfbd_team_stat_categories
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -1819,7 +1819,7 @@ def get_cfbd_team_stat_categories(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -1856,7 +1856,7 @@ def get_cfbd_team_stat_categories(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )

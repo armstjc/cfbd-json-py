@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: __init__.py
 # Purpose: Allows for the python package to function,
@@ -16,7 +16,7 @@ To the left of this page are various endpoints for this python package.
 - `cfbd_json_py.coaches`:
     Holds functions for you to get coaching data (past and present).
 - `cfbd_json_py.conferences`:
-    Holds functions for you to get information for CFB confrences.
+    Holds functions for you to get information for CFB conferences.
 - `cfbd_json_py.draft`:
     Holds functions for you to get NFL draft information/data for
     various players in the CFBD API
@@ -24,11 +24,11 @@ To the left of this page are various endpoints for this python package.
     Holds functions for you to get data for offensive and/or defensive drives
     within the CFBD API.
 - `cfbd_json_py.games`:
-    Holds functions for you to get various datapoints pertaining to
+    Holds functions for you to get various data points pertaining to
     actual CFB games within the CFBD API.
 - `cfbd_json_py.metrics`:
     Holds functions to allow you to calculate
-    or retrive various advanced metrics
+    or retrieve various advanced metrics
     from the CFBD API.
 - `cfbd_json_py.players`:
     Holds functions for you to get various
@@ -44,7 +44,7 @@ To the left of this page are various endpoints for this python package.
     Holds functions to allow you to get various team ratings data
     (like SP+, SRS, and Elo team ratings) from the CFBD API.
 - `cfbd_json_py.recruiting`:
-    Holds functions for you to access CFB recruting data and information,
+    Holds functions for you to access CFB recruiting data and information,
     as well as team and player ratings for recruiting.
 - `cfbd_json_py.stats`:
     Holds functions for you to get various team stats from the CFBD API.
@@ -64,7 +64,7 @@ To the left of this page are various endpoints for this python package.
 If you have a CFBD API key,
 you have three ways to set it for this python package to use:
 1. Declare the API key as a string variable
-    in a python script (not reccomended, extreme security risk).
+    in a python script (not recommended, extreme security risk).
 2. Declare the API key in your environment as `CFBD_API_KEY`.
     - `cfbd_json_py` will first look for your environment,
     if you don't declare the API key as a string variable,
@@ -87,7 +87,7 @@ set_cfbd_api_token(api_key=cfbd_api_key)
 ```
 
 > **NOTE:** *In a future version,
-    there will be an executable application seperate from this package
+    there will be an executable application separate from this package
     for Windows, Mac, and Linux users to effectively do the same thing
     as the above code block, but with a graphical user interface (GUI).*
 

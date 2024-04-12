@@ -29,7 +29,7 @@
             <h2>Contents</h2>
             <ul>
   <li><a href="#creation-date-08302023-0113-edt">Creation Date: 08/30/2023 01:13 EDT</a></li>
-  <li><a href="#last-updated-date-02242023-0330-pm-est">Last Updated Date: 02/24/2023 03:30 PM EST</a></li>
+  <li><a href="#last-updated-date-04042024-0510-pm-edt">Last Updated Date: 04/04/2024 05:10 PM EDT</a></li>
   <li><a href="#author-joseph-armstrong-armstrongjoseph08gmailcom">Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</a></li>
   <li><a href="#file-name-conferencespy">File Name: conferences.py</a></li>
   <li><a href="#purpose-houses-functions-pertaining-to-cfb-conference-data">Purpose: Houses functions pertaining to CFB conference data</a></li>
@@ -60,7 +60,7 @@
 
                         <div class="docstring"><h1 id="creation-date-08302023-0113-edt">Creation Date: 08/30/2023 01:13 EDT</h1>
 
-<h1 id="last-updated-date-02242023-0330-pm-est">Last Updated Date: 02/24/2023 03:30 PM EST</h1>
+<h1 id="last-updated-date-04042024-0510-pm-edt">Last Updated Date: 04/04/2024 05:10 PM EDT</h1>
 
 <h1 id="author-joseph-armstrong-armstrongjoseph08gmailcom">Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</h1>
 
@@ -80,7 +80,7 @@
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a><span class="sd"># Creation Date: 08/30/2023 01:13 EDT</span>
-</span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="sd"># Last Updated Date: 02/24/2023 03:30 PM EST</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="sd"># Last Updated Date: 04/04/2024 05:10 PM EDT</span>
 </span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="sd"># Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a><span class="sd"># File Name: conferences.py</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a><span class="sd"># Purpose: Houses functions pertaining to CFB conference data</span>
@@ -98,7 +98,7 @@
 </span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a>    <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">api_key_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 </span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a><span class="p">):</span>
 </span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a><span class="sd">    Retrives a list of CFB conferences from the CFBD API.</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a><span class="sd">    Retrieves a list of CFB conferences from the CFBD API.</span>
 </span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a>
 </span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a><span class="sd">    Parameters</span>
 </span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a><span class="sd">    ----------</span>
@@ -134,16 +134,16 @@
 </span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a>
 </span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a><span class="sd">    from cfbd_json_py.conferences import get_cfbd_conference_info</span>
 </span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>
-</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>
-</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a><span class="sd">    if cfbd_key is not &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a><span class="sd">    if cfbd_key is not &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a><span class="sd">        print(</span>
 </span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a><span class="sd">            &quot;for this example.&quot;</span>
 </span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="sd">        )</span>
 </span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a>
-</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a><span class="sd">        # Gets CFB confrence info from the CFBD API.</span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a><span class="sd">        print(&quot;Gets CFB confrence info from the CFBD API.&quot;)</span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a><span class="sd">        # Gets CFB conference info from the CFBD API.</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a><span class="sd">        print(&quot;Gets CFB conference info from the CFBD API.&quot;)</span>
 </span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a><span class="sd">        json_data = get_cfbd_conference_info(api_key=cfbd_key)</span>
 </span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a><span class="sd">        print(json_data)</span>
 </span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="sd">        time.sleep(5)</span>
@@ -165,12 +165,12 @@
 </span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a><span class="sd">        print(</span>
-</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a><span class="sd">        )</span>
 </span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>
-</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a><span class="sd">        # Gets CFB confrence info from the CFBD API.</span>
-</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a><span class="sd">        print(&quot;Gets CFB confrence info from the CFBD API.&quot;)</span>
+</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a><span class="sd">        # Gets CFB conference info from the CFBD API.</span>
+</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a><span class="sd">        print(&quot;Gets CFB conference info from the CFBD API.&quot;)</span>
 </span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a><span class="sd">        json_data = get_cfbd_conference_info()</span>
 </span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a><span class="sd">        print(json_data)</span>
 </span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a><span class="sd">        time.sleep(5)</span>
@@ -206,7 +206,7 @@
 </span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a>
-</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a>        <span class="p">)</span>
@@ -270,7 +270,7 @@
 </span><span id="get_cfbd_conference_info-19"><a href="#get_cfbd_conference_info-19"><span class="linenos"> 19</span></a>    <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">api_key_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 </span><span id="get_cfbd_conference_info-20"><a href="#get_cfbd_conference_info-20"><span class="linenos"> 20</span></a><span class="p">):</span>
 </span><span id="get_cfbd_conference_info-21"><a href="#get_cfbd_conference_info-21"><span class="linenos"> 21</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="get_cfbd_conference_info-22"><a href="#get_cfbd_conference_info-22"><span class="linenos"> 22</span></a><span class="sd">    Retrives a list of CFB conferences from the CFBD API.</span>
+</span><span id="get_cfbd_conference_info-22"><a href="#get_cfbd_conference_info-22"><span class="linenos"> 22</span></a><span class="sd">    Retrieves a list of CFB conferences from the CFBD API.</span>
 </span><span id="get_cfbd_conference_info-23"><a href="#get_cfbd_conference_info-23"><span class="linenos"> 23</span></a>
 </span><span id="get_cfbd_conference_info-24"><a href="#get_cfbd_conference_info-24"><span class="linenos"> 24</span></a><span class="sd">    Parameters</span>
 </span><span id="get_cfbd_conference_info-25"><a href="#get_cfbd_conference_info-25"><span class="linenos"> 25</span></a><span class="sd">    ----------</span>
@@ -306,16 +306,16 @@
 </span><span id="get_cfbd_conference_info-55"><a href="#get_cfbd_conference_info-55"><span class="linenos"> 55</span></a>
 </span><span id="get_cfbd_conference_info-56"><a href="#get_cfbd_conference_info-56"><span class="linenos"> 56</span></a><span class="sd">    from cfbd_json_py.conferences import get_cfbd_conference_info</span>
 </span><span id="get_cfbd_conference_info-57"><a href="#get_cfbd_conference_info-57"><span class="linenos"> 57</span></a>
-</span><span id="get_cfbd_conference_info-58"><a href="#get_cfbd_conference_info-58"><span class="linenos"> 58</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_conference_info-58"><a href="#get_cfbd_conference_info-58"><span class="linenos"> 58</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_conference_info-59"><a href="#get_cfbd_conference_info-59"><span class="linenos"> 59</span></a>
-</span><span id="get_cfbd_conference_info-60"><a href="#get_cfbd_conference_info-60"><span class="linenos"> 60</span></a><span class="sd">    if cfbd_key is not &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_conference_info-60"><a href="#get_cfbd_conference_info-60"><span class="linenos"> 60</span></a><span class="sd">    if cfbd_key is not &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_conference_info-61"><a href="#get_cfbd_conference_info-61"><span class="linenos"> 61</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_conference_info-62"><a href="#get_cfbd_conference_info-62"><span class="linenos"> 62</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_conference_info-63"><a href="#get_cfbd_conference_info-63"><span class="linenos"> 63</span></a><span class="sd">            &quot;for this example.&quot;</span>
 </span><span id="get_cfbd_conference_info-64"><a href="#get_cfbd_conference_info-64"><span class="linenos"> 64</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_conference_info-65"><a href="#get_cfbd_conference_info-65"><span class="linenos"> 65</span></a>
-</span><span id="get_cfbd_conference_info-66"><a href="#get_cfbd_conference_info-66"><span class="linenos"> 66</span></a><span class="sd">        # Gets CFB confrence info from the CFBD API.</span>
-</span><span id="get_cfbd_conference_info-67"><a href="#get_cfbd_conference_info-67"><span class="linenos"> 67</span></a><span class="sd">        print(&quot;Gets CFB confrence info from the CFBD API.&quot;)</span>
+</span><span id="get_cfbd_conference_info-66"><a href="#get_cfbd_conference_info-66"><span class="linenos"> 66</span></a><span class="sd">        # Gets CFB conference info from the CFBD API.</span>
+</span><span id="get_cfbd_conference_info-67"><a href="#get_cfbd_conference_info-67"><span class="linenos"> 67</span></a><span class="sd">        print(&quot;Gets CFB conference info from the CFBD API.&quot;)</span>
 </span><span id="get_cfbd_conference_info-68"><a href="#get_cfbd_conference_info-68"><span class="linenos"> 68</span></a><span class="sd">        json_data = get_cfbd_conference_info(api_key=cfbd_key)</span>
 </span><span id="get_cfbd_conference_info-69"><a href="#get_cfbd_conference_info-69"><span class="linenos"> 69</span></a><span class="sd">        print(json_data)</span>
 </span><span id="get_cfbd_conference_info-70"><a href="#get_cfbd_conference_info-70"><span class="linenos"> 70</span></a><span class="sd">        time.sleep(5)</span>
@@ -337,12 +337,12 @@
 </span><span id="get_cfbd_conference_info-86"><a href="#get_cfbd_conference_info-86"><span class="linenos"> 86</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_conference_info-87"><a href="#get_cfbd_conference_info-87"><span class="linenos"> 87</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_conference_info-88"><a href="#get_cfbd_conference_info-88"><span class="linenos"> 88</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_conference_info-89"><a href="#get_cfbd_conference_info-89"><span class="linenos"> 89</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_conference_info-89"><a href="#get_cfbd_conference_info-89"><span class="linenos"> 89</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_conference_info-90"><a href="#get_cfbd_conference_info-90"><span class="linenos"> 90</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_conference_info-91"><a href="#get_cfbd_conference_info-91"><span class="linenos"> 91</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_conference_info-92"><a href="#get_cfbd_conference_info-92"><span class="linenos"> 92</span></a>
-</span><span id="get_cfbd_conference_info-93"><a href="#get_cfbd_conference_info-93"><span class="linenos"> 93</span></a><span class="sd">        # Gets CFB confrence info from the CFBD API.</span>
-</span><span id="get_cfbd_conference_info-94"><a href="#get_cfbd_conference_info-94"><span class="linenos"> 94</span></a><span class="sd">        print(&quot;Gets CFB confrence info from the CFBD API.&quot;)</span>
+</span><span id="get_cfbd_conference_info-93"><a href="#get_cfbd_conference_info-93"><span class="linenos"> 93</span></a><span class="sd">        # Gets CFB conference info from the CFBD API.</span>
+</span><span id="get_cfbd_conference_info-94"><a href="#get_cfbd_conference_info-94"><span class="linenos"> 94</span></a><span class="sd">        print(&quot;Gets CFB conference info from the CFBD API.&quot;)</span>
 </span><span id="get_cfbd_conference_info-95"><a href="#get_cfbd_conference_info-95"><span class="linenos"> 95</span></a><span class="sd">        json_data = get_cfbd_conference_info()</span>
 </span><span id="get_cfbd_conference_info-96"><a href="#get_cfbd_conference_info-96"><span class="linenos"> 96</span></a><span class="sd">        print(json_data)</span>
 </span><span id="get_cfbd_conference_info-97"><a href="#get_cfbd_conference_info-97"><span class="linenos"> 97</span></a><span class="sd">        time.sleep(5)</span>
@@ -378,7 +378,7 @@
 </span><span id="get_cfbd_conference_info-127"><a href="#get_cfbd_conference_info-127"><span class="linenos">127</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_conference_info-128"><a href="#get_cfbd_conference_info-128"><span class="linenos">128</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_conference_info-129"><a href="#get_cfbd_conference_info-129"><span class="linenos">129</span></a>
-</span><span id="get_cfbd_conference_info-130"><a href="#get_cfbd_conference_info-130"><span class="linenos">130</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_conference_info-130"><a href="#get_cfbd_conference_info-130"><span class="linenos">130</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_conference_info-131"><a href="#get_cfbd_conference_info-131"><span class="linenos">131</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_conference_info-132"><a href="#get_cfbd_conference_info-132"><span class="linenos">132</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_conference_info-133"><a href="#get_cfbd_conference_info-133"><span class="linenos">133</span></a>        <span class="p">)</span>
@@ -426,7 +426,7 @@
 </span></pre></div>
 
 
-            <div class="docstring"><p>Retrives a list of CFB conferences from the CFBD API.</p>
+            <div class="docstring"><p>Retrieves a list of CFB conferences from the CFBD API.</p>
 
 <h2 id="parameters">Parameters</h2>
 
@@ -461,16 +461,16 @@
 
 from <a href="">cfbd_json_py.conferences</a> import get_cfbd_conference_info
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key is not "tigersAreAwsome":
+if cfbd_key is not "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
     )
 
-    # Gets CFB confrence info from the CFBD API.
-    print("Gets CFB confrence info from the CFBD API.")
+    # Gets CFB conference info from the CFBD API.
+    print("Gets CFB conference info from the CFBD API.")
     json_data = get_cfbd_conference_info(api_key=cfbd_key)
     print(json_data)
     time.sleep(5)
@@ -492,12 +492,12 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 
-    # Gets CFB confrence info from the CFBD API.
-    print("Gets CFB confrence info from the CFBD API.")
+    # Gets CFB conference info from the CFBD API.
+    print("Gets CFB conference info from the CFBD API.")
     json_data = get_cfbd_conference_info()
     print(json_data)
     time.sleep(5)

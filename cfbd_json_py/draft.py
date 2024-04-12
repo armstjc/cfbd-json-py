@@ -1,6 +1,6 @@
 """
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: draft.py
 # Purpose: Houses functions pertaining to NFL Draft data within the CFBD API.
@@ -21,7 +21,7 @@ def get_cfbd_nfl_teams(
     api_key: str = None, api_key_dir: str = None, return_as_dict: bool = False
 ):
     """
-    Retrives a list of NFL teams from the CFBD API.
+    Retrieves a list of NFL teams from the CFBD API.
 
     Parameters
     ----------
@@ -57,9 +57,9 @@ def get_cfbd_nfl_teams(
 
     from cfbd_json_py.draft import get_cfbd_nfl_teams
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key is not "tigersAreAwsome":
+    if cfbd_key is not "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -88,7 +88,7 @@ def get_cfbd_nfl_teams(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded into " +
+            "Using the user's API key supposedly loaded into " +
             "this python environment for this example."
         )
 
@@ -130,7 +130,7 @@ def get_cfbd_nfl_teams(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -174,7 +174,7 @@ def get_cfbd_nfl_positions(
     api_key: str = None, api_key_dir: str = None, return_as_dict: bool = False
 ):
     """
-    Retrives a list of player positions for the NFL Draft from the CFBD API.
+    Retrieves a list of player positions for the NFL Draft from the CFBD API.
 
     Parameters
     ----------
@@ -210,9 +210,9 @@ def get_cfbd_nfl_positions(
 
     from cfbd_json_py.draft import get_cfbd_nfl_positions
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key is not "tigersAreAwsome":
+    if cfbd_key is not "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -244,7 +244,7 @@ def get_cfbd_nfl_positions(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded into " +
+            "Using the user's API key supposedly loaded into " +
             "this python environment for this example."
         )
 
@@ -288,7 +288,7 @@ def get_cfbd_nfl_positions(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -361,7 +361,7 @@ def get_cfbd_nfl_draft_info(
     return_as_dict: bool = False,
 ):
     """
-    Retrives a list of actual NFL Draft selections from the CFBD API.
+    Retrieves a list of actual NFL Draft selections from the CFBD API.
 
     Parameters
     ----------
@@ -384,10 +384,10 @@ def get_cfbd_nfl_draft_info(
         this function will assume that `api_key_dir` is a directory,
         and will try to find a CFBD API key file in that directory.
 
-    The following paramaters are optional,
-    but it is highly reccomended to not call this function
-    withiout settting one of these five optional paramaters
-    to a non-null value.
+    The following parameters are optional,
+    but it is highly recommended to not call this function
+    without declaring one of these five optional parameters
+    as a non-null value.
 
     `season` (int, semi-optional):
         Semi-Optional argument.
@@ -413,14 +413,14 @@ def get_cfbd_nfl_draft_info(
 
     `conference` (str, optional):
         Semi-Optional argument.
-        If you only want NFL Draft selections from a specific CFB confrence,
-        set `conference` to the abbreviation of that confrence.
-        A list of CFBD API confrence abbreviations can be found
+        If you only want NFL Draft selections from a specific CFB conference,
+        set `conference` to the abbreviation of that conference.
+        A list of CFBD API conference abbreviations can be found
         in the `conference_abbreviation` column from
         the pandas DataFrame that is returned by calling
         `cfbd_json_py.conferences.get_cfbd_conference_info()`.
         For example, if you want to only get NFL Draft information for
-        draft picks that played in the Big 12, set `confrence` to `B12`.
+        draft picks that played in the Big 12, set `conference` to `B12`.
 
     `year` (int):
         Alternative keyword for `season`
@@ -448,9 +448,9 @@ def get_cfbd_nfl_draft_info(
 
     from cfbd_json_py.draft import get_cfbd_nfl_draft_info
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key is not "tigersAreAwsome":
+    if cfbd_key is not "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -494,10 +494,11 @@ def get_cfbd_nfl_draft_info(
         time.sleep(5)
 
         # Get NFL Draft selections from the 2020 NFL Draft made involving
-        # players who played in the Southeastern Confrence (SEC).
+        # players who played in the Southeastern conference (SEC).
         print(
             "Get NFL Draft selections from the 2020 NFL Draft made " +
-            "involving players who played in the Southeastern Confrence (SEC)."
+            "involving players who played " +
+            "in the Southeastern conference (SEC)."
         )
         json_data = get_cfbd_nfl_draft_info(
             api_key=cfbd_key,
@@ -541,7 +542,7 @@ def get_cfbd_nfl_draft_info(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -578,10 +579,11 @@ def get_cfbd_nfl_draft_info(
         time.sleep(5)
 
         # Get NFL Draft selections from the 2020 NFL Draft made involving
-        # players who played in the Southeastern Confrence (SEC).
+        # players who played in the Southeastern conference (SEC).
         print(
             "Get NFL Draft selections from the 2020 NFL Draft made " +
-            "involving players who played in the Southeastern Confrence (SEC)."
+            "involving players who played " +
+            "in the Southeastern conference (SEC)."
         )
         json_data = get_cfbd_nfl_draft_info(
             season=2020,
@@ -652,7 +654,7 @@ def get_cfbd_nfl_draft_info(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -670,9 +672,10 @@ def get_cfbd_nfl_draft_info(
 
         logging.warning(
             "Not specifying a `season`, `nfl_team`, `college`, "
-            + "or `confrence` will still result in "
+            + "or `conference` will still result in "
             + "a successful get request (assuming the API key is valid)"
-            + ", but this is not a recomended method of calling this function."
+            + ", but this is not a recommended method "
+            + "of calling this function."
         )
 
     if season < 1936 or season > now.year:
@@ -708,7 +711,7 @@ def get_cfbd_nfl_draft_info(
         url_elements += 1
 
     if conference is not None and url_elements == 0:
-        # conference = "SEC", not "Southeastern Confrence"
+        # conference = "SEC", not "Southeastern conference"
         url += f"?conference={conference}"
         url_elements += 1
     elif conference is not None:
@@ -770,8 +773,8 @@ def get_cfbd_nfl_draft_info(
     if len(nfl_draft_df) == 0:
         logging.error(
             "The CFBD API accepted your inputs, "
-            + "but found no data within your specified input paramaters."
-            + " Please double check your input paramaters."
+            + "but found no data within your specified input parameters."
+            + " Please double check your input parameters."
         )
 
     return nfl_draft_df

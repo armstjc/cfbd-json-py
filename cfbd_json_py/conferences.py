@@ -1,6 +1,6 @@
 """
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: conferences.py
 # Purpose: Houses functions pertaining to CFB conference data
@@ -18,7 +18,7 @@ def get_cfbd_conference_info(
     api_key: str = None, api_key_dir: str = None, return_as_dict: bool = False
 ):
     """
-    Retrives a list of CFB conferences from the CFBD API.
+    Retrieves a list of CFB conferences from the CFBD API.
 
     Parameters
     ----------
@@ -54,16 +54,16 @@ def get_cfbd_conference_info(
 
     from cfbd_json_py.conferences import get_cfbd_conference_info
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key is not "tigersAreAwsome":
+    if cfbd_key is not "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
         )
 
-        # Gets CFB confrence info from the CFBD API.
-        print("Gets CFB confrence info from the CFBD API.")
+        # Gets CFB conference info from the CFBD API.
+        print("Gets CFB conference info from the CFBD API.")
         json_data = get_cfbd_conference_info(api_key=cfbd_key)
         print(json_data)
         time.sleep(5)
@@ -85,12 +85,12 @@ def get_cfbd_conference_info(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
-        # Gets CFB confrence info from the CFBD API.
-        print("Gets CFB confrence info from the CFBD API.")
+        # Gets CFB conference info from the CFBD API.
+        print("Gets CFB conference info from the CFBD API.")
         json_data = get_cfbd_conference_info()
         print(json_data)
         time.sleep(5)
@@ -126,7 +126,7 @@ def get_cfbd_conference_info(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )

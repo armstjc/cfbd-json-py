@@ -1,6 +1,6 @@
 """
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: teams.py
 # Purpose: Houses functions pertaining to CFB team data within the CFBD API.
@@ -49,10 +49,10 @@ def get_cfbd_team_information(
 
     `conference` (str, optional):
         Optional argument.
-        If you only want CFB team information from a specific confrence,
+        If you only want CFB team information from a specific conference,
         set `conference` to the abbreviation
         of the conference you want CFB team information from.
-        For a list of confrences,
+        For a list of conferences,
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
         function.
 
@@ -71,9 +71,9 @@ def get_cfbd_team_information(
     from cfbd_json_py.teams import get_cfbd_team_information
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared "+
             "in this script for this example."
@@ -89,10 +89,10 @@ def get_cfbd_team_information(
 
 
         # Get CFB team information for all known
-        # Southeastern Confrence (SEC) CFB teams.
+        # Southeastern conference (SEC) CFB teams.
         print(
             "Get CFB team information for all known " +
-            "Southeastern Confrence (SEC) CFB teams."
+            "Southeastern conference (SEC) CFB teams."
         )
         json_data = get_cfbd_team_information(
             api_key=cfbd_key,
@@ -121,7 +121,7 @@ def get_cfbd_team_information(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded into " +
+            "Using the user's API key supposedly loaded into " +
             "this python environment for this example."
         )
 
@@ -133,10 +133,10 @@ def get_cfbd_team_information(
 
 
         # Get CFB team information for all known
-        # Southeastern Confrence (SEC) CFB teams.
+        # Southeastern conference (SEC) CFB teams.
         print(
             "Get CFB team information for all known " +
-            "Southeastern Confrence (SEC) CFB teams."
+            "Southeastern conference (SEC) CFB teams."
         )
         json_data = get_cfbd_team_information(
             conference="SEC"
@@ -179,7 +179,7 @@ def get_cfbd_team_information(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -315,9 +315,9 @@ def get_cfbd_fbs_team_list(
     from cfbd_json_py.teams import get_cfbd_fbs_team_list
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared " +
             "in this script for this example."
@@ -362,7 +362,7 @@ def get_cfbd_fbs_team_list(
         # without setting the API key
         # in the script.
         print(
-            "Using the user's API key suposedly loaded into " +
+            "Using the user's API key supposedly loaded into " +
             "this python environment for this example."
         )
 
@@ -415,7 +415,7 @@ def get_cfbd_fbs_team_list(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -559,9 +559,9 @@ def get_cfbd_team_rosters(
     from cfbd_json_py.teams import get_cfbd_team_rosters
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -620,7 +620,7 @@ def get_cfbd_team_rosters(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -689,7 +689,7 @@ def get_cfbd_team_rosters(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -802,9 +802,9 @@ def get_cfbd_team_talent_rankings(
     from cfbd_json_py.teams import get_cfbd_team_talent_rankings
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -846,7 +846,7 @@ def get_cfbd_team_talent_rankings(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -897,7 +897,7 @@ def get_cfbd_team_talent_rankings(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -1013,18 +1013,18 @@ def get_cfbd_team_matchup_history(
     from cfbd_json_py.teams import get_cfbd_team_matchup_history
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
         )
 
-        # Get the matchup history betwen the University of Cincinnati
+        # Get the matchup history between the University of Cincinnati
         # and the Miami (OH) Redhawks football teams.
         print(
-            "Get the matchup history betwen the University of Cincinnati " +
+            "Get the matchup history between the University of Cincinnati " +
             "and the Miami (OH) Redhawks football teams."
         )
         json_data = get_cfbd_team_matchup_history(
@@ -1035,11 +1035,11 @@ def get_cfbd_team_matchup_history(
         print(json_data)
         time.sleep(5)
 
-        # Get the matchup history betwen the Ohio State Buckeyes
+        # Get the matchup history between the Ohio State Buckeyes
         # and the Michigan Wolverines football teams,
         # starting in 2002.
         print(
-            "Get the matchup history betwen the Ohio State Buckeyes " +
+            "Get the matchup history between the Ohio State Buckeyes " +
             "and the University of Michigan Wolverines " +
             "football teams, starting in 2002."
         )
@@ -1052,11 +1052,11 @@ def get_cfbd_team_matchup_history(
         print(json_data)
         time.sleep(5)
 
-        # Get the matchup history betwen the Ohio Bobcats
+        # Get the matchup history between the Ohio Bobcats
         # and the Miami (OH) Redhawks football teams,
         # starting in 1990 and ending in 2005.
         print(
-            "Get the matchup history betwen the University of Cincinnati " +
+            "Get the matchup history between the University of Cincinnati " +
             "and the Miami (OH) Redhawks football teams."
         )
         json_data = get_cfbd_team_matchup_history(
@@ -1090,15 +1090,15 @@ def get_cfbd_team_matchup_history(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
 
-        # Get the matchup history betwen the University of Cincinnati
+        # Get the matchup history between the University of Cincinnati
         # and the Miami (OH) Redhawks football teams.
         print(
-            "Get the matchup history betwen the University of Cincinnati " +
+            "Get the matchup history between the University of Cincinnati " +
             "and the Miami (OH) Redhawks football teams."
         )
         json_data = get_cfbd_team_matchup_history(
@@ -1108,11 +1108,11 @@ def get_cfbd_team_matchup_history(
         print(json_data)
         time.sleep(5)
 
-        # Get the matchup history betwen the Ohio State Buckeyes
+        # Get the matchup history between the Ohio State Buckeyes
         # and the Michigan Wolverines football teams,
         # starting in 2002.
         print(
-            "Get the matchup history betwen the Ohio State Buckeyes " +
+            "Get the matchup history between the Ohio State Buckeyes " +
             "and the University of Michigan Wolverines " +
             "football teams, starting in 2002."
         )
@@ -1124,11 +1124,11 @@ def get_cfbd_team_matchup_history(
         print(json_data)
         time.sleep(5)
 
-        # Get the matchup history betwen the Ohio Bobcats
+        # Get the matchup history between the Ohio Bobcats
         # and the Miami (OH) Redhawks football teams,
         # starting in 1990 and ending in 2005.
         print(
-            "Get the matchup history betwen the University of Cincinnati " +
+            "Get the matchup history between the University of Cincinnati " +
             "and the Miami (OH) Redhawks football teams."
         )
         json_data = get_cfbd_team_matchup_history(
@@ -1173,7 +1173,7 @@ def get_cfbd_team_matchup_history(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )

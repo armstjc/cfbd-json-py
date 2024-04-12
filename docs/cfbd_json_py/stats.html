@@ -29,7 +29,7 @@
             <h2>Contents</h2>
             <ul>
   <li><a href="#creation-date-08302023-0113-pm-edt">Creation Date: 08/30/2023 01:13 PM EDT</a></li>
-  <li><a href="#last-updated-date-02242023-0330-pm-est">Last Updated Date: 02/24/2023 03:30 PM EST</a></li>
+  <li><a href="#last-updated-date-04042024-0510-pm-edt">Last Updated Date: 04/04/2024 05:10 PM EDT</a></li>
   <li><a href="#author-joseph-armstrong-armstrongjoseph08gmailcom">Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</a></li>
   <li><a href="#file-name-statspy">File Name: stats.py</a></li>
   <li><a href="#purpose-houses-functions-pertaining-to-cfb-teamplayer">Purpose: Houses functions pertaining to CFB team/player</a></li>
@@ -69,7 +69,7 @@
 
                         <div class="docstring"><h1 id="creation-date-08302023-0113-pm-edt">Creation Date: 08/30/2023 01:13 PM EDT</h1>
 
-<h1 id="last-updated-date-02242023-0330-pm-est">Last Updated Date: 02/24/2023 03:30 PM EST</h1>
+<h1 id="last-updated-date-04042024-0510-pm-edt">Last Updated Date: 04/04/2024 05:10 PM EDT</h1>
 
 <h1 id="author-joseph-armstrong-armstrongjoseph08gmailcom">Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</h1>
 
@@ -89,7 +89,7 @@
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">   1</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos">   2</span></a><span class="sd"># Creation Date: 08/30/2023 01:13 PM EDT</span>
-</span><span id="L-3"><a href="#L-3"><span class="linenos">   3</span></a><span class="sd"># Last Updated Date: 02/24/2023 03:30 PM EST</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos">   3</span></a><span class="sd"># Last Updated Date: 04/04/2024 05:10 PM EDT</span>
 </span><span id="L-4"><a href="#L-4"><span class="linenos">   4</span></a><span class="sd"># Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos">   5</span></a><span class="sd"># File Name: stats.py</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">   6</span></a><span class="sd"># Purpose: Houses functions pertaining to CFB team/player</span>
@@ -117,7 +117,7 @@
 </span><span id="L-28"><a href="#L-28"><span class="linenos">  28</span></a>    <span class="n">start_week</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span id="L-29"><a href="#L-29"><span class="linenos">  29</span></a>    <span class="n">end_week</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span id="L-30"><a href="#L-30"><span class="linenos">  30</span></a>    <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos">  31</span></a>    <span class="n">use_origional_column_names</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos">  31</span></a>    <span class="n">use_original_column_names</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 </span><span id="L-32"><a href="#L-32"><span class="linenos">  32</span></a><span class="p">):</span>
 </span><span id="L-33"><a href="#L-33"><span class="linenos">  33</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-34"><a href="#L-34"><span class="linenos">  34</span></a><span class="sd">    Allows you to get CFB team season stats data from the CFBD API.</span>
@@ -164,7 +164,7 @@
 </span><span id="L-75"><a href="#L-75"><span class="linenos">  75</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="L-76"><a href="#L-76"><span class="linenos">  76</span></a><span class="sd">        Optional argument.</span>
 </span><span id="L-77"><a href="#L-77"><span class="linenos">  77</span></a><span class="sd">        If you only want team season stats from games</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos">  78</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos">  78</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="L-79"><a href="#L-79"><span class="linenos">  79</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="L-80"><a href="#L-80"><span class="linenos">  80</span></a><span class="sd">        of the conference you want stats from.</span>
 </span><span id="L-81"><a href="#L-81"><span class="linenos">  81</span></a>
@@ -207,9 +207,9 @@
 </span><span id="L-118"><a href="#L-118"><span class="linenos"> 118</span></a><span class="sd">    from cfbd_json_py.stats import get_cfbd_team_season_stats</span>
 </span><span id="L-119"><a href="#L-119"><span class="linenos"> 119</span></a>
 </span><span id="L-120"><a href="#L-120"><span class="linenos"> 120</span></a>
-</span><span id="L-121"><a href="#L-121"><span class="linenos"> 121</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-121"><a href="#L-121"><span class="linenos"> 121</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-122"><a href="#L-122"><span class="linenos"> 122</span></a>
-</span><span id="L-123"><a href="#L-123"><span class="linenos"> 123</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-123"><a href="#L-123"><span class="linenos"> 123</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-124"><a href="#L-124"><span class="linenos"> 124</span></a><span class="sd">        print(</span>
 </span><span id="L-125"><a href="#L-125"><span class="linenos"> 125</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-126"><a href="#L-126"><span class="linenos"> 126</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -226,10 +226,10 @@
 </span><span id="L-137"><a href="#L-137"><span class="linenos"> 137</span></a>
 </span><span id="L-138"><a href="#L-138"><span class="linenos"> 138</span></a>
 </span><span id="L-139"><a href="#L-139"><span class="linenos"> 139</span></a><span class="sd">        # Get team season stats for teams competing in</span>
-</span><span id="L-140"><a href="#L-140"><span class="linenos"> 140</span></a><span class="sd">        # the Big 10 (B1G) Confrence the 2020 CFB season.</span>
+</span><span id="L-140"><a href="#L-140"><span class="linenos"> 140</span></a><span class="sd">        # the Big 10 (B1G) conference the 2020 CFB season.</span>
 </span><span id="L-141"><a href="#L-141"><span class="linenos"> 141</span></a><span class="sd">        print(</span>
 </span><span id="L-142"><a href="#L-142"><span class="linenos"> 142</span></a><span class="sd">            &quot;Get team season stats for teams competing in &quot; +</span>
-</span><span id="L-143"><a href="#L-143"><span class="linenos"> 143</span></a><span class="sd">            &quot;the Big 10 (B1G) Confrence the 2020 CFB season.&quot;</span>
+</span><span id="L-143"><a href="#L-143"><span class="linenos"> 143</span></a><span class="sd">            &quot;the Big 10 (B1G) conference the 2020 CFB season.&quot;</span>
 </span><span id="L-144"><a href="#L-144"><span class="linenos"> 144</span></a><span class="sd">        )</span>
 </span><span id="L-145"><a href="#L-145"><span class="linenos"> 145</span></a><span class="sd">        json_data = get_cfbd_team_season_stats(</span>
 </span><span id="L-146"><a href="#L-146"><span class="linenos"> 146</span></a><span class="sd">            api_key=cfbd_key,</span>
@@ -270,7 +270,7 @@
 </span><span id="L-181"><a href="#L-181"><span class="linenos"> 181</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-182"><a href="#L-182"><span class="linenos"> 182</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-183"><a href="#L-183"><span class="linenos"> 183</span></a><span class="sd">        print(</span>
-</span><span id="L-184"><a href="#L-184"><span class="linenos"> 184</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-184"><a href="#L-184"><span class="linenos"> 184</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-185"><a href="#L-185"><span class="linenos"> 185</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-186"><a href="#L-186"><span class="linenos"> 186</span></a><span class="sd">        )</span>
 </span><span id="L-187"><a href="#L-187"><span class="linenos"> 187</span></a>
@@ -285,10 +285,10 @@
 </span><span id="L-196"><a href="#L-196"><span class="linenos"> 196</span></a>
 </span><span id="L-197"><a href="#L-197"><span class="linenos"> 197</span></a>
 </span><span id="L-198"><a href="#L-198"><span class="linenos"> 198</span></a><span class="sd">        # Get team season stats for teams competing in</span>
-</span><span id="L-199"><a href="#L-199"><span class="linenos"> 199</span></a><span class="sd">        # the Big 10 (B1G) Confrence the 2020 CFB season.</span>
+</span><span id="L-199"><a href="#L-199"><span class="linenos"> 199</span></a><span class="sd">        # the Big 10 (B1G) conference the 2020 CFB season.</span>
 </span><span id="L-200"><a href="#L-200"><span class="linenos"> 200</span></a><span class="sd">        print(</span>
 </span><span id="L-201"><a href="#L-201"><span class="linenos"> 201</span></a><span class="sd">            &quot;Get team season stats for teams competing in &quot; +</span>
-</span><span id="L-202"><a href="#L-202"><span class="linenos"> 202</span></a><span class="sd">            &quot;the Big 10 (B1G) Confrence the 2020 CFB season.&quot;</span>
+</span><span id="L-202"><a href="#L-202"><span class="linenos"> 202</span></a><span class="sd">            &quot;the Big 10 (B1G) conference the 2020 CFB season.&quot;</span>
 </span><span id="L-203"><a href="#L-203"><span class="linenos"> 203</span></a><span class="sd">        )</span>
 </span><span id="L-204"><a href="#L-204"><span class="linenos"> 204</span></a><span class="sd">        json_data = get_cfbd_team_season_stats(</span>
 </span><span id="L-205"><a href="#L-205"><span class="linenos"> 205</span></a><span class="sd">            conference=&quot;B1G&quot;,</span>
@@ -387,7 +387,7 @@
 </span><span id="L-298"><a href="#L-298"><span class="linenos"> 298</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-299"><a href="#L-299"><span class="linenos"> 299</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-300"><a href="#L-300"><span class="linenos"> 300</span></a>
-</span><span id="L-301"><a href="#L-301"><span class="linenos"> 301</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-301"><a href="#L-301"><span class="linenos"> 301</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-302"><a href="#L-302"><span class="linenos"> 302</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-303"><a href="#L-303"><span class="linenos"> 303</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-304"><a href="#L-304"><span class="linenos"> 304</span></a>        <span class="p">)</span>
@@ -809,9 +809,9 @@
 </span><span id="L-720"><a href="#L-720"><span class="linenos"> 720</span></a><span class="sd">    from cfbd_json_py.stats import get_cfbd_advanced_team_season_stats</span>
 </span><span id="L-721"><a href="#L-721"><span class="linenos"> 721</span></a>
 </span><span id="L-722"><a href="#L-722"><span class="linenos"> 722</span></a>
-</span><span id="L-723"><a href="#L-723"><span class="linenos"> 723</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-723"><a href="#L-723"><span class="linenos"> 723</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-724"><a href="#L-724"><span class="linenos"> 724</span></a>
-</span><span id="L-725"><a href="#L-725"><span class="linenos"> 725</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-725"><a href="#L-725"><span class="linenos"> 725</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-726"><a href="#L-726"><span class="linenos"> 726</span></a><span class="sd">        print(</span>
 </span><span id="L-727"><a href="#L-727"><span class="linenos"> 727</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-728"><a href="#L-728"><span class="linenos"> 728</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -889,7 +889,7 @@
 </span><span id="L-800"><a href="#L-800"><span class="linenos"> 800</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-801"><a href="#L-801"><span class="linenos"> 801</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-802"><a href="#L-802"><span class="linenos"> 802</span></a><span class="sd">        print(</span>
-</span><span id="L-803"><a href="#L-803"><span class="linenos"> 803</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-803"><a href="#L-803"><span class="linenos"> 803</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-804"><a href="#L-804"><span class="linenos"> 804</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-805"><a href="#L-805"><span class="linenos"> 805</span></a><span class="sd">        )</span>
 </span><span id="L-806"><a href="#L-806"><span class="linenos"> 806</span></a>
@@ -972,7 +972,7 @@
 </span><span id="L-883"><a href="#L-883"><span class="linenos"> 883</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-884"><a href="#L-884"><span class="linenos"> 884</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-885"><a href="#L-885"><span class="linenos"> 885</span></a>
-</span><span id="L-886"><a href="#L-886"><span class="linenos"> 886</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-886"><a href="#L-886"><span class="linenos"> 886</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-887"><a href="#L-887"><span class="linenos"> 887</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-888"><a href="#L-888"><span class="linenos"> 888</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-889"><a href="#L-889"><span class="linenos"> 889</span></a>        <span class="p">)</span>
@@ -1098,10 +1098,10 @@
 </span><span id="L-1009"><a href="#L-1009"><span class="linenos">1009</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_open_field_yards_avg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
 </span><span id="L-1010"><a href="#L-1010"><span class="linenos">1010</span></a>                <span class="s2">&quot;openFieldYards&quot;</span>
 </span><span id="L-1011"><a href="#L-1011"><span class="linenos">1011</span></a>            <span class="p">]</span>
-</span><span id="L-1012"><a href="#L-1012"><span class="linenos">1012</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_open_field_yards_otal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
+</span><span id="L-1012"><a href="#L-1012"><span class="linenos">1012</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_open_field_yards_total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
 </span><span id="L-1013"><a href="#L-1013"><span class="linenos">1013</span></a>                <span class="s2">&quot;secondLevelYardsTotal&quot;</span>
 </span><span id="L-1014"><a href="#L-1014"><span class="linenos">1014</span></a>            <span class="p">]</span>
-</span><span id="L-1015"><a href="#L-1015"><span class="linenos">1015</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_total_opportunies&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
+</span><span id="L-1015"><a href="#L-1015"><span class="linenos">1015</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_total_opportunities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
 </span><span id="L-1016"><a href="#L-1016"><span class="linenos">1016</span></a>                <span class="s2">&quot;totalOpportunies&quot;</span>
 </span><span id="L-1017"><a href="#L-1017"><span class="linenos">1017</span></a>            <span class="p">]</span>
 </span><span id="L-1018"><a href="#L-1018"><span class="linenos">1018</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_points_per_opportunity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
@@ -1192,10 +1192,10 @@
 </span><span id="L-1103"><a href="#L-1103"><span class="linenos">1103</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_open_field_yards_avg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
 </span><span id="L-1104"><a href="#L-1104"><span class="linenos">1104</span></a>                <span class="s2">&quot;openFieldYards&quot;</span>
 </span><span id="L-1105"><a href="#L-1105"><span class="linenos">1105</span></a>            <span class="p">]</span>
-</span><span id="L-1106"><a href="#L-1106"><span class="linenos">1106</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_open_field_yards_otal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
+</span><span id="L-1106"><a href="#L-1106"><span class="linenos">1106</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_open_field_yards_total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
 </span><span id="L-1107"><a href="#L-1107"><span class="linenos">1107</span></a>                <span class="s2">&quot;secondLevelYardsTotal&quot;</span>
 </span><span id="L-1108"><a href="#L-1108"><span class="linenos">1108</span></a>            <span class="p">]</span>
-</span><span id="L-1109"><a href="#L-1109"><span class="linenos">1109</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_total_opportunies&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
+</span><span id="L-1109"><a href="#L-1109"><span class="linenos">1109</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_total_opportunities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
 </span><span id="L-1110"><a href="#L-1110"><span class="linenos">1110</span></a>                <span class="s2">&quot;totalOpportunies&quot;</span>
 </span><span id="L-1111"><a href="#L-1111"><span class="linenos">1111</span></a>            <span class="p">]</span>
 </span><span id="L-1112"><a href="#L-1112"><span class="linenos">1112</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_points_per_opportunity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
@@ -1344,7 +1344,7 @@
 </span><span id="L-1255"><a href="#L-1255"><span class="linenos">1255</span></a>
 </span><span id="L-1256"><a href="#L-1256"><span class="linenos">1256</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="L-1257"><a href="#L-1257"><span class="linenos">1257</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="L-1258"><a href="#L-1258"><span class="linenos">1258</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="L-1258"><a href="#L-1258"><span class="linenos">1258</span></a><span class="sd">        By default, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
 </span><span id="L-1259"><a href="#L-1259"><span class="linenos">1259</span></a><span class="sd">        If you want CFB team game stats, set `season_type` to &quot;postseason&quot;.</span>
 </span><span id="L-1260"><a href="#L-1260"><span class="linenos">1260</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;,</span>
 </span><span id="L-1261"><a href="#L-1261"><span class="linenos">1261</span></a><span class="sd">        a `ValueError()` will be raised.</span>
@@ -1365,9 +1365,9 @@
 </span><span id="L-1276"><a href="#L-1276"><span class="linenos">1276</span></a><span class="sd">    from cfbd_json_py.stats import get_cfbd_advanced_team_game_stats</span>
 </span><span id="L-1277"><a href="#L-1277"><span class="linenos">1277</span></a>
 </span><span id="L-1278"><a href="#L-1278"><span class="linenos">1278</span></a>
-</span><span id="L-1279"><a href="#L-1279"><span class="linenos">1279</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-1279"><a href="#L-1279"><span class="linenos">1279</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-1280"><a href="#L-1280"><span class="linenos">1280</span></a>
-</span><span id="L-1281"><a href="#L-1281"><span class="linenos">1281</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-1281"><a href="#L-1281"><span class="linenos">1281</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-1282"><a href="#L-1282"><span class="linenos">1282</span></a><span class="sd">        print(</span>
 </span><span id="L-1283"><a href="#L-1283"><span class="linenos">1283</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-1284"><a href="#L-1284"><span class="linenos">1284</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -1420,10 +1420,10 @@
 </span><span id="L-1331"><a href="#L-1331"><span class="linenos">1331</span></a><span class="sd">        time.sleep(5)</span>
 </span><span id="L-1332"><a href="#L-1332"><span class="linenos">1332</span></a>
 </span><span id="L-1333"><a href="#L-1333"><span class="linenos">1333</span></a><span class="sd">        # Get advanced CFBD team game stats for teams that faced off</span>
-</span><span id="L-1334"><a href="#L-1334"><span class="linenos">1334</span></a><span class="sd">        # agianst the Ohio Bobcats Football Team in the 2020 CFB season.</span>
+</span><span id="L-1334"><a href="#L-1334"><span class="linenos">1334</span></a><span class="sd">        # against the Ohio Bobcats Football Team in the 2020 CFB season.</span>
 </span><span id="L-1335"><a href="#L-1335"><span class="linenos">1335</span></a><span class="sd">        print(</span>
 </span><span id="L-1336"><a href="#L-1336"><span class="linenos">1336</span></a><span class="sd">            &quot;Get advanced CFBD team game stats for teams that &quot; +</span>
-</span><span id="L-1337"><a href="#L-1337"><span class="linenos">1337</span></a><span class="sd">            &quot;faced off agianst the Ohio Bobcats Football Team &quot; +</span>
+</span><span id="L-1337"><a href="#L-1337"><span class="linenos">1337</span></a><span class="sd">            &quot;faced off against the Ohio Bobcats Football Team &quot; +</span>
 </span><span id="L-1338"><a href="#L-1338"><span class="linenos">1338</span></a><span class="sd">            &quot;in the 2020 CFB season.&quot;</span>
 </span><span id="L-1339"><a href="#L-1339"><span class="linenos">1339</span></a><span class="sd">        )</span>
 </span><span id="L-1340"><a href="#L-1340"><span class="linenos">1340</span></a><span class="sd">        json_data = get_cfbd_advanced_team_game_stats(</span>
@@ -1469,7 +1469,7 @@
 </span><span id="L-1380"><a href="#L-1380"><span class="linenos">1380</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-1381"><a href="#L-1381"><span class="linenos">1381</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-1382"><a href="#L-1382"><span class="linenos">1382</span></a><span class="sd">        print(</span>
-</span><span id="L-1383"><a href="#L-1383"><span class="linenos">1383</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-1383"><a href="#L-1383"><span class="linenos">1383</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-1384"><a href="#L-1384"><span class="linenos">1384</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-1385"><a href="#L-1385"><span class="linenos">1385</span></a><span class="sd">        )</span>
 </span><span id="L-1386"><a href="#L-1386"><span class="linenos">1386</span></a>
@@ -1516,10 +1516,10 @@
 </span><span id="L-1427"><a href="#L-1427"><span class="linenos">1427</span></a><span class="sd">        time.sleep(5)</span>
 </span><span id="L-1428"><a href="#L-1428"><span class="linenos">1428</span></a>
 </span><span id="L-1429"><a href="#L-1429"><span class="linenos">1429</span></a><span class="sd">        # Get advanced CFBD team game stats for teams that faced off</span>
-</span><span id="L-1430"><a href="#L-1430"><span class="linenos">1430</span></a><span class="sd">        # agianst the Ohio Bobcats Football Team in the 2020 CFB season.</span>
+</span><span id="L-1430"><a href="#L-1430"><span class="linenos">1430</span></a><span class="sd">        # against the Ohio Bobcats Football Team in the 2020 CFB season.</span>
 </span><span id="L-1431"><a href="#L-1431"><span class="linenos">1431</span></a><span class="sd">        print(</span>
 </span><span id="L-1432"><a href="#L-1432"><span class="linenos">1432</span></a><span class="sd">            &quot;Get advanced CFBD team game stats for teams that &quot; +</span>
-</span><span id="L-1433"><a href="#L-1433"><span class="linenos">1433</span></a><span class="sd">            &quot;faced off agianst the Ohio Bobcats Football Team &quot; +</span>
+</span><span id="L-1433"><a href="#L-1433"><span class="linenos">1433</span></a><span class="sd">            &quot;faced off against the Ohio Bobcats Football Team &quot; +</span>
 </span><span id="L-1434"><a href="#L-1434"><span class="linenos">1434</span></a><span class="sd">            &quot;in the 2020 CFB season.&quot;</span>
 </span><span id="L-1435"><a href="#L-1435"><span class="linenos">1435</span></a><span class="sd">        )</span>
 </span><span id="L-1436"><a href="#L-1436"><span class="linenos">1436</span></a><span class="sd">        json_data = get_cfbd_advanced_team_game_stats(</span>
@@ -1574,7 +1574,7 @@
 </span><span id="L-1485"><a href="#L-1485"><span class="linenos">1485</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-1486"><a href="#L-1486"><span class="linenos">1486</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-1487"><a href="#L-1487"><span class="linenos">1487</span></a>
-</span><span id="L-1488"><a href="#L-1488"><span class="linenos">1488</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-1488"><a href="#L-1488"><span class="linenos">1488</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-1489"><a href="#L-1489"><span class="linenos">1489</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-1490"><a href="#L-1490"><span class="linenos">1490</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-1491"><a href="#L-1491"><span class="linenos">1491</span></a>        <span class="p">)</span>
@@ -1707,7 +1707,7 @@
 </span><span id="L-1618"><a href="#L-1618"><span class="linenos">1618</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_open_field_yards_avg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
 </span><span id="L-1619"><a href="#L-1619"><span class="linenos">1619</span></a>                <span class="s2">&quot;openFieldYards&quot;</span>
 </span><span id="L-1620"><a href="#L-1620"><span class="linenos">1620</span></a>            <span class="p">]</span>
-</span><span id="L-1621"><a href="#L-1621"><span class="linenos">1621</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_open_field_yards_otal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
+</span><span id="L-1621"><a href="#L-1621"><span class="linenos">1621</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_open_field_yards_total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
 </span><span id="L-1622"><a href="#L-1622"><span class="linenos">1622</span></a>                <span class="s2">&quot;secondLevelYardsTotal&quot;</span>
 </span><span id="L-1623"><a href="#L-1623"><span class="linenos">1623</span></a>            <span class="p">]</span>
 </span><span id="L-1624"><a href="#L-1624"><span class="linenos">1624</span></a>
@@ -1774,10 +1774,10 @@
 </span><span id="L-1685"><a href="#L-1685"><span class="linenos">1685</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_open_field_yards_avg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
 </span><span id="L-1686"><a href="#L-1686"><span class="linenos">1686</span></a>                <span class="s2">&quot;openFieldYards&quot;</span>
 </span><span id="L-1687"><a href="#L-1687"><span class="linenos">1687</span></a>            <span class="p">]</span>
-</span><span id="L-1688"><a href="#L-1688"><span class="linenos">1688</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_open_field_yards_otal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
+</span><span id="L-1688"><a href="#L-1688"><span class="linenos">1688</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_open_field_yards_total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
 </span><span id="L-1689"><a href="#L-1689"><span class="linenos">1689</span></a>                <span class="s2">&quot;secondLevelYardsTotal&quot;</span>
 </span><span id="L-1690"><a href="#L-1690"><span class="linenos">1690</span></a>            <span class="p">]</span>
-</span><span id="L-1691"><a href="#L-1691"><span class="linenos">1691</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_total_opportunies&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
+</span><span id="L-1691"><a href="#L-1691"><span class="linenos">1691</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_total_opportunities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
 </span><span id="L-1692"><a href="#L-1692"><span class="linenos">1692</span></a>                <span class="s2">&quot;totalOpportunies&quot;</span>
 </span><span id="L-1693"><a href="#L-1693"><span class="linenos">1693</span></a>            <span class="p">]</span>
 </span><span id="L-1694"><a href="#L-1694"><span class="linenos">1694</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_points_per_opportunity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
@@ -1874,9 +1874,9 @@
 </span><span id="L-1785"><a href="#L-1785"><span class="linenos">1785</span></a><span class="sd">    from cfbd_json_py.stats import get_cfbd_team_stat_categories</span>
 </span><span id="L-1786"><a href="#L-1786"><span class="linenos">1786</span></a>
 </span><span id="L-1787"><a href="#L-1787"><span class="linenos">1787</span></a>
-</span><span id="L-1788"><a href="#L-1788"><span class="linenos">1788</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-1788"><a href="#L-1788"><span class="linenos">1788</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-1789"><a href="#L-1789"><span class="linenos">1789</span></a>
-</span><span id="L-1790"><a href="#L-1790"><span class="linenos">1790</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-1790"><a href="#L-1790"><span class="linenos">1790</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-1791"><a href="#L-1791"><span class="linenos">1791</span></a><span class="sd">        print(</span>
 </span><span id="L-1792"><a href="#L-1792"><span class="linenos">1792</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-1793"><a href="#L-1793"><span class="linenos">1793</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -1908,7 +1908,7 @@
 </span><span id="L-1819"><a href="#L-1819"><span class="linenos">1819</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-1820"><a href="#L-1820"><span class="linenos">1820</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-1821"><a href="#L-1821"><span class="linenos">1821</span></a><span class="sd">        print(</span>
-</span><span id="L-1822"><a href="#L-1822"><span class="linenos">1822</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-1822"><a href="#L-1822"><span class="linenos">1822</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-1823"><a href="#L-1823"><span class="linenos">1823</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-1824"><a href="#L-1824"><span class="linenos">1824</span></a><span class="sd">        )</span>
 </span><span id="L-1825"><a href="#L-1825"><span class="linenos">1825</span></a>
@@ -1945,7 +1945,7 @@
 </span><span id="L-1856"><a href="#L-1856"><span class="linenos">1856</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-1857"><a href="#L-1857"><span class="linenos">1857</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-1858"><a href="#L-1858"><span class="linenos">1858</span></a>
-</span><span id="L-1859"><a href="#L-1859"><span class="linenos">1859</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-1859"><a href="#L-1859"><span class="linenos">1859</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-1860"><a href="#L-1860"><span class="linenos">1860</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-1861"><a href="#L-1861"><span class="linenos">1861</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-1862"><a href="#L-1862"><span class="linenos">1862</span></a>        <span class="p">)</span>
@@ -1990,7 +1990,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_cfbd_team_season_stats</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">api_key_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">season</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">team</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">conference</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">start_week</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">end_week</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">use_origional_column_names</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></span><span class="return-annotation">):</span></span>
+        <span class="name">get_cfbd_team_season_stats</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">api_key_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">season</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">team</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">conference</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">start_week</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">end_week</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">use_original_column_names</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="get_cfbd_team_season_stats-view-source"><span>View Source</span></label>
 
@@ -2006,7 +2006,7 @@
 </span><span id="get_cfbd_team_season_stats-29"><a href="#get_cfbd_team_season_stats-29"><span class="linenos"> 29</span></a>    <span class="n">start_week</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span id="get_cfbd_team_season_stats-30"><a href="#get_cfbd_team_season_stats-30"><span class="linenos"> 30</span></a>    <span class="n">end_week</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span id="get_cfbd_team_season_stats-31"><a href="#get_cfbd_team_season_stats-31"><span class="linenos"> 31</span></a>    <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-</span><span id="get_cfbd_team_season_stats-32"><a href="#get_cfbd_team_season_stats-32"><span class="linenos"> 32</span></a>    <span class="n">use_origional_column_names</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+</span><span id="get_cfbd_team_season_stats-32"><a href="#get_cfbd_team_season_stats-32"><span class="linenos"> 32</span></a>    <span class="n">use_original_column_names</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 </span><span id="get_cfbd_team_season_stats-33"><a href="#get_cfbd_team_season_stats-33"><span class="linenos"> 33</span></a><span class="p">):</span>
 </span><span id="get_cfbd_team_season_stats-34"><a href="#get_cfbd_team_season_stats-34"><span class="linenos"> 34</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="get_cfbd_team_season_stats-35"><a href="#get_cfbd_team_season_stats-35"><span class="linenos"> 35</span></a><span class="sd">    Allows you to get CFB team season stats data from the CFBD API.</span>
@@ -2053,7 +2053,7 @@
 </span><span id="get_cfbd_team_season_stats-76"><a href="#get_cfbd_team_season_stats-76"><span class="linenos"> 76</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="get_cfbd_team_season_stats-77"><a href="#get_cfbd_team_season_stats-77"><span class="linenos"> 77</span></a><span class="sd">        Optional argument.</span>
 </span><span id="get_cfbd_team_season_stats-78"><a href="#get_cfbd_team_season_stats-78"><span class="linenos"> 78</span></a><span class="sd">        If you only want team season stats from games</span>
-</span><span id="get_cfbd_team_season_stats-79"><a href="#get_cfbd_team_season_stats-79"><span class="linenos"> 79</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="get_cfbd_team_season_stats-79"><a href="#get_cfbd_team_season_stats-79"><span class="linenos"> 79</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="get_cfbd_team_season_stats-80"><a href="#get_cfbd_team_season_stats-80"><span class="linenos"> 80</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="get_cfbd_team_season_stats-81"><a href="#get_cfbd_team_season_stats-81"><span class="linenos"> 81</span></a><span class="sd">        of the conference you want stats from.</span>
 </span><span id="get_cfbd_team_season_stats-82"><a href="#get_cfbd_team_season_stats-82"><span class="linenos"> 82</span></a>
@@ -2096,9 +2096,9 @@
 </span><span id="get_cfbd_team_season_stats-119"><a href="#get_cfbd_team_season_stats-119"><span class="linenos">119</span></a><span class="sd">    from cfbd_json_py.stats import get_cfbd_team_season_stats</span>
 </span><span id="get_cfbd_team_season_stats-120"><a href="#get_cfbd_team_season_stats-120"><span class="linenos">120</span></a>
 </span><span id="get_cfbd_team_season_stats-121"><a href="#get_cfbd_team_season_stats-121"><span class="linenos">121</span></a>
-</span><span id="get_cfbd_team_season_stats-122"><a href="#get_cfbd_team_season_stats-122"><span class="linenos">122</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_team_season_stats-122"><a href="#get_cfbd_team_season_stats-122"><span class="linenos">122</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_team_season_stats-123"><a href="#get_cfbd_team_season_stats-123"><span class="linenos">123</span></a>
-</span><span id="get_cfbd_team_season_stats-124"><a href="#get_cfbd_team_season_stats-124"><span class="linenos">124</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_team_season_stats-124"><a href="#get_cfbd_team_season_stats-124"><span class="linenos">124</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_team_season_stats-125"><a href="#get_cfbd_team_season_stats-125"><span class="linenos">125</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_team_season_stats-126"><a href="#get_cfbd_team_season_stats-126"><span class="linenos">126</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_team_season_stats-127"><a href="#get_cfbd_team_season_stats-127"><span class="linenos">127</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -2115,10 +2115,10 @@
 </span><span id="get_cfbd_team_season_stats-138"><a href="#get_cfbd_team_season_stats-138"><span class="linenos">138</span></a>
 </span><span id="get_cfbd_team_season_stats-139"><a href="#get_cfbd_team_season_stats-139"><span class="linenos">139</span></a>
 </span><span id="get_cfbd_team_season_stats-140"><a href="#get_cfbd_team_season_stats-140"><span class="linenos">140</span></a><span class="sd">        # Get team season stats for teams competing in</span>
-</span><span id="get_cfbd_team_season_stats-141"><a href="#get_cfbd_team_season_stats-141"><span class="linenos">141</span></a><span class="sd">        # the Big 10 (B1G) Confrence the 2020 CFB season.</span>
+</span><span id="get_cfbd_team_season_stats-141"><a href="#get_cfbd_team_season_stats-141"><span class="linenos">141</span></a><span class="sd">        # the Big 10 (B1G) conference the 2020 CFB season.</span>
 </span><span id="get_cfbd_team_season_stats-142"><a href="#get_cfbd_team_season_stats-142"><span class="linenos">142</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_team_season_stats-143"><a href="#get_cfbd_team_season_stats-143"><span class="linenos">143</span></a><span class="sd">            &quot;Get team season stats for teams competing in &quot; +</span>
-</span><span id="get_cfbd_team_season_stats-144"><a href="#get_cfbd_team_season_stats-144"><span class="linenos">144</span></a><span class="sd">            &quot;the Big 10 (B1G) Confrence the 2020 CFB season.&quot;</span>
+</span><span id="get_cfbd_team_season_stats-144"><a href="#get_cfbd_team_season_stats-144"><span class="linenos">144</span></a><span class="sd">            &quot;the Big 10 (B1G) conference the 2020 CFB season.&quot;</span>
 </span><span id="get_cfbd_team_season_stats-145"><a href="#get_cfbd_team_season_stats-145"><span class="linenos">145</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_team_season_stats-146"><a href="#get_cfbd_team_season_stats-146"><span class="linenos">146</span></a><span class="sd">        json_data = get_cfbd_team_season_stats(</span>
 </span><span id="get_cfbd_team_season_stats-147"><a href="#get_cfbd_team_season_stats-147"><span class="linenos">147</span></a><span class="sd">            api_key=cfbd_key,</span>
@@ -2159,7 +2159,7 @@
 </span><span id="get_cfbd_team_season_stats-182"><a href="#get_cfbd_team_season_stats-182"><span class="linenos">182</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_team_season_stats-183"><a href="#get_cfbd_team_season_stats-183"><span class="linenos">183</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_team_season_stats-184"><a href="#get_cfbd_team_season_stats-184"><span class="linenos">184</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_team_season_stats-185"><a href="#get_cfbd_team_season_stats-185"><span class="linenos">185</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_team_season_stats-185"><a href="#get_cfbd_team_season_stats-185"><span class="linenos">185</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_team_season_stats-186"><a href="#get_cfbd_team_season_stats-186"><span class="linenos">186</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_team_season_stats-187"><a href="#get_cfbd_team_season_stats-187"><span class="linenos">187</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_team_season_stats-188"><a href="#get_cfbd_team_season_stats-188"><span class="linenos">188</span></a>
@@ -2174,10 +2174,10 @@
 </span><span id="get_cfbd_team_season_stats-197"><a href="#get_cfbd_team_season_stats-197"><span class="linenos">197</span></a>
 </span><span id="get_cfbd_team_season_stats-198"><a href="#get_cfbd_team_season_stats-198"><span class="linenos">198</span></a>
 </span><span id="get_cfbd_team_season_stats-199"><a href="#get_cfbd_team_season_stats-199"><span class="linenos">199</span></a><span class="sd">        # Get team season stats for teams competing in</span>
-</span><span id="get_cfbd_team_season_stats-200"><a href="#get_cfbd_team_season_stats-200"><span class="linenos">200</span></a><span class="sd">        # the Big 10 (B1G) Confrence the 2020 CFB season.</span>
+</span><span id="get_cfbd_team_season_stats-200"><a href="#get_cfbd_team_season_stats-200"><span class="linenos">200</span></a><span class="sd">        # the Big 10 (B1G) conference the 2020 CFB season.</span>
 </span><span id="get_cfbd_team_season_stats-201"><a href="#get_cfbd_team_season_stats-201"><span class="linenos">201</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_team_season_stats-202"><a href="#get_cfbd_team_season_stats-202"><span class="linenos">202</span></a><span class="sd">            &quot;Get team season stats for teams competing in &quot; +</span>
-</span><span id="get_cfbd_team_season_stats-203"><a href="#get_cfbd_team_season_stats-203"><span class="linenos">203</span></a><span class="sd">            &quot;the Big 10 (B1G) Confrence the 2020 CFB season.&quot;</span>
+</span><span id="get_cfbd_team_season_stats-203"><a href="#get_cfbd_team_season_stats-203"><span class="linenos">203</span></a><span class="sd">            &quot;the Big 10 (B1G) conference the 2020 CFB season.&quot;</span>
 </span><span id="get_cfbd_team_season_stats-204"><a href="#get_cfbd_team_season_stats-204"><span class="linenos">204</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_team_season_stats-205"><a href="#get_cfbd_team_season_stats-205"><span class="linenos">205</span></a><span class="sd">        json_data = get_cfbd_team_season_stats(</span>
 </span><span id="get_cfbd_team_season_stats-206"><a href="#get_cfbd_team_season_stats-206"><span class="linenos">206</span></a><span class="sd">            conference=&quot;B1G&quot;,</span>
@@ -2276,7 +2276,7 @@
 </span><span id="get_cfbd_team_season_stats-299"><a href="#get_cfbd_team_season_stats-299"><span class="linenos">299</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_team_season_stats-300"><a href="#get_cfbd_team_season_stats-300"><span class="linenos">300</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_team_season_stats-301"><a href="#get_cfbd_team_season_stats-301"><span class="linenos">301</span></a>
-</span><span id="get_cfbd_team_season_stats-302"><a href="#get_cfbd_team_season_stats-302"><span class="linenos">302</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_team_season_stats-302"><a href="#get_cfbd_team_season_stats-302"><span class="linenos">302</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_team_season_stats-303"><a href="#get_cfbd_team_season_stats-303"><span class="linenos">303</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_team_season_stats-304"><a href="#get_cfbd_team_season_stats-304"><span class="linenos">304</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_team_season_stats-305"><a href="#get_cfbd_team_season_stats-305"><span class="linenos">305</span></a>        <span class="p">)</span>
@@ -2641,7 +2641,7 @@
 <p><code>conference</code> (str, optional):
     Optional argument.
     If you only want team season stats from games
-    involving teams a specific confrence,
+    involving teams a specific conference,
     set <code>conference</code> to the abbreviation
     of the conference you want stats from.</p>
 
@@ -2685,9 +2685,9 @@ will be raised when calling this function:</p>
 from <a href="">cfbd_json_py.stats</a> import get_cfbd_team_season_stats
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -2704,10 +2704,10 @@ if cfbd_key != "tigersAreAwsome":
 
 
     # Get team season stats for teams competing in
-    # the Big 10 (B1G) Confrence the 2020 CFB season.
+    # the Big 10 (B1G) conference the 2020 CFB season.
     print(
         "Get team season stats for teams competing in " +
-        "the Big 10 (B1G) Confrence the 2020 CFB season."
+        "the Big 10 (B1G) conference the 2020 CFB season."
     )
     json_data = get_cfbd_team_season_stats(
         api_key=cfbd_key,
@@ -2748,7 +2748,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 
@@ -2763,10 +2763,10 @@ else:
 
 
     # Get team season stats for teams competing in
-    # the Big 10 (B1G) Confrence the 2020 CFB season.
+    # the Big 10 (B1G) conference the 2020 CFB season.
     print(
         "Get team season stats for teams competing in " +
-        "the Big 10 (B1G) Confrence the 2020 CFB season."
+        "the Big 10 (B1G) conference the 2020 CFB season."
     )
     json_data = get_cfbd_team_season_stats(
         conference="B1G",
@@ -2920,9 +2920,9 @@ a dictionary object with a with team season stats data.</p>
 </span><span id="get_cfbd_advanced_team_season_stats-721"><a href="#get_cfbd_advanced_team_season_stats-721"><span class="linenos"> 721</span></a><span class="sd">    from cfbd_json_py.stats import get_cfbd_advanced_team_season_stats</span>
 </span><span id="get_cfbd_advanced_team_season_stats-722"><a href="#get_cfbd_advanced_team_season_stats-722"><span class="linenos"> 722</span></a>
 </span><span id="get_cfbd_advanced_team_season_stats-723"><a href="#get_cfbd_advanced_team_season_stats-723"><span class="linenos"> 723</span></a>
-</span><span id="get_cfbd_advanced_team_season_stats-724"><a href="#get_cfbd_advanced_team_season_stats-724"><span class="linenos"> 724</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_advanced_team_season_stats-724"><a href="#get_cfbd_advanced_team_season_stats-724"><span class="linenos"> 724</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_advanced_team_season_stats-725"><a href="#get_cfbd_advanced_team_season_stats-725"><span class="linenos"> 725</span></a>
-</span><span id="get_cfbd_advanced_team_season_stats-726"><a href="#get_cfbd_advanced_team_season_stats-726"><span class="linenos"> 726</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_advanced_team_season_stats-726"><a href="#get_cfbd_advanced_team_season_stats-726"><span class="linenos"> 726</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_advanced_team_season_stats-727"><a href="#get_cfbd_advanced_team_season_stats-727"><span class="linenos"> 727</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_advanced_team_season_stats-728"><a href="#get_cfbd_advanced_team_season_stats-728"><span class="linenos"> 728</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_advanced_team_season_stats-729"><a href="#get_cfbd_advanced_team_season_stats-729"><span class="linenos"> 729</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -3000,7 +3000,7 @@ a dictionary object with a with team season stats data.</p>
 </span><span id="get_cfbd_advanced_team_season_stats-801"><a href="#get_cfbd_advanced_team_season_stats-801"><span class="linenos"> 801</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_advanced_team_season_stats-802"><a href="#get_cfbd_advanced_team_season_stats-802"><span class="linenos"> 802</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_advanced_team_season_stats-803"><a href="#get_cfbd_advanced_team_season_stats-803"><span class="linenos"> 803</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_advanced_team_season_stats-804"><a href="#get_cfbd_advanced_team_season_stats-804"><span class="linenos"> 804</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_advanced_team_season_stats-804"><a href="#get_cfbd_advanced_team_season_stats-804"><span class="linenos"> 804</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_advanced_team_season_stats-805"><a href="#get_cfbd_advanced_team_season_stats-805"><span class="linenos"> 805</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_advanced_team_season_stats-806"><a href="#get_cfbd_advanced_team_season_stats-806"><span class="linenos"> 806</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_advanced_team_season_stats-807"><a href="#get_cfbd_advanced_team_season_stats-807"><span class="linenos"> 807</span></a>
@@ -3083,7 +3083,7 @@ a dictionary object with a with team season stats data.</p>
 </span><span id="get_cfbd_advanced_team_season_stats-884"><a href="#get_cfbd_advanced_team_season_stats-884"><span class="linenos"> 884</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_advanced_team_season_stats-885"><a href="#get_cfbd_advanced_team_season_stats-885"><span class="linenos"> 885</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_advanced_team_season_stats-886"><a href="#get_cfbd_advanced_team_season_stats-886"><span class="linenos"> 886</span></a>
-</span><span id="get_cfbd_advanced_team_season_stats-887"><a href="#get_cfbd_advanced_team_season_stats-887"><span class="linenos"> 887</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_advanced_team_season_stats-887"><a href="#get_cfbd_advanced_team_season_stats-887"><span class="linenos"> 887</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_advanced_team_season_stats-888"><a href="#get_cfbd_advanced_team_season_stats-888"><span class="linenos"> 888</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_advanced_team_season_stats-889"><a href="#get_cfbd_advanced_team_season_stats-889"><span class="linenos"> 889</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_advanced_team_season_stats-890"><a href="#get_cfbd_advanced_team_season_stats-890"><span class="linenos"> 890</span></a>        <span class="p">)</span>
@@ -3209,10 +3209,10 @@ a dictionary object with a with team season stats data.</p>
 </span><span id="get_cfbd_advanced_team_season_stats-1010"><a href="#get_cfbd_advanced_team_season_stats-1010"><span class="linenos">1010</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_open_field_yards_avg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1011"><a href="#get_cfbd_advanced_team_season_stats-1011"><span class="linenos">1011</span></a>                <span class="s2">&quot;openFieldYards&quot;</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1012"><a href="#get_cfbd_advanced_team_season_stats-1012"><span class="linenos">1012</span></a>            <span class="p">]</span>
-</span><span id="get_cfbd_advanced_team_season_stats-1013"><a href="#get_cfbd_advanced_team_season_stats-1013"><span class="linenos">1013</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_open_field_yards_otal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
+</span><span id="get_cfbd_advanced_team_season_stats-1013"><a href="#get_cfbd_advanced_team_season_stats-1013"><span class="linenos">1013</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_open_field_yards_total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1014"><a href="#get_cfbd_advanced_team_season_stats-1014"><span class="linenos">1014</span></a>                <span class="s2">&quot;secondLevelYardsTotal&quot;</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1015"><a href="#get_cfbd_advanced_team_season_stats-1015"><span class="linenos">1015</span></a>            <span class="p">]</span>
-</span><span id="get_cfbd_advanced_team_season_stats-1016"><a href="#get_cfbd_advanced_team_season_stats-1016"><span class="linenos">1016</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_total_opportunies&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
+</span><span id="get_cfbd_advanced_team_season_stats-1016"><a href="#get_cfbd_advanced_team_season_stats-1016"><span class="linenos">1016</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_total_opportunities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1017"><a href="#get_cfbd_advanced_team_season_stats-1017"><span class="linenos">1017</span></a>                <span class="s2">&quot;totalOpportunies&quot;</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1018"><a href="#get_cfbd_advanced_team_season_stats-1018"><span class="linenos">1018</span></a>            <span class="p">]</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1019"><a href="#get_cfbd_advanced_team_season_stats-1019"><span class="linenos">1019</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_points_per_opportunity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
@@ -3303,10 +3303,10 @@ a dictionary object with a with team season stats data.</p>
 </span><span id="get_cfbd_advanced_team_season_stats-1104"><a href="#get_cfbd_advanced_team_season_stats-1104"><span class="linenos">1104</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_open_field_yards_avg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1105"><a href="#get_cfbd_advanced_team_season_stats-1105"><span class="linenos">1105</span></a>                <span class="s2">&quot;openFieldYards&quot;</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1106"><a href="#get_cfbd_advanced_team_season_stats-1106"><span class="linenos">1106</span></a>            <span class="p">]</span>
-</span><span id="get_cfbd_advanced_team_season_stats-1107"><a href="#get_cfbd_advanced_team_season_stats-1107"><span class="linenos">1107</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_open_field_yards_otal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
+</span><span id="get_cfbd_advanced_team_season_stats-1107"><a href="#get_cfbd_advanced_team_season_stats-1107"><span class="linenos">1107</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_open_field_yards_total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1108"><a href="#get_cfbd_advanced_team_season_stats-1108"><span class="linenos">1108</span></a>                <span class="s2">&quot;secondLevelYardsTotal&quot;</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1109"><a href="#get_cfbd_advanced_team_season_stats-1109"><span class="linenos">1109</span></a>            <span class="p">]</span>
-</span><span id="get_cfbd_advanced_team_season_stats-1110"><a href="#get_cfbd_advanced_team_season_stats-1110"><span class="linenos">1110</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_total_opportunies&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
+</span><span id="get_cfbd_advanced_team_season_stats-1110"><a href="#get_cfbd_advanced_team_season_stats-1110"><span class="linenos">1110</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_total_opportunities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1111"><a href="#get_cfbd_advanced_team_season_stats-1111"><span class="linenos">1111</span></a>                <span class="s2">&quot;totalOpportunies&quot;</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1112"><a href="#get_cfbd_advanced_team_season_stats-1112"><span class="linenos">1112</span></a>            <span class="p">]</span>
 </span><span id="get_cfbd_advanced_team_season_stats-1113"><a href="#get_cfbd_advanced_team_season_stats-1113"><span class="linenos">1113</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_points_per_opportunity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
@@ -3470,9 +3470,9 @@ import time
 from <a href="">cfbd_json_py.stats</a> import get_cfbd_advanced_team_season_stats
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -3550,7 +3550,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 
@@ -3711,7 +3711,7 @@ a dictionary object with a with advanced team season stats data.</p>
 </span><span id="get_cfbd_advanced_team_game_stats-1256"><a href="#get_cfbd_advanced_team_game_stats-1256"><span class="linenos">1256</span></a>
 </span><span id="get_cfbd_advanced_team_game_stats-1257"><a href="#get_cfbd_advanced_team_game_stats-1257"><span class="linenos">1257</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1258"><a href="#get_cfbd_advanced_team_game_stats-1258"><span class="linenos">1258</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="get_cfbd_advanced_team_game_stats-1259"><a href="#get_cfbd_advanced_team_game_stats-1259"><span class="linenos">1259</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="get_cfbd_advanced_team_game_stats-1259"><a href="#get_cfbd_advanced_team_game_stats-1259"><span class="linenos">1259</span></a><span class="sd">        By default, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1260"><a href="#get_cfbd_advanced_team_game_stats-1260"><span class="linenos">1260</span></a><span class="sd">        If you want CFB team game stats, set `season_type` to &quot;postseason&quot;.</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1261"><a href="#get_cfbd_advanced_team_game_stats-1261"><span class="linenos">1261</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;,</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1262"><a href="#get_cfbd_advanced_team_game_stats-1262"><span class="linenos">1262</span></a><span class="sd">        a `ValueError()` will be raised.</span>
@@ -3732,9 +3732,9 @@ a dictionary object with a with advanced team season stats data.</p>
 </span><span id="get_cfbd_advanced_team_game_stats-1277"><a href="#get_cfbd_advanced_team_game_stats-1277"><span class="linenos">1277</span></a><span class="sd">    from cfbd_json_py.stats import get_cfbd_advanced_team_game_stats</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1278"><a href="#get_cfbd_advanced_team_game_stats-1278"><span class="linenos">1278</span></a>
 </span><span id="get_cfbd_advanced_team_game_stats-1279"><a href="#get_cfbd_advanced_team_game_stats-1279"><span class="linenos">1279</span></a>
-</span><span id="get_cfbd_advanced_team_game_stats-1280"><a href="#get_cfbd_advanced_team_game_stats-1280"><span class="linenos">1280</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_advanced_team_game_stats-1280"><a href="#get_cfbd_advanced_team_game_stats-1280"><span class="linenos">1280</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1281"><a href="#get_cfbd_advanced_team_game_stats-1281"><span class="linenos">1281</span></a>
-</span><span id="get_cfbd_advanced_team_game_stats-1282"><a href="#get_cfbd_advanced_team_game_stats-1282"><span class="linenos">1282</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_advanced_team_game_stats-1282"><a href="#get_cfbd_advanced_team_game_stats-1282"><span class="linenos">1282</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1283"><a href="#get_cfbd_advanced_team_game_stats-1283"><span class="linenos">1283</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1284"><a href="#get_cfbd_advanced_team_game_stats-1284"><span class="linenos">1284</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1285"><a href="#get_cfbd_advanced_team_game_stats-1285"><span class="linenos">1285</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -3787,10 +3787,10 @@ a dictionary object with a with advanced team season stats data.</p>
 </span><span id="get_cfbd_advanced_team_game_stats-1332"><a href="#get_cfbd_advanced_team_game_stats-1332"><span class="linenos">1332</span></a><span class="sd">        time.sleep(5)</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1333"><a href="#get_cfbd_advanced_team_game_stats-1333"><span class="linenos">1333</span></a>
 </span><span id="get_cfbd_advanced_team_game_stats-1334"><a href="#get_cfbd_advanced_team_game_stats-1334"><span class="linenos">1334</span></a><span class="sd">        # Get advanced CFBD team game stats for teams that faced off</span>
-</span><span id="get_cfbd_advanced_team_game_stats-1335"><a href="#get_cfbd_advanced_team_game_stats-1335"><span class="linenos">1335</span></a><span class="sd">        # agianst the Ohio Bobcats Football Team in the 2020 CFB season.</span>
+</span><span id="get_cfbd_advanced_team_game_stats-1335"><a href="#get_cfbd_advanced_team_game_stats-1335"><span class="linenos">1335</span></a><span class="sd">        # against the Ohio Bobcats Football Team in the 2020 CFB season.</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1336"><a href="#get_cfbd_advanced_team_game_stats-1336"><span class="linenos">1336</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1337"><a href="#get_cfbd_advanced_team_game_stats-1337"><span class="linenos">1337</span></a><span class="sd">            &quot;Get advanced CFBD team game stats for teams that &quot; +</span>
-</span><span id="get_cfbd_advanced_team_game_stats-1338"><a href="#get_cfbd_advanced_team_game_stats-1338"><span class="linenos">1338</span></a><span class="sd">            &quot;faced off agianst the Ohio Bobcats Football Team &quot; +</span>
+</span><span id="get_cfbd_advanced_team_game_stats-1338"><a href="#get_cfbd_advanced_team_game_stats-1338"><span class="linenos">1338</span></a><span class="sd">            &quot;faced off against the Ohio Bobcats Football Team &quot; +</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1339"><a href="#get_cfbd_advanced_team_game_stats-1339"><span class="linenos">1339</span></a><span class="sd">            &quot;in the 2020 CFB season.&quot;</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1340"><a href="#get_cfbd_advanced_team_game_stats-1340"><span class="linenos">1340</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1341"><a href="#get_cfbd_advanced_team_game_stats-1341"><span class="linenos">1341</span></a><span class="sd">        json_data = get_cfbd_advanced_team_game_stats(</span>
@@ -3836,7 +3836,7 @@ a dictionary object with a with advanced team season stats data.</p>
 </span><span id="get_cfbd_advanced_team_game_stats-1381"><a href="#get_cfbd_advanced_team_game_stats-1381"><span class="linenos">1381</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1382"><a href="#get_cfbd_advanced_team_game_stats-1382"><span class="linenos">1382</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1383"><a href="#get_cfbd_advanced_team_game_stats-1383"><span class="linenos">1383</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_advanced_team_game_stats-1384"><a href="#get_cfbd_advanced_team_game_stats-1384"><span class="linenos">1384</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_advanced_team_game_stats-1384"><a href="#get_cfbd_advanced_team_game_stats-1384"><span class="linenos">1384</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1385"><a href="#get_cfbd_advanced_team_game_stats-1385"><span class="linenos">1385</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1386"><a href="#get_cfbd_advanced_team_game_stats-1386"><span class="linenos">1386</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1387"><a href="#get_cfbd_advanced_team_game_stats-1387"><span class="linenos">1387</span></a>
@@ -3883,10 +3883,10 @@ a dictionary object with a with advanced team season stats data.</p>
 </span><span id="get_cfbd_advanced_team_game_stats-1428"><a href="#get_cfbd_advanced_team_game_stats-1428"><span class="linenos">1428</span></a><span class="sd">        time.sleep(5)</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1429"><a href="#get_cfbd_advanced_team_game_stats-1429"><span class="linenos">1429</span></a>
 </span><span id="get_cfbd_advanced_team_game_stats-1430"><a href="#get_cfbd_advanced_team_game_stats-1430"><span class="linenos">1430</span></a><span class="sd">        # Get advanced CFBD team game stats for teams that faced off</span>
-</span><span id="get_cfbd_advanced_team_game_stats-1431"><a href="#get_cfbd_advanced_team_game_stats-1431"><span class="linenos">1431</span></a><span class="sd">        # agianst the Ohio Bobcats Football Team in the 2020 CFB season.</span>
+</span><span id="get_cfbd_advanced_team_game_stats-1431"><a href="#get_cfbd_advanced_team_game_stats-1431"><span class="linenos">1431</span></a><span class="sd">        # against the Ohio Bobcats Football Team in the 2020 CFB season.</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1432"><a href="#get_cfbd_advanced_team_game_stats-1432"><span class="linenos">1432</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1433"><a href="#get_cfbd_advanced_team_game_stats-1433"><span class="linenos">1433</span></a><span class="sd">            &quot;Get advanced CFBD team game stats for teams that &quot; +</span>
-</span><span id="get_cfbd_advanced_team_game_stats-1434"><a href="#get_cfbd_advanced_team_game_stats-1434"><span class="linenos">1434</span></a><span class="sd">            &quot;faced off agianst the Ohio Bobcats Football Team &quot; +</span>
+</span><span id="get_cfbd_advanced_team_game_stats-1434"><a href="#get_cfbd_advanced_team_game_stats-1434"><span class="linenos">1434</span></a><span class="sd">            &quot;faced off against the Ohio Bobcats Football Team &quot; +</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1435"><a href="#get_cfbd_advanced_team_game_stats-1435"><span class="linenos">1435</span></a><span class="sd">            &quot;in the 2020 CFB season.&quot;</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1436"><a href="#get_cfbd_advanced_team_game_stats-1436"><span class="linenos">1436</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1437"><a href="#get_cfbd_advanced_team_game_stats-1437"><span class="linenos">1437</span></a><span class="sd">        json_data = get_cfbd_advanced_team_game_stats(</span>
@@ -3941,7 +3941,7 @@ a dictionary object with a with advanced team season stats data.</p>
 </span><span id="get_cfbd_advanced_team_game_stats-1486"><a href="#get_cfbd_advanced_team_game_stats-1486"><span class="linenos">1486</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1487"><a href="#get_cfbd_advanced_team_game_stats-1487"><span class="linenos">1487</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1488"><a href="#get_cfbd_advanced_team_game_stats-1488"><span class="linenos">1488</span></a>
-</span><span id="get_cfbd_advanced_team_game_stats-1489"><a href="#get_cfbd_advanced_team_game_stats-1489"><span class="linenos">1489</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_advanced_team_game_stats-1489"><a href="#get_cfbd_advanced_team_game_stats-1489"><span class="linenos">1489</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1490"><a href="#get_cfbd_advanced_team_game_stats-1490"><span class="linenos">1490</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1491"><a href="#get_cfbd_advanced_team_game_stats-1491"><span class="linenos">1491</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1492"><a href="#get_cfbd_advanced_team_game_stats-1492"><span class="linenos">1492</span></a>        <span class="p">)</span>
@@ -4074,7 +4074,7 @@ a dictionary object with a with advanced team season stats data.</p>
 </span><span id="get_cfbd_advanced_team_game_stats-1619"><a href="#get_cfbd_advanced_team_game_stats-1619"><span class="linenos">1619</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_open_field_yards_avg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1620"><a href="#get_cfbd_advanced_team_game_stats-1620"><span class="linenos">1620</span></a>                <span class="s2">&quot;openFieldYards&quot;</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1621"><a href="#get_cfbd_advanced_team_game_stats-1621"><span class="linenos">1621</span></a>            <span class="p">]</span>
-</span><span id="get_cfbd_advanced_team_game_stats-1622"><a href="#get_cfbd_advanced_team_game_stats-1622"><span class="linenos">1622</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_open_field_yards_otal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
+</span><span id="get_cfbd_advanced_team_game_stats-1622"><a href="#get_cfbd_advanced_team_game_stats-1622"><span class="linenos">1622</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;offense_open_field_yards_total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;offense&quot;</span><span class="p">][</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1623"><a href="#get_cfbd_advanced_team_game_stats-1623"><span class="linenos">1623</span></a>                <span class="s2">&quot;secondLevelYardsTotal&quot;</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1624"><a href="#get_cfbd_advanced_team_game_stats-1624"><span class="linenos">1624</span></a>            <span class="p">]</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1625"><a href="#get_cfbd_advanced_team_game_stats-1625"><span class="linenos">1625</span></a>
@@ -4141,10 +4141,10 @@ a dictionary object with a with advanced team season stats data.</p>
 </span><span id="get_cfbd_advanced_team_game_stats-1686"><a href="#get_cfbd_advanced_team_game_stats-1686"><span class="linenos">1686</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_open_field_yards_avg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1687"><a href="#get_cfbd_advanced_team_game_stats-1687"><span class="linenos">1687</span></a>                <span class="s2">&quot;openFieldYards&quot;</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1688"><a href="#get_cfbd_advanced_team_game_stats-1688"><span class="linenos">1688</span></a>            <span class="p">]</span>
-</span><span id="get_cfbd_advanced_team_game_stats-1689"><a href="#get_cfbd_advanced_team_game_stats-1689"><span class="linenos">1689</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_open_field_yards_otal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
+</span><span id="get_cfbd_advanced_team_game_stats-1689"><a href="#get_cfbd_advanced_team_game_stats-1689"><span class="linenos">1689</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_open_field_yards_total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1690"><a href="#get_cfbd_advanced_team_game_stats-1690"><span class="linenos">1690</span></a>                <span class="s2">&quot;secondLevelYardsTotal&quot;</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1691"><a href="#get_cfbd_advanced_team_game_stats-1691"><span class="linenos">1691</span></a>            <span class="p">]</span>
-</span><span id="get_cfbd_advanced_team_game_stats-1692"><a href="#get_cfbd_advanced_team_game_stats-1692"><span class="linenos">1692</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_total_opportunies&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
+</span><span id="get_cfbd_advanced_team_game_stats-1692"><a href="#get_cfbd_advanced_team_game_stats-1692"><span class="linenos">1692</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_total_opportunities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1693"><a href="#get_cfbd_advanced_team_game_stats-1693"><span class="linenos">1693</span></a>                <span class="s2">&quot;totalOpportunies&quot;</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1694"><a href="#get_cfbd_advanced_team_game_stats-1694"><span class="linenos">1694</span></a>            <span class="p">]</span>
 </span><span id="get_cfbd_advanced_team_game_stats-1695"><a href="#get_cfbd_advanced_team_game_stats-1695"><span class="linenos">1695</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;defense_points_per_opportunity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">team</span><span class="p">[</span><span class="s2">&quot;defense&quot;</span><span class="p">][</span>
@@ -4259,7 +4259,7 @@ a dictionary object with a with advanced team season stats data.</p>
 
 <p><code>season_type</code> (str, semi-optional):
     Semi-optional argument.
-    By defualt, this will be set to "regular", for the CFB regular season.
+    By default, this will be set to "regular", for the CFB regular season.
     If you want CFB team game stats, set <code>season_type</code> to "postseason".
     If <code>season_type</code> is set to anything but "regular" or "postseason",
     a <code>ValueError()</code> will be raised.</p>
@@ -4278,9 +4278,9 @@ a dictionary object with a with advanced team season stats data.</p>
 from <a href="">cfbd_json_py.stats</a> import get_cfbd_advanced_team_game_stats
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -4333,10 +4333,10 @@ if cfbd_key != "tigersAreAwsome":
     time.sleep(5)
 
     # Get advanced CFBD team game stats for teams that faced off
-    # agianst the Ohio Bobcats Football Team in the 2020 CFB season.
+    # against the Ohio Bobcats Football Team in the 2020 CFB season.
     print(
         "Get advanced CFBD team game stats for teams that " +
-        "faced off agianst the Ohio Bobcats Football Team " +
+        "faced off against the Ohio Bobcats Football Team " +
         "in the 2020 CFB season."
     )
     json_data = get_cfbd_advanced_team_game_stats(
@@ -4382,7 +4382,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 
@@ -4429,10 +4429,10 @@ else:
     time.sleep(5)
 
     # Get advanced CFBD team game stats for teams that faced off
-    # agianst the Ohio Bobcats Football Team in the 2020 CFB season.
+    # against the Ohio Bobcats Football Team in the 2020 CFB season.
     print(
         "Get advanced CFBD team game stats for teams that " +
-        "faced off agianst the Ohio Bobcats Football Team " +
+        "faced off against the Ohio Bobcats Football Team " +
         "in the 2020 CFB season."
     )
     json_data = get_cfbd_advanced_team_game_stats(
@@ -4534,9 +4534,9 @@ a dictionary object with a with advanced team season stats data.</p>
 </span><span id="get_cfbd_team_stat_categories-1786"><a href="#get_cfbd_team_stat_categories-1786"><span class="linenos">1786</span></a><span class="sd">    from cfbd_json_py.stats import get_cfbd_team_stat_categories</span>
 </span><span id="get_cfbd_team_stat_categories-1787"><a href="#get_cfbd_team_stat_categories-1787"><span class="linenos">1787</span></a>
 </span><span id="get_cfbd_team_stat_categories-1788"><a href="#get_cfbd_team_stat_categories-1788"><span class="linenos">1788</span></a>
-</span><span id="get_cfbd_team_stat_categories-1789"><a href="#get_cfbd_team_stat_categories-1789"><span class="linenos">1789</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_team_stat_categories-1789"><a href="#get_cfbd_team_stat_categories-1789"><span class="linenos">1789</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_team_stat_categories-1790"><a href="#get_cfbd_team_stat_categories-1790"><span class="linenos">1790</span></a>
-</span><span id="get_cfbd_team_stat_categories-1791"><a href="#get_cfbd_team_stat_categories-1791"><span class="linenos">1791</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_team_stat_categories-1791"><a href="#get_cfbd_team_stat_categories-1791"><span class="linenos">1791</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_team_stat_categories-1792"><a href="#get_cfbd_team_stat_categories-1792"><span class="linenos">1792</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_team_stat_categories-1793"><a href="#get_cfbd_team_stat_categories-1793"><span class="linenos">1793</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_team_stat_categories-1794"><a href="#get_cfbd_team_stat_categories-1794"><span class="linenos">1794</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -4568,7 +4568,7 @@ a dictionary object with a with advanced team season stats data.</p>
 </span><span id="get_cfbd_team_stat_categories-1820"><a href="#get_cfbd_team_stat_categories-1820"><span class="linenos">1820</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_team_stat_categories-1821"><a href="#get_cfbd_team_stat_categories-1821"><span class="linenos">1821</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_team_stat_categories-1822"><a href="#get_cfbd_team_stat_categories-1822"><span class="linenos">1822</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_team_stat_categories-1823"><a href="#get_cfbd_team_stat_categories-1823"><span class="linenos">1823</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_team_stat_categories-1823"><a href="#get_cfbd_team_stat_categories-1823"><span class="linenos">1823</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_team_stat_categories-1824"><a href="#get_cfbd_team_stat_categories-1824"><span class="linenos">1824</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_team_stat_categories-1825"><a href="#get_cfbd_team_stat_categories-1825"><span class="linenos">1825</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_team_stat_categories-1826"><a href="#get_cfbd_team_stat_categories-1826"><span class="linenos">1826</span></a>
@@ -4605,7 +4605,7 @@ a dictionary object with a with advanced team season stats data.</p>
 </span><span id="get_cfbd_team_stat_categories-1857"><a href="#get_cfbd_team_stat_categories-1857"><span class="linenos">1857</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_team_stat_categories-1858"><a href="#get_cfbd_team_stat_categories-1858"><span class="linenos">1858</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_team_stat_categories-1859"><a href="#get_cfbd_team_stat_categories-1859"><span class="linenos">1859</span></a>
-</span><span id="get_cfbd_team_stat_categories-1860"><a href="#get_cfbd_team_stat_categories-1860"><span class="linenos">1860</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_team_stat_categories-1860"><a href="#get_cfbd_team_stat_categories-1860"><span class="linenos">1860</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_team_stat_categories-1861"><a href="#get_cfbd_team_stat_categories-1861"><span class="linenos">1861</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_team_stat_categories-1862"><a href="#get_cfbd_team_stat_categories-1862"><span class="linenos">1862</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_team_stat_categories-1863"><a href="#get_cfbd_team_stat_categories-1863"><span class="linenos">1863</span></a>        <span class="p">)</span>
@@ -4681,9 +4681,9 @@ for team stats directly from the CFBD API.</p>
 from <a href="">cfbd_json_py.stats</a> import get_cfbd_team_stat_categories
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -4715,7 +4715,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 

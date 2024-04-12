@@ -1,6 +1,6 @@
 """
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: games.py
 # Purpose: Houses functions pertaining to CFB game data within the CFBD API.
@@ -31,7 +31,7 @@ def get_cfbd_games(
     return_as_dict: bool = False,
 ):
     """
-    Retrives game schedule data from the CFBD API.
+    Retrieves game schedule data from the CFBD API.
 
     Parameters
     ----------
@@ -61,7 +61,7 @@ def get_cfbd_games(
 
     `season_type` (str, semi-optional):
         Semi-optional argument.
-        By defualt, this will be set to "regular", for the CFB regular season.
+        By default, this will be set to "regular", for the CFB regular season.
         If you want CFB game information for non-regular season games,
         set `season_type` to "postseason".
         If `season_type` is set to anything but "regular" or "postseason",
@@ -93,7 +93,7 @@ def get_cfbd_games(
     `conference` (str, optional):
         Optional argument.
         If you only want game information from games
-        involving teams a specific confrence,
+        involving teams a specific conference,
         set `conference` to the abbreviation
         of the conference you want game information from.
 
@@ -103,8 +103,8 @@ def get_cfbd_games(
         short for the Football Bowl Subdivision (FBS),
         formerly known as D1-A (read as "division one single A"),
         the highest level in the NCAA football pyramid,
-        where teams can scolarship up to 85 players
-        on their football team soley for athletic ability,
+        where teams can scholarship up to 85 players
+        on their football team solely for athletic ability,
         and often have the largest athletics budgets
         within the NCAA.
 
@@ -112,17 +112,18 @@ def get_cfbd_games(
         - "fcs": Football Championship Subdivision (FCS),
             formerly known as D1-AA (read as "division one double A").
             An FCS school is still in the 1st division of the NCAA,
-            making them elligable for the March Madness tournament,
+            making them eligible for the March Madness tournament,
             but may not have the resources to compete at the FBS level
-            at this time. FCS schools are limited to 63 athletic scolarships
+            at this time. FCS schools are limited to 63 athletic scholarships
             for football.
         - "ii": NCAA Division II. Schools in this and D3 are not
-            elligable for the March Madness tournament,
-            and are limited to 36 athletic scolarships for their football team.
+            eligible for the March Madness tournament,
+            and are limited to 36 athletic scholarships
+            for their football team.
         - "iii": NCAA Division III. The largest single division within the
             NCAA football pyramid.
             D3 schools have the distinction of being part of
-            the only NCAA division that cannot give out scolarships soley
+            the only NCAA division that cannot give out scholarships solely
             for athletic ability.
 
     `game_id` (int, optional):
@@ -146,9 +147,9 @@ def get_cfbd_games(
     from cfbd_json_py.games import get_cfbd_games
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key is not "tigersAreAwsome":
+    if cfbd_key is not "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -230,10 +231,10 @@ def get_cfbd_games(
         time.sleep(5)
 
         # Get game information for the
-        # 2021 American Athletic Confrence (AAC) Championship Game.
+        # 2021 American Athletic conference (AAC) Championship Game.
         print(
             "Get game information for " +
-            "the 2021 American Athletic Confrence (AAC) Championship Game."
+            "the 2021 American Athletic conference (AAC) Championship Game."
         )
         json_data = get_cfbd_games(
             api_key=cfbd_key,
@@ -263,7 +264,7 @@ def get_cfbd_games(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -350,10 +351,10 @@ def get_cfbd_games(
         time.sleep(5)
 
         # Get game information for the
-        # 2021 American Athletic Confrence (AAC) Championship Game.
+        # 2021 American Athletic conference (AAC) Championship Game.
         print(
             "Get game information for " +
-            "the 2021 American Athletic Confrence (AAC) Championship Game."
+            "the 2021 American Athletic conference (AAC) Championship Game."
         )
         json_data = get_cfbd_games(
             season=2018,
@@ -395,7 +396,7 @@ def get_cfbd_games(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -515,12 +516,12 @@ def get_cfbd_games(
         return json_data
 
     cfb_games_df = pd.json_normalize(json_data)
-    print(cfb_games_df.columns)
+    # print(cfb_games_df.columns)
     if len(cfb_games_df) == 0:
         logging.error(
             "The CFBD API accepted your inputs, "
-            + "but found no data within your specified input paramaters."
-            + " Please double check your input paramaters."
+            + "but found no data within your specified input parameters."
+            + " Please double check your input parameters."
         )
 
     return cfb_games_df
@@ -537,7 +538,7 @@ def get_cfbd_team_records(
     """
     Get a team, or multiple team's record (wins, losses, ties)
     for home games, away games,
-    confrence games, and the team's record for that season.
+    conference games, and the team's record for that season.
 
     Parameters
     ----------
@@ -568,7 +569,7 @@ def get_cfbd_team_records(
         will be raised.
 
     `team` (str, optional):
-        Semi-ptional argument.
+        Semi-optional argument.
         If you only want CFB team records data for a specific team,
         set `team` to the name of the team you want CFB drive data from.
         You MUST set `season` or `team` to a non-null value for
@@ -578,10 +579,10 @@ def get_cfbd_team_records(
     `conference` (str, optional):
         Optional argument.
         If you only want CFB team records data from games
-        involving teams from a specific confrence,
+        involving teams from a specific conference,
         set `conference` to the abbreviation
         of the conference you want CFB team records data from.
-        For a list of confrences,
+        For a list of conferences,
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
         function.
 
@@ -600,9 +601,9 @@ def get_cfbd_team_records(
     from cfbd_json_py.games import get_cfbd_team_records
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key is not "tigersAreAwsome":
+    if cfbd_key is not "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -631,10 +632,10 @@ def get_cfbd_team_records(
         time.sleep(5)
 
         # Get team records from football teams that played
-        # in the Big 10 (B1G) Confrence in the 2017 CFB season
+        # in the Big 10 (B1G) conference in the 2017 CFB season
         print(
             "Get team records from football teams that played " +
-            "in the Big 10 (B1G) Confrence in the 2017 CFB season"
+            "in the Big 10 (B1G) conference in the 2017 CFB season"
         )
         json_data = get_cfbd_team_records(
             api_key=cfbd_key,
@@ -664,7 +665,7 @@ def get_cfbd_team_records(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -689,10 +690,10 @@ def get_cfbd_team_records(
         time.sleep(5)
 
         # Get team records from football teams that played
-        # in the Big 10 (B1G) Confrence in the 2017 CFB season
+        # in the Big 10 (B1G) conference in the 2017 CFB season
         print(
             "Get team records from football teams that played " +
-            "in the Big 10 (B1G) Confrence in the 2017 CFB season"
+            "in the Big 10 (B1G) conference in the 2017 CFB season"
         )
         json_data = get_cfbd_team_records(
             season=2017,
@@ -736,7 +737,7 @@ def get_cfbd_team_records(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -755,7 +756,7 @@ def get_cfbd_team_records(
     if season is None and team is None:
         raise ValueError(
             "If you call `cfbd_json_py.games.get_cfbd_team_records()`, "
-            + "you must specifiy at least a team or CFB season."
+            + "you must specify at least a team or CFB season."
         )
 
     # URL builder
@@ -846,17 +847,17 @@ def get_cfbd_season_weeks(
     return_as_dict: bool = False,
 ):
     """
-    Retrives a list of weeks that occured in a given CFB season.
+    Retrieves a list of weeks that occurred in a given CFB season.
 
     Parameters
     ----------
     `season` (int, mandatory):
         Required argument.
-        Specifies the season you want a list of weeks that occured
+        Specifies the season you want a list of weeks that occurred
         in a given CFB season information from.
         This must be specified, otherwise this package, and by extension
         the CFBD API, will not accept the request
-        to get a list of weeks that occured in a given CFB season information.
+        to get a list of weeks that occurred in a given CFB season information.
 
     `api_key` (str, optional):
         Semi-optional argument.
@@ -892,9 +893,9 @@ def get_cfbd_season_weeks(
     from cfbd_json_py.games import get_cfbd_season_weeks
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key is not "tigersAreAwsome":
+    if cfbd_key is not "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -929,7 +930,7 @@ def get_cfbd_season_weeks(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -975,7 +976,7 @@ def get_cfbd_season_weeks(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -1087,10 +1088,10 @@ def get_cfbd_game_media_info(
 
     `season_type` (str, semi-optional):
         Semi-optional argument.
-        By defualt, this will be set to "regular", for the CFB regular season.
+        By default, this will be set to "regular", for the CFB regular season.
         If you want CFB media information for non-regular season games,
         set `season_type` to "postseason".
-        If you want both "regular" and "postseason" games retunred,
+        If you want both "regular" and "postseason" games returned,
         set `season_type` to "both"
         If `season_type` is set to anything but "regular" or "postseason",
         a `ValueError()` will be raised.
@@ -1110,7 +1111,7 @@ def get_cfbd_game_media_info(
     `conference` (str, optional):
         Optional argument.
         If you only want media information from games
-        involving teams a specific confrence,
+        involving teams a specific conference,
         set `conference` to the abbreviation
         of the conference you want game information from.
 
@@ -1124,13 +1125,13 @@ def get_cfbd_game_media_info(
         - `all` (default): Returns all games,
             and all known broadcasters for those games.
         - `tv`: Returns all known TV broadcasters for CFB games
-            in the requested timeframe.
+            in the requested time frame.
         - `radio`: Returns all known radio broadcasters
-            for CFB games in the requested timeframe.
+            for CFB games in the requested time frame.
         - `web`: Returns all known web broadcasts (like ESPN+)
-            for CFB games in the requested timeframe.
+            for CFB games in the requested time frame.
         - `ppv`: Returns all known Pay Per View (PPV) broadcasts
-            for CFB games in the requested timeframe.
+            for CFB games in the requested time frame.
         - `mobile`: Returns all known broadcasters that only broadcasted
             games on mobile devices (?)
 
@@ -1140,8 +1141,8 @@ def get_cfbd_game_media_info(
         short for the Football Bowl Subdivision (FBS),
         formerly known as D1-A (read as "division one single A"),
         the highest level in the NCAA football pyramid,
-        where teams can scolarship up to 85 players
-        on their football team soley for athletic ability,
+        where teams can scholarship up to 85 players
+        on their football team solely for athletic ability,
         and often have the largest athletics budgets
         within the NCAA.
 
@@ -1149,17 +1150,18 @@ def get_cfbd_game_media_info(
         - "fcs": Football Championship Subdivision (FCS),
             formerly known as D1-AA (read as "division one double A").
             An FCS school is still in the 1st division of the NCAA,
-            making them elligable for the March Madness tournament,
+            making them eligible for the March Madness tournament,
             but may not have the resources to compete at the FBS level
-            at this time. FCS schools are limited to 63 athletic scolarships
+            at this time. FCS schools are limited to 63 athletic scholarships
             for football.
         - "ii": NCAA Division II. Schools in this and D3 are not
-            elligable for the March Madness tournament,
-            and are limited to 36 athletic scolarships for their football team.
+            eligible for the March Madness tournament,
+            and are limited to 36 athletic scholarships
+            for their football team.
         - "iii": NCAA Division III. The largest single division within the
             NCAA football pyramid.
             D3 schools have the distinction of being part of
-            the only NCAA division that cannot give out scolarships soley
+            the only NCAA division that cannot give out scholarships solely
             for athletic ability.
 
     `return_as_dict` (bool, semi-optional):
@@ -1177,9 +1179,9 @@ def get_cfbd_game_media_info(
     from cfbd_json_py.games import get_cfbd_game_media_info
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key is not "tigersAreAwsome":
+    if cfbd_key is not "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -1231,11 +1233,11 @@ def get_cfbd_game_media_info(
         time.sleep(5)
 
         # Get all known radio broadcasters for games played by teams
-        # within the American Athletic Confrence (AAC)
+        # within the American Athletic conference (AAC)
         # in the the 2021 CFB season.
         print(
             "Get all known radio broadcasters for games played " +
-            "by teams within the American Athletic Confrence (AAC) " +
+            "by teams within the American Athletic conference (AAC) " +
             "in the the 2021 CFB season."
         )
         json_data = get_cfbd_game_media_info(
@@ -1295,7 +1297,7 @@ def get_cfbd_game_media_info(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -1341,11 +1343,11 @@ def get_cfbd_game_media_info(
         time.sleep(5)
 
         # Get all known radio broadcasters for games played by teams
-        # within the American Athletic Confrence (AAC)
+        # within the American Athletic conference (AAC)
         # in the the 2021 CFB season.
         print(
             "Get all known radio broadcasters for games played " +
-            "by teams within the American Athletic Confrence (AAC) " +
+            "by teams within the American Athletic conference (AAC) " +
             "in the the 2021 CFB season."
         )
         json_data = get_cfbd_game_media_info(
@@ -1418,7 +1420,7 @@ def get_cfbd_game_media_info(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -1591,7 +1593,7 @@ def get_cfbd_player_game_stats(
     return_as_dict: bool = False,
 ):
     """
-    Retrives player game stats for a given time frame.
+    Retrieves player game stats for a given time frame.
 
     Parameters
     ----------
@@ -1621,7 +1623,7 @@ def get_cfbd_player_game_stats(
 
     `season_type` (str, semi-optional):
         Semi-optional argument.
-        By defualt, this will be set to "regular", for the CFB regular season.
+        By default, this will be set to "regular", for the CFB regular season.
         If you want CFB player game stats for non-regular season games,
         set `season_type` to "postseason".
         If `season_type` is set to anything but "regular" or "postseason",
@@ -1646,7 +1648,7 @@ def get_cfbd_player_game_stats(
     `conference` (str, optional):
         Optional argument.
         If you only want player game stats from games
-        involving teams a specific confrence,
+        involving teams a specific conference,
         set `conference` to the abbreviation
         of the conference you want stats from.
 
@@ -1670,7 +1672,7 @@ def get_cfbd_player_game_stats(
     `game_id` (int, optional):
         Optional argument.
         If `game_id` is set to a game ID, `get_cfbd_player_game_stats()`
-        will try to getplayer game stats just for that game ID.
+        will try to get player game stats just for that game ID.
 
     `return_as_dict` (bool, semi-optional):
         Semi-optional argument.
@@ -1687,9 +1689,9 @@ def get_cfbd_player_game_stats(
     from cfbd_json_py.games import get_cfbd_player_game_stats
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key is not "tigersAreAwsome":
+    if cfbd_key is not "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -1717,10 +1719,10 @@ def get_cfbd_player_game_stats(
         time.sleep(5)
 
         # Get player game stats for
-        # the Alabma Crimson Tide Football Team for the 2018 CFB season.
+        # the Alabama Crimson Tide Football Team for the 2018 CFB season.
         print(
             "Get player game stats for " +
-            "the Alabma Crimson Tide Football Team for the 2018 CFB season."
+            "the Alabama Crimson Tide Football Team for the 2018 CFB season."
         )
         json_data = get_cfbd_player_game_stats(
             api_key=cfbd_key,
@@ -1754,7 +1756,7 @@ def get_cfbd_player_game_stats(
             api_key=cfbd_key,
             season=2017,
             week=7,
-            stat_category="pasing"
+            stat_category="passing"
         )
         print(json_data)
         time.sleep(5)
@@ -1793,7 +1795,7 @@ def get_cfbd_player_game_stats(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -1817,10 +1819,10 @@ def get_cfbd_player_game_stats(
         time.sleep(5)
 
         # Get player game stats for
-        # the Alabma Crimson Tide Football Team for the 2018 CFB season.
+        # the Alabama Crimson Tide Football Team for the 2018 CFB season.
         print(
             "Get player game stats for " +
-            "the Alabma Crimson Tide Football Team for the 2018 CFB season."
+            "the Alabama Crimson Tide Football Team for the 2018 CFB season."
         )
         json_data = get_cfbd_player_game_stats(
             season=2018,
@@ -1902,7 +1904,7 @@ def get_cfbd_player_game_stats(
         "season",
         "game_id",
         "team_name",
-        "team_confrence",
+        "team_conference",
         "player_id",
         "player_name",
         "home_away",
@@ -1982,7 +1984,7 @@ def get_cfbd_player_game_stats(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -2134,7 +2136,7 @@ def get_cfbd_player_game_stats(
 
         for team in game["teams"]:
             team_name = team["school"]
-            team_confrence = team["conference"]
+            team_conference = team["conference"]
             home_away = team["homeAway"]
 
             for s_category in team["categories"]:
@@ -2153,8 +2155,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2178,8 +2180,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2202,8 +2204,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2226,8 +2228,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2250,8 +2252,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2277,8 +2279,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2308,8 +2310,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2332,8 +2334,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2356,8 +2358,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2380,8 +2382,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2404,8 +2406,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2435,8 +2437,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2459,8 +2461,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2483,8 +2485,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2507,8 +2509,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2531,8 +2533,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2562,8 +2564,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2586,8 +2588,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2610,8 +2612,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2641,8 +2643,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2665,8 +2667,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2689,8 +2691,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2713,8 +2715,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2738,8 +2740,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2762,8 +2764,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2786,8 +2788,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2817,8 +2819,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2842,8 +2844,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2867,8 +2869,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2899,8 +2901,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2923,8 +2925,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2947,8 +2949,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2971,8 +2973,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -2995,8 +2997,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3019,8 +3021,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3050,8 +3052,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3074,8 +3076,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3098,8 +3100,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3122,8 +3124,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3146,8 +3148,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3170,8 +3172,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3201,8 +3203,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3225,8 +3227,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3249,8 +3251,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3273,8 +3275,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3297,8 +3299,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3329,8 +3331,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3353,8 +3355,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3377,8 +3379,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3401,8 +3403,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3425,8 +3427,8 @@ def get_cfbd_player_game_stats(
                                 rebuilt_json[player_id][
                                     "team_name"] = team_name
                                 rebuilt_json[player_id][
-                                    "team_confrence"
-                                ] = team_confrence
+                                    "team_conference"
+                                ] = team_conference
                                 rebuilt_json[player_id][
                                     "player_id"] = player_id
                                 rebuilt_json[player_id][
@@ -3489,7 +3491,7 @@ def get_cfbd_player_game_stats(
                 "season",
                 "game_id",
                 "team_name",
-                "team_confrence",
+                "team_conference",
                 "player_id",
                 "player_name",
                 "home_away",
@@ -3511,7 +3513,7 @@ def get_cfbd_player_game_stats(
                 "season",
                 "game_id",
                 "team_name",
-                "team_confrence",
+                "team_conference",
                 "player_id",
                 "player_name",
                 "home_away",
@@ -3530,7 +3532,7 @@ def get_cfbd_player_game_stats(
                 "season",
                 "game_id",
                 "team_name",
-                "team_confrence",
+                "team_conference",
                 "player_id",
                 "player_name",
                 "home_away",
@@ -3549,7 +3551,7 @@ def get_cfbd_player_game_stats(
                 "season",
                 "game_id",
                 "team_name",
-                "team_confrence",
+                "team_conference",
                 "player_id",
                 "player_name",
                 "home_away",
@@ -3566,7 +3568,7 @@ def get_cfbd_player_game_stats(
                 "season",
                 "game_id",
                 "team_name",
-                "team_confrence",
+                "team_conference",
                 "player_id",
                 "player_name",
                 "home_away",
@@ -3587,7 +3589,7 @@ def get_cfbd_player_game_stats(
                 "season",
                 "game_id",
                 "team_name",
-                "team_confrence",
+                "team_conference",
                 "player_id",
                 "player_name",
                 "home_away",
@@ -3604,7 +3606,7 @@ def get_cfbd_player_game_stats(
                 "season",
                 "game_id",
                 "team_name",
-                "team_confrence",
+                "team_conference",
                 "player_id",
                 "player_name",
                 "home_away",
@@ -3624,7 +3626,7 @@ def get_cfbd_player_game_stats(
                 "season",
                 "game_id",
                 "team_name",
-                "team_confrence",
+                "team_conference",
                 "player_id",
                 "player_name",
                 "home_away",
@@ -3647,7 +3649,7 @@ def get_cfbd_player_game_stats(
                 "season",
                 "game_id",
                 "team_name",
-                "team_confrence",
+                "team_conference",
                 "player_id",
                 "player_name",
                 "home_away",
@@ -3666,7 +3668,7 @@ def get_cfbd_player_game_stats(
                 "season",
                 "game_id",
                 "team_name",
-                "team_confrence",
+                "team_conference",
                 "player_id",
                 "player_name",
                 "home_away",
@@ -3689,7 +3691,7 @@ def get_cfbd_player_advanced_game_stats(
     return_as_dict: bool = False,
 ):
     """
-    Retrives advanced game stats from the CFBD API.
+    Retrieves advanced game stats from the CFBD API.
 
     Parameters
     ----------
@@ -3730,9 +3732,9 @@ def get_cfbd_player_advanced_game_stats(
     from cfbd_json_py.games import get_cfbd_player_advanced_game_stats
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key is not "tigersAreAwsome":
+    if cfbd_key is not "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -3773,7 +3775,7 @@ def get_cfbd_player_advanced_game_stats(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -3827,7 +3829,7 @@ def get_cfbd_player_advanced_game_stats(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -3960,7 +3962,7 @@ def get_cfbd_player_advanced_game_stats(
 
 ###############################################################################
 # Patreon Only Functions.
-#   No cacheing, because the entire point of these functions are to get people
+#   No caching, because the entire point of these functions are to get people
 #   data ASAP, and right before kickoff.
 ###############################################################################
 

@@ -1,8 +1,8 @@
 """
 # Creation Date: 10/06/2023 05:23 EDT
-# Last Updated Date: 02/17/2024 10:55 PM EDT
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
-# File Name: check_cfbd_api_compatability.py
+# File Name: check_cfbd_api_compatibility.py
 # Purpose: Checks if the API Version that this package is designed for
     is the same as the current version of the CFBD API
 """
@@ -12,9 +12,9 @@ import json
 import requests
 
 
-def check_cfbd_api_compatability():
+def check_cfbd_api_compatibility():
     """
-    Checks if the CFBD API version that `cfbd-json-py` is compatable with
+    Checks if the CFBD API version that `cfbd-json-py` is compatible with
     is the current version of the CFBD API.
 
     Parameters
@@ -38,7 +38,7 @@ def check_cfbd_api_compatability():
 
     json_data = json.loads(json_str)
 
-    cfbd_json_py_version = json_data["current_verson"]
+    cfbd_json_py_version = json_data["current_version"]
     del json_str, json_data
 
     cfbd_swagger_json_url = (
@@ -63,7 +63,7 @@ def check_cfbd_api_compatability():
     del response, json_data
 
     print(
-        f"Package Compatability Version:\t{cfbd_json_py_version}\n"
+        f"Package Compatibility Version:\t{cfbd_json_py_version}\n"
         + f"Current CFBD API Version:\t{cfbd_api_version}"
     )
 
@@ -79,11 +79,11 @@ def check_cfbd_api_compatability():
             "There is a difference "
             + "between the current version of the CFBD API, "
             + "and the version of the CFBD API "
-            + "this package is compatable with."
+            + "this package is compatible with."
             + "\nIf you see this message, and an issue has not been raised, "
-            + "create an issue with the following paramaters:"
+            + "create an issue with the following parameters:"
             + f"\nTitle: Package needs to be upgraded to {cfbd_api_version}"
-            + "\nContent: The `cfbd-json-py` package is compatable "
+            + "\nContent: The `cfbd-json-py` package is compatible "
             + f"with the {cfbd_json_py_version} version of the CFBD API, "
             + f"but the current version of the CFBD API is {cfbd_api_version}."
             f"\nLabel: `enhancement`"
@@ -91,7 +91,7 @@ def check_cfbd_api_compatability():
 
 
 def main():
-    check_cfbd_api_compatability()
+    check_cfbd_api_compatibility()
 
 
 if __name__ == "__main__":

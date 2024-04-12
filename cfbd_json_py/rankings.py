@@ -1,6 +1,6 @@
 """
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: rankings.py
 # Purpose: Houses functions pertaining to CFB poll data within the CFBD API.
@@ -60,7 +60,7 @@ def get_cfbd_poll_rankings(
 
     `season_type` (str, semi-optional):
         Semi-optional argument.
-        By defualt, this will be set to "regular", for the CFB regular season.
+        By default, this will be set to "regular", for the CFB regular season.
         If you want CFB poll rankings data for non-regular season games,
         set `season_type` to "postseason".
         If `season_type` is set to anything but "regular" or "postseason",
@@ -81,9 +81,9 @@ def get_cfbd_poll_rankings(
     from cfbd_json_py.rankings import get_cfbd_poll_rankings
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this " +
             "script for this example."
@@ -140,7 +140,7 @@ def get_cfbd_poll_rankings(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded into " +
+            "Using the user's API key supposedly loaded into " +
             "this python environment for this example."
         )
 
@@ -207,7 +207,7 @@ def get_cfbd_poll_rankings(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )

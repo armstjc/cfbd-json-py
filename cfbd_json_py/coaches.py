@@ -1,6 +1,6 @@
 """
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: coaches.py
 # Purpose: Houses functions pertaining to coaching data within the CFBD API.
@@ -30,7 +30,7 @@ def get_cfbd_coaches_info(
     return_as_dict: bool = False,
 ):
     """
-    Retrives information from the CFBD API on CFB Head Coaches.
+    Retrieves information from the CFBD API on CFB Head Coaches.
 
     Parameters
     ----------
@@ -101,9 +101,9 @@ def get_cfbd_coaches_info(
 
     from cfbd_json_py.coaches import get_cfbd_coaches_info
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key is not "tigersAreAwsome":
+    if cfbd_key is not "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script "+
             "for this example."
@@ -189,7 +189,7 @@ def get_cfbd_coaches_info(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -298,7 +298,7 @@ def get_cfbd_coaches_info(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -327,7 +327,7 @@ def get_cfbd_coaches_info(
             logging.warning(
                 "If you only want coaching information for a single season, "
                 + "and not for a range of seasons, only set `year` "
-                + "to the seaon you want coaching info for, "
+                + "to the season you want coaching info for, "
                 + "and leave `min_season` and `max_season` as `None` (NULL)."
             )
             min_season = None
@@ -335,7 +335,7 @@ def get_cfbd_coaches_info(
             logging.warning(
                 "If you only want coaching information for a single season, "
                 + "and not for a range of seasons, only set `year` to "
-                + "the seaon you want coaching info for, "
+                + "the season you want coaching info for, "
                 + "and leave `min_season` and `max_season` as `None` (NULL)."
             )
             season = min_season
@@ -360,7 +360,7 @@ def get_cfbd_coaches_info(
             logging.warning(
                 "If you only want coaching information for "
                 + "a single season, and not for a range of seasons, "
-                + "only set `year` to the seaon you want coaching info for, "
+                + "only set `year` to the season you want coaching info for, "
                 + "and leave `min_season` and `max_season` as `None` (NULL)."
             )
             min_season = None
@@ -368,7 +368,7 @@ def get_cfbd_coaches_info(
             logging.warning(
                 "If you only want coaching information for "
                 + "a single season, and not for a range of seasons, "
-                + "only set `year` to the seaon you want coaching info for, "
+                + "only set `year` to the season you want coaching info for, "
                 + "and leave `min_season` and `max_season` as `None` (NULL)."
             )
             season = max_season

@@ -29,7 +29,7 @@
             <h2>Contents</h2>
             <ul>
   <li><a href="#creation-date-08302023-0113-edt">Creation Date: 08/30/2023 01:13 EDT</a></li>
-  <li><a href="#last-updated-date-02242023-0330-pm-est">Last Updated Date: 02/24/2023 03:30 PM EST</a></li>
+  <li><a href="#last-updated-date-04042024-0510-pm-edt">Last Updated Date: 04/04/2024 05:10 PM EDT</a></li>
   <li><a href="#author-joseph-armstrong-armstrongjoseph08gmailcom">Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</a></li>
   <li><a href="#file-name-bettingpy">File Name: betting.py</a></li>
   <li><a href="#purpose-houses-functions-pertaining-to-betting-data-within-the-cfbd-api">Purpose: Houses functions pertaining to betting data within the CFBD API.</a></li>
@@ -60,7 +60,7 @@
 
                         <div class="docstring"><h1 id="creation-date-08302023-0113-edt">Creation Date: 08/30/2023 01:13 EDT</h1>
 
-<h1 id="last-updated-date-02242023-0330-pm-est">Last Updated Date: 02/24/2023 03:30 PM EST</h1>
+<h1 id="last-updated-date-04042024-0510-pm-edt">Last Updated Date: 04/04/2024 05:10 PM EDT</h1>
 
 <h1 id="author-joseph-armstrong-armstrongjoseph08gmailcom">Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</h1>
 
@@ -77,7 +77,7 @@
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a><span class="sd"># Creation Date: 08/30/2023 01:13 EDT</span>
-</span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="sd"># Last Updated Date: 02/24/2023 03:30 PM EST</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="sd"># Last Updated Date: 04/04/2024 05:10 PM EDT</span>
 </span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="sd"># Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a><span class="sd"># File Name: betting.py</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a><span class="sd"># Purpose: Houses functions pertaining to betting data within the CFBD API.</span>
@@ -112,14 +112,14 @@
 </span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>    <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 </span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="p">):</span>
 </span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a><span class="sd">    Retrives betting information from the CFBD API for a given season,</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a><span class="sd">    Retrieves betting information from the CFBD API for a given season,</span>
 </span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a><span class="sd">    or you could only get betting information for a single game.</span>
 </span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>
 </span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a><span class="sd">    Parameters</span>
 </span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a><span class="sd">    ----------</span>
 </span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>
 </span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a><span class="sd">    `season` (int, mandatory):</span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a><span class="sd">        The season you want to retrive betting information from.</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a><span class="sd">        The season you want to retrieve betting information from.</span>
 </span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a>
 </span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a><span class="sd">    `api_key` (str, optional):</span>
 </span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a><span class="sd">        Semi-optional argument.</span>
@@ -143,7 +143,7 @@
 </span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a><span class="sd">        Optional argument.</span>
 </span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a><span class="sd">        If `game_id` is set to a game ID,</span>
 </span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a><span class="sd">        `get_cfb_betting_lines()` will try to get</span>
-</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="sd">        all betting informaiton for that game ID.</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="sd">        all betting information for that game ID.</span>
 </span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a>
 </span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="sd">    `week` (int, optional):</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a><span class="sd">        Optional argument.</span>
@@ -152,7 +152,7 @@
 </span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a>
 </span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="sd">        By default, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
 </span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="sd">        If you want postseason betting data, set `season_type` to &quot;postseason&quot;.</span>
 </span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;,</span>
 </span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a><span class="sd">        a `ValueError()` will be raised.</span>
@@ -182,9 +182,9 @@
 </span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a><span class="sd">        Optional argument.</span>
 </span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a><span class="sd">        If you only want betting information from games</span>
-</span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a><span class="sd">        set `conference` to the abbreviation</span>
-</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a><span class="sd">        of the conference you want betting informaiton from.</span>
+</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a><span class="sd">        of the conference you want betting information from.</span>
 </span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a>
 </span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a><span class="sd">    `year` (int):</span>
 </span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a><span class="sd">        Alternative keyword for `season`</span>
@@ -209,9 +209,9 @@
 </span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a>
 </span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a><span class="sd">    from cfbd_json_py.betting import get_cfbd_betting_lines</span>
 </span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>
-</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a>
-</span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a><span class="sd">    if cfbd_key is not &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a><span class="sd">    if cfbd_key is not &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a><span class="sd">        print(</span>
 </span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a><span class="sd">            &quot;Using the user&#39;s API key declared &quot; +</span>
 </span><span id="L-140"><a href="#L-140"><span class="linenos">140</span></a><span class="sd">            &quot;in this script for this example.&quot;</span>
@@ -329,7 +329,7 @@
 </span><span id="L-252"><a href="#L-252"><span class="linenos">252</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-253"><a href="#L-253"><span class="linenos">253</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-254"><a href="#L-254"><span class="linenos">254</span></a><span class="sd">        print(</span>
-</span><span id="L-255"><a href="#L-255"><span class="linenos">255</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-255"><a href="#L-255"><span class="linenos">255</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-256"><a href="#L-256"><span class="linenos">256</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-257"><a href="#L-257"><span class="linenos">257</span></a><span class="sd">        )</span>
 </span><span id="L-258"><a href="#L-258"><span class="linenos">258</span></a>
@@ -479,155 +479,145 @@
 </span><span id="L-402"><a href="#L-402"><span class="linenos">402</span></a>    <span class="k">elif</span> <span class="n">away</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="L-403"><a href="#L-403"><span class="linenos">403</span></a>        <span class="n">away_team</span> <span class="o">=</span> <span class="n">away</span>
 </span><span id="L-404"><a href="#L-404"><span class="linenos">404</span></a>
-</span><span id="L-405"><a href="#L-405"><span class="linenos">405</span></a>    <span class="c1"># if conference is not None and conference is not None \</span>
-</span><span id="L-406"><a href="#L-406"><span class="linenos">406</span></a>    <span class="c1">#     and (conferenceis notconference):</span>
-</span><span id="L-407"><a href="#L-407"><span class="linenos">407</span></a>    <span class="c1">#     raise ValueError(</span>
-</span><span id="L-408"><a href="#L-408"><span class="linenos">408</span></a>    <span class="c1">#         &quot;Inconsistent inputs for `conference` and `conference`.&quot;+</span>
-</span><span id="L-409"><a href="#L-409"><span class="linenos">409</span></a>    <span class="c1">#         &quot;\nPlease use either `conference` OR `conference` &quot;+</span>
-</span><span id="L-410"><a href="#L-410"><span class="linenos">410</span></a>    <span class="c1">#         &quot;when calling this function&quot;</span>
-</span><span id="L-411"><a href="#L-411"><span class="linenos">411</span></a>    <span class="c1">#     )</span>
-</span><span id="L-412"><a href="#L-412"><span class="linenos">412</span></a>    <span class="c1"># elif conference is not None:</span>
-</span><span id="L-413"><a href="#L-413"><span class="linenos">413</span></a>    <span class="c1">#     conference = conference</span>
-</span><span id="L-414"><a href="#L-414"><span class="linenos">414</span></a>
-</span><span id="L-415"><a href="#L-415"><span class="linenos">415</span></a>    <span class="k">del</span> <span class="n">year</span><span class="p">,</span> <span class="n">home</span><span class="p">,</span> <span class="n">away</span>
-</span><span id="L-416"><a href="#L-416"><span class="linenos">416</span></a>
-</span><span id="L-417"><a href="#L-417"><span class="linenos">417</span></a>    <span class="k">if</span> <span class="n">game_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">season</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-418"><a href="#L-418"><span class="linenos">418</span></a>        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-</span><span id="L-419"><a href="#L-419"><span class="linenos">419</span></a>            <span class="s2">&quot;If you are getting betting information for a single game, &quot;</span>
-</span><span id="L-420"><a href="#L-420"><span class="linenos">420</span></a>            <span class="o">+</span> <span class="s2">&quot;only set `game_id` to the game ID, &quot;</span> <span class="o">+</span>
-</span><span id="L-421"><a href="#L-421"><span class="linenos">421</span></a>            <span class="s2">&quot;and leave `season` as `NULL`.&quot;</span>
-</span><span id="L-422"><a href="#L-422"><span class="linenos">422</span></a>        <span class="p">)</span>
-</span><span id="L-423"><a href="#L-423"><span class="linenos">423</span></a>
-</span><span id="L-424"><a href="#L-424"><span class="linenos">424</span></a>    <span class="k">if</span> <span class="n">season_type</span> <span class="o">==</span> <span class="s2">&quot;regular&quot;</span> <span class="ow">or</span> <span class="n">season_type</span> <span class="o">==</span> <span class="s2">&quot;postseason&quot;</span><span class="p">:</span>
-</span><span id="L-425"><a href="#L-425"><span class="linenos">425</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;seasonType=</span><span class="si">{</span><span class="n">season_type</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="L-426"><a href="#L-426"><span class="linenos">426</span></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="L-427"><a href="#L-427"><span class="linenos">427</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span><span id="L-428"><a href="#L-428"><span class="linenos">428</span></a>            <span class="s1">&#39;`season_type` must be set to either &quot;regular&quot; or &quot;postseason&quot;.&#39;</span>
-</span><span id="L-429"><a href="#L-429"><span class="linenos">429</span></a>        <span class="p">)</span>
-</span><span id="L-430"><a href="#L-430"><span class="linenos">430</span></a>
-</span><span id="L-431"><a href="#L-431"><span class="linenos">431</span></a>    <span class="k">if</span> <span class="p">(</span><span class="n">game_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">season</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">week</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
-</span><span id="L-432"><a href="#L-432"><span class="linenos">432</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span><span id="L-433"><a href="#L-433"><span class="linenos">433</span></a>            <span class="s2">&quot;When setting a value for `week`, `season` cannot be null.&quot;</span>
-</span><span id="L-434"><a href="#L-434"><span class="linenos">434</span></a>        <span class="p">)</span>
-</span><span id="L-435"><a href="#L-435"><span class="linenos">435</span></a>
-</span><span id="L-436"><a href="#L-436"><span class="linenos">436</span></a>    <span class="k">if</span> <span class="n">api_key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-437"><a href="#L-437"><span class="linenos">437</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">api_key</span>
-</span><span id="L-438"><a href="#L-438"><span class="linenos">438</span></a>        <span class="k">del</span> <span class="n">api_key</span>
-</span><span id="L-439"><a href="#L-439"><span class="linenos">439</span></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="L-440"><a href="#L-440"><span class="linenos">440</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
-</span><span id="L-441"><a href="#L-441"><span class="linenos">441</span></a>
-</span><span id="L-442"><a href="#L-442"><span class="linenos">442</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
-</span><span id="L-443"><a href="#L-443"><span class="linenos">443</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span><span id="L-444"><a href="#L-444"><span class="linenos">444</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
-</span><span id="L-445"><a href="#L-445"><span class="linenos">445</span></a>        <span class="p">)</span>
-</span><span id="L-446"><a href="#L-446"><span class="linenos">446</span></a>    <span class="k">elif</span> <span class="s2">&quot;Bearer &quot;</span> <span class="ow">in</span> <span class="n">real_api_key</span><span class="p">:</span>
-</span><span id="L-447"><a href="#L-447"><span class="linenos">447</span></a>        <span class="k">pass</span>
-</span><span id="L-448"><a href="#L-448"><span class="linenos">448</span></a>    <span class="k">elif</span> <span class="s2">&quot;Bearer&quot;</span> <span class="ow">in</span> <span class="n">real_api_key</span><span class="p">:</span>
-</span><span id="L-449"><a href="#L-449"><span class="linenos">449</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">real_api_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Bearer&quot;</span><span class="p">,</span> <span class="s2">&quot;Bearer &quot;</span><span class="p">)</span>
-</span><span id="L-450"><a href="#L-450"><span class="linenos">450</span></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="L-451"><a href="#L-451"><span class="linenos">451</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="s2">&quot;Bearer &quot;</span> <span class="o">+</span> <span class="n">real_api_key</span>
-</span><span id="L-452"><a href="#L-452"><span class="linenos">452</span></a>
-</span><span id="L-453"><a href="#L-453"><span class="linenos">453</span></a>    <span class="c1"># URL builder</span>
-</span><span id="L-454"><a href="#L-454"><span class="linenos">454</span></a>    <span class="c1">##########################################################################</span>
-</span><span id="L-455"><a href="#L-455"><span class="linenos">455</span></a>
-</span><span id="L-456"><a href="#L-456"><span class="linenos">456</span></a>    <span class="k">if</span> <span class="n">game_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-457"><a href="#L-457"><span class="linenos">457</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;gameId=</span><span class="si">{</span><span class="n">game_id</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="L-458"><a href="#L-458"><span class="linenos">458</span></a>
-</span><span id="L-459"><a href="#L-459"><span class="linenos">459</span></a>    <span class="k">if</span> <span class="n">season</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-460"><a href="#L-460"><span class="linenos">460</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;year=</span><span class="si">{</span><span class="n">season</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="L-461"><a href="#L-461"><span class="linenos">461</span></a>
-</span><span id="L-462"><a href="#L-462"><span class="linenos">462</span></a>    <span class="k">if</span> <span class="n">week</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-463"><a href="#L-463"><span class="linenos">463</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;week=</span><span class="si">{</span><span class="n">week</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="L-464"><a href="#L-464"><span class="linenos">464</span></a>
-</span><span id="L-465"><a href="#L-465"><span class="linenos">465</span></a>    <span class="k">if</span> <span class="n">team</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-466"><a href="#L-466"><span class="linenos">466</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;team=</span><span class="si">{</span><span class="n">team</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="L-467"><a href="#L-467"><span class="linenos">467</span></a>
-</span><span id="L-468"><a href="#L-468"><span class="linenos">468</span></a>    <span class="k">if</span> <span class="n">home_team</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-469"><a href="#L-469"><span class="linenos">469</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;home=</span><span class="si">{</span><span class="n">home_team</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-405"><a href="#L-405"><span class="linenos">405</span></a>    <span class="k">del</span> <span class="n">year</span><span class="p">,</span> <span class="n">home</span><span class="p">,</span> <span class="n">away</span>
+</span><span id="L-406"><a href="#L-406"><span class="linenos">406</span></a>
+</span><span id="L-407"><a href="#L-407"><span class="linenos">407</span></a>    <span class="k">if</span> <span class="n">game_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">season</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-408"><a href="#L-408"><span class="linenos">408</span></a>        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+</span><span id="L-409"><a href="#L-409"><span class="linenos">409</span></a>            <span class="s2">&quot;If you are getting betting information for a single game, &quot;</span>
+</span><span id="L-410"><a href="#L-410"><span class="linenos">410</span></a>            <span class="o">+</span> <span class="s2">&quot;only set `game_id` to the game ID, &quot;</span> <span class="o">+</span>
+</span><span id="L-411"><a href="#L-411"><span class="linenos">411</span></a>            <span class="s2">&quot;and leave `season` as `NULL`.&quot;</span>
+</span><span id="L-412"><a href="#L-412"><span class="linenos">412</span></a>        <span class="p">)</span>
+</span><span id="L-413"><a href="#L-413"><span class="linenos">413</span></a>
+</span><span id="L-414"><a href="#L-414"><span class="linenos">414</span></a>    <span class="k">if</span> <span class="n">season_type</span> <span class="o">==</span> <span class="s2">&quot;regular&quot;</span> <span class="ow">or</span> <span class="n">season_type</span> <span class="o">==</span> <span class="s2">&quot;postseason&quot;</span><span class="p">:</span>
+</span><span id="L-415"><a href="#L-415"><span class="linenos">415</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;seasonType=</span><span class="si">{</span><span class="n">season_type</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-416"><a href="#L-416"><span class="linenos">416</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="L-417"><a href="#L-417"><span class="linenos">417</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="L-418"><a href="#L-418"><span class="linenos">418</span></a>            <span class="s1">&#39;`season_type` must be set to either &quot;regular&quot; or &quot;postseason&quot;.&#39;</span>
+</span><span id="L-419"><a href="#L-419"><span class="linenos">419</span></a>        <span class="p">)</span>
+</span><span id="L-420"><a href="#L-420"><span class="linenos">420</span></a>
+</span><span id="L-421"><a href="#L-421"><span class="linenos">421</span></a>    <span class="k">if</span> <span class="p">(</span><span class="n">game_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">season</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">week</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+</span><span id="L-422"><a href="#L-422"><span class="linenos">422</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="L-423"><a href="#L-423"><span class="linenos">423</span></a>            <span class="s2">&quot;When setting a value for `week`, `season` cannot be null.&quot;</span>
+</span><span id="L-424"><a href="#L-424"><span class="linenos">424</span></a>        <span class="p">)</span>
+</span><span id="L-425"><a href="#L-425"><span class="linenos">425</span></a>
+</span><span id="L-426"><a href="#L-426"><span class="linenos">426</span></a>    <span class="k">if</span> <span class="n">api_key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-427"><a href="#L-427"><span class="linenos">427</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">api_key</span>
+</span><span id="L-428"><a href="#L-428"><span class="linenos">428</span></a>        <span class="k">del</span> <span class="n">api_key</span>
+</span><span id="L-429"><a href="#L-429"><span class="linenos">429</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="L-430"><a href="#L-430"><span class="linenos">430</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
+</span><span id="L-431"><a href="#L-431"><span class="linenos">431</span></a>
+</span><span id="L-432"><a href="#L-432"><span class="linenos">432</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
+</span><span id="L-433"><a href="#L-433"><span class="linenos">433</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="L-434"><a href="#L-434"><span class="linenos">434</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
+</span><span id="L-435"><a href="#L-435"><span class="linenos">435</span></a>        <span class="p">)</span>
+</span><span id="L-436"><a href="#L-436"><span class="linenos">436</span></a>    <span class="k">elif</span> <span class="s2">&quot;Bearer &quot;</span> <span class="ow">in</span> <span class="n">real_api_key</span><span class="p">:</span>
+</span><span id="L-437"><a href="#L-437"><span class="linenos">437</span></a>        <span class="k">pass</span>
+</span><span id="L-438"><a href="#L-438"><span class="linenos">438</span></a>    <span class="k">elif</span> <span class="s2">&quot;Bearer&quot;</span> <span class="ow">in</span> <span class="n">real_api_key</span><span class="p">:</span>
+</span><span id="L-439"><a href="#L-439"><span class="linenos">439</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">real_api_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Bearer&quot;</span><span class="p">,</span> <span class="s2">&quot;Bearer &quot;</span><span class="p">)</span>
+</span><span id="L-440"><a href="#L-440"><span class="linenos">440</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="L-441"><a href="#L-441"><span class="linenos">441</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="s2">&quot;Bearer &quot;</span> <span class="o">+</span> <span class="n">real_api_key</span>
+</span><span id="L-442"><a href="#L-442"><span class="linenos">442</span></a>
+</span><span id="L-443"><a href="#L-443"><span class="linenos">443</span></a>    <span class="c1"># URL builder</span>
+</span><span id="L-444"><a href="#L-444"><span class="linenos">444</span></a>    <span class="c1">##########################################################################</span>
+</span><span id="L-445"><a href="#L-445"><span class="linenos">445</span></a>
+</span><span id="L-446"><a href="#L-446"><span class="linenos">446</span></a>    <span class="k">if</span> <span class="n">game_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-447"><a href="#L-447"><span class="linenos">447</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;gameId=</span><span class="si">{</span><span class="n">game_id</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-448"><a href="#L-448"><span class="linenos">448</span></a>
+</span><span id="L-449"><a href="#L-449"><span class="linenos">449</span></a>    <span class="k">if</span> <span class="n">season</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-450"><a href="#L-450"><span class="linenos">450</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;year=</span><span class="si">{</span><span class="n">season</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-451"><a href="#L-451"><span class="linenos">451</span></a>
+</span><span id="L-452"><a href="#L-452"><span class="linenos">452</span></a>    <span class="k">if</span> <span class="n">week</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-453"><a href="#L-453"><span class="linenos">453</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;week=</span><span class="si">{</span><span class="n">week</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-454"><a href="#L-454"><span class="linenos">454</span></a>
+</span><span id="L-455"><a href="#L-455"><span class="linenos">455</span></a>    <span class="k">if</span> <span class="n">team</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-456"><a href="#L-456"><span class="linenos">456</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;team=</span><span class="si">{</span><span class="n">team</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-457"><a href="#L-457"><span class="linenos">457</span></a>
+</span><span id="L-458"><a href="#L-458"><span class="linenos">458</span></a>    <span class="k">if</span> <span class="n">home_team</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-459"><a href="#L-459"><span class="linenos">459</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;home=</span><span class="si">{</span><span class="n">home_team</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-460"><a href="#L-460"><span class="linenos">460</span></a>
+</span><span id="L-461"><a href="#L-461"><span class="linenos">461</span></a>    <span class="k">if</span> <span class="n">away_team</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-462"><a href="#L-462"><span class="linenos">462</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;away=</span><span class="si">{</span><span class="n">away_team</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-463"><a href="#L-463"><span class="linenos">463</span></a>
+</span><span id="L-464"><a href="#L-464"><span class="linenos">464</span></a>    <span class="k">if</span> <span class="n">conference</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-465"><a href="#L-465"><span class="linenos">465</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;conference=</span><span class="si">{</span><span class="n">conference</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-466"><a href="#L-466"><span class="linenos">466</span></a>
+</span><span id="L-467"><a href="#L-467"><span class="linenos">467</span></a>    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-468"><a href="#L-468"><span class="linenos">468</span></a>        <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">real_api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
+</span><span id="L-469"><a href="#L-469"><span class="linenos">469</span></a>    <span class="p">}</span>
 </span><span id="L-470"><a href="#L-470"><span class="linenos">470</span></a>
-</span><span id="L-471"><a href="#L-471"><span class="linenos">471</span></a>    <span class="k">if</span> <span class="n">away_team</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-472"><a href="#L-472"><span class="linenos">472</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;away=</span><span class="si">{</span><span class="n">away_team</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="L-473"><a href="#L-473"><span class="linenos">473</span></a>
-</span><span id="L-474"><a href="#L-474"><span class="linenos">474</span></a>    <span class="k">if</span> <span class="n">conference</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-475"><a href="#L-475"><span class="linenos">475</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;conference=</span><span class="si">{</span><span class="n">conference</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="L-476"><a href="#L-476"><span class="linenos">476</span></a>
-</span><span id="L-477"><a href="#L-477"><span class="linenos">477</span></a>    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="L-478"><a href="#L-478"><span class="linenos">478</span></a>        <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">real_api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
-</span><span id="L-479"><a href="#L-479"><span class="linenos">479</span></a>    <span class="p">}</span>
-</span><span id="L-480"><a href="#L-480"><span class="linenos">480</span></a>
-</span><span id="L-481"><a href="#L-481"><span class="linenos">481</span></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-</span><span id="L-482"><a href="#L-482"><span class="linenos">482</span></a>
-</span><span id="L-483"><a href="#L-483"><span class="linenos">483</span></a>    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-</span><span id="L-484"><a href="#L-484"><span class="linenos">484</span></a>        <span class="k">pass</span>
-</span><span id="L-485"><a href="#L-485"><span class="linenos">485</span></a>    <span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
-</span><span id="L-486"><a href="#L-486"><span class="linenos">486</span></a>        <span class="k">raise</span> <span class="ne">ConnectionRefusedError</span><span class="p">(</span>
-</span><span id="L-487"><a href="#L-487"><span class="linenos">487</span></a>            <span class="s2">&quot;Could not connect. The connection was refused.</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-</span><span id="L-488"><a href="#L-488"><span class="linenos">488</span></a>            <span class="s2">&quot;HTTP Status Code 401.&quot;</span>
-</span><span id="L-489"><a href="#L-489"><span class="linenos">489</span></a>        <span class="p">)</span>
-</span><span id="L-490"><a href="#L-490"><span class="linenos">490</span></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="L-491"><a href="#L-491"><span class="linenos">491</span></a>        <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span>
-</span><span id="L-492"><a href="#L-492"><span class="linenos">492</span></a>            <span class="sa">f</span><span class="s2">&quot;Could not connect.</span><span class="se">\n</span><span class="s2">HTTP Status code </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="L-493"><a href="#L-493"><span class="linenos">493</span></a>        <span class="p">)</span>
-</span><span id="L-494"><a href="#L-494"><span class="linenos">494</span></a>
-</span><span id="L-495"><a href="#L-495"><span class="linenos">495</span></a>    <span class="n">json_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</span><span id="L-496"><a href="#L-496"><span class="linenos">496</span></a>
-</span><span id="L-497"><a href="#L-497"><span class="linenos">497</span></a>    <span class="k">if</span> <span class="n">return_as_dict</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
-</span><span id="L-498"><a href="#L-498"><span class="linenos">498</span></a>        <span class="k">return</span> <span class="n">json_data</span>
-</span><span id="L-499"><a href="#L-499"><span class="linenos">499</span></a>
-</span><span id="L-500"><a href="#L-500"><span class="linenos">500</span></a>    <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">json_data</span><span class="p">):</span>
-</span><span id="L-501"><a href="#L-501"><span class="linenos">501</span></a>        <span class="n">gameId</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
-</span><span id="L-502"><a href="#L-502"><span class="linenos">502</span></a>        <span class="n">season</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
-</span><span id="L-503"><a href="#L-503"><span class="linenos">503</span></a>        <span class="n">seasonType</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;seasonType&quot;</span><span class="p">]</span>
-</span><span id="L-504"><a href="#L-504"><span class="linenos">504</span></a>        <span class="n">startDate</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;startDate&quot;</span><span class="p">]</span>
-</span><span id="L-505"><a href="#L-505"><span class="linenos">505</span></a>        <span class="n">homeTeam</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;homeTeam&quot;</span><span class="p">]</span>
-</span><span id="L-506"><a href="#L-506"><span class="linenos">506</span></a>        <span class="n">homeConference</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;homeConference&quot;</span><span class="p">]</span>
-</span><span id="L-507"><a href="#L-507"><span class="linenos">507</span></a>        <span class="n">homeScore</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;homeScore&quot;</span><span class="p">]</span>
-</span><span id="L-508"><a href="#L-508"><span class="linenos">508</span></a>        <span class="n">awayTeam</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;awayTeam&quot;</span><span class="p">]</span>
-</span><span id="L-509"><a href="#L-509"><span class="linenos">509</span></a>        <span class="n">awayConference</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;awayConference&quot;</span><span class="p">]</span>
-</span><span id="L-510"><a href="#L-510"><span class="linenos">510</span></a>        <span class="n">awayScore</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;awayScore&quot;</span><span class="p">]</span>
-</span><span id="L-511"><a href="#L-511"><span class="linenos">511</span></a>
-</span><span id="L-512"><a href="#L-512"><span class="linenos">512</span></a>        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;lines&quot;</span><span class="p">]:</span>
-</span><span id="L-513"><a href="#L-513"><span class="linenos">513</span></a>            <span class="n">row_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-</span><span id="L-514"><a href="#L-514"><span class="linenos">514</span></a>                <span class="p">{</span>
-</span><span id="L-515"><a href="#L-515"><span class="linenos">515</span></a>                    <span class="s2">&quot;game_id&quot;</span><span class="p">:</span> <span class="n">gameId</span><span class="p">,</span>
-</span><span id="L-516"><a href="#L-516"><span class="linenos">516</span></a>                    <span class="s2">&quot;season&quot;</span><span class="p">:</span> <span class="n">season</span><span class="p">,</span>
-</span><span id="L-517"><a href="#L-517"><span class="linenos">517</span></a>                    <span class="s2">&quot;season_type&quot;</span><span class="p">:</span> <span class="n">seasonType</span><span class="p">,</span>
-</span><span id="L-518"><a href="#L-518"><span class="linenos">518</span></a>                    <span class="s2">&quot;start_date&quot;</span><span class="p">:</span> <span class="n">startDate</span><span class="p">,</span>
-</span><span id="L-519"><a href="#L-519"><span class="linenos">519</span></a>                    <span class="s2">&quot;home_team_name&quot;</span><span class="p">:</span> <span class="n">homeTeam</span><span class="p">,</span>
-</span><span id="L-520"><a href="#L-520"><span class="linenos">520</span></a>                    <span class="s2">&quot;home_conference_name&quot;</span><span class="p">:</span> <span class="n">homeConference</span><span class="p">,</span>
-</span><span id="L-521"><a href="#L-521"><span class="linenos">521</span></a>                    <span class="s2">&quot;home_score&quot;</span><span class="p">:</span> <span class="n">homeScore</span><span class="p">,</span>
-</span><span id="L-522"><a href="#L-522"><span class="linenos">522</span></a>                    <span class="s2">&quot;away_team_name&quot;</span><span class="p">:</span> <span class="n">awayTeam</span><span class="p">,</span>
-</span><span id="L-523"><a href="#L-523"><span class="linenos">523</span></a>                    <span class="s2">&quot;away_conference_name&quot;</span><span class="p">:</span> <span class="n">awayConference</span><span class="p">,</span>
-</span><span id="L-524"><a href="#L-524"><span class="linenos">524</span></a>                    <span class="s2">&quot;away_score&quot;</span><span class="p">:</span> <span class="n">awayScore</span><span class="p">,</span>
-</span><span id="L-525"><a href="#L-525"><span class="linenos">525</span></a>                <span class="p">},</span>
-</span><span id="L-526"><a href="#L-526"><span class="linenos">526</span></a>                <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-</span><span id="L-527"><a href="#L-527"><span class="linenos">527</span></a>            <span class="p">)</span>
-</span><span id="L-528"><a href="#L-528"><span class="linenos">528</span></a>
-</span><span id="L-529"><a href="#L-529"><span class="linenos">529</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;line_provider&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;provider&quot;</span><span class="p">]</span>
-</span><span id="L-530"><a href="#L-530"><span class="linenos">530</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;spread&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;spread&quot;</span><span class="p">]</span>
-</span><span id="L-531"><a href="#L-531"><span class="linenos">531</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;formatted_spread&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;formattedSpread&quot;</span><span class="p">]</span>
-</span><span id="L-532"><a href="#L-532"><span class="linenos">532</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;spread_open&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;spreadOpen&quot;</span><span class="p">]</span>
-</span><span id="L-533"><a href="#L-533"><span class="linenos">533</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;over_under&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;overUnder&quot;</span><span class="p">]</span>
-</span><span id="L-534"><a href="#L-534"><span class="linenos">534</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;over_under_open&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;overUnderOpen&quot;</span><span class="p">]</span>
-</span><span id="L-535"><a href="#L-535"><span class="linenos">535</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;home_moneyline&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;homeMoneyline&quot;</span><span class="p">]</span>
-</span><span id="L-536"><a href="#L-536"><span class="linenos">536</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;away_moneyline&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;awayMoneyline&quot;</span><span class="p">]</span>
-</span><span id="L-537"><a href="#L-537"><span class="linenos">537</span></a>
-</span><span id="L-538"><a href="#L-538"><span class="linenos">538</span></a>            <span class="n">betting_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">betting_df</span><span class="p">,</span> <span class="n">row_df</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="L-539"><a href="#L-539"><span class="linenos">539</span></a>            <span class="k">del</span> <span class="n">row_df</span>
-</span><span id="L-540"><a href="#L-540"><span class="linenos">540</span></a>
-</span><span id="L-541"><a href="#L-541"><span class="linenos">541</span></a>        <span class="k">del</span> <span class="p">(</span>
-</span><span id="L-542"><a href="#L-542"><span class="linenos">542</span></a>            <span class="n">gameId</span><span class="p">,</span>
-</span><span id="L-543"><a href="#L-543"><span class="linenos">543</span></a>            <span class="n">seasonType</span><span class="p">,</span>
-</span><span id="L-544"><a href="#L-544"><span class="linenos">544</span></a>            <span class="n">startDate</span><span class="p">,</span>
-</span><span id="L-545"><a href="#L-545"><span class="linenos">545</span></a>            <span class="n">homeTeam</span><span class="p">,</span>
-</span><span id="L-546"><a href="#L-546"><span class="linenos">546</span></a>            <span class="n">homeConference</span><span class="p">,</span>
-</span><span id="L-547"><a href="#L-547"><span class="linenos">547</span></a>            <span class="n">homeScore</span><span class="p">,</span>
-</span><span id="L-548"><a href="#L-548"><span class="linenos">548</span></a>            <span class="n">awayTeam</span><span class="p">,</span>
-</span><span id="L-549"><a href="#L-549"><span class="linenos">549</span></a>            <span class="n">awayConference</span><span class="p">,</span>
-</span><span id="L-550"><a href="#L-550"><span class="linenos">550</span></a>            <span class="n">awayScore</span><span class="p">,</span>
-</span><span id="L-551"><a href="#L-551"><span class="linenos">551</span></a>        <span class="p">)</span>
-</span><span id="L-552"><a href="#L-552"><span class="linenos">552</span></a>
-</span><span id="L-553"><a href="#L-553"><span class="linenos">553</span></a>    <span class="k">return</span> <span class="n">betting_df</span>
+</span><span id="L-471"><a href="#L-471"><span class="linenos">471</span></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</span><span id="L-472"><a href="#L-472"><span class="linenos">472</span></a>
+</span><span id="L-473"><a href="#L-473"><span class="linenos">473</span></a>    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+</span><span id="L-474"><a href="#L-474"><span class="linenos">474</span></a>        <span class="k">pass</span>
+</span><span id="L-475"><a href="#L-475"><span class="linenos">475</span></a>    <span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
+</span><span id="L-476"><a href="#L-476"><span class="linenos">476</span></a>        <span class="k">raise</span> <span class="ne">ConnectionRefusedError</span><span class="p">(</span>
+</span><span id="L-477"><a href="#L-477"><span class="linenos">477</span></a>            <span class="s2">&quot;Could not connect. The connection was refused.</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+</span><span id="L-478"><a href="#L-478"><span class="linenos">478</span></a>            <span class="s2">&quot;HTTP Status Code 401.&quot;</span>
+</span><span id="L-479"><a href="#L-479"><span class="linenos">479</span></a>        <span class="p">)</span>
+</span><span id="L-480"><a href="#L-480"><span class="linenos">480</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="L-481"><a href="#L-481"><span class="linenos">481</span></a>        <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span>
+</span><span id="L-482"><a href="#L-482"><span class="linenos">482</span></a>            <span class="sa">f</span><span class="s2">&quot;Could not connect.</span><span class="se">\n</span><span class="s2">HTTP Status code </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-483"><a href="#L-483"><span class="linenos">483</span></a>        <span class="p">)</span>
+</span><span id="L-484"><a href="#L-484"><span class="linenos">484</span></a>
+</span><span id="L-485"><a href="#L-485"><span class="linenos">485</span></a>    <span class="n">json_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="L-486"><a href="#L-486"><span class="linenos">486</span></a>
+</span><span id="L-487"><a href="#L-487"><span class="linenos">487</span></a>    <span class="k">if</span> <span class="n">return_as_dict</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="L-488"><a href="#L-488"><span class="linenos">488</span></a>        <span class="k">return</span> <span class="n">json_data</span>
+</span><span id="L-489"><a href="#L-489"><span class="linenos">489</span></a>
+</span><span id="L-490"><a href="#L-490"><span class="linenos">490</span></a>    <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">json_data</span><span class="p">):</span>
+</span><span id="L-491"><a href="#L-491"><span class="linenos">491</span></a>        <span class="n">gameId</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+</span><span id="L-492"><a href="#L-492"><span class="linenos">492</span></a>        <span class="n">season</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+</span><span id="L-493"><a href="#L-493"><span class="linenos">493</span></a>        <span class="n">seasonType</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;seasonType&quot;</span><span class="p">]</span>
+</span><span id="L-494"><a href="#L-494"><span class="linenos">494</span></a>        <span class="n">startDate</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;startDate&quot;</span><span class="p">]</span>
+</span><span id="L-495"><a href="#L-495"><span class="linenos">495</span></a>        <span class="n">homeTeam</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;homeTeam&quot;</span><span class="p">]</span>
+</span><span id="L-496"><a href="#L-496"><span class="linenos">496</span></a>        <span class="n">homeConference</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;homeConference&quot;</span><span class="p">]</span>
+</span><span id="L-497"><a href="#L-497"><span class="linenos">497</span></a>        <span class="n">homeScore</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;homeScore&quot;</span><span class="p">]</span>
+</span><span id="L-498"><a href="#L-498"><span class="linenos">498</span></a>        <span class="n">awayTeam</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;awayTeam&quot;</span><span class="p">]</span>
+</span><span id="L-499"><a href="#L-499"><span class="linenos">499</span></a>        <span class="n">awayConference</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;awayConference&quot;</span><span class="p">]</span>
+</span><span id="L-500"><a href="#L-500"><span class="linenos">500</span></a>        <span class="n">awayScore</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;awayScore&quot;</span><span class="p">]</span>
+</span><span id="L-501"><a href="#L-501"><span class="linenos">501</span></a>
+</span><span id="L-502"><a href="#L-502"><span class="linenos">502</span></a>        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;lines&quot;</span><span class="p">]:</span>
+</span><span id="L-503"><a href="#L-503"><span class="linenos">503</span></a>            <span class="n">row_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+</span><span id="L-504"><a href="#L-504"><span class="linenos">504</span></a>                <span class="p">{</span>
+</span><span id="L-505"><a href="#L-505"><span class="linenos">505</span></a>                    <span class="s2">&quot;game_id&quot;</span><span class="p">:</span> <span class="n">gameId</span><span class="p">,</span>
+</span><span id="L-506"><a href="#L-506"><span class="linenos">506</span></a>                    <span class="s2">&quot;season&quot;</span><span class="p">:</span> <span class="n">season</span><span class="p">,</span>
+</span><span id="L-507"><a href="#L-507"><span class="linenos">507</span></a>                    <span class="s2">&quot;season_type&quot;</span><span class="p">:</span> <span class="n">seasonType</span><span class="p">,</span>
+</span><span id="L-508"><a href="#L-508"><span class="linenos">508</span></a>                    <span class="s2">&quot;start_date&quot;</span><span class="p">:</span> <span class="n">startDate</span><span class="p">,</span>
+</span><span id="L-509"><a href="#L-509"><span class="linenos">509</span></a>                    <span class="s2">&quot;home_team_name&quot;</span><span class="p">:</span> <span class="n">homeTeam</span><span class="p">,</span>
+</span><span id="L-510"><a href="#L-510"><span class="linenos">510</span></a>                    <span class="s2">&quot;home_conference_name&quot;</span><span class="p">:</span> <span class="n">homeConference</span><span class="p">,</span>
+</span><span id="L-511"><a href="#L-511"><span class="linenos">511</span></a>                    <span class="s2">&quot;home_score&quot;</span><span class="p">:</span> <span class="n">homeScore</span><span class="p">,</span>
+</span><span id="L-512"><a href="#L-512"><span class="linenos">512</span></a>                    <span class="s2">&quot;away_team_name&quot;</span><span class="p">:</span> <span class="n">awayTeam</span><span class="p">,</span>
+</span><span id="L-513"><a href="#L-513"><span class="linenos">513</span></a>                    <span class="s2">&quot;away_conference_name&quot;</span><span class="p">:</span> <span class="n">awayConference</span><span class="p">,</span>
+</span><span id="L-514"><a href="#L-514"><span class="linenos">514</span></a>                    <span class="s2">&quot;away_score&quot;</span><span class="p">:</span> <span class="n">awayScore</span><span class="p">,</span>
+</span><span id="L-515"><a href="#L-515"><span class="linenos">515</span></a>                <span class="p">},</span>
+</span><span id="L-516"><a href="#L-516"><span class="linenos">516</span></a>                <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+</span><span id="L-517"><a href="#L-517"><span class="linenos">517</span></a>            <span class="p">)</span>
+</span><span id="L-518"><a href="#L-518"><span class="linenos">518</span></a>
+</span><span id="L-519"><a href="#L-519"><span class="linenos">519</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;line_provider&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;provider&quot;</span><span class="p">]</span>
+</span><span id="L-520"><a href="#L-520"><span class="linenos">520</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;spread&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;spread&quot;</span><span class="p">]</span>
+</span><span id="L-521"><a href="#L-521"><span class="linenos">521</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;formatted_spread&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;formattedSpread&quot;</span><span class="p">]</span>
+</span><span id="L-522"><a href="#L-522"><span class="linenos">522</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;spread_open&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;spreadOpen&quot;</span><span class="p">]</span>
+</span><span id="L-523"><a href="#L-523"><span class="linenos">523</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;over_under&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;overUnder&quot;</span><span class="p">]</span>
+</span><span id="L-524"><a href="#L-524"><span class="linenos">524</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;over_under_open&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;overUnderOpen&quot;</span><span class="p">]</span>
+</span><span id="L-525"><a href="#L-525"><span class="linenos">525</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;home_moneyline&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;homeMoneyline&quot;</span><span class="p">]</span>
+</span><span id="L-526"><a href="#L-526"><span class="linenos">526</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;away_moneyline&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;awayMoneyline&quot;</span><span class="p">]</span>
+</span><span id="L-527"><a href="#L-527"><span class="linenos">527</span></a>
+</span><span id="L-528"><a href="#L-528"><span class="linenos">528</span></a>            <span class="n">betting_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">betting_df</span><span class="p">,</span> <span class="n">row_df</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="L-529"><a href="#L-529"><span class="linenos">529</span></a>            <span class="k">del</span> <span class="n">row_df</span>
+</span><span id="L-530"><a href="#L-530"><span class="linenos">530</span></a>
+</span><span id="L-531"><a href="#L-531"><span class="linenos">531</span></a>        <span class="k">del</span> <span class="p">(</span>
+</span><span id="L-532"><a href="#L-532"><span class="linenos">532</span></a>            <span class="n">gameId</span><span class="p">,</span>
+</span><span id="L-533"><a href="#L-533"><span class="linenos">533</span></a>            <span class="n">seasonType</span><span class="p">,</span>
+</span><span id="L-534"><a href="#L-534"><span class="linenos">534</span></a>            <span class="n">startDate</span><span class="p">,</span>
+</span><span id="L-535"><a href="#L-535"><span class="linenos">535</span></a>            <span class="n">homeTeam</span><span class="p">,</span>
+</span><span id="L-536"><a href="#L-536"><span class="linenos">536</span></a>            <span class="n">homeConference</span><span class="p">,</span>
+</span><span id="L-537"><a href="#L-537"><span class="linenos">537</span></a>            <span class="n">homeScore</span><span class="p">,</span>
+</span><span id="L-538"><a href="#L-538"><span class="linenos">538</span></a>            <span class="n">awayTeam</span><span class="p">,</span>
+</span><span id="L-539"><a href="#L-539"><span class="linenos">539</span></a>            <span class="n">awayConference</span><span class="p">,</span>
+</span><span id="L-540"><a href="#L-540"><span class="linenos">540</span></a>            <span class="n">awayScore</span><span class="p">,</span>
+</span><span id="L-541"><a href="#L-541"><span class="linenos">541</span></a>        <span class="p">)</span>
+</span><span id="L-542"><a href="#L-542"><span class="linenos">542</span></a>
+</span><span id="L-543"><a href="#L-543"><span class="linenos">543</span></a>    <span class="k">return</span> <span class="n">betting_df</span>
 </span></pre></div>
 
 
@@ -662,14 +652,14 @@
 </span><span id="get_cfbd_betting_lines-36"><a href="#get_cfbd_betting_lines-36"><span class="linenos"> 36</span></a>    <span class="n">return_as_dict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 </span><span id="get_cfbd_betting_lines-37"><a href="#get_cfbd_betting_lines-37"><span class="linenos"> 37</span></a><span class="p">):</span>
 </span><span id="get_cfbd_betting_lines-38"><a href="#get_cfbd_betting_lines-38"><span class="linenos"> 38</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="get_cfbd_betting_lines-39"><a href="#get_cfbd_betting_lines-39"><span class="linenos"> 39</span></a><span class="sd">    Retrives betting information from the CFBD API for a given season,</span>
+</span><span id="get_cfbd_betting_lines-39"><a href="#get_cfbd_betting_lines-39"><span class="linenos"> 39</span></a><span class="sd">    Retrieves betting information from the CFBD API for a given season,</span>
 </span><span id="get_cfbd_betting_lines-40"><a href="#get_cfbd_betting_lines-40"><span class="linenos"> 40</span></a><span class="sd">    or you could only get betting information for a single game.</span>
 </span><span id="get_cfbd_betting_lines-41"><a href="#get_cfbd_betting_lines-41"><span class="linenos"> 41</span></a>
 </span><span id="get_cfbd_betting_lines-42"><a href="#get_cfbd_betting_lines-42"><span class="linenos"> 42</span></a><span class="sd">    Parameters</span>
 </span><span id="get_cfbd_betting_lines-43"><a href="#get_cfbd_betting_lines-43"><span class="linenos"> 43</span></a><span class="sd">    ----------</span>
 </span><span id="get_cfbd_betting_lines-44"><a href="#get_cfbd_betting_lines-44"><span class="linenos"> 44</span></a>
 </span><span id="get_cfbd_betting_lines-45"><a href="#get_cfbd_betting_lines-45"><span class="linenos"> 45</span></a><span class="sd">    `season` (int, mandatory):</span>
-</span><span id="get_cfbd_betting_lines-46"><a href="#get_cfbd_betting_lines-46"><span class="linenos"> 46</span></a><span class="sd">        The season you want to retrive betting information from.</span>
+</span><span id="get_cfbd_betting_lines-46"><a href="#get_cfbd_betting_lines-46"><span class="linenos"> 46</span></a><span class="sd">        The season you want to retrieve betting information from.</span>
 </span><span id="get_cfbd_betting_lines-47"><a href="#get_cfbd_betting_lines-47"><span class="linenos"> 47</span></a>
 </span><span id="get_cfbd_betting_lines-48"><a href="#get_cfbd_betting_lines-48"><span class="linenos"> 48</span></a><span class="sd">    `api_key` (str, optional):</span>
 </span><span id="get_cfbd_betting_lines-49"><a href="#get_cfbd_betting_lines-49"><span class="linenos"> 49</span></a><span class="sd">        Semi-optional argument.</span>
@@ -693,7 +683,7 @@
 </span><span id="get_cfbd_betting_lines-67"><a href="#get_cfbd_betting_lines-67"><span class="linenos"> 67</span></a><span class="sd">        Optional argument.</span>
 </span><span id="get_cfbd_betting_lines-68"><a href="#get_cfbd_betting_lines-68"><span class="linenos"> 68</span></a><span class="sd">        If `game_id` is set to a game ID,</span>
 </span><span id="get_cfbd_betting_lines-69"><a href="#get_cfbd_betting_lines-69"><span class="linenos"> 69</span></a><span class="sd">        `get_cfb_betting_lines()` will try to get</span>
-</span><span id="get_cfbd_betting_lines-70"><a href="#get_cfbd_betting_lines-70"><span class="linenos"> 70</span></a><span class="sd">        all betting informaiton for that game ID.</span>
+</span><span id="get_cfbd_betting_lines-70"><a href="#get_cfbd_betting_lines-70"><span class="linenos"> 70</span></a><span class="sd">        all betting information for that game ID.</span>
 </span><span id="get_cfbd_betting_lines-71"><a href="#get_cfbd_betting_lines-71"><span class="linenos"> 71</span></a>
 </span><span id="get_cfbd_betting_lines-72"><a href="#get_cfbd_betting_lines-72"><span class="linenos"> 72</span></a><span class="sd">    `week` (int, optional):</span>
 </span><span id="get_cfbd_betting_lines-73"><a href="#get_cfbd_betting_lines-73"><span class="linenos"> 73</span></a><span class="sd">        Optional argument.</span>
@@ -702,7 +692,7 @@
 </span><span id="get_cfbd_betting_lines-76"><a href="#get_cfbd_betting_lines-76"><span class="linenos"> 76</span></a>
 </span><span id="get_cfbd_betting_lines-77"><a href="#get_cfbd_betting_lines-77"><span class="linenos"> 77</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="get_cfbd_betting_lines-78"><a href="#get_cfbd_betting_lines-78"><span class="linenos"> 78</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="get_cfbd_betting_lines-79"><a href="#get_cfbd_betting_lines-79"><span class="linenos"> 79</span></a><span class="sd">        By defualt, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
+</span><span id="get_cfbd_betting_lines-79"><a href="#get_cfbd_betting_lines-79"><span class="linenos"> 79</span></a><span class="sd">        By default, this will be set to &quot;regular&quot;, for the CFB regular season.</span>
 </span><span id="get_cfbd_betting_lines-80"><a href="#get_cfbd_betting_lines-80"><span class="linenos"> 80</span></a><span class="sd">        If you want postseason betting data, set `season_type` to &quot;postseason&quot;.</span>
 </span><span id="get_cfbd_betting_lines-81"><a href="#get_cfbd_betting_lines-81"><span class="linenos"> 81</span></a><span class="sd">        If `season_type` is set to anything but &quot;regular&quot; or &quot;postseason&quot;,</span>
 </span><span id="get_cfbd_betting_lines-82"><a href="#get_cfbd_betting_lines-82"><span class="linenos"> 82</span></a><span class="sd">        a `ValueError()` will be raised.</span>
@@ -732,9 +722,9 @@
 </span><span id="get_cfbd_betting_lines-106"><a href="#get_cfbd_betting_lines-106"><span class="linenos">106</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="get_cfbd_betting_lines-107"><a href="#get_cfbd_betting_lines-107"><span class="linenos">107</span></a><span class="sd">        Optional argument.</span>
 </span><span id="get_cfbd_betting_lines-108"><a href="#get_cfbd_betting_lines-108"><span class="linenos">108</span></a><span class="sd">        If you only want betting information from games</span>
-</span><span id="get_cfbd_betting_lines-109"><a href="#get_cfbd_betting_lines-109"><span class="linenos">109</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="get_cfbd_betting_lines-109"><a href="#get_cfbd_betting_lines-109"><span class="linenos">109</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="get_cfbd_betting_lines-110"><a href="#get_cfbd_betting_lines-110"><span class="linenos">110</span></a><span class="sd">        set `conference` to the abbreviation</span>
-</span><span id="get_cfbd_betting_lines-111"><a href="#get_cfbd_betting_lines-111"><span class="linenos">111</span></a><span class="sd">        of the conference you want betting informaiton from.</span>
+</span><span id="get_cfbd_betting_lines-111"><a href="#get_cfbd_betting_lines-111"><span class="linenos">111</span></a><span class="sd">        of the conference you want betting information from.</span>
 </span><span id="get_cfbd_betting_lines-112"><a href="#get_cfbd_betting_lines-112"><span class="linenos">112</span></a>
 </span><span id="get_cfbd_betting_lines-113"><a href="#get_cfbd_betting_lines-113"><span class="linenos">113</span></a><span class="sd">    `year` (int):</span>
 </span><span id="get_cfbd_betting_lines-114"><a href="#get_cfbd_betting_lines-114"><span class="linenos">114</span></a><span class="sd">        Alternative keyword for `season`</span>
@@ -759,9 +749,9 @@
 </span><span id="get_cfbd_betting_lines-133"><a href="#get_cfbd_betting_lines-133"><span class="linenos">133</span></a>
 </span><span id="get_cfbd_betting_lines-134"><a href="#get_cfbd_betting_lines-134"><span class="linenos">134</span></a><span class="sd">    from cfbd_json_py.betting import get_cfbd_betting_lines</span>
 </span><span id="get_cfbd_betting_lines-135"><a href="#get_cfbd_betting_lines-135"><span class="linenos">135</span></a>
-</span><span id="get_cfbd_betting_lines-136"><a href="#get_cfbd_betting_lines-136"><span class="linenos">136</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_betting_lines-136"><a href="#get_cfbd_betting_lines-136"><span class="linenos">136</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_betting_lines-137"><a href="#get_cfbd_betting_lines-137"><span class="linenos">137</span></a>
-</span><span id="get_cfbd_betting_lines-138"><a href="#get_cfbd_betting_lines-138"><span class="linenos">138</span></a><span class="sd">    if cfbd_key is not &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_betting_lines-138"><a href="#get_cfbd_betting_lines-138"><span class="linenos">138</span></a><span class="sd">    if cfbd_key is not &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_betting_lines-139"><a href="#get_cfbd_betting_lines-139"><span class="linenos">139</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_betting_lines-140"><a href="#get_cfbd_betting_lines-140"><span class="linenos">140</span></a><span class="sd">            &quot;Using the user&#39;s API key declared &quot; +</span>
 </span><span id="get_cfbd_betting_lines-141"><a href="#get_cfbd_betting_lines-141"><span class="linenos">141</span></a><span class="sd">            &quot;in this script for this example.&quot;</span>
@@ -879,7 +869,7 @@
 </span><span id="get_cfbd_betting_lines-253"><a href="#get_cfbd_betting_lines-253"><span class="linenos">253</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_betting_lines-254"><a href="#get_cfbd_betting_lines-254"><span class="linenos">254</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_betting_lines-255"><a href="#get_cfbd_betting_lines-255"><span class="linenos">255</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_betting_lines-256"><a href="#get_cfbd_betting_lines-256"><span class="linenos">256</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_betting_lines-256"><a href="#get_cfbd_betting_lines-256"><span class="linenos">256</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_betting_lines-257"><a href="#get_cfbd_betting_lines-257"><span class="linenos">257</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_betting_lines-258"><a href="#get_cfbd_betting_lines-258"><span class="linenos">258</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_betting_lines-259"><a href="#get_cfbd_betting_lines-259"><span class="linenos">259</span></a>
@@ -1029,165 +1019,155 @@
 </span><span id="get_cfbd_betting_lines-403"><a href="#get_cfbd_betting_lines-403"><span class="linenos">403</span></a>    <span class="k">elif</span> <span class="n">away</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="get_cfbd_betting_lines-404"><a href="#get_cfbd_betting_lines-404"><span class="linenos">404</span></a>        <span class="n">away_team</span> <span class="o">=</span> <span class="n">away</span>
 </span><span id="get_cfbd_betting_lines-405"><a href="#get_cfbd_betting_lines-405"><span class="linenos">405</span></a>
-</span><span id="get_cfbd_betting_lines-406"><a href="#get_cfbd_betting_lines-406"><span class="linenos">406</span></a>    <span class="c1"># if conference is not None and conference is not None \</span>
-</span><span id="get_cfbd_betting_lines-407"><a href="#get_cfbd_betting_lines-407"><span class="linenos">407</span></a>    <span class="c1">#     and (conferenceis notconference):</span>
-</span><span id="get_cfbd_betting_lines-408"><a href="#get_cfbd_betting_lines-408"><span class="linenos">408</span></a>    <span class="c1">#     raise ValueError(</span>
-</span><span id="get_cfbd_betting_lines-409"><a href="#get_cfbd_betting_lines-409"><span class="linenos">409</span></a>    <span class="c1">#         &quot;Inconsistent inputs for `conference` and `conference`.&quot;+</span>
-</span><span id="get_cfbd_betting_lines-410"><a href="#get_cfbd_betting_lines-410"><span class="linenos">410</span></a>    <span class="c1">#         &quot;\nPlease use either `conference` OR `conference` &quot;+</span>
-</span><span id="get_cfbd_betting_lines-411"><a href="#get_cfbd_betting_lines-411"><span class="linenos">411</span></a>    <span class="c1">#         &quot;when calling this function&quot;</span>
-</span><span id="get_cfbd_betting_lines-412"><a href="#get_cfbd_betting_lines-412"><span class="linenos">412</span></a>    <span class="c1">#     )</span>
-</span><span id="get_cfbd_betting_lines-413"><a href="#get_cfbd_betting_lines-413"><span class="linenos">413</span></a>    <span class="c1"># elif conference is not None:</span>
-</span><span id="get_cfbd_betting_lines-414"><a href="#get_cfbd_betting_lines-414"><span class="linenos">414</span></a>    <span class="c1">#     conference = conference</span>
-</span><span id="get_cfbd_betting_lines-415"><a href="#get_cfbd_betting_lines-415"><span class="linenos">415</span></a>
-</span><span id="get_cfbd_betting_lines-416"><a href="#get_cfbd_betting_lines-416"><span class="linenos">416</span></a>    <span class="k">del</span> <span class="n">year</span><span class="p">,</span> <span class="n">home</span><span class="p">,</span> <span class="n">away</span>
-</span><span id="get_cfbd_betting_lines-417"><a href="#get_cfbd_betting_lines-417"><span class="linenos">417</span></a>
-</span><span id="get_cfbd_betting_lines-418"><a href="#get_cfbd_betting_lines-418"><span class="linenos">418</span></a>    <span class="k">if</span> <span class="n">game_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">season</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-419"><a href="#get_cfbd_betting_lines-419"><span class="linenos">419</span></a>        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-</span><span id="get_cfbd_betting_lines-420"><a href="#get_cfbd_betting_lines-420"><span class="linenos">420</span></a>            <span class="s2">&quot;If you are getting betting information for a single game, &quot;</span>
-</span><span id="get_cfbd_betting_lines-421"><a href="#get_cfbd_betting_lines-421"><span class="linenos">421</span></a>            <span class="o">+</span> <span class="s2">&quot;only set `game_id` to the game ID, &quot;</span> <span class="o">+</span>
-</span><span id="get_cfbd_betting_lines-422"><a href="#get_cfbd_betting_lines-422"><span class="linenos">422</span></a>            <span class="s2">&quot;and leave `season` as `NULL`.&quot;</span>
-</span><span id="get_cfbd_betting_lines-423"><a href="#get_cfbd_betting_lines-423"><span class="linenos">423</span></a>        <span class="p">)</span>
-</span><span id="get_cfbd_betting_lines-424"><a href="#get_cfbd_betting_lines-424"><span class="linenos">424</span></a>
-</span><span id="get_cfbd_betting_lines-425"><a href="#get_cfbd_betting_lines-425"><span class="linenos">425</span></a>    <span class="k">if</span> <span class="n">season_type</span> <span class="o">==</span> <span class="s2">&quot;regular&quot;</span> <span class="ow">or</span> <span class="n">season_type</span> <span class="o">==</span> <span class="s2">&quot;postseason&quot;</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-426"><a href="#get_cfbd_betting_lines-426"><span class="linenos">426</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;seasonType=</span><span class="si">{</span><span class="n">season_type</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="get_cfbd_betting_lines-427"><a href="#get_cfbd_betting_lines-427"><span class="linenos">427</span></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-428"><a href="#get_cfbd_betting_lines-428"><span class="linenos">428</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span><span id="get_cfbd_betting_lines-429"><a href="#get_cfbd_betting_lines-429"><span class="linenos">429</span></a>            <span class="s1">&#39;`season_type` must be set to either &quot;regular&quot; or &quot;postseason&quot;.&#39;</span>
-</span><span id="get_cfbd_betting_lines-430"><a href="#get_cfbd_betting_lines-430"><span class="linenos">430</span></a>        <span class="p">)</span>
-</span><span id="get_cfbd_betting_lines-431"><a href="#get_cfbd_betting_lines-431"><span class="linenos">431</span></a>
-</span><span id="get_cfbd_betting_lines-432"><a href="#get_cfbd_betting_lines-432"><span class="linenos">432</span></a>    <span class="k">if</span> <span class="p">(</span><span class="n">game_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">season</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">week</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
-</span><span id="get_cfbd_betting_lines-433"><a href="#get_cfbd_betting_lines-433"><span class="linenos">433</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span><span id="get_cfbd_betting_lines-434"><a href="#get_cfbd_betting_lines-434"><span class="linenos">434</span></a>            <span class="s2">&quot;When setting a value for `week`, `season` cannot be null.&quot;</span>
-</span><span id="get_cfbd_betting_lines-435"><a href="#get_cfbd_betting_lines-435"><span class="linenos">435</span></a>        <span class="p">)</span>
-</span><span id="get_cfbd_betting_lines-436"><a href="#get_cfbd_betting_lines-436"><span class="linenos">436</span></a>
-</span><span id="get_cfbd_betting_lines-437"><a href="#get_cfbd_betting_lines-437"><span class="linenos">437</span></a>    <span class="k">if</span> <span class="n">api_key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-438"><a href="#get_cfbd_betting_lines-438"><span class="linenos">438</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">api_key</span>
-</span><span id="get_cfbd_betting_lines-439"><a href="#get_cfbd_betting_lines-439"><span class="linenos">439</span></a>        <span class="k">del</span> <span class="n">api_key</span>
-</span><span id="get_cfbd_betting_lines-440"><a href="#get_cfbd_betting_lines-440"><span class="linenos">440</span></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-441"><a href="#get_cfbd_betting_lines-441"><span class="linenos">441</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
-</span><span id="get_cfbd_betting_lines-442"><a href="#get_cfbd_betting_lines-442"><span class="linenos">442</span></a>
-</span><span id="get_cfbd_betting_lines-443"><a href="#get_cfbd_betting_lines-443"><span class="linenos">443</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-444"><a href="#get_cfbd_betting_lines-444"><span class="linenos">444</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span><span id="get_cfbd_betting_lines-445"><a href="#get_cfbd_betting_lines-445"><span class="linenos">445</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
-</span><span id="get_cfbd_betting_lines-446"><a href="#get_cfbd_betting_lines-446"><span class="linenos">446</span></a>        <span class="p">)</span>
-</span><span id="get_cfbd_betting_lines-447"><a href="#get_cfbd_betting_lines-447"><span class="linenos">447</span></a>    <span class="k">elif</span> <span class="s2">&quot;Bearer &quot;</span> <span class="ow">in</span> <span class="n">real_api_key</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-448"><a href="#get_cfbd_betting_lines-448"><span class="linenos">448</span></a>        <span class="k">pass</span>
-</span><span id="get_cfbd_betting_lines-449"><a href="#get_cfbd_betting_lines-449"><span class="linenos">449</span></a>    <span class="k">elif</span> <span class="s2">&quot;Bearer&quot;</span> <span class="ow">in</span> <span class="n">real_api_key</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-450"><a href="#get_cfbd_betting_lines-450"><span class="linenos">450</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">real_api_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Bearer&quot;</span><span class="p">,</span> <span class="s2">&quot;Bearer &quot;</span><span class="p">)</span>
-</span><span id="get_cfbd_betting_lines-451"><a href="#get_cfbd_betting_lines-451"><span class="linenos">451</span></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-452"><a href="#get_cfbd_betting_lines-452"><span class="linenos">452</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="s2">&quot;Bearer &quot;</span> <span class="o">+</span> <span class="n">real_api_key</span>
-</span><span id="get_cfbd_betting_lines-453"><a href="#get_cfbd_betting_lines-453"><span class="linenos">453</span></a>
-</span><span id="get_cfbd_betting_lines-454"><a href="#get_cfbd_betting_lines-454"><span class="linenos">454</span></a>    <span class="c1"># URL builder</span>
-</span><span id="get_cfbd_betting_lines-455"><a href="#get_cfbd_betting_lines-455"><span class="linenos">455</span></a>    <span class="c1">##########################################################################</span>
-</span><span id="get_cfbd_betting_lines-456"><a href="#get_cfbd_betting_lines-456"><span class="linenos">456</span></a>
-</span><span id="get_cfbd_betting_lines-457"><a href="#get_cfbd_betting_lines-457"><span class="linenos">457</span></a>    <span class="k">if</span> <span class="n">game_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-458"><a href="#get_cfbd_betting_lines-458"><span class="linenos">458</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;gameId=</span><span class="si">{</span><span class="n">game_id</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="get_cfbd_betting_lines-459"><a href="#get_cfbd_betting_lines-459"><span class="linenos">459</span></a>
-</span><span id="get_cfbd_betting_lines-460"><a href="#get_cfbd_betting_lines-460"><span class="linenos">460</span></a>    <span class="k">if</span> <span class="n">season</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-461"><a href="#get_cfbd_betting_lines-461"><span class="linenos">461</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;year=</span><span class="si">{</span><span class="n">season</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="get_cfbd_betting_lines-462"><a href="#get_cfbd_betting_lines-462"><span class="linenos">462</span></a>
-</span><span id="get_cfbd_betting_lines-463"><a href="#get_cfbd_betting_lines-463"><span class="linenos">463</span></a>    <span class="k">if</span> <span class="n">week</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-464"><a href="#get_cfbd_betting_lines-464"><span class="linenos">464</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;week=</span><span class="si">{</span><span class="n">week</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="get_cfbd_betting_lines-465"><a href="#get_cfbd_betting_lines-465"><span class="linenos">465</span></a>
-</span><span id="get_cfbd_betting_lines-466"><a href="#get_cfbd_betting_lines-466"><span class="linenos">466</span></a>    <span class="k">if</span> <span class="n">team</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-467"><a href="#get_cfbd_betting_lines-467"><span class="linenos">467</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;team=</span><span class="si">{</span><span class="n">team</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="get_cfbd_betting_lines-468"><a href="#get_cfbd_betting_lines-468"><span class="linenos">468</span></a>
-</span><span id="get_cfbd_betting_lines-469"><a href="#get_cfbd_betting_lines-469"><span class="linenos">469</span></a>    <span class="k">if</span> <span class="n">home_team</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-470"><a href="#get_cfbd_betting_lines-470"><span class="linenos">470</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;home=</span><span class="si">{</span><span class="n">home_team</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="get_cfbd_betting_lines-406"><a href="#get_cfbd_betting_lines-406"><span class="linenos">406</span></a>    <span class="k">del</span> <span class="n">year</span><span class="p">,</span> <span class="n">home</span><span class="p">,</span> <span class="n">away</span>
+</span><span id="get_cfbd_betting_lines-407"><a href="#get_cfbd_betting_lines-407"><span class="linenos">407</span></a>
+</span><span id="get_cfbd_betting_lines-408"><a href="#get_cfbd_betting_lines-408"><span class="linenos">408</span></a>    <span class="k">if</span> <span class="n">game_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">season</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-409"><a href="#get_cfbd_betting_lines-409"><span class="linenos">409</span></a>        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+</span><span id="get_cfbd_betting_lines-410"><a href="#get_cfbd_betting_lines-410"><span class="linenos">410</span></a>            <span class="s2">&quot;If you are getting betting information for a single game, &quot;</span>
+</span><span id="get_cfbd_betting_lines-411"><a href="#get_cfbd_betting_lines-411"><span class="linenos">411</span></a>            <span class="o">+</span> <span class="s2">&quot;only set `game_id` to the game ID, &quot;</span> <span class="o">+</span>
+</span><span id="get_cfbd_betting_lines-412"><a href="#get_cfbd_betting_lines-412"><span class="linenos">412</span></a>            <span class="s2">&quot;and leave `season` as `NULL`.&quot;</span>
+</span><span id="get_cfbd_betting_lines-413"><a href="#get_cfbd_betting_lines-413"><span class="linenos">413</span></a>        <span class="p">)</span>
+</span><span id="get_cfbd_betting_lines-414"><a href="#get_cfbd_betting_lines-414"><span class="linenos">414</span></a>
+</span><span id="get_cfbd_betting_lines-415"><a href="#get_cfbd_betting_lines-415"><span class="linenos">415</span></a>    <span class="k">if</span> <span class="n">season_type</span> <span class="o">==</span> <span class="s2">&quot;regular&quot;</span> <span class="ow">or</span> <span class="n">season_type</span> <span class="o">==</span> <span class="s2">&quot;postseason&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-416"><a href="#get_cfbd_betting_lines-416"><span class="linenos">416</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;seasonType=</span><span class="si">{</span><span class="n">season_type</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="get_cfbd_betting_lines-417"><a href="#get_cfbd_betting_lines-417"><span class="linenos">417</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-418"><a href="#get_cfbd_betting_lines-418"><span class="linenos">418</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="get_cfbd_betting_lines-419"><a href="#get_cfbd_betting_lines-419"><span class="linenos">419</span></a>            <span class="s1">&#39;`season_type` must be set to either &quot;regular&quot; or &quot;postseason&quot;.&#39;</span>
+</span><span id="get_cfbd_betting_lines-420"><a href="#get_cfbd_betting_lines-420"><span class="linenos">420</span></a>        <span class="p">)</span>
+</span><span id="get_cfbd_betting_lines-421"><a href="#get_cfbd_betting_lines-421"><span class="linenos">421</span></a>
+</span><span id="get_cfbd_betting_lines-422"><a href="#get_cfbd_betting_lines-422"><span class="linenos">422</span></a>    <span class="k">if</span> <span class="p">(</span><span class="n">game_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">season</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">week</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+</span><span id="get_cfbd_betting_lines-423"><a href="#get_cfbd_betting_lines-423"><span class="linenos">423</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="get_cfbd_betting_lines-424"><a href="#get_cfbd_betting_lines-424"><span class="linenos">424</span></a>            <span class="s2">&quot;When setting a value for `week`, `season` cannot be null.&quot;</span>
+</span><span id="get_cfbd_betting_lines-425"><a href="#get_cfbd_betting_lines-425"><span class="linenos">425</span></a>        <span class="p">)</span>
+</span><span id="get_cfbd_betting_lines-426"><a href="#get_cfbd_betting_lines-426"><span class="linenos">426</span></a>
+</span><span id="get_cfbd_betting_lines-427"><a href="#get_cfbd_betting_lines-427"><span class="linenos">427</span></a>    <span class="k">if</span> <span class="n">api_key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-428"><a href="#get_cfbd_betting_lines-428"><span class="linenos">428</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">api_key</span>
+</span><span id="get_cfbd_betting_lines-429"><a href="#get_cfbd_betting_lines-429"><span class="linenos">429</span></a>        <span class="k">del</span> <span class="n">api_key</span>
+</span><span id="get_cfbd_betting_lines-430"><a href="#get_cfbd_betting_lines-430"><span class="linenos">430</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-431"><a href="#get_cfbd_betting_lines-431"><span class="linenos">431</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
+</span><span id="get_cfbd_betting_lines-432"><a href="#get_cfbd_betting_lines-432"><span class="linenos">432</span></a>
+</span><span id="get_cfbd_betting_lines-433"><a href="#get_cfbd_betting_lines-433"><span class="linenos">433</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-434"><a href="#get_cfbd_betting_lines-434"><span class="linenos">434</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="get_cfbd_betting_lines-435"><a href="#get_cfbd_betting_lines-435"><span class="linenos">435</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
+</span><span id="get_cfbd_betting_lines-436"><a href="#get_cfbd_betting_lines-436"><span class="linenos">436</span></a>        <span class="p">)</span>
+</span><span id="get_cfbd_betting_lines-437"><a href="#get_cfbd_betting_lines-437"><span class="linenos">437</span></a>    <span class="k">elif</span> <span class="s2">&quot;Bearer &quot;</span> <span class="ow">in</span> <span class="n">real_api_key</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-438"><a href="#get_cfbd_betting_lines-438"><span class="linenos">438</span></a>        <span class="k">pass</span>
+</span><span id="get_cfbd_betting_lines-439"><a href="#get_cfbd_betting_lines-439"><span class="linenos">439</span></a>    <span class="k">elif</span> <span class="s2">&quot;Bearer&quot;</span> <span class="ow">in</span> <span class="n">real_api_key</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-440"><a href="#get_cfbd_betting_lines-440"><span class="linenos">440</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">real_api_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Bearer&quot;</span><span class="p">,</span> <span class="s2">&quot;Bearer &quot;</span><span class="p">)</span>
+</span><span id="get_cfbd_betting_lines-441"><a href="#get_cfbd_betting_lines-441"><span class="linenos">441</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-442"><a href="#get_cfbd_betting_lines-442"><span class="linenos">442</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="s2">&quot;Bearer &quot;</span> <span class="o">+</span> <span class="n">real_api_key</span>
+</span><span id="get_cfbd_betting_lines-443"><a href="#get_cfbd_betting_lines-443"><span class="linenos">443</span></a>
+</span><span id="get_cfbd_betting_lines-444"><a href="#get_cfbd_betting_lines-444"><span class="linenos">444</span></a>    <span class="c1"># URL builder</span>
+</span><span id="get_cfbd_betting_lines-445"><a href="#get_cfbd_betting_lines-445"><span class="linenos">445</span></a>    <span class="c1">##########################################################################</span>
+</span><span id="get_cfbd_betting_lines-446"><a href="#get_cfbd_betting_lines-446"><span class="linenos">446</span></a>
+</span><span id="get_cfbd_betting_lines-447"><a href="#get_cfbd_betting_lines-447"><span class="linenos">447</span></a>    <span class="k">if</span> <span class="n">game_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-448"><a href="#get_cfbd_betting_lines-448"><span class="linenos">448</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;gameId=</span><span class="si">{</span><span class="n">game_id</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="get_cfbd_betting_lines-449"><a href="#get_cfbd_betting_lines-449"><span class="linenos">449</span></a>
+</span><span id="get_cfbd_betting_lines-450"><a href="#get_cfbd_betting_lines-450"><span class="linenos">450</span></a>    <span class="k">if</span> <span class="n">season</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-451"><a href="#get_cfbd_betting_lines-451"><span class="linenos">451</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;year=</span><span class="si">{</span><span class="n">season</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="get_cfbd_betting_lines-452"><a href="#get_cfbd_betting_lines-452"><span class="linenos">452</span></a>
+</span><span id="get_cfbd_betting_lines-453"><a href="#get_cfbd_betting_lines-453"><span class="linenos">453</span></a>    <span class="k">if</span> <span class="n">week</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-454"><a href="#get_cfbd_betting_lines-454"><span class="linenos">454</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;week=</span><span class="si">{</span><span class="n">week</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="get_cfbd_betting_lines-455"><a href="#get_cfbd_betting_lines-455"><span class="linenos">455</span></a>
+</span><span id="get_cfbd_betting_lines-456"><a href="#get_cfbd_betting_lines-456"><span class="linenos">456</span></a>    <span class="k">if</span> <span class="n">team</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-457"><a href="#get_cfbd_betting_lines-457"><span class="linenos">457</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;team=</span><span class="si">{</span><span class="n">team</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="get_cfbd_betting_lines-458"><a href="#get_cfbd_betting_lines-458"><span class="linenos">458</span></a>
+</span><span id="get_cfbd_betting_lines-459"><a href="#get_cfbd_betting_lines-459"><span class="linenos">459</span></a>    <span class="k">if</span> <span class="n">home_team</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-460"><a href="#get_cfbd_betting_lines-460"><span class="linenos">460</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;home=</span><span class="si">{</span><span class="n">home_team</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="get_cfbd_betting_lines-461"><a href="#get_cfbd_betting_lines-461"><span class="linenos">461</span></a>
+</span><span id="get_cfbd_betting_lines-462"><a href="#get_cfbd_betting_lines-462"><span class="linenos">462</span></a>    <span class="k">if</span> <span class="n">away_team</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-463"><a href="#get_cfbd_betting_lines-463"><span class="linenos">463</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;away=</span><span class="si">{</span><span class="n">away_team</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="get_cfbd_betting_lines-464"><a href="#get_cfbd_betting_lines-464"><span class="linenos">464</span></a>
+</span><span id="get_cfbd_betting_lines-465"><a href="#get_cfbd_betting_lines-465"><span class="linenos">465</span></a>    <span class="k">if</span> <span class="n">conference</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-466"><a href="#get_cfbd_betting_lines-466"><span class="linenos">466</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;conference=</span><span class="si">{</span><span class="n">conference</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="get_cfbd_betting_lines-467"><a href="#get_cfbd_betting_lines-467"><span class="linenos">467</span></a>
+</span><span id="get_cfbd_betting_lines-468"><a href="#get_cfbd_betting_lines-468"><span class="linenos">468</span></a>    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="get_cfbd_betting_lines-469"><a href="#get_cfbd_betting_lines-469"><span class="linenos">469</span></a>        <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">real_api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
+</span><span id="get_cfbd_betting_lines-470"><a href="#get_cfbd_betting_lines-470"><span class="linenos">470</span></a>    <span class="p">}</span>
 </span><span id="get_cfbd_betting_lines-471"><a href="#get_cfbd_betting_lines-471"><span class="linenos">471</span></a>
-</span><span id="get_cfbd_betting_lines-472"><a href="#get_cfbd_betting_lines-472"><span class="linenos">472</span></a>    <span class="k">if</span> <span class="n">away_team</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-473"><a href="#get_cfbd_betting_lines-473"><span class="linenos">473</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;away=</span><span class="si">{</span><span class="n">away_team</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="get_cfbd_betting_lines-474"><a href="#get_cfbd_betting_lines-474"><span class="linenos">474</span></a>
-</span><span id="get_cfbd_betting_lines-475"><a href="#get_cfbd_betting_lines-475"><span class="linenos">475</span></a>    <span class="k">if</span> <span class="n">conference</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-476"><a href="#get_cfbd_betting_lines-476"><span class="linenos">476</span></a>        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp;conference=</span><span class="si">{</span><span class="n">conference</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="get_cfbd_betting_lines-477"><a href="#get_cfbd_betting_lines-477"><span class="linenos">477</span></a>
-</span><span id="get_cfbd_betting_lines-478"><a href="#get_cfbd_betting_lines-478"><span class="linenos">478</span></a>    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="get_cfbd_betting_lines-479"><a href="#get_cfbd_betting_lines-479"><span class="linenos">479</span></a>        <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">real_api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
-</span><span id="get_cfbd_betting_lines-480"><a href="#get_cfbd_betting_lines-480"><span class="linenos">480</span></a>    <span class="p">}</span>
-</span><span id="get_cfbd_betting_lines-481"><a href="#get_cfbd_betting_lines-481"><span class="linenos">481</span></a>
-</span><span id="get_cfbd_betting_lines-482"><a href="#get_cfbd_betting_lines-482"><span class="linenos">482</span></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-</span><span id="get_cfbd_betting_lines-483"><a href="#get_cfbd_betting_lines-483"><span class="linenos">483</span></a>
-</span><span id="get_cfbd_betting_lines-484"><a href="#get_cfbd_betting_lines-484"><span class="linenos">484</span></a>    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-485"><a href="#get_cfbd_betting_lines-485"><span class="linenos">485</span></a>        <span class="k">pass</span>
-</span><span id="get_cfbd_betting_lines-486"><a href="#get_cfbd_betting_lines-486"><span class="linenos">486</span></a>    <span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-487"><a href="#get_cfbd_betting_lines-487"><span class="linenos">487</span></a>        <span class="k">raise</span> <span class="ne">ConnectionRefusedError</span><span class="p">(</span>
-</span><span id="get_cfbd_betting_lines-488"><a href="#get_cfbd_betting_lines-488"><span class="linenos">488</span></a>            <span class="s2">&quot;Could not connect. The connection was refused.</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-</span><span id="get_cfbd_betting_lines-489"><a href="#get_cfbd_betting_lines-489"><span class="linenos">489</span></a>            <span class="s2">&quot;HTTP Status Code 401.&quot;</span>
-</span><span id="get_cfbd_betting_lines-490"><a href="#get_cfbd_betting_lines-490"><span class="linenos">490</span></a>        <span class="p">)</span>
-</span><span id="get_cfbd_betting_lines-491"><a href="#get_cfbd_betting_lines-491"><span class="linenos">491</span></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-492"><a href="#get_cfbd_betting_lines-492"><span class="linenos">492</span></a>        <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span>
-</span><span id="get_cfbd_betting_lines-493"><a href="#get_cfbd_betting_lines-493"><span class="linenos">493</span></a>            <span class="sa">f</span><span class="s2">&quot;Could not connect.</span><span class="se">\n</span><span class="s2">HTTP Status code </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="get_cfbd_betting_lines-494"><a href="#get_cfbd_betting_lines-494"><span class="linenos">494</span></a>        <span class="p">)</span>
-</span><span id="get_cfbd_betting_lines-495"><a href="#get_cfbd_betting_lines-495"><span class="linenos">495</span></a>
-</span><span id="get_cfbd_betting_lines-496"><a href="#get_cfbd_betting_lines-496"><span class="linenos">496</span></a>    <span class="n">json_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</span><span id="get_cfbd_betting_lines-497"><a href="#get_cfbd_betting_lines-497"><span class="linenos">497</span></a>
-</span><span id="get_cfbd_betting_lines-498"><a href="#get_cfbd_betting_lines-498"><span class="linenos">498</span></a>    <span class="k">if</span> <span class="n">return_as_dict</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
-</span><span id="get_cfbd_betting_lines-499"><a href="#get_cfbd_betting_lines-499"><span class="linenos">499</span></a>        <span class="k">return</span> <span class="n">json_data</span>
-</span><span id="get_cfbd_betting_lines-500"><a href="#get_cfbd_betting_lines-500"><span class="linenos">500</span></a>
-</span><span id="get_cfbd_betting_lines-501"><a href="#get_cfbd_betting_lines-501"><span class="linenos">501</span></a>    <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">json_data</span><span class="p">):</span>
-</span><span id="get_cfbd_betting_lines-502"><a href="#get_cfbd_betting_lines-502"><span class="linenos">502</span></a>        <span class="n">gameId</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-503"><a href="#get_cfbd_betting_lines-503"><span class="linenos">503</span></a>        <span class="n">season</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-504"><a href="#get_cfbd_betting_lines-504"><span class="linenos">504</span></a>        <span class="n">seasonType</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;seasonType&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-505"><a href="#get_cfbd_betting_lines-505"><span class="linenos">505</span></a>        <span class="n">startDate</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;startDate&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-506"><a href="#get_cfbd_betting_lines-506"><span class="linenos">506</span></a>        <span class="n">homeTeam</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;homeTeam&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-507"><a href="#get_cfbd_betting_lines-507"><span class="linenos">507</span></a>        <span class="n">homeConference</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;homeConference&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-508"><a href="#get_cfbd_betting_lines-508"><span class="linenos">508</span></a>        <span class="n">homeScore</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;homeScore&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-509"><a href="#get_cfbd_betting_lines-509"><span class="linenos">509</span></a>        <span class="n">awayTeam</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;awayTeam&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-510"><a href="#get_cfbd_betting_lines-510"><span class="linenos">510</span></a>        <span class="n">awayConference</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;awayConference&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-511"><a href="#get_cfbd_betting_lines-511"><span class="linenos">511</span></a>        <span class="n">awayScore</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;awayScore&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-512"><a href="#get_cfbd_betting_lines-512"><span class="linenos">512</span></a>
-</span><span id="get_cfbd_betting_lines-513"><a href="#get_cfbd_betting_lines-513"><span class="linenos">513</span></a>        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;lines&quot;</span><span class="p">]:</span>
-</span><span id="get_cfbd_betting_lines-514"><a href="#get_cfbd_betting_lines-514"><span class="linenos">514</span></a>            <span class="n">row_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-</span><span id="get_cfbd_betting_lines-515"><a href="#get_cfbd_betting_lines-515"><span class="linenos">515</span></a>                <span class="p">{</span>
-</span><span id="get_cfbd_betting_lines-516"><a href="#get_cfbd_betting_lines-516"><span class="linenos">516</span></a>                    <span class="s2">&quot;game_id&quot;</span><span class="p">:</span> <span class="n">gameId</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-517"><a href="#get_cfbd_betting_lines-517"><span class="linenos">517</span></a>                    <span class="s2">&quot;season&quot;</span><span class="p">:</span> <span class="n">season</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-518"><a href="#get_cfbd_betting_lines-518"><span class="linenos">518</span></a>                    <span class="s2">&quot;season_type&quot;</span><span class="p">:</span> <span class="n">seasonType</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-519"><a href="#get_cfbd_betting_lines-519"><span class="linenos">519</span></a>                    <span class="s2">&quot;start_date&quot;</span><span class="p">:</span> <span class="n">startDate</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-520"><a href="#get_cfbd_betting_lines-520"><span class="linenos">520</span></a>                    <span class="s2">&quot;home_team_name&quot;</span><span class="p">:</span> <span class="n">homeTeam</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-521"><a href="#get_cfbd_betting_lines-521"><span class="linenos">521</span></a>                    <span class="s2">&quot;home_conference_name&quot;</span><span class="p">:</span> <span class="n">homeConference</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-522"><a href="#get_cfbd_betting_lines-522"><span class="linenos">522</span></a>                    <span class="s2">&quot;home_score&quot;</span><span class="p">:</span> <span class="n">homeScore</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-523"><a href="#get_cfbd_betting_lines-523"><span class="linenos">523</span></a>                    <span class="s2">&quot;away_team_name&quot;</span><span class="p">:</span> <span class="n">awayTeam</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-524"><a href="#get_cfbd_betting_lines-524"><span class="linenos">524</span></a>                    <span class="s2">&quot;away_conference_name&quot;</span><span class="p">:</span> <span class="n">awayConference</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-525"><a href="#get_cfbd_betting_lines-525"><span class="linenos">525</span></a>                    <span class="s2">&quot;away_score&quot;</span><span class="p">:</span> <span class="n">awayScore</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-526"><a href="#get_cfbd_betting_lines-526"><span class="linenos">526</span></a>                <span class="p">},</span>
-</span><span id="get_cfbd_betting_lines-527"><a href="#get_cfbd_betting_lines-527"><span class="linenos">527</span></a>                <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-</span><span id="get_cfbd_betting_lines-528"><a href="#get_cfbd_betting_lines-528"><span class="linenos">528</span></a>            <span class="p">)</span>
-</span><span id="get_cfbd_betting_lines-529"><a href="#get_cfbd_betting_lines-529"><span class="linenos">529</span></a>
-</span><span id="get_cfbd_betting_lines-530"><a href="#get_cfbd_betting_lines-530"><span class="linenos">530</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;line_provider&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;provider&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-531"><a href="#get_cfbd_betting_lines-531"><span class="linenos">531</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;spread&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;spread&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-532"><a href="#get_cfbd_betting_lines-532"><span class="linenos">532</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;formatted_spread&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;formattedSpread&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-533"><a href="#get_cfbd_betting_lines-533"><span class="linenos">533</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;spread_open&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;spreadOpen&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-534"><a href="#get_cfbd_betting_lines-534"><span class="linenos">534</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;over_under&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;overUnder&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-535"><a href="#get_cfbd_betting_lines-535"><span class="linenos">535</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;over_under_open&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;overUnderOpen&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-536"><a href="#get_cfbd_betting_lines-536"><span class="linenos">536</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;home_moneyline&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;homeMoneyline&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-537"><a href="#get_cfbd_betting_lines-537"><span class="linenos">537</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;away_moneyline&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;awayMoneyline&quot;</span><span class="p">]</span>
-</span><span id="get_cfbd_betting_lines-538"><a href="#get_cfbd_betting_lines-538"><span class="linenos">538</span></a>
-</span><span id="get_cfbd_betting_lines-539"><a href="#get_cfbd_betting_lines-539"><span class="linenos">539</span></a>            <span class="n">betting_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">betting_df</span><span class="p">,</span> <span class="n">row_df</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="get_cfbd_betting_lines-540"><a href="#get_cfbd_betting_lines-540"><span class="linenos">540</span></a>            <span class="k">del</span> <span class="n">row_df</span>
-</span><span id="get_cfbd_betting_lines-541"><a href="#get_cfbd_betting_lines-541"><span class="linenos">541</span></a>
-</span><span id="get_cfbd_betting_lines-542"><a href="#get_cfbd_betting_lines-542"><span class="linenos">542</span></a>        <span class="k">del</span> <span class="p">(</span>
-</span><span id="get_cfbd_betting_lines-543"><a href="#get_cfbd_betting_lines-543"><span class="linenos">543</span></a>            <span class="n">gameId</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-544"><a href="#get_cfbd_betting_lines-544"><span class="linenos">544</span></a>            <span class="n">seasonType</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-545"><a href="#get_cfbd_betting_lines-545"><span class="linenos">545</span></a>            <span class="n">startDate</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-546"><a href="#get_cfbd_betting_lines-546"><span class="linenos">546</span></a>            <span class="n">homeTeam</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-547"><a href="#get_cfbd_betting_lines-547"><span class="linenos">547</span></a>            <span class="n">homeConference</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-548"><a href="#get_cfbd_betting_lines-548"><span class="linenos">548</span></a>            <span class="n">homeScore</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-549"><a href="#get_cfbd_betting_lines-549"><span class="linenos">549</span></a>            <span class="n">awayTeam</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-550"><a href="#get_cfbd_betting_lines-550"><span class="linenos">550</span></a>            <span class="n">awayConference</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-551"><a href="#get_cfbd_betting_lines-551"><span class="linenos">551</span></a>            <span class="n">awayScore</span><span class="p">,</span>
-</span><span id="get_cfbd_betting_lines-552"><a href="#get_cfbd_betting_lines-552"><span class="linenos">552</span></a>        <span class="p">)</span>
-</span><span id="get_cfbd_betting_lines-553"><a href="#get_cfbd_betting_lines-553"><span class="linenos">553</span></a>
-</span><span id="get_cfbd_betting_lines-554"><a href="#get_cfbd_betting_lines-554"><span class="linenos">554</span></a>    <span class="k">return</span> <span class="n">betting_df</span>
+</span><span id="get_cfbd_betting_lines-472"><a href="#get_cfbd_betting_lines-472"><span class="linenos">472</span></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</span><span id="get_cfbd_betting_lines-473"><a href="#get_cfbd_betting_lines-473"><span class="linenos">473</span></a>
+</span><span id="get_cfbd_betting_lines-474"><a href="#get_cfbd_betting_lines-474"><span class="linenos">474</span></a>    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-475"><a href="#get_cfbd_betting_lines-475"><span class="linenos">475</span></a>        <span class="k">pass</span>
+</span><span id="get_cfbd_betting_lines-476"><a href="#get_cfbd_betting_lines-476"><span class="linenos">476</span></a>    <span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-477"><a href="#get_cfbd_betting_lines-477"><span class="linenos">477</span></a>        <span class="k">raise</span> <span class="ne">ConnectionRefusedError</span><span class="p">(</span>
+</span><span id="get_cfbd_betting_lines-478"><a href="#get_cfbd_betting_lines-478"><span class="linenos">478</span></a>            <span class="s2">&quot;Could not connect. The connection was refused.</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+</span><span id="get_cfbd_betting_lines-479"><a href="#get_cfbd_betting_lines-479"><span class="linenos">479</span></a>            <span class="s2">&quot;HTTP Status Code 401.&quot;</span>
+</span><span id="get_cfbd_betting_lines-480"><a href="#get_cfbd_betting_lines-480"><span class="linenos">480</span></a>        <span class="p">)</span>
+</span><span id="get_cfbd_betting_lines-481"><a href="#get_cfbd_betting_lines-481"><span class="linenos">481</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-482"><a href="#get_cfbd_betting_lines-482"><span class="linenos">482</span></a>        <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span>
+</span><span id="get_cfbd_betting_lines-483"><a href="#get_cfbd_betting_lines-483"><span class="linenos">483</span></a>            <span class="sa">f</span><span class="s2">&quot;Could not connect.</span><span class="se">\n</span><span class="s2">HTTP Status code </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="get_cfbd_betting_lines-484"><a href="#get_cfbd_betting_lines-484"><span class="linenos">484</span></a>        <span class="p">)</span>
+</span><span id="get_cfbd_betting_lines-485"><a href="#get_cfbd_betting_lines-485"><span class="linenos">485</span></a>
+</span><span id="get_cfbd_betting_lines-486"><a href="#get_cfbd_betting_lines-486"><span class="linenos">486</span></a>    <span class="n">json_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="get_cfbd_betting_lines-487"><a href="#get_cfbd_betting_lines-487"><span class="linenos">487</span></a>
+</span><span id="get_cfbd_betting_lines-488"><a href="#get_cfbd_betting_lines-488"><span class="linenos">488</span></a>    <span class="k">if</span> <span class="n">return_as_dict</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="get_cfbd_betting_lines-489"><a href="#get_cfbd_betting_lines-489"><span class="linenos">489</span></a>        <span class="k">return</span> <span class="n">json_data</span>
+</span><span id="get_cfbd_betting_lines-490"><a href="#get_cfbd_betting_lines-490"><span class="linenos">490</span></a>
+</span><span id="get_cfbd_betting_lines-491"><a href="#get_cfbd_betting_lines-491"><span class="linenos">491</span></a>    <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">json_data</span><span class="p">):</span>
+</span><span id="get_cfbd_betting_lines-492"><a href="#get_cfbd_betting_lines-492"><span class="linenos">492</span></a>        <span class="n">gameId</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-493"><a href="#get_cfbd_betting_lines-493"><span class="linenos">493</span></a>        <span class="n">season</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-494"><a href="#get_cfbd_betting_lines-494"><span class="linenos">494</span></a>        <span class="n">seasonType</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;seasonType&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-495"><a href="#get_cfbd_betting_lines-495"><span class="linenos">495</span></a>        <span class="n">startDate</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;startDate&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-496"><a href="#get_cfbd_betting_lines-496"><span class="linenos">496</span></a>        <span class="n">homeTeam</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;homeTeam&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-497"><a href="#get_cfbd_betting_lines-497"><span class="linenos">497</span></a>        <span class="n">homeConference</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;homeConference&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-498"><a href="#get_cfbd_betting_lines-498"><span class="linenos">498</span></a>        <span class="n">homeScore</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;homeScore&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-499"><a href="#get_cfbd_betting_lines-499"><span class="linenos">499</span></a>        <span class="n">awayTeam</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;awayTeam&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-500"><a href="#get_cfbd_betting_lines-500"><span class="linenos">500</span></a>        <span class="n">awayConference</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;awayConference&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-501"><a href="#get_cfbd_betting_lines-501"><span class="linenos">501</span></a>        <span class="n">awayScore</span> <span class="o">=</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;awayScore&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-502"><a href="#get_cfbd_betting_lines-502"><span class="linenos">502</span></a>
+</span><span id="get_cfbd_betting_lines-503"><a href="#get_cfbd_betting_lines-503"><span class="linenos">503</span></a>        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">game</span><span class="p">[</span><span class="s2">&quot;lines&quot;</span><span class="p">]:</span>
+</span><span id="get_cfbd_betting_lines-504"><a href="#get_cfbd_betting_lines-504"><span class="linenos">504</span></a>            <span class="n">row_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+</span><span id="get_cfbd_betting_lines-505"><a href="#get_cfbd_betting_lines-505"><span class="linenos">505</span></a>                <span class="p">{</span>
+</span><span id="get_cfbd_betting_lines-506"><a href="#get_cfbd_betting_lines-506"><span class="linenos">506</span></a>                    <span class="s2">&quot;game_id&quot;</span><span class="p">:</span> <span class="n">gameId</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-507"><a href="#get_cfbd_betting_lines-507"><span class="linenos">507</span></a>                    <span class="s2">&quot;season&quot;</span><span class="p">:</span> <span class="n">season</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-508"><a href="#get_cfbd_betting_lines-508"><span class="linenos">508</span></a>                    <span class="s2">&quot;season_type&quot;</span><span class="p">:</span> <span class="n">seasonType</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-509"><a href="#get_cfbd_betting_lines-509"><span class="linenos">509</span></a>                    <span class="s2">&quot;start_date&quot;</span><span class="p">:</span> <span class="n">startDate</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-510"><a href="#get_cfbd_betting_lines-510"><span class="linenos">510</span></a>                    <span class="s2">&quot;home_team_name&quot;</span><span class="p">:</span> <span class="n">homeTeam</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-511"><a href="#get_cfbd_betting_lines-511"><span class="linenos">511</span></a>                    <span class="s2">&quot;home_conference_name&quot;</span><span class="p">:</span> <span class="n">homeConference</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-512"><a href="#get_cfbd_betting_lines-512"><span class="linenos">512</span></a>                    <span class="s2">&quot;home_score&quot;</span><span class="p">:</span> <span class="n">homeScore</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-513"><a href="#get_cfbd_betting_lines-513"><span class="linenos">513</span></a>                    <span class="s2">&quot;away_team_name&quot;</span><span class="p">:</span> <span class="n">awayTeam</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-514"><a href="#get_cfbd_betting_lines-514"><span class="linenos">514</span></a>                    <span class="s2">&quot;away_conference_name&quot;</span><span class="p">:</span> <span class="n">awayConference</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-515"><a href="#get_cfbd_betting_lines-515"><span class="linenos">515</span></a>                    <span class="s2">&quot;away_score&quot;</span><span class="p">:</span> <span class="n">awayScore</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-516"><a href="#get_cfbd_betting_lines-516"><span class="linenos">516</span></a>                <span class="p">},</span>
+</span><span id="get_cfbd_betting_lines-517"><a href="#get_cfbd_betting_lines-517"><span class="linenos">517</span></a>                <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+</span><span id="get_cfbd_betting_lines-518"><a href="#get_cfbd_betting_lines-518"><span class="linenos">518</span></a>            <span class="p">)</span>
+</span><span id="get_cfbd_betting_lines-519"><a href="#get_cfbd_betting_lines-519"><span class="linenos">519</span></a>
+</span><span id="get_cfbd_betting_lines-520"><a href="#get_cfbd_betting_lines-520"><span class="linenos">520</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;line_provider&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;provider&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-521"><a href="#get_cfbd_betting_lines-521"><span class="linenos">521</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;spread&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;spread&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-522"><a href="#get_cfbd_betting_lines-522"><span class="linenos">522</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;formatted_spread&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;formattedSpread&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-523"><a href="#get_cfbd_betting_lines-523"><span class="linenos">523</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;spread_open&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;spreadOpen&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-524"><a href="#get_cfbd_betting_lines-524"><span class="linenos">524</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;over_under&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;overUnder&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-525"><a href="#get_cfbd_betting_lines-525"><span class="linenos">525</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;over_under_open&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;overUnderOpen&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-526"><a href="#get_cfbd_betting_lines-526"><span class="linenos">526</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;home_moneyline&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;homeMoneyline&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-527"><a href="#get_cfbd_betting_lines-527"><span class="linenos">527</span></a>            <span class="n">row_df</span><span class="p">[</span><span class="s2">&quot;away_moneyline&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;awayMoneyline&quot;</span><span class="p">]</span>
+</span><span id="get_cfbd_betting_lines-528"><a href="#get_cfbd_betting_lines-528"><span class="linenos">528</span></a>
+</span><span id="get_cfbd_betting_lines-529"><a href="#get_cfbd_betting_lines-529"><span class="linenos">529</span></a>            <span class="n">betting_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">betting_df</span><span class="p">,</span> <span class="n">row_df</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="get_cfbd_betting_lines-530"><a href="#get_cfbd_betting_lines-530"><span class="linenos">530</span></a>            <span class="k">del</span> <span class="n">row_df</span>
+</span><span id="get_cfbd_betting_lines-531"><a href="#get_cfbd_betting_lines-531"><span class="linenos">531</span></a>
+</span><span id="get_cfbd_betting_lines-532"><a href="#get_cfbd_betting_lines-532"><span class="linenos">532</span></a>        <span class="k">del</span> <span class="p">(</span>
+</span><span id="get_cfbd_betting_lines-533"><a href="#get_cfbd_betting_lines-533"><span class="linenos">533</span></a>            <span class="n">gameId</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-534"><a href="#get_cfbd_betting_lines-534"><span class="linenos">534</span></a>            <span class="n">seasonType</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-535"><a href="#get_cfbd_betting_lines-535"><span class="linenos">535</span></a>            <span class="n">startDate</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-536"><a href="#get_cfbd_betting_lines-536"><span class="linenos">536</span></a>            <span class="n">homeTeam</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-537"><a href="#get_cfbd_betting_lines-537"><span class="linenos">537</span></a>            <span class="n">homeConference</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-538"><a href="#get_cfbd_betting_lines-538"><span class="linenos">538</span></a>            <span class="n">homeScore</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-539"><a href="#get_cfbd_betting_lines-539"><span class="linenos">539</span></a>            <span class="n">awayTeam</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-540"><a href="#get_cfbd_betting_lines-540"><span class="linenos">540</span></a>            <span class="n">awayConference</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-541"><a href="#get_cfbd_betting_lines-541"><span class="linenos">541</span></a>            <span class="n">awayScore</span><span class="p">,</span>
+</span><span id="get_cfbd_betting_lines-542"><a href="#get_cfbd_betting_lines-542"><span class="linenos">542</span></a>        <span class="p">)</span>
+</span><span id="get_cfbd_betting_lines-543"><a href="#get_cfbd_betting_lines-543"><span class="linenos">543</span></a>
+</span><span id="get_cfbd_betting_lines-544"><a href="#get_cfbd_betting_lines-544"><span class="linenos">544</span></a>    <span class="k">return</span> <span class="n">betting_df</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Retrives betting information from the CFBD API for a given season,
+            <div class="docstring"><p>Retrieves betting information from the CFBD API for a given season,
 or you could only get betting information for a single game.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <p><code>season</code> (int, mandatory):
-    The season you want to retrive betting information from.</p>
+    The season you want to retrieve betting information from.</p>
 
 <p><code>api_key</code> (str, optional):
     Semi-optional argument.
@@ -1211,7 +1191,7 @@ or you could only get betting information for a single game.</p>
     Optional argument.
     If <code>game_id</code> is set to a game ID,
     <code>get_cfb_betting_lines()</code> will try to get
-    all betting informaiton for that game ID.</p>
+    all betting information for that game ID.</p>
 
 <p><code>week</code> (int, optional):
     Optional argument.
@@ -1220,7 +1200,7 @@ or you could only get betting information for a single game.</p>
 
 <p><code>season_type</code> (str, semi-optional):
     Semi-optional argument.
-    By defualt, this will be set to "regular", for the CFB regular season.
+    By default, this will be set to "regular", for the CFB regular season.
     If you want postseason betting data, set <code>season_type</code> to "postseason".
     If <code>season_type</code> is set to anything but "regular" or "postseason",
     a <code>ValueError()</code> will be raised.</p>
@@ -1249,9 +1229,9 @@ or you could only get betting information for a single game.</p>
 <p><code>conference</code> (str, optional):
     Optional argument.
     If you only want betting information from games
-    involving teams a specific confrence,
+    involving teams a specific conference,
     set <code>conference</code> to the abbreviation
-    of the conference you want betting informaiton from.</p>
+    of the conference you want betting information from.</p>
 
 <p><code>year</code> (int):
     Alternative keyword for <code>season</code></p>
@@ -1275,9 +1255,9 @@ or you could only get betting information for a single game.</p>
 
 from <a href="">cfbd_json_py.betting</a> import get_cfbd_betting_lines
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key is not "tigersAreAwsome":
+if cfbd_key is not "tigersAreAwesome":
     print(
         "Using the user's API key declared " +
         "in this script for this example."
@@ -1395,7 +1375,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 

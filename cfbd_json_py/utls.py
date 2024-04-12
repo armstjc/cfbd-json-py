@@ -1,6 +1,6 @@
 """
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: utls.py
 # Purpose: Houses utility functions for this python package.
@@ -16,7 +16,7 @@ def reverse_cipher_encrypt(plain_text_str: str):
     """
     NOT INTENDED TO BE CALLED BY THE USER!
 
-    Implements a reverse cipher encription to a plain text string.
+    Implements a reverse cipher encryption to a plain text string.
 
     Parameters
     ----------
@@ -78,12 +78,12 @@ def get_cfbd_api_token(api_key_dir: str = None):
     you don't need to use this function.
 
     If the CFBD API key exists in the environment,
-    or is in a file, this function retrives the CFBD API key,
+    or is in a file, this function Retrieves the CFBD API key,
     and returns it as a string.
 
     If this package is being used in a GitHub Actions action,
     set the key in the environment by
-    creating a repository secret nammed `CFBD_API_KEY`.
+    creating a repository secret named `CFBD_API_KEY`.
 
     Parameters
     ----------

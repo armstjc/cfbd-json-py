@@ -29,7 +29,7 @@
             <h2>Contents</h2>
             <ul>
   <li><a href="#creation-date-08302023-0113-edt">Creation Date: 08/30/2023 01:13 EDT</a></li>
-  <li><a href="#last-updated-date-02242023-0330-pm-est">Last Updated Date: 02/24/2023 03:30 PM EST</a></li>
+  <li><a href="#last-updated-date-04042024-0510-pm-edt">Last Updated Date: 04/04/2024 05:10 PM EDT</a></li>
   <li><a href="#author-joseph-armstrong-armstrongjoseph08gmailcom">Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</a></li>
   <li><a href="#file-name-ratingspy">File Name: ratings.py</a></li>
   <li><a href="#purpose-houses-functions-pertaining-to-cfb-team-rating-data">Purpose: Houses functions pertaining to CFB team rating data</a></li>
@@ -72,7 +72,7 @@
 
                         <div class="docstring"><h1 id="creation-date-08302023-0113-edt">Creation Date: 08/30/2023 01:13 EDT</h1>
 
-<h1 id="last-updated-date-02242023-0330-pm-est">Last Updated Date: 02/24/2023 03:30 PM EST</h1>
+<h1 id="last-updated-date-04042024-0510-pm-edt">Last Updated Date: 04/04/2024 05:10 PM EDT</h1>
 
 <h1 id="author-joseph-armstrong-armstrongjoseph08gmailcom">Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</h1>
 
@@ -92,7 +92,7 @@
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">   1</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos">   2</span></a><span class="sd"># Creation Date: 08/30/2023 01:13 EDT</span>
-</span><span id="L-3"><a href="#L-3"><span class="linenos">   3</span></a><span class="sd"># Last Updated Date: 02/24/2023 03:30 PM EST</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos">   3</span></a><span class="sd"># Last Updated Date: 04/04/2024 05:10 PM EDT</span>
 </span><span id="L-4"><a href="#L-4"><span class="linenos">   4</span></a><span class="sd"># Author: Joseph Armstrong (armstrongjoseph08@gmail.com)</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos">   5</span></a><span class="sd"># File Name: ratings.py</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">   6</span></a><span class="sd"># Purpose: Houses functions pertaining to CFB team rating data</span>
@@ -177,9 +177,9 @@
 </span><span id="L-85"><a href="#L-85"><span class="linenos">  85</span></a><span class="sd">    from cfbd_json_py.ratings import get_cfbd_sp_plus_ratings</span>
 </span><span id="L-86"><a href="#L-86"><span class="linenos">  86</span></a>
 </span><span id="L-87"><a href="#L-87"><span class="linenos">  87</span></a>
-</span><span id="L-88"><a href="#L-88"><span class="linenos">  88</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-88"><a href="#L-88"><span class="linenos">  88</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-89"><a href="#L-89"><span class="linenos">  89</span></a>
-</span><span id="L-90"><a href="#L-90"><span class="linenos">  90</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-90"><a href="#L-90"><span class="linenos">  90</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-91"><a href="#L-91"><span class="linenos">  91</span></a><span class="sd">        print(</span>
 </span><span id="L-92"><a href="#L-92"><span class="linenos">  92</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-93"><a href="#L-93"><span class="linenos">  93</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -240,7 +240,7 @@
 </span><span id="L-148"><a href="#L-148"><span class="linenos"> 148</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-149"><a href="#L-149"><span class="linenos"> 149</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-150"><a href="#L-150"><span class="linenos"> 150</span></a><span class="sd">        print(</span>
-</span><span id="L-151"><a href="#L-151"><span class="linenos"> 151</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-151"><a href="#L-151"><span class="linenos"> 151</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-152"><a href="#L-152"><span class="linenos"> 152</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-153"><a href="#L-153"><span class="linenos"> 153</span></a><span class="sd">        )</span>
 </span><span id="L-154"><a href="#L-154"><span class="linenos"> 154</span></a>
@@ -308,7 +308,7 @@
 </span><span id="L-216"><a href="#L-216"><span class="linenos"> 216</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-217"><a href="#L-217"><span class="linenos"> 217</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-218"><a href="#L-218"><span class="linenos"> 218</span></a>
-</span><span id="L-219"><a href="#L-219"><span class="linenos"> 219</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-219"><a href="#L-219"><span class="linenos"> 219</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-220"><a href="#L-220"><span class="linenos"> 220</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-221"><a href="#L-221"><span class="linenos"> 221</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-222"><a href="#L-222"><span class="linenos"> 222</span></a>        <span class="p">)</span>
@@ -374,7 +374,7 @@
 </span><span id="L-282"><a href="#L-282"><span class="linenos"> 282</span></a>            <span class="s2">&quot;secondOrderWins&quot;</span><span class="p">:</span> <span class="s2">&quot;second_order_wins&quot;</span><span class="p">,</span>
 </span><span id="L-283"><a href="#L-283"><span class="linenos"> 283</span></a>            <span class="s2">&quot;offense.rating&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_rating&quot;</span><span class="p">,</span>
 </span><span id="L-284"><a href="#L-284"><span class="linenos"> 284</span></a>            <span class="s2">&quot;offense.success&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_success&quot;</span><span class="p">,</span>
-</span><span id="L-285"><a href="#L-285"><span class="linenos"> 285</span></a>            <span class="s2">&quot;offense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_esplosiveness&quot;</span><span class="p">,</span>
+</span><span id="L-285"><a href="#L-285"><span class="linenos"> 285</span></a>            <span class="s2">&quot;offense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_explosiveness&quot;</span><span class="p">,</span>
 </span><span id="L-286"><a href="#L-286"><span class="linenos"> 286</span></a>            <span class="s2">&quot;offense.rushing&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_rushing&quot;</span><span class="p">,</span>
 </span><span id="L-287"><a href="#L-287"><span class="linenos"> 287</span></a>            <span class="s2">&quot;offense.passing&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_passing&quot;</span><span class="p">,</span>
 </span><span id="L-288"><a href="#L-288"><span class="linenos"> 288</span></a>            <span class="s2">&quot;offense.standardDowns&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_standard_downs&quot;</span><span class="p">,</span>
@@ -383,7 +383,7 @@
 </span><span id="L-291"><a href="#L-291"><span class="linenos"> 291</span></a>            <span class="s2">&quot;offense.pace&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_pace&quot;</span><span class="p">,</span>
 </span><span id="L-292"><a href="#L-292"><span class="linenos"> 292</span></a>            <span class="s2">&quot;defense.rating&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_rating&quot;</span><span class="p">,</span>
 </span><span id="L-293"><a href="#L-293"><span class="linenos"> 293</span></a>            <span class="s2">&quot;defense.success&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_success&quot;</span><span class="p">,</span>
-</span><span id="L-294"><a href="#L-294"><span class="linenos"> 294</span></a>            <span class="s2">&quot;defense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_esplosiveness&quot;</span><span class="p">,</span>
+</span><span id="L-294"><a href="#L-294"><span class="linenos"> 294</span></a>            <span class="s2">&quot;defense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_explosiveness&quot;</span><span class="p">,</span>
 </span><span id="L-295"><a href="#L-295"><span class="linenos"> 295</span></a>            <span class="s2">&quot;defense.rushing&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_rushing&quot;</span><span class="p">,</span>
 </span><span id="L-296"><a href="#L-296"><span class="linenos"> 296</span></a>            <span class="s2">&quot;defense.passing&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_passing&quot;</span><span class="p">,</span>
 </span><span id="L-297"><a href="#L-297"><span class="linenos"> 297</span></a>            <span class="s2">&quot;defense.standardDowns&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_standard_downs&quot;</span><span class="p">,</span>
@@ -455,7 +455,7 @@
 </span><span id="L-363"><a href="#L-363"><span class="linenos"> 363</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="L-364"><a href="#L-364"><span class="linenos"> 364</span></a><span class="sd">        Optional argument.</span>
 </span><span id="L-365"><a href="#L-365"><span class="linenos"> 365</span></a><span class="sd">        If you only want game information from games</span>
-</span><span id="L-366"><a href="#L-366"><span class="linenos"> 366</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="L-366"><a href="#L-366"><span class="linenos"> 366</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="L-367"><a href="#L-367"><span class="linenos"> 367</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="L-368"><a href="#L-368"><span class="linenos"> 368</span></a><span class="sd">        of the conference you want game information from.</span>
 </span><span id="L-369"><a href="#L-369"><span class="linenos"> 369</span></a>
@@ -474,9 +474,9 @@
 </span><span id="L-382"><a href="#L-382"><span class="linenos"> 382</span></a><span class="sd">    from cfbd_json_py.ratings import get_cfbd_srs_ratings</span>
 </span><span id="L-383"><a href="#L-383"><span class="linenos"> 383</span></a>
 </span><span id="L-384"><a href="#L-384"><span class="linenos"> 384</span></a>
-</span><span id="L-385"><a href="#L-385"><span class="linenos"> 385</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-385"><a href="#L-385"><span class="linenos"> 385</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-386"><a href="#L-386"><span class="linenos"> 386</span></a>
-</span><span id="L-387"><a href="#L-387"><span class="linenos"> 387</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-387"><a href="#L-387"><span class="linenos"> 387</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-388"><a href="#L-388"><span class="linenos"> 388</span></a><span class="sd">        print(</span>
 </span><span id="L-389"><a href="#L-389"><span class="linenos"> 389</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-390"><a href="#L-390"><span class="linenos"> 390</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -537,7 +537,7 @@
 </span><span id="L-445"><a href="#L-445"><span class="linenos"> 445</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-446"><a href="#L-446"><span class="linenos"> 446</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-447"><a href="#L-447"><span class="linenos"> 447</span></a><span class="sd">        print(</span>
-</span><span id="L-448"><a href="#L-448"><span class="linenos"> 448</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-448"><a href="#L-448"><span class="linenos"> 448</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-449"><a href="#L-449"><span class="linenos"> 449</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-450"><a href="#L-450"><span class="linenos"> 450</span></a><span class="sd">        )</span>
 </span><span id="L-451"><a href="#L-451"><span class="linenos"> 451</span></a>
@@ -604,7 +604,7 @@
 </span><span id="L-512"><a href="#L-512"><span class="linenos"> 512</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-513"><a href="#L-513"><span class="linenos"> 513</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-514"><a href="#L-514"><span class="linenos"> 514</span></a>
-</span><span id="L-515"><a href="#L-515"><span class="linenos"> 515</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-515"><a href="#L-515"><span class="linenos"> 515</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-516"><a href="#L-516"><span class="linenos"> 516</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-517"><a href="#L-517"><span class="linenos"> 517</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-518"><a href="#L-518"><span class="linenos"> 518</span></a>        <span class="p">)</span>
@@ -723,7 +723,7 @@
 </span><span id="L-631"><a href="#L-631"><span class="linenos"> 631</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="L-632"><a href="#L-632"><span class="linenos"> 632</span></a><span class="sd">        Optional argument.</span>
 </span><span id="L-633"><a href="#L-633"><span class="linenos"> 633</span></a><span class="sd">        If you only want S&amp;P+ ratings data from games</span>
-</span><span id="L-634"><a href="#L-634"><span class="linenos"> 634</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="L-634"><a href="#L-634"><span class="linenos"> 634</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="L-635"><a href="#L-635"><span class="linenos"> 635</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="L-636"><a href="#L-636"><span class="linenos"> 636</span></a><span class="sd">        of the conference you want S&amp;P+ ratings data from.</span>
 </span><span id="L-637"><a href="#L-637"><span class="linenos"> 637</span></a>
@@ -742,9 +742,9 @@
 </span><span id="L-650"><a href="#L-650"><span class="linenos"> 650</span></a><span class="sd">    from cfbd_json_py.ratings import get_cfbd_sp_plus_conference_ratings</span>
 </span><span id="L-651"><a href="#L-651"><span class="linenos"> 651</span></a>
 </span><span id="L-652"><a href="#L-652"><span class="linenos"> 652</span></a>
-</span><span id="L-653"><a href="#L-653"><span class="linenos"> 653</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-653"><a href="#L-653"><span class="linenos"> 653</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-654"><a href="#L-654"><span class="linenos"> 654</span></a>
-</span><span id="L-655"><a href="#L-655"><span class="linenos"> 655</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-655"><a href="#L-655"><span class="linenos"> 655</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-656"><a href="#L-656"><span class="linenos"> 656</span></a><span class="sd">        print(</span>
 </span><span id="L-657"><a href="#L-657"><span class="linenos"> 657</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-658"><a href="#L-658"><span class="linenos"> 658</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -778,7 +778,7 @@
 </span><span id="L-686"><a href="#L-686"><span class="linenos"> 686</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-687"><a href="#L-687"><span class="linenos"> 687</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-688"><a href="#L-688"><span class="linenos"> 688</span></a><span class="sd">        print(</span>
-</span><span id="L-689"><a href="#L-689"><span class="linenos"> 689</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-689"><a href="#L-689"><span class="linenos"> 689</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-690"><a href="#L-690"><span class="linenos"> 690</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-691"><a href="#L-691"><span class="linenos"> 691</span></a><span class="sd">        )</span>
 </span><span id="L-692"><a href="#L-692"><span class="linenos"> 692</span></a>
@@ -821,7 +821,7 @@
 </span><span id="L-729"><a href="#L-729"><span class="linenos"> 729</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-730"><a href="#L-730"><span class="linenos"> 730</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-731"><a href="#L-731"><span class="linenos"> 731</span></a>
-</span><span id="L-732"><a href="#L-732"><span class="linenos"> 732</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-732"><a href="#L-732"><span class="linenos"> 732</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-733"><a href="#L-733"><span class="linenos"> 733</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-734"><a href="#L-734"><span class="linenos"> 734</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-735"><a href="#L-735"><span class="linenos"> 735</span></a>        <span class="p">)</span>
@@ -894,7 +894,7 @@
 </span><span id="L-802"><a href="#L-802"><span class="linenos"> 802</span></a>            <span class="s2">&quot;secondOrderWins&quot;</span><span class="p">:</span> <span class="s2">&quot;second_order_wins&quot;</span><span class="p">,</span>
 </span><span id="L-803"><a href="#L-803"><span class="linenos"> 803</span></a>            <span class="s2">&quot;offense.rating&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_rating&quot;</span><span class="p">,</span>
 </span><span id="L-804"><a href="#L-804"><span class="linenos"> 804</span></a>            <span class="s2">&quot;offense.success&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_success&quot;</span><span class="p">,</span>
-</span><span id="L-805"><a href="#L-805"><span class="linenos"> 805</span></a>            <span class="s2">&quot;offense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_esplosiveness&quot;</span><span class="p">,</span>
+</span><span id="L-805"><a href="#L-805"><span class="linenos"> 805</span></a>            <span class="s2">&quot;offense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_explosiveness&quot;</span><span class="p">,</span>
 </span><span id="L-806"><a href="#L-806"><span class="linenos"> 806</span></a>            <span class="s2">&quot;offense.rushing&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_rushing&quot;</span><span class="p">,</span>
 </span><span id="L-807"><a href="#L-807"><span class="linenos"> 807</span></a>            <span class="s2">&quot;offense.passing&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_passing&quot;</span><span class="p">,</span>
 </span><span id="L-808"><a href="#L-808"><span class="linenos"> 808</span></a>            <span class="s2">&quot;offense.standardDowns&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_standard_downs&quot;</span><span class="p">,</span>
@@ -903,7 +903,7 @@
 </span><span id="L-811"><a href="#L-811"><span class="linenos"> 811</span></a>            <span class="s2">&quot;offense.pace&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_pace&quot;</span><span class="p">,</span>
 </span><span id="L-812"><a href="#L-812"><span class="linenos"> 812</span></a>            <span class="s2">&quot;defense.rating&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_rating&quot;</span><span class="p">,</span>
 </span><span id="L-813"><a href="#L-813"><span class="linenos"> 813</span></a>            <span class="s2">&quot;defense.success&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_success&quot;</span><span class="p">,</span>
-</span><span id="L-814"><a href="#L-814"><span class="linenos"> 814</span></a>            <span class="s2">&quot;defense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_esplosiveness&quot;</span><span class="p">,</span>
+</span><span id="L-814"><a href="#L-814"><span class="linenos"> 814</span></a>            <span class="s2">&quot;defense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_explosiveness&quot;</span><span class="p">,</span>
 </span><span id="L-815"><a href="#L-815"><span class="linenos"> 815</span></a>            <span class="s2">&quot;defense.rushing&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_rushing&quot;</span><span class="p">,</span>
 </span><span id="L-816"><a href="#L-816"><span class="linenos"> 816</span></a>            <span class="s2">&quot;defense.passing&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_passing&quot;</span><span class="p">,</span>
 </span><span id="L-817"><a href="#L-817"><span class="linenos"> 817</span></a>            <span class="s2">&quot;defense.standardDowns&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_standard_downs&quot;</span><span class="p">,</span>
@@ -971,7 +971,7 @@
 </span><span id="L-879"><a href="#L-879"><span class="linenos"> 879</span></a>
 </span><span id="L-880"><a href="#L-880"><span class="linenos"> 880</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="L-881"><a href="#L-881"><span class="linenos"> 881</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="L-882"><a href="#L-882"><span class="linenos"> 882</span></a><span class="sd">        By defualt, this will be set to &quot;postseason&quot;.</span>
+</span><span id="L-882"><a href="#L-882"><span class="linenos"> 882</span></a><span class="sd">        By default, this will be set to &quot;postseason&quot;.</span>
 </span><span id="L-883"><a href="#L-883"><span class="linenos"> 883</span></a><span class="sd">        If `season_type` is set to &quot;regular&quot;,</span>
 </span><span id="L-884"><a href="#L-884"><span class="linenos"> 884</span></a><span class="sd">        the API will ignore postseason games</span>
 </span><span id="L-885"><a href="#L-885"><span class="linenos"> 885</span></a><span class="sd">        (like bowls and CFP games) when calculating elo.</span>
@@ -989,7 +989,7 @@
 </span><span id="L-897"><a href="#L-897"><span class="linenos"> 897</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="L-898"><a href="#L-898"><span class="linenos"> 898</span></a><span class="sd">        Optional argument.</span>
 </span><span id="L-899"><a href="#L-899"><span class="linenos"> 899</span></a><span class="sd">        If you only want S&amp;P+ ratings data from games</span>
-</span><span id="L-900"><a href="#L-900"><span class="linenos"> 900</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="L-900"><a href="#L-900"><span class="linenos"> 900</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="L-901"><a href="#L-901"><span class="linenos"> 901</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="L-902"><a href="#L-902"><span class="linenos"> 902</span></a><span class="sd">        of the conference you want S&amp;P+ ratings data from.</span>
 </span><span id="L-903"><a href="#L-903"><span class="linenos"> 903</span></a>
@@ -1008,9 +1008,9 @@
 </span><span id="L-916"><a href="#L-916"><span class="linenos"> 916</span></a><span class="sd">    from cfbd_json_py.ratings import get_cfbd_elo_ratings</span>
 </span><span id="L-917"><a href="#L-917"><span class="linenos"> 917</span></a>
 </span><span id="L-918"><a href="#L-918"><span class="linenos"> 918</span></a>
-</span><span id="L-919"><a href="#L-919"><span class="linenos"> 919</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-919"><a href="#L-919"><span class="linenos"> 919</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-920"><a href="#L-920"><span class="linenos"> 920</span></a>
-</span><span id="L-921"><a href="#L-921"><span class="linenos"> 921</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-921"><a href="#L-921"><span class="linenos"> 921</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-922"><a href="#L-922"><span class="linenos"> 922</span></a><span class="sd">        print(</span>
 </span><span id="L-923"><a href="#L-923"><span class="linenos"> 923</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-924"><a href="#L-924"><span class="linenos"> 924</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -1064,10 +1064,10 @@
 </span><span id="L-972"><a href="#L-972"><span class="linenos"> 972</span></a>
 </span><span id="L-973"><a href="#L-973"><span class="linenos"> 973</span></a>
 </span><span id="L-974"><a href="#L-974"><span class="linenos"> 974</span></a><span class="sd">        # Get Elo ratings data for teams competing in the</span>
-</span><span id="L-975"><a href="#L-975"><span class="linenos"> 975</span></a><span class="sd">        # Atlantic Coast Confrence (ACC) in the 2021 CFB season.</span>
+</span><span id="L-975"><a href="#L-975"><span class="linenos"> 975</span></a><span class="sd">        # Atlantic Coast conference (ACC) in the 2021 CFB season.</span>
 </span><span id="L-976"><a href="#L-976"><span class="linenos"> 976</span></a><span class="sd">        print(</span>
 </span><span id="L-977"><a href="#L-977"><span class="linenos"> 977</span></a><span class="sd">            &quot;Get Elo ratings data for teams competing in &quot; +</span>
-</span><span id="L-978"><a href="#L-978"><span class="linenos"> 978</span></a><span class="sd">            &quot;the Atlantic Coast Confrence (ACC) in the 2021 CFB season.&quot;</span>
+</span><span id="L-978"><a href="#L-978"><span class="linenos"> 978</span></a><span class="sd">            &quot;the Atlantic Coast conference (ACC) in the 2021 CFB season.&quot;</span>
 </span><span id="L-979"><a href="#L-979"><span class="linenos"> 979</span></a><span class="sd">        )</span>
 </span><span id="L-980"><a href="#L-980"><span class="linenos"> 980</span></a><span class="sd">        json_data = get_cfbd_elo_ratings(</span>
 </span><span id="L-981"><a href="#L-981"><span class="linenos"> 981</span></a><span class="sd">            api_key=cfbd_key,</span>
@@ -1097,7 +1097,7 @@
 </span><span id="L-1005"><a href="#L-1005"><span class="linenos">1005</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-1006"><a href="#L-1006"><span class="linenos">1006</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-1007"><a href="#L-1007"><span class="linenos">1007</span></a><span class="sd">        print(</span>
-</span><span id="L-1008"><a href="#L-1008"><span class="linenos">1008</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-1008"><a href="#L-1008"><span class="linenos">1008</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-1009"><a href="#L-1009"><span class="linenos">1009</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-1010"><a href="#L-1010"><span class="linenos">1010</span></a><span class="sd">        )</span>
 </span><span id="L-1011"><a href="#L-1011"><span class="linenos">1011</span></a>
@@ -1145,10 +1145,10 @@
 </span><span id="L-1053"><a href="#L-1053"><span class="linenos">1053</span></a>
 </span><span id="L-1054"><a href="#L-1054"><span class="linenos">1054</span></a>
 </span><span id="L-1055"><a href="#L-1055"><span class="linenos">1055</span></a><span class="sd">        # Get Elo ratings data for teams competing in the</span>
-</span><span id="L-1056"><a href="#L-1056"><span class="linenos">1056</span></a><span class="sd">        # Atlantic Coast Confrence (ACC) in the 2021 CFB season.</span>
+</span><span id="L-1056"><a href="#L-1056"><span class="linenos">1056</span></a><span class="sd">        # Atlantic Coast conference (ACC) in the 2021 CFB season.</span>
 </span><span id="L-1057"><a href="#L-1057"><span class="linenos">1057</span></a><span class="sd">        print(</span>
 </span><span id="L-1058"><a href="#L-1058"><span class="linenos">1058</span></a><span class="sd">            &quot;Get Elo ratings data for teams competing in &quot; +</span>
-</span><span id="L-1059"><a href="#L-1059"><span class="linenos">1059</span></a><span class="sd">            &quot;the Atlantic Coast Confrence (ACC) in the 2021 CFB season.&quot;</span>
+</span><span id="L-1059"><a href="#L-1059"><span class="linenos">1059</span></a><span class="sd">            &quot;the Atlantic Coast conference (ACC) in the 2021 CFB season.&quot;</span>
 </span><span id="L-1060"><a href="#L-1060"><span class="linenos">1060</span></a><span class="sd">        )</span>
 </span><span id="L-1061"><a href="#L-1061"><span class="linenos">1061</span></a><span class="sd">        json_data = get_cfbd_elo_ratings(</span>
 </span><span id="L-1062"><a href="#L-1062"><span class="linenos">1062</span></a><span class="sd">            season=2021,</span>
@@ -1188,7 +1188,7 @@
 </span><span id="L-1096"><a href="#L-1096"><span class="linenos">1096</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-1097"><a href="#L-1097"><span class="linenos">1097</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-1098"><a href="#L-1098"><span class="linenos">1098</span></a>
-</span><span id="L-1099"><a href="#L-1099"><span class="linenos">1099</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-1099"><a href="#L-1099"><span class="linenos">1099</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-1100"><a href="#L-1100"><span class="linenos">1100</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-1101"><a href="#L-1101"><span class="linenos">1101</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-1102"><a href="#L-1102"><span class="linenos">1102</span></a>        <span class="p">)</span>
@@ -1324,7 +1324,7 @@
 </span><span id="L-1232"><a href="#L-1232"><span class="linenos">1232</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="L-1233"><a href="#L-1233"><span class="linenos">1233</span></a><span class="sd">        Optional argument.</span>
 </span><span id="L-1234"><a href="#L-1234"><span class="linenos">1234</span></a><span class="sd">        If you only want FPI ratings data from games</span>
-</span><span id="L-1235"><a href="#L-1235"><span class="linenos">1235</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="L-1235"><a href="#L-1235"><span class="linenos">1235</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="L-1236"><a href="#L-1236"><span class="linenos">1236</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="L-1237"><a href="#L-1237"><span class="linenos">1237</span></a><span class="sd">        of the conference you want FPI ratings data from.</span>
 </span><span id="L-1238"><a href="#L-1238"><span class="linenos">1238</span></a>
@@ -1343,9 +1343,9 @@
 </span><span id="L-1251"><a href="#L-1251"><span class="linenos">1251</span></a><span class="sd">    from cfbd_json_py.ratings import get_cfbd_fpi_ratings</span>
 </span><span id="L-1252"><a href="#L-1252"><span class="linenos">1252</span></a>
 </span><span id="L-1253"><a href="#L-1253"><span class="linenos">1253</span></a>
-</span><span id="L-1254"><a href="#L-1254"><span class="linenos">1254</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="L-1254"><a href="#L-1254"><span class="linenos">1254</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="L-1255"><a href="#L-1255"><span class="linenos">1255</span></a>
-</span><span id="L-1256"><a href="#L-1256"><span class="linenos">1256</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="L-1256"><a href="#L-1256"><span class="linenos">1256</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="L-1257"><a href="#L-1257"><span class="linenos">1257</span></a><span class="sd">        print(</span>
 </span><span id="L-1258"><a href="#L-1258"><span class="linenos">1258</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="L-1259"><a href="#L-1259"><span class="linenos">1259</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -1385,10 +1385,10 @@
 </span><span id="L-1293"><a href="#L-1293"><span class="linenos">1293</span></a>
 </span><span id="L-1294"><a href="#L-1294"><span class="linenos">1294</span></a>
 </span><span id="L-1295"><a href="#L-1295"><span class="linenos">1295</span></a><span class="sd">        # Get FPI ratings data for teams competing in the</span>
-</span><span id="L-1296"><a href="#L-1296"><span class="linenos">1296</span></a><span class="sd">        # Atlantic Coast Confrence (ACC) in the 2021 CFB season.</span>
+</span><span id="L-1296"><a href="#L-1296"><span class="linenos">1296</span></a><span class="sd">        # Atlantic Coast conference (ACC) in the 2021 CFB season.</span>
 </span><span id="L-1297"><a href="#L-1297"><span class="linenos">1297</span></a><span class="sd">        print(</span>
 </span><span id="L-1298"><a href="#L-1298"><span class="linenos">1298</span></a><span class="sd">            &quot;Get FPI ratings data for teams competing in the &quot; +</span>
-</span><span id="L-1299"><a href="#L-1299"><span class="linenos">1299</span></a><span class="sd">            &quot;Atlantic Coast Confrence (ACC) in the 2021 CFB season.&quot;</span>
+</span><span id="L-1299"><a href="#L-1299"><span class="linenos">1299</span></a><span class="sd">            &quot;Atlantic Coast conference (ACC) in the 2021 CFB season.&quot;</span>
 </span><span id="L-1300"><a href="#L-1300"><span class="linenos">1300</span></a><span class="sd">        )</span>
 </span><span id="L-1301"><a href="#L-1301"><span class="linenos">1301</span></a><span class="sd">        json_data = get_cfbd_fpi_ratings(</span>
 </span><span id="L-1302"><a href="#L-1302"><span class="linenos">1302</span></a><span class="sd">            api_key=cfbd_key,</span>
@@ -1418,7 +1418,7 @@
 </span><span id="L-1326"><a href="#L-1326"><span class="linenos">1326</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="L-1327"><a href="#L-1327"><span class="linenos">1327</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="L-1328"><a href="#L-1328"><span class="linenos">1328</span></a><span class="sd">        print(</span>
-</span><span id="L-1329"><a href="#L-1329"><span class="linenos">1329</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="L-1329"><a href="#L-1329"><span class="linenos">1329</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="L-1330"><a href="#L-1330"><span class="linenos">1330</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="L-1331"><a href="#L-1331"><span class="linenos">1331</span></a><span class="sd">        )</span>
 </span><span id="L-1332"><a href="#L-1332"><span class="linenos">1332</span></a>
@@ -1455,10 +1455,10 @@
 </span><span id="L-1363"><a href="#L-1363"><span class="linenos">1363</span></a>
 </span><span id="L-1364"><a href="#L-1364"><span class="linenos">1364</span></a>
 </span><span id="L-1365"><a href="#L-1365"><span class="linenos">1365</span></a><span class="sd">        # Get FPI ratings data for teams competing in the</span>
-</span><span id="L-1366"><a href="#L-1366"><span class="linenos">1366</span></a><span class="sd">        # Atlantic Coast Confrence (ACC) in the 2021 CFB season.</span>
+</span><span id="L-1366"><a href="#L-1366"><span class="linenos">1366</span></a><span class="sd">        # Atlantic Coast conference (ACC) in the 2021 CFB season.</span>
 </span><span id="L-1367"><a href="#L-1367"><span class="linenos">1367</span></a><span class="sd">        print(</span>
 </span><span id="L-1368"><a href="#L-1368"><span class="linenos">1368</span></a><span class="sd">            &quot;Get FPI ratings data for teams competing in the &quot; +</span>
-</span><span id="L-1369"><a href="#L-1369"><span class="linenos">1369</span></a><span class="sd">            &quot;Atlantic Coast Confrence (ACC) in the 2021 CFB season.&quot;</span>
+</span><span id="L-1369"><a href="#L-1369"><span class="linenos">1369</span></a><span class="sd">            &quot;Atlantic Coast conference (ACC) in the 2021 CFB season.&quot;</span>
 </span><span id="L-1370"><a href="#L-1370"><span class="linenos">1370</span></a><span class="sd">        )</span>
 </span><span id="L-1371"><a href="#L-1371"><span class="linenos">1371</span></a><span class="sd">        json_data = get_cfbd_fpi_ratings(</span>
 </span><span id="L-1372"><a href="#L-1372"><span class="linenos">1372</span></a><span class="sd">            season=2021,</span>
@@ -1500,7 +1500,7 @@
 </span><span id="L-1408"><a href="#L-1408"><span class="linenos">1408</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="L-1409"><a href="#L-1409"><span class="linenos">1409</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="L-1410"><a href="#L-1410"><span class="linenos">1410</span></a>
-</span><span id="L-1411"><a href="#L-1411"><span class="linenos">1411</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="L-1411"><a href="#L-1411"><span class="linenos">1411</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="L-1412"><a href="#L-1412"><span class="linenos">1412</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="L-1413"><a href="#L-1413"><span class="linenos">1413</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="L-1414"><a href="#L-1414"><span class="linenos">1414</span></a>        <span class="p">)</span>
@@ -1570,11 +1570,11 @@
 </span><span id="L-1478"><a href="#L-1478"><span class="linenos">1478</span></a>            <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;season&quot;</span><span class="p">,</span>
 </span><span id="L-1479"><a href="#L-1479"><span class="linenos">1479</span></a>            <span class="s2">&quot;team&quot;</span><span class="p">:</span> <span class="s2">&quot;team_name&quot;</span><span class="p">,</span>
 </span><span id="L-1480"><a href="#L-1480"><span class="linenos">1480</span></a>            <span class="s2">&quot;conference&quot;</span><span class="p">:</span> <span class="s2">&quot;conference_name&quot;</span><span class="p">,</span>
-</span><span id="L-1481"><a href="#L-1481"><span class="linenos">1481</span></a>            <span class="s2">&quot;resumeRanks.strenghOfRecord&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_strength_of_record&quot;</span><span class="p">,</span>
+</span><span id="L-1481"><a href="#L-1481"><span class="linenos">1481</span></a>            <span class="s2">&quot;resumeRanks.strengthOfRecord&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_strength_of_record&quot;</span><span class="p">,</span>
 </span><span id="L-1482"><a href="#L-1482"><span class="linenos">1482</span></a>            <span class="s2">&quot;resumeRanks.fpi&quot;</span><span class="p">:</span> <span class="s2">&quot;fpi_rank&quot;</span><span class="p">,</span>
 </span><span id="L-1483"><a href="#L-1483"><span class="linenos">1483</span></a>            <span class="s2">&quot;resumeRanks.averageWinProbability&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_avg_win_probability&quot;</span><span class="p">,</span>
 </span><span id="L-1484"><a href="#L-1484"><span class="linenos">1484</span></a>            <span class="s2">&quot;resumeRanks.strengthOfSchedule&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_strength_of_schedule&quot;</span><span class="p">,</span>
-</span><span id="L-1485"><a href="#L-1485"><span class="linenos">1485</span></a>            <span class="s2">&quot;resumeRanks.remaningStrengthOfSchedule&quot;</span><span class="p">:</span>
+</span><span id="L-1485"><a href="#L-1485"><span class="linenos">1485</span></a>            <span class="s2">&quot;resumeRanks.remainingStrengthOfSchedule&quot;</span><span class="p">:</span>
 </span><span id="L-1486"><a href="#L-1486"><span class="linenos">1486</span></a>                <span class="s2">&quot;resume_remaining_strength_of_schedule&quot;</span><span class="p">,</span>
 </span><span id="L-1487"><a href="#L-1487"><span class="linenos">1487</span></a>            <span class="s2">&quot;resumeRanks.gameControl&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_game_control&quot;</span><span class="p">,</span>
 </span><span id="L-1488"><a href="#L-1488"><span class="linenos">1488</span></a>            <span class="s2">&quot;efficiencies.overall&quot;</span><span class="p">:</span> <span class="s2">&quot;efficiency_overall&quot;</span><span class="p">,</span>
@@ -1668,9 +1668,9 @@
 </span><span id="get_cfbd_sp_plus_ratings-86"><a href="#get_cfbd_sp_plus_ratings-86"><span class="linenos"> 86</span></a><span class="sd">    from cfbd_json_py.ratings import get_cfbd_sp_plus_ratings</span>
 </span><span id="get_cfbd_sp_plus_ratings-87"><a href="#get_cfbd_sp_plus_ratings-87"><span class="linenos"> 87</span></a>
 </span><span id="get_cfbd_sp_plus_ratings-88"><a href="#get_cfbd_sp_plus_ratings-88"><span class="linenos"> 88</span></a>
-</span><span id="get_cfbd_sp_plus_ratings-89"><a href="#get_cfbd_sp_plus_ratings-89"><span class="linenos"> 89</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_sp_plus_ratings-89"><a href="#get_cfbd_sp_plus_ratings-89"><span class="linenos"> 89</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_sp_plus_ratings-90"><a href="#get_cfbd_sp_plus_ratings-90"><span class="linenos"> 90</span></a>
-</span><span id="get_cfbd_sp_plus_ratings-91"><a href="#get_cfbd_sp_plus_ratings-91"><span class="linenos"> 91</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_sp_plus_ratings-91"><a href="#get_cfbd_sp_plus_ratings-91"><span class="linenos"> 91</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_sp_plus_ratings-92"><a href="#get_cfbd_sp_plus_ratings-92"><span class="linenos"> 92</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_sp_plus_ratings-93"><a href="#get_cfbd_sp_plus_ratings-93"><span class="linenos"> 93</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_sp_plus_ratings-94"><a href="#get_cfbd_sp_plus_ratings-94"><span class="linenos"> 94</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -1731,7 +1731,7 @@
 </span><span id="get_cfbd_sp_plus_ratings-149"><a href="#get_cfbd_sp_plus_ratings-149"><span class="linenos">149</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_sp_plus_ratings-150"><a href="#get_cfbd_sp_plus_ratings-150"><span class="linenos">150</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_sp_plus_ratings-151"><a href="#get_cfbd_sp_plus_ratings-151"><span class="linenos">151</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_sp_plus_ratings-152"><a href="#get_cfbd_sp_plus_ratings-152"><span class="linenos">152</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_sp_plus_ratings-152"><a href="#get_cfbd_sp_plus_ratings-152"><span class="linenos">152</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_sp_plus_ratings-153"><a href="#get_cfbd_sp_plus_ratings-153"><span class="linenos">153</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_sp_plus_ratings-154"><a href="#get_cfbd_sp_plus_ratings-154"><span class="linenos">154</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_sp_plus_ratings-155"><a href="#get_cfbd_sp_plus_ratings-155"><span class="linenos">155</span></a>
@@ -1799,7 +1799,7 @@
 </span><span id="get_cfbd_sp_plus_ratings-217"><a href="#get_cfbd_sp_plus_ratings-217"><span class="linenos">217</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_sp_plus_ratings-218"><a href="#get_cfbd_sp_plus_ratings-218"><span class="linenos">218</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_sp_plus_ratings-219"><a href="#get_cfbd_sp_plus_ratings-219"><span class="linenos">219</span></a>
-</span><span id="get_cfbd_sp_plus_ratings-220"><a href="#get_cfbd_sp_plus_ratings-220"><span class="linenos">220</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_sp_plus_ratings-220"><a href="#get_cfbd_sp_plus_ratings-220"><span class="linenos">220</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_sp_plus_ratings-221"><a href="#get_cfbd_sp_plus_ratings-221"><span class="linenos">221</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_sp_plus_ratings-222"><a href="#get_cfbd_sp_plus_ratings-222"><span class="linenos">222</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_sp_plus_ratings-223"><a href="#get_cfbd_sp_plus_ratings-223"><span class="linenos">223</span></a>        <span class="p">)</span>
@@ -1865,7 +1865,7 @@
 </span><span id="get_cfbd_sp_plus_ratings-283"><a href="#get_cfbd_sp_plus_ratings-283"><span class="linenos">283</span></a>            <span class="s2">&quot;secondOrderWins&quot;</span><span class="p">:</span> <span class="s2">&quot;second_order_wins&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_ratings-284"><a href="#get_cfbd_sp_plus_ratings-284"><span class="linenos">284</span></a>            <span class="s2">&quot;offense.rating&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_rating&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_ratings-285"><a href="#get_cfbd_sp_plus_ratings-285"><span class="linenos">285</span></a>            <span class="s2">&quot;offense.success&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_success&quot;</span><span class="p">,</span>
-</span><span id="get_cfbd_sp_plus_ratings-286"><a href="#get_cfbd_sp_plus_ratings-286"><span class="linenos">286</span></a>            <span class="s2">&quot;offense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_esplosiveness&quot;</span><span class="p">,</span>
+</span><span id="get_cfbd_sp_plus_ratings-286"><a href="#get_cfbd_sp_plus_ratings-286"><span class="linenos">286</span></a>            <span class="s2">&quot;offense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_explosiveness&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_ratings-287"><a href="#get_cfbd_sp_plus_ratings-287"><span class="linenos">287</span></a>            <span class="s2">&quot;offense.rushing&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_rushing&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_ratings-288"><a href="#get_cfbd_sp_plus_ratings-288"><span class="linenos">288</span></a>            <span class="s2">&quot;offense.passing&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_passing&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_ratings-289"><a href="#get_cfbd_sp_plus_ratings-289"><span class="linenos">289</span></a>            <span class="s2">&quot;offense.standardDowns&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_standard_downs&quot;</span><span class="p">,</span>
@@ -1874,7 +1874,7 @@
 </span><span id="get_cfbd_sp_plus_ratings-292"><a href="#get_cfbd_sp_plus_ratings-292"><span class="linenos">292</span></a>            <span class="s2">&quot;offense.pace&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_pace&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_ratings-293"><a href="#get_cfbd_sp_plus_ratings-293"><span class="linenos">293</span></a>            <span class="s2">&quot;defense.rating&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_rating&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_ratings-294"><a href="#get_cfbd_sp_plus_ratings-294"><span class="linenos">294</span></a>            <span class="s2">&quot;defense.success&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_success&quot;</span><span class="p">,</span>
-</span><span id="get_cfbd_sp_plus_ratings-295"><a href="#get_cfbd_sp_plus_ratings-295"><span class="linenos">295</span></a>            <span class="s2">&quot;defense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_esplosiveness&quot;</span><span class="p">,</span>
+</span><span id="get_cfbd_sp_plus_ratings-295"><a href="#get_cfbd_sp_plus_ratings-295"><span class="linenos">295</span></a>            <span class="s2">&quot;defense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_explosiveness&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_ratings-296"><a href="#get_cfbd_sp_plus_ratings-296"><span class="linenos">296</span></a>            <span class="s2">&quot;defense.rushing&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_rushing&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_ratings-297"><a href="#get_cfbd_sp_plus_ratings-297"><span class="linenos">297</span></a>            <span class="s2">&quot;defense.passing&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_passing&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_ratings-298"><a href="#get_cfbd_sp_plus_ratings-298"><span class="linenos">298</span></a>            <span class="s2">&quot;defense.standardDowns&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_standard_downs&quot;</span><span class="p">,</span>
@@ -1953,9 +1953,9 @@ ratings data from the CFBD API.</p>
 from <a href="">cfbd_json_py.ratings</a> import get_cfbd_sp_plus_ratings
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -2016,7 +2016,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 
@@ -2141,7 +2141,7 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 </span><span id="get_cfbd_srs_ratings-364"><a href="#get_cfbd_srs_ratings-364"><span class="linenos">364</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="get_cfbd_srs_ratings-365"><a href="#get_cfbd_srs_ratings-365"><span class="linenos">365</span></a><span class="sd">        Optional argument.</span>
 </span><span id="get_cfbd_srs_ratings-366"><a href="#get_cfbd_srs_ratings-366"><span class="linenos">366</span></a><span class="sd">        If you only want game information from games</span>
-</span><span id="get_cfbd_srs_ratings-367"><a href="#get_cfbd_srs_ratings-367"><span class="linenos">367</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="get_cfbd_srs_ratings-367"><a href="#get_cfbd_srs_ratings-367"><span class="linenos">367</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="get_cfbd_srs_ratings-368"><a href="#get_cfbd_srs_ratings-368"><span class="linenos">368</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="get_cfbd_srs_ratings-369"><a href="#get_cfbd_srs_ratings-369"><span class="linenos">369</span></a><span class="sd">        of the conference you want game information from.</span>
 </span><span id="get_cfbd_srs_ratings-370"><a href="#get_cfbd_srs_ratings-370"><span class="linenos">370</span></a>
@@ -2160,9 +2160,9 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 </span><span id="get_cfbd_srs_ratings-383"><a href="#get_cfbd_srs_ratings-383"><span class="linenos">383</span></a><span class="sd">    from cfbd_json_py.ratings import get_cfbd_srs_ratings</span>
 </span><span id="get_cfbd_srs_ratings-384"><a href="#get_cfbd_srs_ratings-384"><span class="linenos">384</span></a>
 </span><span id="get_cfbd_srs_ratings-385"><a href="#get_cfbd_srs_ratings-385"><span class="linenos">385</span></a>
-</span><span id="get_cfbd_srs_ratings-386"><a href="#get_cfbd_srs_ratings-386"><span class="linenos">386</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_srs_ratings-386"><a href="#get_cfbd_srs_ratings-386"><span class="linenos">386</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_srs_ratings-387"><a href="#get_cfbd_srs_ratings-387"><span class="linenos">387</span></a>
-</span><span id="get_cfbd_srs_ratings-388"><a href="#get_cfbd_srs_ratings-388"><span class="linenos">388</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_srs_ratings-388"><a href="#get_cfbd_srs_ratings-388"><span class="linenos">388</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_srs_ratings-389"><a href="#get_cfbd_srs_ratings-389"><span class="linenos">389</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_srs_ratings-390"><a href="#get_cfbd_srs_ratings-390"><span class="linenos">390</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_srs_ratings-391"><a href="#get_cfbd_srs_ratings-391"><span class="linenos">391</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -2223,7 +2223,7 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 </span><span id="get_cfbd_srs_ratings-446"><a href="#get_cfbd_srs_ratings-446"><span class="linenos">446</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_srs_ratings-447"><a href="#get_cfbd_srs_ratings-447"><span class="linenos">447</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_srs_ratings-448"><a href="#get_cfbd_srs_ratings-448"><span class="linenos">448</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_srs_ratings-449"><a href="#get_cfbd_srs_ratings-449"><span class="linenos">449</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_srs_ratings-449"><a href="#get_cfbd_srs_ratings-449"><span class="linenos">449</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_srs_ratings-450"><a href="#get_cfbd_srs_ratings-450"><span class="linenos">450</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_srs_ratings-451"><a href="#get_cfbd_srs_ratings-451"><span class="linenos">451</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_srs_ratings-452"><a href="#get_cfbd_srs_ratings-452"><span class="linenos">452</span></a>
@@ -2290,7 +2290,7 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 </span><span id="get_cfbd_srs_ratings-513"><a href="#get_cfbd_srs_ratings-513"><span class="linenos">513</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_srs_ratings-514"><a href="#get_cfbd_srs_ratings-514"><span class="linenos">514</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_srs_ratings-515"><a href="#get_cfbd_srs_ratings-515"><span class="linenos">515</span></a>
-</span><span id="get_cfbd_srs_ratings-516"><a href="#get_cfbd_srs_ratings-516"><span class="linenos">516</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_srs_ratings-516"><a href="#get_cfbd_srs_ratings-516"><span class="linenos">516</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_srs_ratings-517"><a href="#get_cfbd_srs_ratings-517"><span class="linenos">517</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_srs_ratings-518"><a href="#get_cfbd_srs_ratings-518"><span class="linenos">518</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_srs_ratings-519"><a href="#get_cfbd_srs_ratings-519"><span class="linenos">519</span></a>        <span class="p">)</span>
@@ -2405,7 +2405,7 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 <p><code>conference</code> (str, optional):
     Optional argument.
     If you only want game information from games
-    involving teams a specific confrence,
+    involving teams a specific conference,
     set <code>conference</code> to the abbreviation
     of the conference you want game information from.</p>
 
@@ -2423,9 +2423,9 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 from <a href="">cfbd_json_py.ratings</a> import get_cfbd_srs_ratings
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -2486,7 +2486,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 
@@ -2609,7 +2609,7 @@ a dictionary object with a with team season stats data.</p>
 </span><span id="get_cfbd_sp_plus_conference_ratings-632"><a href="#get_cfbd_sp_plus_conference_ratings-632"><span class="linenos">632</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-633"><a href="#get_cfbd_sp_plus_conference_ratings-633"><span class="linenos">633</span></a><span class="sd">        Optional argument.</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-634"><a href="#get_cfbd_sp_plus_conference_ratings-634"><span class="linenos">634</span></a><span class="sd">        If you only want S&amp;P+ ratings data from games</span>
-</span><span id="get_cfbd_sp_plus_conference_ratings-635"><a href="#get_cfbd_sp_plus_conference_ratings-635"><span class="linenos">635</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="get_cfbd_sp_plus_conference_ratings-635"><a href="#get_cfbd_sp_plus_conference_ratings-635"><span class="linenos">635</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-636"><a href="#get_cfbd_sp_plus_conference_ratings-636"><span class="linenos">636</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-637"><a href="#get_cfbd_sp_plus_conference_ratings-637"><span class="linenos">637</span></a><span class="sd">        of the conference you want S&amp;P+ ratings data from.</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-638"><a href="#get_cfbd_sp_plus_conference_ratings-638"><span class="linenos">638</span></a>
@@ -2628,9 +2628,9 @@ a dictionary object with a with team season stats data.</p>
 </span><span id="get_cfbd_sp_plus_conference_ratings-651"><a href="#get_cfbd_sp_plus_conference_ratings-651"><span class="linenos">651</span></a><span class="sd">    from cfbd_json_py.ratings import get_cfbd_sp_plus_conference_ratings</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-652"><a href="#get_cfbd_sp_plus_conference_ratings-652"><span class="linenos">652</span></a>
 </span><span id="get_cfbd_sp_plus_conference_ratings-653"><a href="#get_cfbd_sp_plus_conference_ratings-653"><span class="linenos">653</span></a>
-</span><span id="get_cfbd_sp_plus_conference_ratings-654"><a href="#get_cfbd_sp_plus_conference_ratings-654"><span class="linenos">654</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_sp_plus_conference_ratings-654"><a href="#get_cfbd_sp_plus_conference_ratings-654"><span class="linenos">654</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-655"><a href="#get_cfbd_sp_plus_conference_ratings-655"><span class="linenos">655</span></a>
-</span><span id="get_cfbd_sp_plus_conference_ratings-656"><a href="#get_cfbd_sp_plus_conference_ratings-656"><span class="linenos">656</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_sp_plus_conference_ratings-656"><a href="#get_cfbd_sp_plus_conference_ratings-656"><span class="linenos">656</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-657"><a href="#get_cfbd_sp_plus_conference_ratings-657"><span class="linenos">657</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-658"><a href="#get_cfbd_sp_plus_conference_ratings-658"><span class="linenos">658</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-659"><a href="#get_cfbd_sp_plus_conference_ratings-659"><span class="linenos">659</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -2664,7 +2664,7 @@ a dictionary object with a with team season stats data.</p>
 </span><span id="get_cfbd_sp_plus_conference_ratings-687"><a href="#get_cfbd_sp_plus_conference_ratings-687"><span class="linenos">687</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-688"><a href="#get_cfbd_sp_plus_conference_ratings-688"><span class="linenos">688</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-689"><a href="#get_cfbd_sp_plus_conference_ratings-689"><span class="linenos">689</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_sp_plus_conference_ratings-690"><a href="#get_cfbd_sp_plus_conference_ratings-690"><span class="linenos">690</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_sp_plus_conference_ratings-690"><a href="#get_cfbd_sp_plus_conference_ratings-690"><span class="linenos">690</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-691"><a href="#get_cfbd_sp_plus_conference_ratings-691"><span class="linenos">691</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-692"><a href="#get_cfbd_sp_plus_conference_ratings-692"><span class="linenos">692</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-693"><a href="#get_cfbd_sp_plus_conference_ratings-693"><span class="linenos">693</span></a>
@@ -2707,7 +2707,7 @@ a dictionary object with a with team season stats data.</p>
 </span><span id="get_cfbd_sp_plus_conference_ratings-730"><a href="#get_cfbd_sp_plus_conference_ratings-730"><span class="linenos">730</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-731"><a href="#get_cfbd_sp_plus_conference_ratings-731"><span class="linenos">731</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-732"><a href="#get_cfbd_sp_plus_conference_ratings-732"><span class="linenos">732</span></a>
-</span><span id="get_cfbd_sp_plus_conference_ratings-733"><a href="#get_cfbd_sp_plus_conference_ratings-733"><span class="linenos">733</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_sp_plus_conference_ratings-733"><a href="#get_cfbd_sp_plus_conference_ratings-733"><span class="linenos">733</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-734"><a href="#get_cfbd_sp_plus_conference_ratings-734"><span class="linenos">734</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-735"><a href="#get_cfbd_sp_plus_conference_ratings-735"><span class="linenos">735</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-736"><a href="#get_cfbd_sp_plus_conference_ratings-736"><span class="linenos">736</span></a>        <span class="p">)</span>
@@ -2780,7 +2780,7 @@ a dictionary object with a with team season stats data.</p>
 </span><span id="get_cfbd_sp_plus_conference_ratings-803"><a href="#get_cfbd_sp_plus_conference_ratings-803"><span class="linenos">803</span></a>            <span class="s2">&quot;secondOrderWins&quot;</span><span class="p">:</span> <span class="s2">&quot;second_order_wins&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-804"><a href="#get_cfbd_sp_plus_conference_ratings-804"><span class="linenos">804</span></a>            <span class="s2">&quot;offense.rating&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_rating&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-805"><a href="#get_cfbd_sp_plus_conference_ratings-805"><span class="linenos">805</span></a>            <span class="s2">&quot;offense.success&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_success&quot;</span><span class="p">,</span>
-</span><span id="get_cfbd_sp_plus_conference_ratings-806"><a href="#get_cfbd_sp_plus_conference_ratings-806"><span class="linenos">806</span></a>            <span class="s2">&quot;offense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_esplosiveness&quot;</span><span class="p">,</span>
+</span><span id="get_cfbd_sp_plus_conference_ratings-806"><a href="#get_cfbd_sp_plus_conference_ratings-806"><span class="linenos">806</span></a>            <span class="s2">&quot;offense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_explosiveness&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-807"><a href="#get_cfbd_sp_plus_conference_ratings-807"><span class="linenos">807</span></a>            <span class="s2">&quot;offense.rushing&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_rushing&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-808"><a href="#get_cfbd_sp_plus_conference_ratings-808"><span class="linenos">808</span></a>            <span class="s2">&quot;offense.passing&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_passing&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-809"><a href="#get_cfbd_sp_plus_conference_ratings-809"><span class="linenos">809</span></a>            <span class="s2">&quot;offense.standardDowns&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_standard_downs&quot;</span><span class="p">,</span>
@@ -2789,7 +2789,7 @@ a dictionary object with a with team season stats data.</p>
 </span><span id="get_cfbd_sp_plus_conference_ratings-812"><a href="#get_cfbd_sp_plus_conference_ratings-812"><span class="linenos">812</span></a>            <span class="s2">&quot;offense.pace&quot;</span><span class="p">:</span> <span class="s2">&quot;offense_S&amp;P+_pace&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-813"><a href="#get_cfbd_sp_plus_conference_ratings-813"><span class="linenos">813</span></a>            <span class="s2">&quot;defense.rating&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_rating&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-814"><a href="#get_cfbd_sp_plus_conference_ratings-814"><span class="linenos">814</span></a>            <span class="s2">&quot;defense.success&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_success&quot;</span><span class="p">,</span>
-</span><span id="get_cfbd_sp_plus_conference_ratings-815"><a href="#get_cfbd_sp_plus_conference_ratings-815"><span class="linenos">815</span></a>            <span class="s2">&quot;defense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_esplosiveness&quot;</span><span class="p">,</span>
+</span><span id="get_cfbd_sp_plus_conference_ratings-815"><a href="#get_cfbd_sp_plus_conference_ratings-815"><span class="linenos">815</span></a>            <span class="s2">&quot;defense.explosiveness&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_explosiveness&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-816"><a href="#get_cfbd_sp_plus_conference_ratings-816"><span class="linenos">816</span></a>            <span class="s2">&quot;defense.rushing&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_rushing&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-817"><a href="#get_cfbd_sp_plus_conference_ratings-817"><span class="linenos">817</span></a>            <span class="s2">&quot;defense.passing&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_passing&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_sp_plus_conference_ratings-818"><a href="#get_cfbd_sp_plus_conference_ratings-818"><span class="linenos">818</span></a>            <span class="s2">&quot;defense.standardDowns&quot;</span><span class="p">:</span> <span class="s2">&quot;defense_S&amp;P+_standard_downs&quot;</span><span class="p">,</span>
@@ -2850,7 +2850,7 @@ ratings data from the CFBD API.</p>
 <p><code>conference</code> (str, optional):
     Optional argument.
     If you only want S&amp;P+ ratings data from games
-    involving teams a specific confrence,
+    involving teams a specific conference,
     set <code>conference</code> to the abbreviation
     of the conference you want S&amp;P+ ratings data from.</p>
 
@@ -2868,9 +2868,9 @@ ratings data from the CFBD API.</p>
 from <a href="">cfbd_json_py.ratings</a> import get_cfbd_sp_plus_conference_ratings
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -2904,7 +2904,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 
@@ -3002,7 +3002,7 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 </span><span id="get_cfbd_elo_ratings-880"><a href="#get_cfbd_elo_ratings-880"><span class="linenos"> 880</span></a>
 </span><span id="get_cfbd_elo_ratings-881"><a href="#get_cfbd_elo_ratings-881"><span class="linenos"> 881</span></a><span class="sd">    `season_type` (str, semi-optional):</span>
 </span><span id="get_cfbd_elo_ratings-882"><a href="#get_cfbd_elo_ratings-882"><span class="linenos"> 882</span></a><span class="sd">        Semi-optional argument.</span>
-</span><span id="get_cfbd_elo_ratings-883"><a href="#get_cfbd_elo_ratings-883"><span class="linenos"> 883</span></a><span class="sd">        By defualt, this will be set to &quot;postseason&quot;.</span>
+</span><span id="get_cfbd_elo_ratings-883"><a href="#get_cfbd_elo_ratings-883"><span class="linenos"> 883</span></a><span class="sd">        By default, this will be set to &quot;postseason&quot;.</span>
 </span><span id="get_cfbd_elo_ratings-884"><a href="#get_cfbd_elo_ratings-884"><span class="linenos"> 884</span></a><span class="sd">        If `season_type` is set to &quot;regular&quot;,</span>
 </span><span id="get_cfbd_elo_ratings-885"><a href="#get_cfbd_elo_ratings-885"><span class="linenos"> 885</span></a><span class="sd">        the API will ignore postseason games</span>
 </span><span id="get_cfbd_elo_ratings-886"><a href="#get_cfbd_elo_ratings-886"><span class="linenos"> 886</span></a><span class="sd">        (like bowls and CFP games) when calculating elo.</span>
@@ -3020,7 +3020,7 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 </span><span id="get_cfbd_elo_ratings-898"><a href="#get_cfbd_elo_ratings-898"><span class="linenos"> 898</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="get_cfbd_elo_ratings-899"><a href="#get_cfbd_elo_ratings-899"><span class="linenos"> 899</span></a><span class="sd">        Optional argument.</span>
 </span><span id="get_cfbd_elo_ratings-900"><a href="#get_cfbd_elo_ratings-900"><span class="linenos"> 900</span></a><span class="sd">        If you only want S&amp;P+ ratings data from games</span>
-</span><span id="get_cfbd_elo_ratings-901"><a href="#get_cfbd_elo_ratings-901"><span class="linenos"> 901</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="get_cfbd_elo_ratings-901"><a href="#get_cfbd_elo_ratings-901"><span class="linenos"> 901</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="get_cfbd_elo_ratings-902"><a href="#get_cfbd_elo_ratings-902"><span class="linenos"> 902</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="get_cfbd_elo_ratings-903"><a href="#get_cfbd_elo_ratings-903"><span class="linenos"> 903</span></a><span class="sd">        of the conference you want S&amp;P+ ratings data from.</span>
 </span><span id="get_cfbd_elo_ratings-904"><a href="#get_cfbd_elo_ratings-904"><span class="linenos"> 904</span></a>
@@ -3039,9 +3039,9 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 </span><span id="get_cfbd_elo_ratings-917"><a href="#get_cfbd_elo_ratings-917"><span class="linenos"> 917</span></a><span class="sd">    from cfbd_json_py.ratings import get_cfbd_elo_ratings</span>
 </span><span id="get_cfbd_elo_ratings-918"><a href="#get_cfbd_elo_ratings-918"><span class="linenos"> 918</span></a>
 </span><span id="get_cfbd_elo_ratings-919"><a href="#get_cfbd_elo_ratings-919"><span class="linenos"> 919</span></a>
-</span><span id="get_cfbd_elo_ratings-920"><a href="#get_cfbd_elo_ratings-920"><span class="linenos"> 920</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_elo_ratings-920"><a href="#get_cfbd_elo_ratings-920"><span class="linenos"> 920</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_elo_ratings-921"><a href="#get_cfbd_elo_ratings-921"><span class="linenos"> 921</span></a>
-</span><span id="get_cfbd_elo_ratings-922"><a href="#get_cfbd_elo_ratings-922"><span class="linenos"> 922</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_elo_ratings-922"><a href="#get_cfbd_elo_ratings-922"><span class="linenos"> 922</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_elo_ratings-923"><a href="#get_cfbd_elo_ratings-923"><span class="linenos"> 923</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_elo_ratings-924"><a href="#get_cfbd_elo_ratings-924"><span class="linenos"> 924</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_elo_ratings-925"><a href="#get_cfbd_elo_ratings-925"><span class="linenos"> 925</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -3095,10 +3095,10 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 </span><span id="get_cfbd_elo_ratings-973"><a href="#get_cfbd_elo_ratings-973"><span class="linenos"> 973</span></a>
 </span><span id="get_cfbd_elo_ratings-974"><a href="#get_cfbd_elo_ratings-974"><span class="linenos"> 974</span></a>
 </span><span id="get_cfbd_elo_ratings-975"><a href="#get_cfbd_elo_ratings-975"><span class="linenos"> 975</span></a><span class="sd">        # Get Elo ratings data for teams competing in the</span>
-</span><span id="get_cfbd_elo_ratings-976"><a href="#get_cfbd_elo_ratings-976"><span class="linenos"> 976</span></a><span class="sd">        # Atlantic Coast Confrence (ACC) in the 2021 CFB season.</span>
+</span><span id="get_cfbd_elo_ratings-976"><a href="#get_cfbd_elo_ratings-976"><span class="linenos"> 976</span></a><span class="sd">        # Atlantic Coast conference (ACC) in the 2021 CFB season.</span>
 </span><span id="get_cfbd_elo_ratings-977"><a href="#get_cfbd_elo_ratings-977"><span class="linenos"> 977</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_elo_ratings-978"><a href="#get_cfbd_elo_ratings-978"><span class="linenos"> 978</span></a><span class="sd">            &quot;Get Elo ratings data for teams competing in &quot; +</span>
-</span><span id="get_cfbd_elo_ratings-979"><a href="#get_cfbd_elo_ratings-979"><span class="linenos"> 979</span></a><span class="sd">            &quot;the Atlantic Coast Confrence (ACC) in the 2021 CFB season.&quot;</span>
+</span><span id="get_cfbd_elo_ratings-979"><a href="#get_cfbd_elo_ratings-979"><span class="linenos"> 979</span></a><span class="sd">            &quot;the Atlantic Coast conference (ACC) in the 2021 CFB season.&quot;</span>
 </span><span id="get_cfbd_elo_ratings-980"><a href="#get_cfbd_elo_ratings-980"><span class="linenos"> 980</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_elo_ratings-981"><a href="#get_cfbd_elo_ratings-981"><span class="linenos"> 981</span></a><span class="sd">        json_data = get_cfbd_elo_ratings(</span>
 </span><span id="get_cfbd_elo_ratings-982"><a href="#get_cfbd_elo_ratings-982"><span class="linenos"> 982</span></a><span class="sd">            api_key=cfbd_key,</span>
@@ -3128,7 +3128,7 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 </span><span id="get_cfbd_elo_ratings-1006"><a href="#get_cfbd_elo_ratings-1006"><span class="linenos">1006</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_elo_ratings-1007"><a href="#get_cfbd_elo_ratings-1007"><span class="linenos">1007</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_elo_ratings-1008"><a href="#get_cfbd_elo_ratings-1008"><span class="linenos">1008</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_elo_ratings-1009"><a href="#get_cfbd_elo_ratings-1009"><span class="linenos">1009</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_elo_ratings-1009"><a href="#get_cfbd_elo_ratings-1009"><span class="linenos">1009</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_elo_ratings-1010"><a href="#get_cfbd_elo_ratings-1010"><span class="linenos">1010</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_elo_ratings-1011"><a href="#get_cfbd_elo_ratings-1011"><span class="linenos">1011</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_elo_ratings-1012"><a href="#get_cfbd_elo_ratings-1012"><span class="linenos">1012</span></a>
@@ -3176,10 +3176,10 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 </span><span id="get_cfbd_elo_ratings-1054"><a href="#get_cfbd_elo_ratings-1054"><span class="linenos">1054</span></a>
 </span><span id="get_cfbd_elo_ratings-1055"><a href="#get_cfbd_elo_ratings-1055"><span class="linenos">1055</span></a>
 </span><span id="get_cfbd_elo_ratings-1056"><a href="#get_cfbd_elo_ratings-1056"><span class="linenos">1056</span></a><span class="sd">        # Get Elo ratings data for teams competing in the</span>
-</span><span id="get_cfbd_elo_ratings-1057"><a href="#get_cfbd_elo_ratings-1057"><span class="linenos">1057</span></a><span class="sd">        # Atlantic Coast Confrence (ACC) in the 2021 CFB season.</span>
+</span><span id="get_cfbd_elo_ratings-1057"><a href="#get_cfbd_elo_ratings-1057"><span class="linenos">1057</span></a><span class="sd">        # Atlantic Coast conference (ACC) in the 2021 CFB season.</span>
 </span><span id="get_cfbd_elo_ratings-1058"><a href="#get_cfbd_elo_ratings-1058"><span class="linenos">1058</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_elo_ratings-1059"><a href="#get_cfbd_elo_ratings-1059"><span class="linenos">1059</span></a><span class="sd">            &quot;Get Elo ratings data for teams competing in &quot; +</span>
-</span><span id="get_cfbd_elo_ratings-1060"><a href="#get_cfbd_elo_ratings-1060"><span class="linenos">1060</span></a><span class="sd">            &quot;the Atlantic Coast Confrence (ACC) in the 2021 CFB season.&quot;</span>
+</span><span id="get_cfbd_elo_ratings-1060"><a href="#get_cfbd_elo_ratings-1060"><span class="linenos">1060</span></a><span class="sd">            &quot;the Atlantic Coast conference (ACC) in the 2021 CFB season.&quot;</span>
 </span><span id="get_cfbd_elo_ratings-1061"><a href="#get_cfbd_elo_ratings-1061"><span class="linenos">1061</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_elo_ratings-1062"><a href="#get_cfbd_elo_ratings-1062"><span class="linenos">1062</span></a><span class="sd">        json_data = get_cfbd_elo_ratings(</span>
 </span><span id="get_cfbd_elo_ratings-1063"><a href="#get_cfbd_elo_ratings-1063"><span class="linenos">1063</span></a><span class="sd">            season=2021,</span>
@@ -3219,7 +3219,7 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 </span><span id="get_cfbd_elo_ratings-1097"><a href="#get_cfbd_elo_ratings-1097"><span class="linenos">1097</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_elo_ratings-1098"><a href="#get_cfbd_elo_ratings-1098"><span class="linenos">1098</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_elo_ratings-1099"><a href="#get_cfbd_elo_ratings-1099"><span class="linenos">1099</span></a>
-</span><span id="get_cfbd_elo_ratings-1100"><a href="#get_cfbd_elo_ratings-1100"><span class="linenos">1100</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_elo_ratings-1100"><a href="#get_cfbd_elo_ratings-1100"><span class="linenos">1100</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_elo_ratings-1101"><a href="#get_cfbd_elo_ratings-1101"><span class="linenos">1101</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_elo_ratings-1102"><a href="#get_cfbd_elo_ratings-1102"><span class="linenos">1102</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_elo_ratings-1103"><a href="#get_cfbd_elo_ratings-1103"><span class="linenos">1103</span></a>        <span class="p">)</span>
@@ -3340,7 +3340,7 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 
 <p><code>season_type</code> (str, semi-optional):
     Semi-optional argument.
-    By defualt, this will be set to "postseason".
+    By default, this will be set to "postseason".
     If <code>season_type</code> is set to "regular",
     the API will ignore postseason games
     (like bowls and CFP games) when calculating elo.
@@ -3358,7 +3358,7 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 <p><code>conference</code> (str, optional):
     Optional argument.
     If you only want S&amp;P+ ratings data from games
-    involving teams a specific confrence,
+    involving teams a specific conference,
     set <code>conference</code> to the abbreviation
     of the conference you want S&amp;P+ ratings data from.</p>
 
@@ -3376,9 +3376,9 @@ a dictionary object with a with S&amp;P+ ratings data.</p>
 from <a href="">cfbd_json_py.ratings</a> import get_cfbd_elo_ratings
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -3432,10 +3432,10 @@ if cfbd_key != "tigersAreAwsome":
 
 
     # Get Elo ratings data for teams competing in the
-    # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
+    # Atlantic Coast conference (ACC) in the 2021 CFB season.
     print(
         "Get Elo ratings data for teams competing in " +
-        "the Atlantic Coast Confrence (ACC) in the 2021 CFB season."
+        "the Atlantic Coast conference (ACC) in the 2021 CFB season."
     )
     json_data = get_cfbd_elo_ratings(
         api_key=cfbd_key,
@@ -3465,7 +3465,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 
@@ -3513,10 +3513,10 @@ else:
 
 
     # Get Elo ratings data for teams competing in the
-    # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
+    # Atlantic Coast conference (ACC) in the 2021 CFB season.
     print(
         "Get Elo ratings data for teams competing in " +
-        "the Atlantic Coast Confrence (ACC) in the 2021 CFB season."
+        "the Atlantic Coast conference (ACC) in the 2021 CFB season."
     )
     json_data = get_cfbd_elo_ratings(
         season=2021,
@@ -3620,7 +3620,7 @@ a dictionary object with a with Elo ratings data.</p>
 </span><span id="get_cfbd_fpi_ratings-1233"><a href="#get_cfbd_fpi_ratings-1233"><span class="linenos">1233</span></a><span class="sd">    `conference` (str, optional):</span>
 </span><span id="get_cfbd_fpi_ratings-1234"><a href="#get_cfbd_fpi_ratings-1234"><span class="linenos">1234</span></a><span class="sd">        Optional argument.</span>
 </span><span id="get_cfbd_fpi_ratings-1235"><a href="#get_cfbd_fpi_ratings-1235"><span class="linenos">1235</span></a><span class="sd">        If you only want FPI ratings data from games</span>
-</span><span id="get_cfbd_fpi_ratings-1236"><a href="#get_cfbd_fpi_ratings-1236"><span class="linenos">1236</span></a><span class="sd">        involving teams a specific confrence,</span>
+</span><span id="get_cfbd_fpi_ratings-1236"><a href="#get_cfbd_fpi_ratings-1236"><span class="linenos">1236</span></a><span class="sd">        involving teams a specific conference,</span>
 </span><span id="get_cfbd_fpi_ratings-1237"><a href="#get_cfbd_fpi_ratings-1237"><span class="linenos">1237</span></a><span class="sd">        set `conference` to the abbreviation</span>
 </span><span id="get_cfbd_fpi_ratings-1238"><a href="#get_cfbd_fpi_ratings-1238"><span class="linenos">1238</span></a><span class="sd">        of the conference you want FPI ratings data from.</span>
 </span><span id="get_cfbd_fpi_ratings-1239"><a href="#get_cfbd_fpi_ratings-1239"><span class="linenos">1239</span></a>
@@ -3639,9 +3639,9 @@ a dictionary object with a with Elo ratings data.</p>
 </span><span id="get_cfbd_fpi_ratings-1252"><a href="#get_cfbd_fpi_ratings-1252"><span class="linenos">1252</span></a><span class="sd">    from cfbd_json_py.ratings import get_cfbd_fpi_ratings</span>
 </span><span id="get_cfbd_fpi_ratings-1253"><a href="#get_cfbd_fpi_ratings-1253"><span class="linenos">1253</span></a>
 </span><span id="get_cfbd_fpi_ratings-1254"><a href="#get_cfbd_fpi_ratings-1254"><span class="linenos">1254</span></a>
-</span><span id="get_cfbd_fpi_ratings-1255"><a href="#get_cfbd_fpi_ratings-1255"><span class="linenos">1255</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwsome&quot;  # placeholder for your CFBD API Key.</span>
+</span><span id="get_cfbd_fpi_ratings-1255"><a href="#get_cfbd_fpi_ratings-1255"><span class="linenos">1255</span></a><span class="sd">    cfbd_key = &quot;tigersAreAwesome&quot;  # placeholder for your CFBD API Key.</span>
 </span><span id="get_cfbd_fpi_ratings-1256"><a href="#get_cfbd_fpi_ratings-1256"><span class="linenos">1256</span></a>
-</span><span id="get_cfbd_fpi_ratings-1257"><a href="#get_cfbd_fpi_ratings-1257"><span class="linenos">1257</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwsome&quot;:</span>
+</span><span id="get_cfbd_fpi_ratings-1257"><a href="#get_cfbd_fpi_ratings-1257"><span class="linenos">1257</span></a><span class="sd">    if cfbd_key != &quot;tigersAreAwesome&quot;:</span>
 </span><span id="get_cfbd_fpi_ratings-1258"><a href="#get_cfbd_fpi_ratings-1258"><span class="linenos">1258</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_fpi_ratings-1259"><a href="#get_cfbd_fpi_ratings-1259"><span class="linenos">1259</span></a><span class="sd">            &quot;Using the user&#39;s API key declared in this script &quot; +</span>
 </span><span id="get_cfbd_fpi_ratings-1260"><a href="#get_cfbd_fpi_ratings-1260"><span class="linenos">1260</span></a><span class="sd">            &quot;for this example.&quot;</span>
@@ -3681,10 +3681,10 @@ a dictionary object with a with Elo ratings data.</p>
 </span><span id="get_cfbd_fpi_ratings-1294"><a href="#get_cfbd_fpi_ratings-1294"><span class="linenos">1294</span></a>
 </span><span id="get_cfbd_fpi_ratings-1295"><a href="#get_cfbd_fpi_ratings-1295"><span class="linenos">1295</span></a>
 </span><span id="get_cfbd_fpi_ratings-1296"><a href="#get_cfbd_fpi_ratings-1296"><span class="linenos">1296</span></a><span class="sd">        # Get FPI ratings data for teams competing in the</span>
-</span><span id="get_cfbd_fpi_ratings-1297"><a href="#get_cfbd_fpi_ratings-1297"><span class="linenos">1297</span></a><span class="sd">        # Atlantic Coast Confrence (ACC) in the 2021 CFB season.</span>
+</span><span id="get_cfbd_fpi_ratings-1297"><a href="#get_cfbd_fpi_ratings-1297"><span class="linenos">1297</span></a><span class="sd">        # Atlantic Coast conference (ACC) in the 2021 CFB season.</span>
 </span><span id="get_cfbd_fpi_ratings-1298"><a href="#get_cfbd_fpi_ratings-1298"><span class="linenos">1298</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_fpi_ratings-1299"><a href="#get_cfbd_fpi_ratings-1299"><span class="linenos">1299</span></a><span class="sd">            &quot;Get FPI ratings data for teams competing in the &quot; +</span>
-</span><span id="get_cfbd_fpi_ratings-1300"><a href="#get_cfbd_fpi_ratings-1300"><span class="linenos">1300</span></a><span class="sd">            &quot;Atlantic Coast Confrence (ACC) in the 2021 CFB season.&quot;</span>
+</span><span id="get_cfbd_fpi_ratings-1300"><a href="#get_cfbd_fpi_ratings-1300"><span class="linenos">1300</span></a><span class="sd">            &quot;Atlantic Coast conference (ACC) in the 2021 CFB season.&quot;</span>
 </span><span id="get_cfbd_fpi_ratings-1301"><a href="#get_cfbd_fpi_ratings-1301"><span class="linenos">1301</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_fpi_ratings-1302"><a href="#get_cfbd_fpi_ratings-1302"><span class="linenos">1302</span></a><span class="sd">        json_data = get_cfbd_fpi_ratings(</span>
 </span><span id="get_cfbd_fpi_ratings-1303"><a href="#get_cfbd_fpi_ratings-1303"><span class="linenos">1303</span></a><span class="sd">            api_key=cfbd_key,</span>
@@ -3714,7 +3714,7 @@ a dictionary object with a with Elo ratings data.</p>
 </span><span id="get_cfbd_fpi_ratings-1327"><a href="#get_cfbd_fpi_ratings-1327"><span class="linenos">1327</span></a><span class="sd">        # you could just call these functions directly,</span>
 </span><span id="get_cfbd_fpi_ratings-1328"><a href="#get_cfbd_fpi_ratings-1328"><span class="linenos">1328</span></a><span class="sd">        # without setting the API key in the script.</span>
 </span><span id="get_cfbd_fpi_ratings-1329"><a href="#get_cfbd_fpi_ratings-1329"><span class="linenos">1329</span></a><span class="sd">        print(</span>
-</span><span id="get_cfbd_fpi_ratings-1330"><a href="#get_cfbd_fpi_ratings-1330"><span class="linenos">1330</span></a><span class="sd">            &quot;Using the user&#39;s API key suposedly loaded &quot; +</span>
+</span><span id="get_cfbd_fpi_ratings-1330"><a href="#get_cfbd_fpi_ratings-1330"><span class="linenos">1330</span></a><span class="sd">            &quot;Using the user&#39;s API key supposedly loaded &quot; +</span>
 </span><span id="get_cfbd_fpi_ratings-1331"><a href="#get_cfbd_fpi_ratings-1331"><span class="linenos">1331</span></a><span class="sd">            &quot;into this python environment for this example.&quot;</span>
 </span><span id="get_cfbd_fpi_ratings-1332"><a href="#get_cfbd_fpi_ratings-1332"><span class="linenos">1332</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_fpi_ratings-1333"><a href="#get_cfbd_fpi_ratings-1333"><span class="linenos">1333</span></a>
@@ -3751,10 +3751,10 @@ a dictionary object with a with Elo ratings data.</p>
 </span><span id="get_cfbd_fpi_ratings-1364"><a href="#get_cfbd_fpi_ratings-1364"><span class="linenos">1364</span></a>
 </span><span id="get_cfbd_fpi_ratings-1365"><a href="#get_cfbd_fpi_ratings-1365"><span class="linenos">1365</span></a>
 </span><span id="get_cfbd_fpi_ratings-1366"><a href="#get_cfbd_fpi_ratings-1366"><span class="linenos">1366</span></a><span class="sd">        # Get FPI ratings data for teams competing in the</span>
-</span><span id="get_cfbd_fpi_ratings-1367"><a href="#get_cfbd_fpi_ratings-1367"><span class="linenos">1367</span></a><span class="sd">        # Atlantic Coast Confrence (ACC) in the 2021 CFB season.</span>
+</span><span id="get_cfbd_fpi_ratings-1367"><a href="#get_cfbd_fpi_ratings-1367"><span class="linenos">1367</span></a><span class="sd">        # Atlantic Coast conference (ACC) in the 2021 CFB season.</span>
 </span><span id="get_cfbd_fpi_ratings-1368"><a href="#get_cfbd_fpi_ratings-1368"><span class="linenos">1368</span></a><span class="sd">        print(</span>
 </span><span id="get_cfbd_fpi_ratings-1369"><a href="#get_cfbd_fpi_ratings-1369"><span class="linenos">1369</span></a><span class="sd">            &quot;Get FPI ratings data for teams competing in the &quot; +</span>
-</span><span id="get_cfbd_fpi_ratings-1370"><a href="#get_cfbd_fpi_ratings-1370"><span class="linenos">1370</span></a><span class="sd">            &quot;Atlantic Coast Confrence (ACC) in the 2021 CFB season.&quot;</span>
+</span><span id="get_cfbd_fpi_ratings-1370"><a href="#get_cfbd_fpi_ratings-1370"><span class="linenos">1370</span></a><span class="sd">            &quot;Atlantic Coast conference (ACC) in the 2021 CFB season.&quot;</span>
 </span><span id="get_cfbd_fpi_ratings-1371"><a href="#get_cfbd_fpi_ratings-1371"><span class="linenos">1371</span></a><span class="sd">        )</span>
 </span><span id="get_cfbd_fpi_ratings-1372"><a href="#get_cfbd_fpi_ratings-1372"><span class="linenos">1372</span></a><span class="sd">        json_data = get_cfbd_fpi_ratings(</span>
 </span><span id="get_cfbd_fpi_ratings-1373"><a href="#get_cfbd_fpi_ratings-1373"><span class="linenos">1373</span></a><span class="sd">            season=2021,</span>
@@ -3796,7 +3796,7 @@ a dictionary object with a with Elo ratings data.</p>
 </span><span id="get_cfbd_fpi_ratings-1409"><a href="#get_cfbd_fpi_ratings-1409"><span class="linenos">1409</span></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="get_cfbd_fpi_ratings-1410"><a href="#get_cfbd_fpi_ratings-1410"><span class="linenos">1410</span></a>        <span class="n">real_api_key</span> <span class="o">=</span> <span class="n">get_cfbd_api_token</span><span class="p">(</span><span class="n">api_key_dir</span><span class="o">=</span><span class="n">api_key_dir</span><span class="p">)</span>
 </span><span id="get_cfbd_fpi_ratings-1411"><a href="#get_cfbd_fpi_ratings-1411"><span class="linenos">1411</span></a>
-</span><span id="get_cfbd_fpi_ratings-1412"><a href="#get_cfbd_fpi_ratings-1412"><span class="linenos">1412</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwsome&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_fpi_ratings-1412"><a href="#get_cfbd_fpi_ratings-1412"><span class="linenos">1412</span></a>    <span class="k">if</span> <span class="n">real_api_key</span> <span class="o">==</span> <span class="s2">&quot;tigersAreAwesome&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_fpi_ratings-1413"><a href="#get_cfbd_fpi_ratings-1413"><span class="linenos">1413</span></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 </span><span id="get_cfbd_fpi_ratings-1414"><a href="#get_cfbd_fpi_ratings-1414"><span class="linenos">1414</span></a>            <span class="s2">&quot;You actually need to change `cfbd_key` to your CFBD API key.&quot;</span>
 </span><span id="get_cfbd_fpi_ratings-1415"><a href="#get_cfbd_fpi_ratings-1415"><span class="linenos">1415</span></a>        <span class="p">)</span>
@@ -3866,11 +3866,11 @@ a dictionary object with a with Elo ratings data.</p>
 </span><span id="get_cfbd_fpi_ratings-1479"><a href="#get_cfbd_fpi_ratings-1479"><span class="linenos">1479</span></a>            <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;season&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_fpi_ratings-1480"><a href="#get_cfbd_fpi_ratings-1480"><span class="linenos">1480</span></a>            <span class="s2">&quot;team&quot;</span><span class="p">:</span> <span class="s2">&quot;team_name&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_fpi_ratings-1481"><a href="#get_cfbd_fpi_ratings-1481"><span class="linenos">1481</span></a>            <span class="s2">&quot;conference&quot;</span><span class="p">:</span> <span class="s2">&quot;conference_name&quot;</span><span class="p">,</span>
-</span><span id="get_cfbd_fpi_ratings-1482"><a href="#get_cfbd_fpi_ratings-1482"><span class="linenos">1482</span></a>            <span class="s2">&quot;resumeRanks.strenghOfRecord&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_strength_of_record&quot;</span><span class="p">,</span>
+</span><span id="get_cfbd_fpi_ratings-1482"><a href="#get_cfbd_fpi_ratings-1482"><span class="linenos">1482</span></a>            <span class="s2">&quot;resumeRanks.strengthOfRecord&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_strength_of_record&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_fpi_ratings-1483"><a href="#get_cfbd_fpi_ratings-1483"><span class="linenos">1483</span></a>            <span class="s2">&quot;resumeRanks.fpi&quot;</span><span class="p">:</span> <span class="s2">&quot;fpi_rank&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_fpi_ratings-1484"><a href="#get_cfbd_fpi_ratings-1484"><span class="linenos">1484</span></a>            <span class="s2">&quot;resumeRanks.averageWinProbability&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_avg_win_probability&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_fpi_ratings-1485"><a href="#get_cfbd_fpi_ratings-1485"><span class="linenos">1485</span></a>            <span class="s2">&quot;resumeRanks.strengthOfSchedule&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_strength_of_schedule&quot;</span><span class="p">,</span>
-</span><span id="get_cfbd_fpi_ratings-1486"><a href="#get_cfbd_fpi_ratings-1486"><span class="linenos">1486</span></a>            <span class="s2">&quot;resumeRanks.remaningStrengthOfSchedule&quot;</span><span class="p">:</span>
+</span><span id="get_cfbd_fpi_ratings-1486"><a href="#get_cfbd_fpi_ratings-1486"><span class="linenos">1486</span></a>            <span class="s2">&quot;resumeRanks.remainingStrengthOfSchedule&quot;</span><span class="p">:</span>
 </span><span id="get_cfbd_fpi_ratings-1487"><a href="#get_cfbd_fpi_ratings-1487"><span class="linenos">1487</span></a>                <span class="s2">&quot;resume_remaining_strength_of_schedule&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_fpi_ratings-1488"><a href="#get_cfbd_fpi_ratings-1488"><span class="linenos">1488</span></a>            <span class="s2">&quot;resumeRanks.gameControl&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_game_control&quot;</span><span class="p">,</span>
 </span><span id="get_cfbd_fpi_ratings-1489"><a href="#get_cfbd_fpi_ratings-1489"><span class="linenos">1489</span></a>            <span class="s2">&quot;efficiencies.overall&quot;</span><span class="p">:</span> <span class="s2">&quot;efficiency_overall&quot;</span><span class="p">,</span>
@@ -3935,7 +3935,7 @@ for CFB teams from the CFBD API.</p>
 <p><code>conference</code> (str, optional):
     Optional argument.
     If you only want FPI ratings data from games
-    involving teams a specific confrence,
+    involving teams a specific conference,
     set <code>conference</code> to the abbreviation
     of the conference you want FPI ratings data from.</p>
 
@@ -3953,9 +3953,9 @@ for CFB teams from the CFBD API.</p>
 from <a href="">cfbd_json_py.ratings</a> import get_cfbd_fpi_ratings
 
 
-cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-if cfbd_key != "tigersAreAwsome":
+if cfbd_key != "tigersAreAwesome":
     print(
         "Using the user's API key declared in this script " +
         "for this example."
@@ -3995,10 +3995,10 @@ if cfbd_key != "tigersAreAwsome":
 
 
     # Get FPI ratings data for teams competing in the
-    # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
+    # Atlantic Coast conference (ACC) in the 2021 CFB season.
     print(
         "Get FPI ratings data for teams competing in the " +
-        "Atlantic Coast Confrence (ACC) in the 2021 CFB season."
+        "Atlantic Coast conference (ACC) in the 2021 CFB season."
     )
     json_data = get_cfbd_fpi_ratings(
         api_key=cfbd_key,
@@ -4028,7 +4028,7 @@ else:
     # you could just call these functions directly,
     # without setting the API key in the script.
     print(
-        "Using the user's API key suposedly loaded " +
+        "Using the user's API key supposedly loaded " +
         "into this python environment for this example."
     )
 
@@ -4065,10 +4065,10 @@ else:
 
 
     # Get FPI ratings data for teams competing in the
-    # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
+    # Atlantic Coast conference (ACC) in the 2021 CFB season.
     print(
         "Get FPI ratings data for teams competing in the " +
-        "Atlantic Coast Confrence (ACC) in the 2021 CFB season."
+        "Atlantic Coast conference (ACC) in the 2021 CFB season."
     )
     json_data = get_cfbd_fpi_ratings(
         season=2021,

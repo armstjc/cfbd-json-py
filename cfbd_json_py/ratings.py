@@ -1,6 +1,6 @@
 """
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: ratings.py
 # Purpose: Houses functions pertaining to CFB team rating data
@@ -85,9 +85,9 @@ def get_cfbd_sp_plus_ratings(
     from cfbd_json_py.ratings import get_cfbd_sp_plus_ratings
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -148,7 +148,7 @@ def get_cfbd_sp_plus_ratings(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -216,7 +216,7 @@ def get_cfbd_sp_plus_ratings(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -282,7 +282,7 @@ def get_cfbd_sp_plus_ratings(
             "secondOrderWins": "second_order_wins",
             "offense.rating": "offense_S&P+_rating",
             "offense.success": "offense_S&P+_success",
-            "offense.explosiveness": "offense_S&P+_esplosiveness",
+            "offense.explosiveness": "offense_S&P+_explosiveness",
             "offense.rushing": "offense_S&P+_rushing",
             "offense.passing": "offense_S&P+_passing",
             "offense.standardDowns": "offense_S&P+_standard_downs",
@@ -291,7 +291,7 @@ def get_cfbd_sp_plus_ratings(
             "offense.pace": "offense_S&P+_pace",
             "defense.rating": "defense_S&P+_rating",
             "defense.success": "defense_S&P+_success",
-            "defense.explosiveness": "defense_S&P+_esplosiveness",
+            "defense.explosiveness": "defense_S&P+_explosiveness",
             "defense.rushing": "defense_S&P+_rushing",
             "defense.passing": "defense_S&P+_passing",
             "defense.standardDowns": "defense_S&P+_standard_downs",
@@ -363,7 +363,7 @@ def get_cfbd_srs_ratings(
     `conference` (str, optional):
         Optional argument.
         If you only want game information from games
-        involving teams a specific confrence,
+        involving teams a specific conference,
         set `conference` to the abbreviation
         of the conference you want game information from.
 
@@ -382,9 +382,9 @@ def get_cfbd_srs_ratings(
     from cfbd_json_py.ratings import get_cfbd_srs_ratings
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -445,7 +445,7 @@ def get_cfbd_srs_ratings(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -512,7 +512,7 @@ def get_cfbd_srs_ratings(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -631,7 +631,7 @@ def get_cfbd_sp_plus_conference_ratings(
     `conference` (str, optional):
         Optional argument.
         If you only want S&P+ ratings data from games
-        involving teams a specific confrence,
+        involving teams a specific conference,
         set `conference` to the abbreviation
         of the conference you want S&P+ ratings data from.
 
@@ -650,9 +650,9 @@ def get_cfbd_sp_plus_conference_ratings(
     from cfbd_json_py.ratings import get_cfbd_sp_plus_conference_ratings
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -686,7 +686,7 @@ def get_cfbd_sp_plus_conference_ratings(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -729,7 +729,7 @@ def get_cfbd_sp_plus_conference_ratings(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -802,7 +802,7 @@ def get_cfbd_sp_plus_conference_ratings(
             "secondOrderWins": "second_order_wins",
             "offense.rating": "offense_S&P+_rating",
             "offense.success": "offense_S&P+_success",
-            "offense.explosiveness": "offense_S&P+_esplosiveness",
+            "offense.explosiveness": "offense_S&P+_explosiveness",
             "offense.rushing": "offense_S&P+_rushing",
             "offense.passing": "offense_S&P+_passing",
             "offense.standardDowns": "offense_S&P+_standard_downs",
@@ -811,7 +811,7 @@ def get_cfbd_sp_plus_conference_ratings(
             "offense.pace": "offense_S&P+_pace",
             "defense.rating": "defense_S&P+_rating",
             "defense.success": "defense_S&P+_success",
-            "defense.explosiveness": "defense_S&P+_esplosiveness",
+            "defense.explosiveness": "defense_S&P+_explosiveness",
             "defense.rushing": "defense_S&P+_rushing",
             "defense.passing": "defense_S&P+_passing",
             "defense.standardDowns": "defense_S&P+_standard_downs",
@@ -879,7 +879,7 @@ def get_cfbd_elo_ratings(
 
     `season_type` (str, semi-optional):
         Semi-optional argument.
-        By defualt, this will be set to "postseason".
+        By default, this will be set to "postseason".
         If `season_type` is set to "regular",
         the API will ignore postseason games
         (like bowls and CFP games) when calculating elo.
@@ -897,7 +897,7 @@ def get_cfbd_elo_ratings(
     `conference` (str, optional):
         Optional argument.
         If you only want S&P+ ratings data from games
-        involving teams a specific confrence,
+        involving teams a specific conference,
         set `conference` to the abbreviation
         of the conference you want S&P+ ratings data from.
 
@@ -916,9 +916,9 @@ def get_cfbd_elo_ratings(
     from cfbd_json_py.ratings import get_cfbd_elo_ratings
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -972,10 +972,10 @@ def get_cfbd_elo_ratings(
 
 
         # Get Elo ratings data for teams competing in the
-        # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
+        # Atlantic Coast conference (ACC) in the 2021 CFB season.
         print(
             "Get Elo ratings data for teams competing in " +
-            "the Atlantic Coast Confrence (ACC) in the 2021 CFB season."
+            "the Atlantic Coast conference (ACC) in the 2021 CFB season."
         )
         json_data = get_cfbd_elo_ratings(
             api_key=cfbd_key,
@@ -1005,7 +1005,7 @@ def get_cfbd_elo_ratings(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -1053,10 +1053,10 @@ def get_cfbd_elo_ratings(
 
 
         # Get Elo ratings data for teams competing in the
-        # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
+        # Atlantic Coast conference (ACC) in the 2021 CFB season.
         print(
             "Get Elo ratings data for teams competing in " +
-            "the Atlantic Coast Confrence (ACC) in the 2021 CFB season."
+            "the Atlantic Coast conference (ACC) in the 2021 CFB season."
         )
         json_data = get_cfbd_elo_ratings(
             season=2021,
@@ -1096,7 +1096,7 @@ def get_cfbd_elo_ratings(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -1232,7 +1232,7 @@ def get_cfbd_fpi_ratings(
     `conference` (str, optional):
         Optional argument.
         If you only want FPI ratings data from games
-        involving teams a specific confrence,
+        involving teams a specific conference,
         set `conference` to the abbreviation
         of the conference you want FPI ratings data from.
 
@@ -1251,9 +1251,9 @@ def get_cfbd_fpi_ratings(
     from cfbd_json_py.ratings import get_cfbd_fpi_ratings
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -1293,10 +1293,10 @@ def get_cfbd_fpi_ratings(
 
 
         # Get FPI ratings data for teams competing in the
-        # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
+        # Atlantic Coast conference (ACC) in the 2021 CFB season.
         print(
             "Get FPI ratings data for teams competing in the " +
-            "Atlantic Coast Confrence (ACC) in the 2021 CFB season."
+            "Atlantic Coast conference (ACC) in the 2021 CFB season."
         )
         json_data = get_cfbd_fpi_ratings(
             api_key=cfbd_key,
@@ -1326,7 +1326,7 @@ def get_cfbd_fpi_ratings(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -1363,10 +1363,10 @@ def get_cfbd_fpi_ratings(
 
 
         # Get FPI ratings data for teams competing in the
-        # Atlantic Coast Confrence (ACC) in the 2021 CFB season.
+        # Atlantic Coast conference (ACC) in the 2021 CFB season.
         print(
             "Get FPI ratings data for teams competing in the " +
-            "Atlantic Coast Confrence (ACC) in the 2021 CFB season."
+            "Atlantic Coast conference (ACC) in the 2021 CFB season."
         )
         json_data = get_cfbd_fpi_ratings(
             season=2021,
@@ -1408,7 +1408,7 @@ def get_cfbd_fpi_ratings(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -1478,11 +1478,11 @@ def get_cfbd_fpi_ratings(
             "year": "season",
             "team": "team_name",
             "conference": "conference_name",
-            "resumeRanks.strenghOfRecord": "resume_strength_of_record",
+            "resumeRanks.strengthOfRecord": "resume_strength_of_record",
             "resumeRanks.fpi": "fpi_rank",
             "resumeRanks.averageWinProbability": "resume_avg_win_probability",
             "resumeRanks.strengthOfSchedule": "resume_strength_of_schedule",
-            "resumeRanks.remaningStrengthOfSchedule":
+            "resumeRanks.remainingStrengthOfSchedule":
                 "resume_remaining_strength_of_schedule",
             "resumeRanks.gameControl": "resume_game_control",
             "efficiencies.overall": "efficiency_overall",

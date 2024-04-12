@@ -1,6 +1,6 @@
 """
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 02/24/2023 03:30 PM EST
+# Last Updated Date: 04/04/2024 05:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: recruiting.py
 # Purpose: Houses functions pertaining to CFB recruiting data
@@ -78,7 +78,7 @@ def get_cfbd_player_recruit_ratings(
         the following values are valid for `recruit_classification`:
         - `HighSchool`: Exactly what it says on the tin. These are HS recruits.
         - `JUCO`: JUnior COllege recruits.
-            These are recruits who are transfering from a
+            These are recruits who are transferring from a
             junior college to an NCAA college.
         - `PrepSchool`: College Prep school recruits.
             These are recruits from places such as
@@ -113,9 +113,9 @@ def get_cfbd_player_recruit_ratings(
     from cfbd_json_py.recruiting import get_cfbd_player_recruit_ratings
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -206,7 +206,7 @@ def get_cfbd_player_recruit_ratings(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -306,7 +306,7 @@ def get_cfbd_player_recruit_ratings(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -476,9 +476,9 @@ def get_cfbd_team_recruiting_ratings(
     from cfbd_json_py.recruiting import get_cfbd_team_recruiting_ratings
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -526,7 +526,7 @@ def get_cfbd_team_recruiting_ratings(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -585,7 +585,7 @@ def get_cfbd_team_recruiting_ratings(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )
@@ -714,10 +714,10 @@ def get_cfbd_team_recruiting_group_ratings(
     `conference` (str, optional):
         Optional argument.
         If you only want CFB recruiting data
-        from teams in a specific confrence,
+        from teams in a specific conference,
         set `conference` to the abbreviation
         of the conference you want CFB recruiting data from.
-        For a list of confrences,
+        For a list of conferences,
         use the `cfbd_json_py.conferences.get_cfbd_conference_info()`
         function.
 
@@ -736,9 +736,9 @@ def get_cfbd_team_recruiting_group_ratings(
     from cfbd_json_py.recruiting import get_cfbd_team_recruiting_group_ratings
 
 
-    cfbd_key = "tigersAreAwsome"  # placeholder for your CFBD API Key.
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
 
-    if cfbd_key != "tigersAreAwsome":
+    if cfbd_key != "tigersAreAwesome":
         print(
             "Using the user's API key declared in this script " +
             "for this example."
@@ -802,11 +802,11 @@ def get_cfbd_team_recruiting_group_ratings(
 
         # Get recruiting data starting in 2020,
         # grouped by team and position,
-        # but only for Mountain West Confrence (MWC) teams.
+        # but only for Mountain West conference (MWC) teams.
         print(
             "Get recruiting data starting in 2020, " +
             "grouped by team and position, " +
-            "but only for Mountain West Confrence (MWC) teams."
+            "but only for Mountain West conference (MWC) teams."
         )
         json_data = get_cfbd_team_recruiting_group_ratings(
             api_key=cfbd_key,
@@ -837,7 +837,7 @@ def get_cfbd_team_recruiting_group_ratings(
         # you could just call these functions directly,
         # without setting the API key in the script.
         print(
-            "Using the user's API key suposedly loaded " +
+            "Using the user's API key supposedly loaded " +
             "into this python environment for this example."
         )
 
@@ -896,11 +896,11 @@ def get_cfbd_team_recruiting_group_ratings(
 
         # Get recruiting data starting in 2020,
         # grouped by team and position,
-        # but only for Mountain West Confrence (MWC) teams.
+        # but only for Mountain West conference (MWC) teams.
         print(
             "Get recruiting data starting in 2020, " +
             "grouped by team and position, " +
-            "but only for Mountain West Confrence (MWC) teams."
+            "but only for Mountain West conference (MWC) teams."
         )
         json_data = get_cfbd_team_recruiting_group_ratings(
             start_season=2020,
@@ -942,7 +942,7 @@ def get_cfbd_team_recruiting_group_ratings(
     else:
         real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
 
-    if real_api_key == "tigersAreAwsome":
+    if real_api_key == "tigersAreAwesome":
         raise ValueError(
             "You actually need to change `cfbd_key` to your CFBD API key."
         )

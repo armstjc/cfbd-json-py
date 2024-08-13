@@ -32,6 +32,7 @@ jobs:
           python -m pip install requests
           python -m pip install bs4
           python -m pip install lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       # ADJUST THIS: build your documentation into docs/.
       # We use a custom build script for pdoc itself, ideally you just run `pdoc -o docs/ ...` here.
       - run: pdoc cfbd_json_py -o ./docs

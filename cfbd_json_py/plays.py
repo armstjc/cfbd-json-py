@@ -1,13 +1,12 @@
-"""
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 04/04/2024 05:10 PM EDT
+# Last Updated Date: 08/13/2024 02:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: plays.py
 # Purpose: Houses functions pertaining to CFB play data within the CFBD API.
 ###############################################################################
-"""
-from datetime import datetime
+
 import logging
+from datetime import datetime
 
 import pandas as pd
 import requests
@@ -1332,9 +1331,46 @@ def get_cfbd_live_pbp_data(
     game_id: int,
     api_key: str = None,
     api_key_dir: str = None,
-    return_as_dict: bool = False,
+    # return_as_dict: bool = False,
 ):
     """ """
-    raise NotImplementedError(
-        "This function has yet to be implemented by this version."
-    )
+    url = f"https://api.collegefootballdata.com/live/plays?id={game_id}"
+
+    if api_key is not None:
+        real_api_key = api_key
+        del api_key
+    else:
+        real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
+
+    if real_api_key == "tigersAreAwesome":
+        raise ValueError(
+            "You actually need to change `cfbd_key` to your CFBD API key."
+        )
+    elif "Bearer " in real_api_key:
+        pass
+    elif "Bearer" in real_api_key:
+        real_api_key = real_api_key.replace("Bearer", "Bearer ")
+    else:
+        real_api_key = "Bearer " + real_api_key
+
+    headers = {
+        "Authorization": f"{real_api_key}",
+        "accept": "application/json"
+    }
+
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+        pass
+    elif response.status_code == 401:
+        raise ConnectionRefusedError(
+            "Could not connect. The connection was refused.\n" +
+            "HTTP Status Code 401."
+        )
+    else:
+        raise ConnectionError(
+            f"Could not connect.\nHTTP Status code {response.status_code}"
+        )
+
+    json_data = response.json()
+    return json_data

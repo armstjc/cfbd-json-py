@@ -1,11 +1,9 @@
-"""
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 04/04/2024 05:10 PM EDT
+# Last Updated Date: 08/13/2024 02:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: coaches.py
 # Purpose: Houses functions pertaining to coaching data within the CFBD API.
 ###############################################################################
-"""
 
 import logging
 import warnings

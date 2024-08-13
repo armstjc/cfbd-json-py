@@ -1,5 +1,16 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.2.0 The "Patreon" Update
+- Re-implemented the process of storing a user's API key. If you have used `cfbd_json_py.utls.set_cfbd_api_token()` in the past, you do not need to do anything to migrate your API key to this new process.
+- The following functions require a user to subscribe to the [CFBD Patreon](https://www.patreon.com/collegefootballdata):
+  - Implemented `cfbd_json_py.games.get_cfbd_live_scoreboard()`, a function that allows a user to get live scoreboard data directly from the CFBD API, if they subscribe to the CFBD patreon.
+  - Implemented `cfbd_json_py.games.get_cfbd_weather_info()`, a function that allows a user to get weather data directly from the CFBD API, if they subscribe to the CFBD patreon.
+  - Partially implemented `cfbd_json_py.plays.get_cfbd_live_pbp_data()`, a function that allows someone to access live play-by-play (PBP) data, if they subscribe to the CFBD patreon.
+- Implemented a new file header template for all python files.
+- Applied some minor formatting changes to the python code.
+- Updated the package version to `0.2.0`, because of the new season (2024).
+
+
 ## 0.1.2: The "Spell Check" update
 - Fixed spelling errors previously present in earlier versions of this python package.
 - Updated the package version to `0.1.2`.
@@ -173,7 +184,7 @@
 
 - Removed the option to cache data. This may be implemented in a future version.
 - Implemented `cfbd_json_py.betting.get_cfbd_betting_lines()`, a function that allows a user to get betting lines for a season, a week, and/or for a specific team for the regular season, or postseason.
-- Changed `cfbd_json_py.utls.get_cfbd_api_token()`` to log, not print out the fact that the CFBD API key the function is trying to find is not present in the current Python environment.
+- Changed `cfbd_json_py.utls.get_cfbd_api_token()` to log, not print out the fact that the CFBD API key the function is trying to find is not present in the current Python environment.
 - Updated the package version to `0.0.2`.
 
 ## 0.0.1: The "First Steps" Update

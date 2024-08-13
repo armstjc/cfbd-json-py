@@ -1,13 +1,12 @@
-"""
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 04/04/2024 05:10 PM EDT
+# Last Updated Date: 08/13/2024 02:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: games.py
 # Purpose: Houses functions pertaining to CFB game data within the CFBD API.
 ###############################################################################
-"""
-from datetime import datetime
+
 import logging
+from datetime import datetime
 
 import pandas as pd
 import requests
@@ -2022,8 +2021,12 @@ def get_cfbd_player_game_stats(
     # `week`, `team`, and/or `conference`
     # must be not null for this function to work.
 
-    if week is None and team is None \
-            and conference is None and game_id is None:
+    if (
+        week is None and
+        team is None and
+        conference is None and
+        game_id is None
+    ):
         raise ValueError(
             "To use `get_cfbd_player_game_stats()`,"
             + " `week`, `team`, and/or `conference` "
@@ -2153,18 +2156,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "passing_C/ATT"] = player_stat
+                                    "passing_C/ATT"
+                                ] = player_stat
 
                         elif stat["name"] == "YDS":  # passing_YDS
                             for i in stat["athletes"]:
@@ -2175,21 +2183,25 @@ def get_cfbd_player_game_stats(
                                 if rebuilt_json.get(player_id) is None:
                                     rebuilt_json[player_id] = {}
 
+                                rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "passing_YDS"] = player_stat
+                                    "passing_YDS"
+                                ] = player_stat
 
                         elif stat["name"] == "AVG":  # passing_AVG
                             for i in stat["athletes"]:
@@ -2202,18 +2214,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "passing_AVG"] = player_stat
+                                    "passing_AVG"
+                                ] = player_stat
 
                         elif stat["name"] == "TD":  # passing_TD
                             for i in stat["athletes"]:
@@ -2226,18 +2243,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "passing_TD"] = player_stat
+                                    "passing_TD"
+                                ] = player_stat
 
                         elif stat["name"] == "INT":  # passing_INT
                             for i in stat["athletes"]:
@@ -2250,18 +2272,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "passing_INT"] = player_stat
+                                    "passing_INT"
+                                ] = player_stat
 
                         elif stat["name"] == "QBR":  # passing_QBR
                             for i in stat["athletes"]:
@@ -2277,18 +2304,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "passing_QBR"] = player_stat
+                                    "passing_QBR"
+                                ] = player_stat
 
                         else:
                             raise IndexError(
@@ -2308,18 +2340,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "rushing_CAR"] = player_stat
+                                    "rushing_CAR"
+                                ] = player_stat
 
                         elif stat["name"] == "YDS":  # rushing_YDS
                             for i in stat["athletes"]:
@@ -2332,18 +2369,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "rushing_YDS"] = player_stat
+                                    "rushing_YDS"
+                                ] = player_stat
 
                         elif stat["name"] == "AVG":  # rushing_AVG
                             for i in stat["athletes"]:
@@ -2356,18 +2398,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "rushing_AVG"] = player_stat
+                                    "rushing_AVG"
+                                ] = player_stat
 
                         elif stat["name"] == "TD":  # rushing_TD
                             for i in stat["athletes"]:
@@ -2380,18 +2427,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "rushing_TD"] = player_stat
+                                    "rushing_TD"
+                                ] = player_stat
 
                         elif stat["name"] == "LONG":  # rushing_LONG
                             for i in stat["athletes"]:
@@ -2404,18 +2456,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "rushing_LONG"] = player_stat
+                                    "rushing_LONG"
+                                ] = player_stat
 
                         else:
                             raise IndexError(
@@ -2435,18 +2492,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "receiving_REC"] = player_stat
+                                    "receiving_REC"
+                                ] = player_stat
 
                         elif stat["name"] == "YDS":  # receiving_YDS
                             for i in stat["athletes"]:
@@ -2459,18 +2521,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "receiving_YDS"] = player_stat
+                                    "receiving_YDS"
+                                ] = player_stat
 
                         elif stat["name"] == "AVG":  # receiving_AVG
                             for i in stat["athletes"]:
@@ -2483,18 +2550,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "receiving_AVG"] = player_stat
+                                    "receiving_AVG"
+                                ] = player_stat
 
                         elif stat["name"] == "TD":  # receiving_TD
                             for i in stat["athletes"]:
@@ -2507,18 +2579,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "receiving_TD"] = player_stat
+                                    "receiving_TD"
+                                ] = player_stat
 
                         elif stat["name"] == "LONG":  # receiving_LONG
                             for i in stat["athletes"]:
@@ -2531,18 +2608,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "receiving_LONG"] = player_stat
+                                    "receiving_LONG"
+                                ] = player_stat
 
                         else:
                             raise IndexError(
@@ -2562,18 +2644,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "fumbles_FUM"] = player_stat
+                                    "fumbles_FUM"
+                                ] = player_stat
 
                         elif stat["name"] == "LOST":  # fumbles_LOST
                             for i in stat["athletes"]:
@@ -2586,18 +2673,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "fumbles_LOST"] = player_stat
+                                    "fumbles_LOST"
+                                ] = player_stat
 
                         elif stat["name"] == "REC":  # fumbles_REC
                             for i in stat["athletes"]:
@@ -2610,18 +2702,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "fumbles_REC"] = player_stat
+                                    "fumbles_REC"
+                                ] = player_stat
 
                         else:
                             raise IndexError(
@@ -2641,18 +2738,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "defensive_TOT"] = player_stat
+                                    "defensive_TOT"
+                                ] = player_stat
 
                         elif stat["name"] == "SOLO":  # defensive_SOLO
                             for i in stat["athletes"]:
@@ -2665,18 +2767,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "defensive_SOLO"] = player_stat
+                                    "defensive_SOLO"
+                                ] = player_stat
 
                         elif stat["name"] == "TFL":  # defensive_TFL
                             for i in stat["athletes"]:
@@ -2689,18 +2796,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "defensive_TFL"] = player_stat
+                                    "defensive_TFL"
+                                ] = player_stat
 
                         elif stat["name"] == "QB HUR":  # defensive_QB HUR
                             for i in stat["athletes"]:
@@ -2713,16 +2825,20 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
                                     "defensive_QB HUR"
                                 ] = player_stat
@@ -2738,18 +2854,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "defensive_SACKS"] = player_stat
+                                    "defensive_SACKS"
+                                ] = player_stat
 
                         elif stat["name"] == "PD":  # defensive_PD
                             for i in stat["athletes"]:
@@ -2762,18 +2883,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "defensive_PD"] = player_stat
+                                    "defensive_PD"
+                                ] = player_stat
 
                         elif stat["name"] == "TD":  # defensive_TD
                             for i in stat["athletes"]:
@@ -2786,18 +2912,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "defensive_TD"] = player_stat
+                                    "defensive_TD"
+                                ] = player_stat
 
                         else:
                             raise IndexError(
@@ -2817,16 +2948,20 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
                                     "interceptions_INT"
                                 ] = player_stat
@@ -2842,16 +2977,20 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
                                     "interceptions_YDS"
                                 ] = player_stat
@@ -2867,16 +3006,20 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
                                     "interceptions_TD"
                                 ] = player_stat
@@ -2899,18 +3042,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "punting_NO"] = player_stat
+                                    "punting_NO"
+                                ] = player_stat
 
                         elif stat["name"] == "YDS":  # punting_YDS
                             for i in stat["athletes"]:
@@ -2923,18 +3071,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "punting_YDS"] = player_stat
+                                    "punting_YDS"
+                                ] = player_stat
 
                         elif stat["name"] == "AVG":  # punting_AVG
                             for i in stat["athletes"]:
@@ -2947,18 +3100,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "punting_AVG"] = player_stat
+                                    "punting_AVG"
+                                ] = player_stat
 
                         elif stat["name"] == "TB":  # punting_TB
                             for i in stat["athletes"]:
@@ -2971,18 +3129,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "punting_TB"] = player_stat
+                                    "punting_TB"
+                                ] = player_stat
 
                         elif stat["name"] == "In 20":  # punting_In 20
                             for i in stat["athletes"]:
@@ -2995,18 +3158,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "punting_In 20"] = player_stat
+                                    "punting_In 20"
+                                ] = player_stat
 
                         elif stat["name"] == "LONG":  # punting_LONG
                             for i in stat["athletes"]:
@@ -3019,18 +3187,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "punting_LONG"] = player_stat
+                                    "punting_LONG"
+                                ] = player_stat
 
                         else:
                             raise IndexError(
@@ -3050,18 +3223,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "kicking_FG"] = player_stat
+                                    "kicking_FG"
+                                ] = player_stat
 
                         elif stat["name"] == "TOT":  # kicking_FG, special case
                             for i in stat["athletes"]:
@@ -3074,18 +3252,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "kicking_FG"] = player_stat
+                                    "kicking_FG"
+                                ] = player_stat
 
                         elif stat["name"] == "PCT":  # kicking_PCT
                             for i in stat["athletes"]:
@@ -3098,18 +3281,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "kicking_PCT"] = player_stat
+                                    "kicking_PCT"
+                                ] = player_stat
 
                         elif stat["name"] == "LONG":  # kicking_LONG
                             for i in stat["athletes"]:
@@ -3122,18 +3310,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "kicking_LONG"] = player_stat
+                                    "kicking_LONG"
+                                ] = player_stat
 
                         elif stat["name"] == "XP":  # kicking_XP
                             for i in stat["athletes"]:
@@ -3146,18 +3339,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "kicking_XP"] = player_stat
+                                    "kicking_XP"
+                                ] = player_stat
 
                         elif stat["name"] == "PTS":  # kicking_PTS
                             for i in stat["athletes"]:
@@ -3170,18 +3368,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "kicking_PTS"] = player_stat
+                                    "kicking_PTS"
+                                ] = player_stat
 
                         else:
                             raise IndexError(
@@ -3201,18 +3404,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "kickReturns_NO"] = player_stat
+                                    "kickReturns_NO"
+                                ] = player_stat
 
                         elif stat["name"] == "YDS":  # kickReturns_YDS
                             for i in stat["athletes"]:
@@ -3225,18 +3433,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "kickReturns_YDS"] = player_stat
+                                    "kickReturns_YDS"
+                                ] = player_stat
 
                         elif stat["name"] == "AVG":  # kickReturns_AVG
                             for i in stat["athletes"]:
@@ -3249,18 +3462,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "kickReturns_AVG"] = player_stat
+                                    "kickReturns_AVG"
+                                ] = player_stat
 
                         elif stat["name"] == "TD":  # kickReturns_TD
                             for i in stat["athletes"]:
@@ -3273,18 +3491,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "kickReturns_TD"] = player_stat
+                                    "kickReturns_TD"
+                                ] = player_stat
 
                         elif stat["name"] == "LONG":  # kickReturns_LONG
                             for i in stat["athletes"]:
@@ -3297,16 +3520,20 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
                                     "kickReturns_LONG"
                                 ] = player_stat
@@ -3329,18 +3556,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "puntReturns_NO"] = player_stat
+                                    "puntReturns_NO"
+                                ] = player_stat
 
                         elif stat["name"] == "YDS":  # puntReturns_YDS
                             for i in stat["athletes"]:
@@ -3353,18 +3585,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "puntReturns_YDS"] = player_stat
+                                    "puntReturns_YDS"
+                                ] = player_stat
 
                         elif stat["name"] == "AVG":  # puntReturns_AVG
                             for i in stat["athletes"]:
@@ -3377,18 +3614,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "puntReturns_AVG"] = player_stat
+                                    "puntReturns_AVG"
+                                ] = player_stat
 
                         elif stat["name"] == "TD":  # puntReturns_TD
                             for i in stat["athletes"]:
@@ -3401,18 +3643,23 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
-                                    "puntReturns_TD"] = player_stat
+                                    "puntReturns_TD"
+                                ] = player_stat
 
                         elif stat["name"] == "LONG":  # puntReturns_LONG
                             for i in stat["athletes"]:
@@ -3425,16 +3672,20 @@ def get_cfbd_player_game_stats(
 
                                 rebuilt_json[player_id]["game_id"] = game_id
                                 rebuilt_json[player_id][
-                                    "team_name"] = team_name
+                                    "team_name"
+                                ] = team_name
                                 rebuilt_json[player_id][
                                     "team_conference"
                                 ] = team_conference
                                 rebuilt_json[player_id][
-                                    "player_id"] = player_id
+                                    "player_id"
+                                ] = player_id
                                 rebuilt_json[player_id][
-                                    "player_name"] = player_name
+                                    "player_name"
+                                ] = player_name
                                 rebuilt_json[player_id][
-                                    "home_away"] = home_away
+                                    "home_away"
+                                ] = home_away
                                 rebuilt_json[player_id][
                                     "puntReturns_LONG"
                                 ] = player_stat
@@ -3459,11 +3710,13 @@ def get_cfbd_player_game_stats(
     ].str.split("/", expand=True)
 
     cfb_games_df[["kicking_FGM", "kicking_FGA"]] = cfb_games_df[
-        "kicking_FG"].str.split(
+        "kicking_FG"
+    ].str.split(
         "/", expand=True
     )
     cfb_games_df[["kicking_XPM", "kicking_XPA"]] = cfb_games_df[
-        "kicking_XP"].str.split(
+        "kicking_XP"
+    ].str.split(
         "/", expand=True
     )
 
@@ -3933,14 +4186,16 @@ def get_cfbd_player_advanced_game_stats(
 
     # Add in these columns for completeness.
 
-    adv_stats_df.loc[adv_stats_df["team"] == home_team_name,
-                     "home_away"] = "home"
+    adv_stats_df.loc[
+        adv_stats_df["team"] == home_team_name, "home_away"
+    ] = "home"
     adv_stats_df.loc[adv_stats_df["team"] == home_team_name, "opponent"] = (
         away_team_name
     )
 
-    adv_stats_df.loc[adv_stats_df["team"] == away_team_name,
-                     "home_away"] = "away"
+    adv_stats_df.loc[
+        adv_stats_df["team"] == away_team_name, "home_away"
+    ] = "away"
     adv_stats_df.loc[adv_stats_df["team"] == away_team_name, "opponent"] = (
         home_team_name
     )
@@ -3968,39 +4223,780 @@ def get_cfbd_player_advanced_game_stats(
 
 
 def get_cfbd_live_scoreboard(
-    api_key: str = None,
-    api_key_dir: str = None,
     ncaa_division: str = "fbs",
     conference: str = None,
+    api_key: str = None,
+    api_key_dir: str = None,
+    return_as_dict: bool = False,
 ):
     """
     YOU MUST BE SUBSCRIBED TO THE CFBD PATREON FOR THIS FUNCTION TO WORK!
     To view the CFBD Patreon, visit https://www.patreon.com/collegefootballdata
 
+    Retrieves live scoreboard data from the CFBD API,
+    assuming the API key is an API key from a Patreon supporter.
+
+    Parameters
+    ----------
+    `ncaa_division` (str, semi-optional):
+        Semi-optional argument.
+        By default, `ncaa_division` will be set to "fbs",
+        short for the Football Bowl Subdivision (FBS),
+        formerly known as D1-A (read as "division one single A"),
+        the highest level in the NCAA football pyramid,
+        where teams can scholarship up to 85 players
+        on their football team solely for athletic ability,
+        and often have the largest athletics budgets
+        within the NCAA.
+
+        Other valid inputs are:
+        - "fcs": Football Championship Subdivision (FCS),
+            formerly known as D1-AA (read as "division one double A").
+            An FCS school is still in the 1st division of the NCAA,
+            making them eligible for the March Madness tournament,
+            but may not have the resources to compete at the FBS level
+            at this time. FCS schools are limited to 63 athletic scholarships
+            for football.
+        - "ii": NCAA Division II. Schools in this and D3 are not
+            eligible for the March Madness tournament,
+            and are limited to 36 athletic scholarships
+            for their football team.
+        - "iii": NCAA Division III. The largest single division within the
+            NCAA football pyramid.
+            D3 schools have the distinction of being part of
+            the only NCAA division that cannot give out scholarships solely
+            for athletic ability.
+
+    `conference` (str, optional):
+        Optional argument.
+        If you only want live scoreboard data from games
+        involving teams a specific conference,
+        set `conference` to the abbreviation
+        of the conference you want live scoreboard data from.
+
+    `api_key` (str, optional):
+        Semi-optional argument.
+        If `api_key` is null, this function will attempt to load a CFBD API key
+        from the python environment, or from a file on this computer.
+        If `api_key` is not null,
+        this function will automatically assume that the
+        inputted `api_key` is a valid CFBD API key.
+
+    `api_key_dir` (str, optional):
+        Optional argument.
+        If `api_key` is set to am empty string, this variable is ignored.
+        If `api_key_dir` is null, and `api_key` is null,
+        this function will try to find
+        a CFBD API key file in this user's home directory.
+        If `api_key_dir` is set to a string, and `api_key` is null,
+        this function will assume that `api_key_dir` is a directory,
+        and will try to find a CFBD API key file in that directory.
+
+    `return_as_dict` (bool, semi-optional):
+        Semi-optional argument.
+        If you want this function to return
+        the data as a dictionary (read: JSON object),
+        instead of a pandas `DataFrame` object,
+        set `return_as_dict` to `True`.
+    Usage
+    ----------
+    ```
+    import time
+
+    from cfbd_json_py.games import get_cfbd_live_scoreboard
+
+
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
+
+    if cfbd_key != "tigersAreAwesome":
+        print(
+            "Using the user's API key declared " +
+            "in this script for this example."
+        )
+
+        # Get live scoreboard data from the CFBD API.
+        print(
+            "Get live scoreboard data from the CFBD API."
+        )
+        json_data = get_cfbd_live_scoreboard(
+            api_key=cfbd_key
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get live scoreboard data from the CFBD API,
+        # but only from the FCS ranks.
+        print(
+            "Get live scoreboard data from the CFBD API, " +
+            "but only from the FCS ranks."
+        )
+        json_data = get_cfbd_live_scoreboard(
+            ncaa_division="fcs",
+            api_key=cfbd_key
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get live scoreboard data from the CFBD API,
+        # but only from the Atlantic Coast Conference.
+        print(
+            "Get live scoreboard data from the CFBD API, " +
+            "but only from the Atlantic Coast Conference."
+        )
+        json_data = get_cfbd_live_scoreboard(
+            conference="ACC",
+            api_key=cfbd_key
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # You can also tell this function to just return the API call as
+        # a Dictionary (read: JSON) object.
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
+        json_data = get_cfbd_live_scoreboard(
+            api_key=cfbd_key,
+            return_as_dict=True
+        )
+        print(json_data)
+
+    else:
+        # Alternatively, if the CFBD API key exists in this python environment,
+        # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
+        # you could just call these functions directly,
+        # without setting the API key in the script.
+        print(
+            "Using the user's API key supposedly loaded " +
+            "into this python environment for this example."
+        )
+
+        # Get live scoreboard data from the CFBD API.
+        print(
+            "Get live scoreboard data from the CFBD API."
+        )
+        json_data = get_cfbd_live_scoreboard()
+        print(json_data)
+        time.sleep(5)
+
+        # Get live scoreboard data from the CFBD API,
+        # but only from the FCS ranks.
+        print(
+            "Get live scoreboard data from the CFBD API, " +
+            "but only from the FCS ranks."
+        )
+        json_data = get_cfbd_live_scoreboard(
+            ncaa_division="fcs",
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get live scoreboard data from the CFBD API,
+        # but only from the Atlantic Coast Conference.
+        print(
+            "Get live scoreboard data from the CFBD API, " +
+            "but only from the Atlantic Coast Conference."
+        )
+        json_data = get_cfbd_live_scoreboard(
+            conference="ACC",
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # You can also tell this function to just return the API call as
+        # a Dictionary (read: JSON) object.
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
+        json_data = get_cfbd_live_scoreboard(
+            return_as_dict=True
+        )
+        print(json_data)
+
+    ```
+
+    Returns
+    ----------
+    A pandas `DataFrame` object with live scoreboard data,
+    or (if `return_as_dict` is set to `True`)
+    a dictionary object with live scoreboard data.
 
     """
+    # real_api_key = ""
+    scoreboard_df = pd.DataFrame()
+    url = "https://api.collegefootballdata.com/scoreboard"
 
-    raise NotImplementedError(
-        "This function has yet to be implemented by this version."
-    )
+    if api_key is not None:
+        real_api_key = api_key
+        del api_key
+    else:
+        real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
+
+    if real_api_key == "tigersAreAwesome":
+        raise ValueError(
+            "You actually need to change `cfbd_key` to your CFBD API key."
+        )
+    elif "Bearer " in real_api_key:
+        pass
+    elif "Bearer" in real_api_key:
+        real_api_key = real_api_key.replace("Bearer", "Bearer ")
+    else:
+        real_api_key = "Bearer " + real_api_key
+
+    if (
+        ncaa_division.lower() == "fbs"
+        or ncaa_division.lower() == "fcs"
+        or ncaa_division.lower() == "ii"
+        or ncaa_division.lower() == "iii"
+    ):
+        pass
+    else:
+        raise ValueError(
+            "An invalid NCAA Division was inputted when calling this function."
+            + '\nValid inputs are:\n-"fbs"\n-"fcs"\n-"ii"\n-"iii"'
+            + f"\n\nYou entered:\n{ncaa_division}"
+        )
+
+    url += f"?classification={ncaa_division}"
+
+    if conference is not None and len(conference) > 0:
+        url += f"&conference={conference}"
+
+    headers = {
+        "Authorization": f"{real_api_key}",
+        "accept": "application/json"
+    }
+
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+        pass
+    elif response.status_code == 401:
+        raise ConnectionRefusedError(
+            "Could not connect. The connection was refused.\n" +
+            "HTTP Status Code 401."
+        )
+    else:
+        raise ConnectionError(
+            f"Could not connect.\nHTTP Status code {response.status_code}"
+        )
+
+    json_data = response.json()
+
+    if return_as_dict is True:
+        return json_data
+
+    scoreboard_df = pd.json_normalize(json_data)
+
+    if len(scoreboard_df) > 0:
+        scoreboard_df.rename(
+            columns={
+                "id": "game_id",
+                "startDate": "start_datetime",
+                "startTimeTBD": "is_start_time_tbd",
+                "tv": "tv_network",
+                "neutralSite": "is_neutral_site_game",
+                "conferenceGame": "is_conference_game",
+                "venue.name": "stadium_name",
+                "venue.city": "stadium_city",
+                "venue.state": "stadium_state",
+                "homeTeam.id": "home_team_id",
+                "homeTeam.name": "home_team_name",
+                "homeTeam.conference": "home_team_conference",
+                "awayTeam.id": "away_team_id",
+                "awayTeam.name": "away_team_name",
+                "awayTeam.conference": "away_team_conference",
+                "weather.temperature": "weather_temperature",
+                "weather.description": "weather_description",
+                "weather.windSpeed": "weather_wind_speed",
+                "weather.windDirection": "weather_wind_direction",
+                "betting.spread": "betting_spread",
+                "betting.overUnder": "betting_over_under",
+                "betting.homeMoneyline": "betting_home_moneyline",
+                "betting.awayMoneyline": "betting_away_moneyline",
+            },
+            inplace=True,
+        )
+
+    return scoreboard_df
 
 
 def get_cfbd_weather_info(
+    game_id: int = None,
+    season: int = None,
+    # `game_id` and/or `season` must be not null for this function to work.
+    week: int = None,
+    season_type: str = "both",  # "regular", "postseason", or "both"
+    conference: str = None,
+    team_name: str = None,
+    ncaa_division: str = "fbs",
     api_key: str = None,
     api_key_dir: str = None,
-    ncaa_division: str = "fbs",
-    game_id: int = None,
-    # `game_id` and/or `year` must be not null for this function to work.
-    season: int = None,
-    week: int = None,
-    season_type: str = "regular",  # "regular", "postseason", or "both"
-    conference: str = None,
+    return_as_dict: bool = False,
 ):
     """
     YOU MUST BE SUBSCRIBED TO THE CFBD PATREON FOR THIS FUNCTION TO WORK!
     To view the CFBD Patreon, visit https://www.patreon.com/collegefootballdata
+
+    Parameters
+    ----------
+    Retrieves live scoreboard data from the CFBD API,
+    assuming the API key is an API key from a Patreon supporter.
+
+    Parameters
+    ----------
+
+    `game_id` (int, mandatory):
+        Mandatory requirement.
+        Specifies the game you want weather data from.
+        This or `season` must be set to a valid non-null value.
+
+    `season` (int, mandatory):
+        Mandatory requirement.
+        Specifies the season you want weather data from.
+        This or `season` must be set to a valid non-null value.
+
+    `week` (int, optional):
+        Optional argument.
+        If `week` is set to an integer, this function will attempt
+        to load weather data from games in that season, and in that week.
+
+    `season_type` (str, semi-optional):
+        Semi-optional argument.
+        By default, this will be set to "both", for the CFB regular season.
+        If you want postseason betting data, set `season_type` to "postseason".
+        If `season_type` is set to anything but "regular" or "postseason",
+        a `ValueError()` will be raised.
+
+    `conference` (str, optional):
+        Optional argument.
+        If you only want weather data from games
+        involving teams a specific conference,
+        set `conference` to the abbreviation
+        of the conference you want weather data from.
+
+    `team_name` (str, optional):
+        Optional argument.
+        If you only want weather data for a team,
+        regardless if they are the home/away team,
+        set `team` to the name of the team
+        you want weather data from.
+
+    `ncaa_division` (str, semi-optional):
+        Semi-optional argument.
+        By default, `ncaa_division` will be set to "fbs",
+        short for the Football Bowl Subdivision (FBS),
+        formerly known as D1-A (read as "division one single A"),
+        the highest level in the NCAA football pyramid,
+        where teams can scholarship up to 85 players
+        on their football team solely for athletic ability,
+        and often have the largest athletics budgets
+        within the NCAA.
+
+        Other valid inputs are:
+        - "fcs": Football Championship Subdivision (FCS),
+            formerly known as D1-AA (read as "division one double A").
+            An FCS school is still in the 1st division of the NCAA,
+            making them eligible for the March Madness tournament,
+            but may not have the resources to compete at the FBS level
+            at this time. FCS schools are limited to 63 athletic scholarships
+            for football.
+        - "ii": NCAA Division II. Schools in this and D3 are not
+            eligible for the March Madness tournament,
+            and are limited to 36 athletic scholarships
+            for their football team.
+        - "iii": NCAA Division III. The largest single division within the
+            NCAA football pyramid.
+            D3 schools have the distinction of being part of
+            the only NCAA division that cannot give out scholarships solely
+            for athletic ability.
+
+    `api_key` (str, optional):
+        Semi-optional argument.
+        If `api_key` is null, this function will attempt to load a CFBD API key
+        from the python environment, or from a file on this computer.
+        If `api_key` is not null,
+        this function will automatically assume that the
+        inputted `api_key` is a valid CFBD API key.
+
+    `api_key_dir` (str, optional):
+        Optional argument.
+        If `api_key` is set to am empty string, this variable is ignored.
+        If `api_key_dir` is null, and `api_key` is null,
+        this function will try to find
+        a CFBD API key file in this user's home directory.
+        If `api_key_dir` is set to a string, and `api_key` is null,
+        this function will assume that `api_key_dir` is a directory,
+        and will try to find a CFBD API key file in that directory.
+
+    `return_as_dict` (bool, semi-optional):
+        Semi-optional argument.
+        If you want this function to return
+        the data as a dictionary (read: JSON object),
+        instead of a pandas `DataFrame` object,
+        set `return_as_dict` to `True`.
+    Usage
+    ----------
+    ```
+    import time
+
+    from cfbd_json_py.games import get_cfbd_weather_info
+
+
+    cfbd_key = "tigersAreAwesome"  # placeholder for your CFBD API Key.
+
+    if cfbd_key != "tigersAreAwesome":
+        print(
+            "Using the user's API key declared " +
+            "in this script for this example."
+        )
+
+        # Get weather data for the 2024 CFB season
+        print(
+            "Get weather data for the 2024 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2024,
+            api_key=cfbd_key
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for the 2024 Rose Bowl (game ID #401551786).
+        print(
+            "Get weather data for the 2024 Rose Bowl (game ID #401551786)."
+        )
+        json_data = get_cfbd_weather_info(
+            game_id=401551786,
+            api_key=cfbd_key
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for week 1 of the 2024 CFB season
+        print(
+            "Get weather data for week 1 of the 2024 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2024,
+            week=1,
+            api_key=cfbd_key
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for postseason games of the 2023 CFB season.
+        print(
+            "Get weather data for postseason games of the 2023 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2023,
+            season_type="postseason",
+            api_key=cfbd_key
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for postseason games of the 2023 CFB season.
+        print(
+            "Get weather data for postseason games of the 2023 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2023,
+            season_type="postseason",
+            api_key=cfbd_key
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for Big 10 (B1G) games of the 2024 CFB season.
+        print(
+            "Get weather data for Big 10 (B1G) games of the 2024 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2024,
+            conference="B1G",
+            api_key=cfbd_key
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for FCS games of the 2024 CFB season.
+        print(
+            "Get weather data for FCS games of the 2024 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2024,
+            ncaa_division="fcs",
+            api_key=cfbd_key
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for University of Cincinnati games
+        # of the 2024 CFB season.
+        print(
+            "Get weather data for Big 10 (B1G) games of the 2024 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2024,
+            team_name="Cincinnati",
+            api_key=cfbd_key
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # You can also tell this function to just return the API call
+        # as a Dictionary (read: JSON) object.
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
+        json_data = get_cfbd_weather_info(
+            api_key=cfbd_key,
+            season=2023,
+            return_as_dict=True
+        )
+        print(json_data)
+
+    else:
+        # Alternatively, if the CFBD API key exists in this python environment,
+        # or it's been set by cfbd_json_py.utls.set_cfbd_api_token(),
+        # you could just call these functions directly,
+        # without setting the API key in the script.
+        print(
+            "Using the user's API key supposedly loaded " +
+            "into this python environment for this example."
+        )
+
+        # Get weather data for the 2024 CFB season
+        print(
+            "Get weather data for the 2024 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2024
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for the 2024 Rose Bowl (game ID #401551786).
+        print(
+            "Get weather data for the 2024 Rose Bowl (game ID #401551786)."
+        )
+        json_data = get_cfbd_weather_info(
+            game_id=401551786
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for week 1 of the 2024 CFB season
+        print(
+            "Get weather data for week 1 of the 2024 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2024,
+            week=1
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for postseason games of the 2023 CFB season.
+        print(
+            "Get weather data for postseason games of the 2023 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2023,
+            season_type="postseason"
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for postseason games of the 2023 CFB season.
+        print(
+            "Get weather data for postseason games of the 2023 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2023,
+            season_type="postseason"
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for Big 10 (B1G) games of the 2024 CFB season.
+        print(
+            "Get weather data for Big 10 (B1G) games of the 2024 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2024,
+            conference="B1G"
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for FCS games of the 2024 CFB season.
+        print(
+            "Get weather data for FCS games of the 2024 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2024,
+            ncaa_division="fcs"
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # Get weather data for University of Cincinnati games
+        # of the 2024 CFB season.
+        print(
+            "Get weather data for Big 10 (B1G) games of the 2024 CFB season."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2024,
+            team_name="Cincinnati"
+        )
+        print(json_data)
+        time.sleep(5)
+
+        # You can also tell this function to just return the API call
+        # as a Dictionary (read: JSON) object.
+        print(
+            "You can also tell this function to just return the API call " +
+            "as a Dictionary (read: JSON) object."
+        )
+        json_data = get_cfbd_weather_info(
+            season=2023,
+            return_as_dict=True
+        )
+        print(json_data)
+
+    ```
+    Returns
+    ----------
+    A pandas `DataFrame` object with live weather data,
+    or (if `return_as_dict` is set to `True`)
+    a dictionary object with live weather data.
+
     """
 
-    raise NotImplementedError(
-        "This function has yet to be implemented by this version."
-    )
+    weather_df = pd.DataFrame()
+    url = "https://api.collegefootballdata.com/games/weather"
+
+    if api_key is not None:
+        real_api_key = api_key
+        del api_key
+    else:
+        real_api_key = get_cfbd_api_token(api_key_dir=api_key_dir)
+
+    if real_api_key == "tigersAreAwesome":
+        raise ValueError(
+            "You actually need to change `cfbd_key` to your CFBD API key."
+        )
+    elif "Bearer " in real_api_key:
+        pass
+    elif "Bearer" in real_api_key:
+        real_api_key = real_api_key.replace("Bearer", "Bearer ")
+    else:
+        real_api_key = "Bearer " + real_api_key
+
+    if (game_id is None) and (season is None):
+        raise ValueError(
+            "`game_id` and/or `season` must be set to valid, non-null values."
+        )
+    elif (game_id is not None) and (season is not None):
+        url += f"?gameId={game_id}&year={season}"
+    elif game_id is not None:
+        url += f"?gameId={game_id}"
+    elif season is not None:
+        url += f"?year={season}"
+
+    if (ncaa_division is not None) and (
+        ncaa_division.lower() == "fbs"
+        or ncaa_division.lower() == "fcs"
+        or ncaa_division.lower() == "ii"
+        or ncaa_division.lower() == "iii"
+    ):
+        ncaa_division = ncaa_division.lower()
+        url += f"&classification={ncaa_division}"
+    else:
+        raise ValueError(
+            "An invalid NCAA Division was inputted when calling this function."
+            + '\nValid inputs are:\n-"fbs"\n-"fcs"\n-"ii"\n-"iii"'
+            + f"\n\nYou entered:\n{ncaa_division}"
+        )
+
+    if week is not None:
+        url += f"&week={week}"
+
+    if (
+        season_type == "regular" or
+        season_type == "postseason" or
+        season_type == "both"
+    ):
+        url += f"&seasonType={season_type}"
+    elif season_type is not None:
+        raise ValueError(
+            '`season_type` must be set to either "regular", '
+            + '"postseason", or "both" if you want to specify '
+            + "a part of the season."
+        )
+
+    if team_name is not None:
+        url += f"&team={team_name}"
+
+    if conference is not None:
+        url += f"&conference={conference}"
+
+    headers = {
+        "Authorization": f"{real_api_key}",
+        "accept": "application/json"
+    }
+
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+        pass
+    elif response.status_code == 401:
+        raise ConnectionRefusedError(
+            "Could not connect. The connection was refused.\n" +
+            "HTTP Status Code 401."
+        )
+    else:
+        raise ConnectionError(
+            f"Could not connect.\nHTTP Status code {response.status_code}"
+        )
+
+    json_data = response.json()
+
+    if return_as_dict is True:
+        return json_data
+
+    weather_df = pd.json_normalize(json_data)
+    # print(weather_df.columns)
+
+    [
+        "weatherConditionCode",
+        "weatherCondition",
+    ]
+    if len(weather_df) > 0:
+        weather_df.rename(
+            columns={
+                "id": "game_id",
+                "startTime": "start_datetime",
+                "seasonType": "season_type",
+                "gameIndoors": "is_game_indoors",
+                "homeTeam": "home_team_name",
+                "homeConference": "home_team_conference",
+                "awayTeam": "away_team_name",
+                "awayConference": "away_team_conference",
+                "venueId": "venue_id",
+                "venue": "venue_name",
+                "windDirection": "wind_direction",
+                "windSpeed": "wind_speed",
+                "weatherConditionCode": "weather_condition_code",
+                "weatherCondition": "weather_condition",
+            },
+            inplace=True,
+        )
+
+    return weather_df

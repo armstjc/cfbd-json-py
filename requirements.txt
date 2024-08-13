@@ -1,7 +1,7 @@
-"setuptools>=67.6.0"
-"wheel"
-"pandas>=2.2.2"
-"tqdm"
-"requests"
-"keyring">=25.3.0s
-"lxml"
+setuptools>=67.6.0
+wheel
+pandas>=2.2.2
+tqdm
+requests
+keyring>=25.3.0
+lxml

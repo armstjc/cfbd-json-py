@@ -1,17 +1,15 @@
-"""
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 04/04/2024 05:10 PM EDT
+# Last Updated Date: 08/13/2024 02:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: drives.py
 # Purpose: Houses functions pertaining to CFB drive data within the CFBD API.
 ###############################################################################
-"""
 
-from datetime import datetime
 import logging
+from datetime import datetime
+
 import pandas as pd
 import requests
-
 
 from cfbd_json_py.utls import get_cfbd_api_token
 

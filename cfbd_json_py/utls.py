@@ -1,15 +1,15 @@
-"""
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 04/04/2024 05:10 PM EDT
+# Last Updated Date: 08/13/2024 02:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: utls.py
 # Purpose: Houses utility functions for this python package.
 ###############################################################################
-"""
 import json
+import logging
 import os
 import secrets
-import logging
+
+import keyring
 
 
 def reverse_cipher_encrypt(plain_text_str: str):
@@ -90,6 +90,57 @@ def get_cfbd_api_token(api_key_dir: str = None):
     `api_key_dir` (str, optional):
         Optional argument. If `api_key_dir` is set to a non-null string,
         `set_cfbd_api_token()` will attempt
+        to see if the API key is in that directory.
+
+    Returns
+    ----------
+    A CFBD API key that exists within this python environment,
+    or within this computer.
+
+    """
+    try:
+        key = keyring.get_password("cfbd_json_py", str(os.getlogin()))
+        if key is None or len(key) == 0:
+            raise KeyError(
+                "Could not locate a valid CFBD key."
+            )
+        return key
+    except Exception:
+        logging.warning(
+            "Could not locate a CFBD key on this device normally, " +
+            "checking if the key exists within the environment. " +
+            "If you have previously set a key using `set_cfbd_api_token()`, " +
+            "you have nothing to worry about, because this function will " +
+            "automatically fix this issue."
+        )
+        key = deprecated_get_cfbd_api_token(api_key_dir)
+        set_cfbd_api_token(key)
+        return key
+
+
+def deprecated_get_cfbd_api_token(api_key_dir: str = None):
+    """
+    DEPRECATED! DO NOT USE!!
+
+    NOT INTENDED TO BE CALLED BY THE USER!
+
+    If you've already set the API key using
+    `cfbd_json_py.utls.set_cfbd_api_token()`,
+    you don't need to use this function.
+
+    If the CFBD API key exists in the environment,
+    or is in a file, this function Retrieves the CFBD API key,
+    and returns it as a string.
+
+    If this package is being used in a GitHub Actions action,
+    set the key in the environment by
+    creating a repository secret named `CFBD_API_KEY`.
+
+    Parameters
+    ----------
+    `api_key_dir` (str, optional):
+        Optional argument. If `api_key_dir` is set to a non-null string,
+        `set_cfbd_api_token()` will attempt
         to save the key file in that directory,
         instead of this user's home directory.
 
@@ -141,7 +192,28 @@ def get_cfbd_api_token(api_key_dir: str = None):
         return return_key
 
 
-def set_cfbd_api_token(api_key: str, api_key_dir: str = None):
+def set_cfbd_api_token(api_key: str):
+    """
+    Sets the CFBD API key for use by this python package.
+
+    Parameters
+    ----------
+    `api_key` (str, mandatory):
+        The CFBD API key you have.
+        DO NOT input `Bearer {your CFBD API key}`,
+        this package will take care of that for you.
+
+    Returns
+    ----------
+    Nothing.
+    This function only sets up the API
+    that this package can reference later.
+
+    """
+    keyring.set_password("cfbd_json_py", str(os.getlogin()), api_key)
+
+
+def _set_cfbd_api_token(api_key: str, api_key_dir: str = None):
     """
     Sets the CFBD API key into a file that exists
     either in `{home_dir}/.cfbd/cfbd_key.json`, or in a custom directory.
@@ -290,7 +362,7 @@ def set_cfbd_api_token(api_key: str, api_key_dir: str = None):
 #     print(f'remove last 2 characters from string: {text[:-2]}')
 
 #     key = "hello world"
-#     set_cfbd_api_token(key)
-#     return_key = get_cfbd_api_token()
+#     set_cfbd_api_token("text")
 #     print(key)
+#     return_key = get_cfbd_api_token()
 #     print(return_key)

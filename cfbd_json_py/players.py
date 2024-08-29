@@ -1763,6 +1763,7 @@ def get_cfbd_player_season_stats(
 
         if s_category == "passing":
             if s_type == "COMPLETIONS":
+                rebuilt_json[player_id]["player_id"] = player_name
                 rebuilt_json[player_id]["player_name"] = player_name
                 rebuilt_json[player_id]["team_name"] = team_name
                 rebuilt_json[player_id]["team_conference"] = team_conference
@@ -2103,6 +2104,7 @@ def get_cfbd_player_season_stats(
 
     for key, value in tqdm(rebuilt_json.items()):
         row_df = pd.json_normalize(value)
+        row_df["player_id"] = key
         final_df = pd.concat([final_df, row_df], ignore_index=True)
         del row_df
 
@@ -2136,34 +2138,42 @@ def get_cfbd_player_season_stats(
         final_df.loc[final_df["passing_ATT"] > 0, "passing_COMP%"] = (
             final_df["passing_COMP"] / final_df["passing_ATT"]
         )
+        final_df["passing_COMP%"] = final_df["passing_COMP%"].round(3)
 
         final_df.loc[final_df["rushing_CAR"] > 0, "rushing_AVG"] = (
             final_df["rushing_YDS"] / final_df["rushing_CAR"]
         )
+        final_df["rushing_AVG"] = final_df["rushing_AVG"].round(3)
 
         final_df.loc[final_df["receiving_REC"] > 0, "receiving_AVG"] = (
             final_df["receiving_YDS"] / final_df["receiving_REC"]
         )
+        final_df["receiving_AVG"] = final_df["receiving_AVG"].round(3)
 
         final_df.loc[final_df["punting_NO"] > 0, "punting_AVG"] = (
             final_df["punting_YDS"] / final_df["punting_NO"]
         )
+        final_df["punting_AVG"] = final_df["punting_AVG"].round(3)
 
         final_df.loc[final_df["kicking_FGA"] > 0, "kicking_FG%"] = (
             final_df["kicking_FGM"] / final_df["kicking_FGA"]
         )
+        final_df["kicking_FG%"] = final_df["kicking_FG%"].round(5)
 
         final_df.loc[final_df["kicking_XPA"] > 0, "kicking_XP%"] = (
             final_df["kicking_XPM"] / final_df["kicking_XPA"]
         )
+        final_df["kicking_XP%"] = final_df["kicking_XP%"].round(5)
 
         final_df.loc[final_df["kickReturns_NO"] > 0, "kickReturns_AVG"] = (
             final_df["kickReturns_YDS"] / final_df["kickReturns_NO"]
         )
+        final_df["kickReturns_AVG"] = final_df["kickReturns_AVG"].round(3)
 
         final_df.loc[final_df["puntReturns_NO"] > 0, "puntReturns_AVG"] = (
             final_df["puntReturns_YDS"] / final_df["puntReturns_NO"]
         )
+        final_df["puntReturns_AVG"] = final_df["puntReturns_AVG"].round(3)
 
     elif filter_by_stat_category is True and stat_category == "passing":
         try:
@@ -2184,12 +2194,14 @@ def get_cfbd_player_season_stats(
             final_df["passing_COMP"] / final_df["passing_ATT"]
         )
 
+        final_df["passing_COMP%"] = final_df["passing_COMP%"].round(3)
+
         final_df = final_df[
             [
                 "season",
                 "team_name",
                 "team_conference",
-                # "player_id",
+                "player_id",
                 "player_name",
                 # PASS
                 "passing_COMP",
@@ -2218,6 +2230,7 @@ def get_cfbd_player_season_stats(
         final_df.loc[final_df["rushing_CAR"] >= 1, "rushing_AVG"] = (
             final_df["rushing_YDS"] / final_df["rushing_CAR"]
         )
+        final_df["rushing_AVG"] = final_df["rushing_AVG"].round(3)
 
         final_df = final_df[
             [
@@ -2253,6 +2266,7 @@ def get_cfbd_player_season_stats(
         final_df.loc[final_df["receiving_REC"] > 0, "receiving_AVG"] = (
             final_df["receiving_YDS"] / final_df["receiving_REC"]
         )
+        final_df["receiving_AVG"] = final_df["receiving_AVG"].round(3)
 
         final_df = final_df[
             [
@@ -2337,6 +2351,7 @@ def get_cfbd_player_season_stats(
         final_df.loc[final_df["punting_NO"] > 0, "punting_AVG"] = (
             final_df["punting_YDS"] / final_df["punting_NO"]
         )
+        final_df["punting_AVG"] = final_df["punting_AVG"].round(3)
 
         final_df = final_df[
             [
@@ -2378,10 +2393,12 @@ def get_cfbd_player_season_stats(
         final_df.loc[final_df["kicking_FGA"] > 0, "kicking_FG%"] = (
             final_df["kicking_FGM"] / final_df["kicking_FGA"]
         )
+        final_df["kicking_FG%"] = final_df["kicking_FG%"].round(5)
 
         final_df.loc[final_df["kicking_XPA"] > 0, "kicking_XP%"] = (
             final_df["kicking_XPM"] / final_df["kicking_XPA"]
         )
+        final_df["kicking_XP%"] = final_df["kicking_XP%"].round(5)
 
         final_df = final_df[
             [
@@ -2418,6 +2435,7 @@ def get_cfbd_player_season_stats(
         final_df.loc[final_df["kickReturns_NO"] > 0, "kickReturns_AVG"] = (
             final_df["kickReturns_YDS"] / final_df["kickReturns_NO"]
         )
+        final_df["kickReturns_AVG"] = final_df["kickReturns_AVG"].round(3)
 
         final_df = final_df[
             [
@@ -2453,6 +2471,7 @@ def get_cfbd_player_season_stats(
         final_df.loc[final_df["puntReturns_NO"] > 0, "puntReturns_AVG"] = (
             final_df["puntReturns_YDS"] / final_df["puntReturns_NO"]
         )
+        final_df["puntReturns_AVG"] = final_df["puntReturns_AVG"].round(3)
 
         final_df = final_df[
             [

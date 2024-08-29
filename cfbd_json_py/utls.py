@@ -364,5 +364,8 @@ def _set_cfbd_api_token(api_key: str, api_key_dir: str = None):
 #     key = "hello world"
 #     set_cfbd_api_token("text")
 #     print(key)
+
+# if __name__ == "__main__":
+
 #     return_key = get_cfbd_api_token()
 #     print(return_key)

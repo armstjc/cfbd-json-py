@@ -1,5 +1,12 @@
 # CHANGELOG: cfbd_json_py
 
+## 0.2.3 The "Hotfix" Update.
+- Fixed an issue raised in #51 where the `[player_id]` column would be entirely blank in `cfbd_json_py.players.get_cfbd_player_season_stats()`.
+- Updated the package version to `0.2.3`.
+
+## 0.2.2 The "Version Bump" Update
+- Updated the package version to `0.2.2`.
+
 ## 0.2.1 The "College Football is BACK! (2024)" Update
 - Fixed a bug in `cfbd_json_py.drives.get_cfbd_drives_info()` where the `ncaa_division` parameter would become malformed, the API call wouldn't filter by `ncaa_division`, but the API call would still be accepted.
 - Updated the package to comply with changes made in version `4.6.0` of the CFBD V1 API. These changes in this API version removed the `game_id` parameter from `cfbd_json_py.betting.get_cfbd_betting_lines()` and from `cfbd_json_py.games.get_cfbd_weather_info()`.

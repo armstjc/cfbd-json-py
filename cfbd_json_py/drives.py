@@ -620,7 +620,7 @@ def get_cfbd_drives_info(
         url += f"&defenseConference={defensive_conference}"
 
     if ncaa_division is not None:
-        url += f"&classification={ncaa_division.lower}"
+        url += f"&classification={ncaa_division.lower()}"
 
     headers = {
         "Authorization": f"{real_api_key}",

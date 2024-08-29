@@ -5,7 +5,7 @@
 # Purpose: Houses functions pertaining to betting data within the CFBD API.
 ###############################################################################
 
-import warnings
+# import warnings
 
 import pandas as pd
 import requests
@@ -18,7 +18,7 @@ def get_cfbd_betting_lines(
     season: int = None,
     api_key: str = None,
     api_key_dir: str = None,
-    game_id: int = None,
+    # game_id: int = None,
     week: int = None,
     season_type: str = "regular",  # "regular" or "postseason"
     team: str = None,
@@ -61,7 +61,7 @@ def get_cfbd_betting_lines(
         and will try to find a CFBD API key file in that directory.
 
     `game_id` (int, optional):
-        Optional argument.
+        DEPRECATED FROM V1.
         If `game_id` is set to a game ID,
         `get_cfb_betting_lines()` will try to get
         all betting information for that game ID.
@@ -402,12 +402,12 @@ def get_cfbd_betting_lines(
 
     del year, home, away
 
-    if game_id is not None and season is not None:
-        warnings.warn(
-            "If you are getting betting information for a single game, "
-            + "only set `game_id` to the game ID, " +
-            "and leave `season` as `NULL`."
-        )
+    # if game_id is not None and season is not None:
+    #     warnings.warn(
+    #         "If you are getting betting information for a single game, "
+    #         + "only set `game_id` to the game ID, " +
+    #         "and leave `season` as `NULL`."
+    #     )
 
     if season_type == "regular" or season_type == "postseason":
         url += f"seasonType={season_type}"
@@ -416,7 +416,12 @@ def get_cfbd_betting_lines(
             '`season_type` must be set to either "regular" or "postseason".'
         )
 
-    if (game_id is None) and (season is None) and (week is not None):
+    # if (game_id is None) and (season is None) and (week is not None):
+    #     raise ValueError(
+    #         "When setting a value for `week`, `season` cannot be null."
+    #     )
+
+    if (season is None) and (week is not None):
         raise ValueError(
             "When setting a value for `week`, `season` cannot be null."
         )
@@ -441,8 +446,8 @@ def get_cfbd_betting_lines(
     # URL builder
     ##########################################################################
 
-    if game_id is not None:
-        url += f"&gameId={game_id}"
+    # if game_id is not None:
+    #     url += f"&gameId={game_id}"
 
     if season is not None:
         url += f"&year={season}"

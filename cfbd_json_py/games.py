@@ -4524,7 +4524,7 @@ def get_cfbd_live_scoreboard(
 
 
 def get_cfbd_weather_info(
-    game_id: int = None,
+    # game_id: int = None,
     season: int = None,
     # `game_id` and/or `season` must be not null for this function to work.
     week: int = None,
@@ -4549,7 +4549,7 @@ def get_cfbd_weather_info(
     ----------
 
     `game_id` (int, mandatory):
-        Mandatory requirement.
+        DEPRECATED FROM V1.
         Specifies the game you want weather data from.
         This or `season` must be set to a valid non-null value.
 
@@ -4899,14 +4899,21 @@ def get_cfbd_weather_info(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    if (game_id is None) and (season is None):
+    # if (game_id is None) and (season is None):
+    #     raise ValueError(
+    #         "`game_id` and/or `season` must be set to " +
+    #         "valid, non-null values."
+    #     )
+    # elif (game_id is not None) and (season is not None):
+    #     url += f"?gameId={game_id}&year={season}"
+    # elif game_id is not None:
+    #     url += f"?gameId={game_id}"
+    # elif season is not None:
+    #     url += f"?year={season}"
+    if season is None:
         raise ValueError(
-            "`game_id` and/or `season` must be set to valid, non-null values."
+            "`season` must be set to a valid, non-null value."
         )
-    elif (game_id is not None) and (season is not None):
-        url += f"?gameId={game_id}&year={season}"
-    elif game_id is not None:
-        url += f"?gameId={game_id}"
     elif season is not None:
         url += f"?year={season}"
 

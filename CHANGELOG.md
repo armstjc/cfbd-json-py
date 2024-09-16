@@ -1,5 +1,8 @@
 # CHANGELOG: cfbd_json_py
 
+# 0.2.5 The "Remove lxml" Update
+- Removed `lxml` from the list of required packages to fix a build issue observed in version `0.2.4`.
+- Updated the package version to `0.2.5`.
 
 ## 0.2.4 The "Speedy" Update.
 - Refactored `cfbd_json_py.games.get_cfbd_player_game_stats()`, `cfbd_json_py.plays.get_cfbd_pbp_play_types()`, and `cfbd_json_py.players.get_cfbd_player_season_stats()` to use a significantly faster process to parse player stats.

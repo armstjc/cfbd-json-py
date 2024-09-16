@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 PM EDT
-# Last Updated Date: 08/13/2024 02:10 PM EDT
+# Last Updated Date: 09/16/2024 06:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: stats.py
 # Purpose: Houses functions pertaining to CFB team/player
@@ -611,7 +611,6 @@ def get_cfbd_team_season_stats(
     for key, value in tqdm(rebuilt_json.items()):
         row_df = pd.DataFrame(value, index=[0])
         final_df = pd.concat([final_df, row_df], ignore_index=True)
-        # print()
 
     final_df = final_df[stat_columns]
     return final_df
@@ -961,10 +960,6 @@ def get_cfbd_advanced_team_season_stats(
 
     if return_as_dict is True:
         return json_data
-
-    # final_df = pd.json_normalize(json_data)
-
-    # print(final_df.columns)
 
     for team in tqdm(json_data):
         t_season = team["season"]

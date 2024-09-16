@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 08/13/2024 02:10 PM EDT
+# Last Updated Date: 09/16/2024 06:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: metrics.py
 # Purpose: Houses functions pertaining to various CFB
@@ -197,7 +197,7 @@ def get_cfbd_predicted_ppa_from_down_distance(
         # but we have to convey to the person calling this
         # function that setting `down = 5`
         # is not something they should be doing.
-        logging.warn(
+        logging.warning(
             'There is a very limited number of "5th down" situations '
             + "in American Football history. "
             + "Do not expect anything back when calling this function, "

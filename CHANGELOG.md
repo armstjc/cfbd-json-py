@@ -1,5 +1,14 @@
 # CHANGELOG: cfbd_json_py
 
+
+## 0.2.4 The "Speedy" Update.
+- Refactored `cfbd_json_py.games.get_cfbd_player_game_stats()`, `cfbd_json_py.plays.get_cfbd_pbp_play_types()`, and `cfbd_json_py.players.get_cfbd_player_season_stats()` to use a significantly faster process to parse player stats.
+- Changed `print()` statements into `logging.info()` statements for `cfbd_json_py.games.get_cfbd_player_advanced_game_stats()`
+- For `cfbd_json_py.metrics.get_cfbd_predicted_ppa_from_down_distance()`, a `logging.warn()` call is now a `logging.warning()` call due to a pending deprecation of `logging.warn()`.
+- Fixed an issue found in `cfbd_json_py.players.get_cfbd_pbp_stats()` where the function would warn the user about an issue that the user should not have triggered.
+- Removed `tqdm` integration with `cfbd_json_py.plays.get_cfbd_pbp_play_types()`, `cfbd_json_py.rankings.get_cfbd_poll rankings()`.
+- Updated the package version to `0.2.4`.
+
 ## 0.2.3 The "Hotfix" Update.
 - Fixed an issue raised in #51 where the `[player_id]` column would be entirely blank in `cfbd_json_py.players.get_cfbd_player_season_stats()`.
 - Updated the package version to `0.2.3`.

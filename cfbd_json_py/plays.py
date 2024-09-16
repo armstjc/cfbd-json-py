@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 08/13/2024 02:10 PM EDT
+# Last Updated Date: 09/16/2024 06:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: plays.py
 # Purpose: Houses functions pertaining to CFB play data within the CFBD API.
@@ -10,7 +10,7 @@ from datetime import datetime
 
 import pandas as pd
 import requests
-from tqdm import tqdm
+# from tqdm import tqdm
 
 from cfbd_json_py.utls import get_cfbd_api_token
 
@@ -634,7 +634,9 @@ def get_cfbd_pbp_data(
 
 
 def get_cfbd_pbp_play_types(
-    api_key: str = None, api_key_dir: str = None, return_as_dict: bool = False
+    api_key: str = None,
+    api_key_dir: str = None,
+    return_as_dict: bool = False
 ):
     """
     Allows you to get CFBD PBP play types from the CFBD API.
@@ -680,6 +682,7 @@ def get_cfbd_pbp_play_types(
     """
     # now = datetime.now()
     plays_df = pd.DataFrame()
+    plays_df_arr = []
     row_df = pd.DataFrame()
     url = "https://api.collegefootballdata.com/play/types"
 
@@ -727,16 +730,17 @@ def get_cfbd_pbp_play_types(
     if return_as_dict is True:
         return json_data
 
-    for p in tqdm(json_data):
+    for p in json_data:
         p_id = p["id"]
         row_df = pd.DataFrame({"play_type_id": p_id}, index=[0])
         row_df["play_type_text"] = p["text"]
         row_df["play_type_abv"] = p["abbreviation"]
-        plays_df = pd.concat([plays_df, row_df], ignore_index=True)
-
+        # plays_df = pd.concat([plays_df, row_df], ignore_index=True)
+        plays_df_arr.append(row_df)
         del row_df
         del p_id
 
+    plays_df = pd.concat(plays_df_arr, ignore_index=True)
     return plays_df
 
 
@@ -756,6 +760,7 @@ def get_cfbd_pbp_stats(
     """
     Allows you to get stats for various players
     from CFB play-by-play (PBP) data within the CFBD API.
+
     Parameters
     ----------
 
@@ -1096,13 +1101,16 @@ def get_cfbd_pbp_stats(
         )
 
     if season is None and game_id is None:
-        logging.warn(
+        logging.warning(
             "This endpoint only returns the top 1,000 results. "
             + "Not setting a value for `season` or `game_id` "
             + "is not a recommended practice."
         )
-    elif season is not None and game_id is None:
-        logging.warn(
+    elif (
+        (season is not None) and
+        (game_id is not None)
+    ):
+        logging.warning(
             "Setting a value for both `season` and `game_id` "
             + "may not yeld the results you want. "
             + "If you just want PBP stats for a valid game ID, "
@@ -1215,7 +1223,9 @@ def get_cfbd_pbp_stats(
 
 
 def get_cfbd_pbp_stat_types(
-    api_key: str = None, api_key_dir: str = None, return_as_dict: bool = False
+    api_key: str = None,
+    api_key_dir: str = None,
+    return_as_dict: bool = False
 ):
     """
     Allows you to get CFBD PBP stat types from the CFBD API.
@@ -1261,6 +1271,7 @@ def get_cfbd_pbp_stat_types(
     """
     # now = datetime.now()
     plays_df = pd.DataFrame()
+    plays_df_arr = []
     row_df = pd.DataFrame()
     url = "https://api.collegefootballdata.com/play/types"
 
@@ -1308,15 +1319,21 @@ def get_cfbd_pbp_stat_types(
     if return_as_dict is True:
         return json_data
 
-    for p in tqdm(json_data):
+    for p in json_data:
         p_id = p["id"]
         row_df = pd.DataFrame({"stat_type_id": p_id}, index=[0])
-        row_df["stat_type_text"] = p["name"]
-        plays_df = pd.concat([plays_df, row_df], ignore_index=True)
+        row_df["stat_type_abv"] = p["abbreviation"]
+        try:
+            row_df["stat_type_text"] = p["name"]
+        except KeyError:
+            row_df["stat_type_text"] = p["text"]
+        # plays_df = pd.concat([plays_df, row_df], ignore_index=True)
+        plays_df_arr.append(row_df)
 
         del row_df
         del p_id
 
+    plays_df = pd.concat(plays_df_arr, ignore_index=True)
     return plays_df
 
 

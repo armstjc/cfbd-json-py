@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 08/13/2024 02:10 PM EDT
+# Last Updated Date: 09/16/2024 06:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: rankings.py
 # Purpose: Houses functions pertaining to CFB poll data within the CFBD API.
@@ -9,7 +9,7 @@ from datetime import datetime
 
 import pandas as pd
 import requests
-from tqdm import tqdm
+# from tqdm import tqdm
 
 from cfbd_json_py.utls import get_cfbd_api_token
 
@@ -284,7 +284,7 @@ def get_cfbd_poll_rankings(
     if return_as_dict is True:
         return json_data
 
-    for week in tqdm(json_data):
+    for week in json_data:
         w_season = week["season"]
         w_season_type = week["seasonType"]
         w_week = week["week"]

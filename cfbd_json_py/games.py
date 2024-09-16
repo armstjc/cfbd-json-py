@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 08/13/2024 02:10 PM EDT
+# Last Updated Date: 09/16/2024 06:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: games.py
 # Purpose: Houses functions pertaining to CFB game data within the CFBD API.
@@ -8,6 +8,7 @@
 import logging
 from datetime import datetime
 
+import numpy as np
 import pandas as pd
 import requests
 from tqdm import tqdm
@@ -1894,10 +1895,13 @@ def get_cfbd_player_game_stats(
 
     """
 
-    rebuilt_json = {}
     now = datetime.now()
+
+    rebuilt_json = {}
+    rebuilt_json_list = []
+
     cfb_games_df = pd.DataFrame()
-    row_df = pd.DataFrame()
+    # row_df = pd.DataFrame()
     url = "https://api.collegefootballdata.com/games/players"
     stat_columns = [
         "season",
@@ -2142,1568 +2146,30 @@ def get_cfbd_player_game_stats(
             team_conference = team["conference"]
             home_away = team["homeAway"]
 
-            for s_category in team["categories"]:
-                if s_category["name"] == "passing":
-                    for stat in s_category["types"]:
-                        if stat["name"] == "C/ATT":  # passing_C/ATT
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = i["stat"]
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "passing_C/ATT"
-                                ] = player_stat
-
-                        elif stat["name"] == "YDS":  # passing_YDS
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "passing_YDS"
-                                ] = player_stat
-
-                        elif stat["name"] == "AVG":  # passing_AVG
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = float(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "passing_AVG"
-                                ] = player_stat
-
-                        elif stat["name"] == "TD":  # passing_TD
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "passing_TD"
-                                ] = player_stat
-
-                        elif stat["name"] == "INT":  # passing_INT
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "passing_INT"
-                                ] = player_stat
-
-                        elif stat["name"] == "QBR":  # passing_QBR
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                try:
-                                    player_stat = float(i["stat"])
-                                except:  # noqa: E722
-                                    player_stat = None
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "passing_QBR"
-                                ] = player_stat
-
-                        else:
-                            raise IndexError(
-                                f"Unhandled stat: \t{stat['name']}"
-                            )
-                    # passing_df = pd.DataFrame(s_category['types'])
-                elif s_category["name"] == "rushing":
-                    for stat in s_category["types"]:
-                        if stat["name"] == "CAR":  # rushing_CAR
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "rushing_CAR"
-                                ] = player_stat
-
-                        elif stat["name"] == "YDS":  # rushing_YDS
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "rushing_YDS"
-                                ] = player_stat
-
-                        elif stat["name"] == "AVG":  # rushing_AVG
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = float(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "rushing_AVG"
-                                ] = player_stat
-
-                        elif stat["name"] == "TD":  # rushing_TD
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "rushing_TD"
-                                ] = player_stat
-
-                        elif stat["name"] == "LONG":  # rushing_LONG
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "rushing_LONG"
-                                ] = player_stat
-
-                        else:
-                            raise IndexError(
-                                f"Unhandled stat: \t{stat['name']}"
-                            )
-
-                elif s_category["name"] == "receiving":
-                    for stat in s_category["types"]:
-                        if stat["name"] == "REC":  # receiving_REC
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "receiving_REC"
-                                ] = player_stat
-
-                        elif stat["name"] == "YDS":  # receiving_YDS
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "receiving_YDS"
-                                ] = player_stat
-
-                        elif stat["name"] == "AVG":  # receiving_AVG
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = float(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "receiving_AVG"
-                                ] = player_stat
-
-                        elif stat["name"] == "TD":  # receiving_TD
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "receiving_TD"
-                                ] = player_stat
-
-                        elif stat["name"] == "LONG":  # receiving_LONG
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "receiving_LONG"
-                                ] = player_stat
-
-                        else:
-                            raise IndexError(
-                                f"Unhandled stat: \t{stat['name']}"
-                            )
-
-                elif s_category["name"] == "fumbles":
-                    for stat in s_category["types"]:
-                        if stat["name"] == "FUM":  # fumbles_FUM
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "fumbles_FUM"
-                                ] = player_stat
-
-                        elif stat["name"] == "LOST":  # fumbles_LOST
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "fumbles_LOST"
-                                ] = player_stat
-
-                        elif stat["name"] == "REC":  # fumbles_REC
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "fumbles_REC"
-                                ] = player_stat
-
-                        else:
-                            raise IndexError(
-                                f"Unhandled stat: \t{stat['name']}"
-                            )
-
-                elif s_category["name"] == "defensive":
-                    for stat in s_category["types"]:
-                        if stat["name"] == "TOT":  # defensive_TOT
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "defensive_TOT"
-                                ] = player_stat
-
-                        elif stat["name"] == "SOLO":  # defensive_SOLO
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "defensive_SOLO"
-                                ] = player_stat
-
-                        elif stat["name"] == "TFL":  # defensive_TFL
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = float(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "defensive_TFL"
-                                ] = player_stat
-
-                        elif stat["name"] == "QB HUR":  # defensive_QB HUR
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "defensive_QB HUR"
-                                ] = player_stat
-
-                        elif stat["name"] == "SACKS":  # defensive_SACKS
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = float(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "defensive_SACKS"
-                                ] = player_stat
-
-                        elif stat["name"] == "PD":  # defensive_PD
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "defensive_PD"
-                                ] = player_stat
-
-                        elif stat["name"] == "TD":  # defensive_TD
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "defensive_TD"
-                                ] = player_stat
-
-                        else:
-                            raise IndexError(
-                                f"Unhandled stat: \t{stat['name']}"
-                            )
-
-                elif s_category["name"] == "interceptions":
-                    for stat in s_category["types"]:
-                        if stat["name"] == "INT":  # interceptions_INT
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "interceptions_INT"
-                                ] = player_stat
-
-                        elif stat["name"] == "YDS":  # interceptions_YDS
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "interceptions_YDS"
-                                ] = player_stat
-
-                        elif stat["name"] == "TD":  # interceptions_TD
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "interceptions_TD"
-                                ] = player_stat
-
-                        else:
-                            raise IndexError(
-                                f"Unhandled stat: \t{stat['name']}"
-                            )
-
-                elif s_category["name"] == "punting":
-                    for stat in s_category["types"]:
-                        if stat["name"] == "NO":  # punting_NO
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "punting_NO"
-                                ] = player_stat
-
-                        elif stat["name"] == "YDS":  # punting_YDS
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "punting_YDS"
-                                ] = player_stat
-
-                        elif stat["name"] == "AVG":  # punting_AVG
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = float(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "punting_AVG"
-                                ] = player_stat
-
-                        elif stat["name"] == "TB":  # punting_TB
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "punting_TB"
-                                ] = player_stat
-
-                        elif stat["name"] == "In 20":  # punting_In 20
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "punting_In 20"
-                                ] = player_stat
-
-                        elif stat["name"] == "LONG":  # punting_LONG
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "punting_LONG"
-                                ] = player_stat
-
-                        else:
-                            raise IndexError(
-                                f"Unhandled stat: \t{stat['name']}"
-                            )
-
-                elif s_category["name"] == "kicking":
-                    for stat in s_category["types"]:
-                        if stat["name"] == "FG":  # kicking_FG
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = i["stat"]
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "kicking_FG"
-                                ] = player_stat
-
-                        elif stat["name"] == "TOT":  # kicking_FG, special case
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = i["stat"]
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "kicking_FG"
-                                ] = player_stat
-
-                        elif stat["name"] == "PCT":  # kicking_PCT
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = float(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "kicking_PCT"
-                                ] = player_stat
-
-                        elif stat["name"] == "LONG":  # kicking_LONG
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "kicking_LONG"
-                                ] = player_stat
-
-                        elif stat["name"] == "XP":  # kicking_XP
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = i["stat"]
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "kicking_XP"
-                                ] = player_stat
-
-                        elif stat["name"] == "PTS":  # kicking_PTS
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "kicking_PTS"
-                                ] = player_stat
-
-                        else:
-                            raise IndexError(
-                                f"Unhandled stat: \t{stat['name']}"
-                            )
-
-                elif s_category["name"] == "kickReturns":
-                    for stat in s_category["types"]:
-                        if stat["name"] == "NO":  # kickReturns_NO
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "kickReturns_NO"
-                                ] = player_stat
-
-                        elif stat["name"] == "YDS":  # kickReturns_YDS
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "kickReturns_YDS"
-                                ] = player_stat
-
-                        elif stat["name"] == "AVG":  # kickReturns_AVG
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = float(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "kickReturns_AVG"
-                                ] = player_stat
-
-                        elif stat["name"] == "TD":  # kickReturns_TD
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "kickReturns_TD"
-                                ] = player_stat
-
-                        elif stat["name"] == "LONG":  # kickReturns_LONG
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "kickReturns_LONG"
-                                ] = player_stat
-
-                        else:
-                            raise IndexError(
-                                f"Unhandled stat: \t{stat['name']}"
-                            )
-
-                elif s_category["name"] == "puntReturns":
-                    for stat in s_category["types"]:
-                        if stat["name"] == "NO":  # puntReturns_NO
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "puntReturns_NO"
-                                ] = player_stat
-
-                        elif stat["name"] == "YDS":  # puntReturns_YDS
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "puntReturns_YDS"
-                                ] = player_stat
-
-                        elif stat["name"] == "AVG":  # puntReturns_AVG
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = float(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "puntReturns_AVG"
-                                ] = player_stat
-
-                        elif stat["name"] == "TD":  # puntReturns_TD
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "puntReturns_TD"
-                                ] = player_stat
-
-                        elif stat["name"] == "LONG":  # puntReturns_LONG
-                            for i in stat["athletes"]:
-                                player_id = int(i["id"])
-                                player_name = i["name"]
-                                player_stat = int(i["stat"])
-
-                                if rebuilt_json.get(player_id) is None:
-                                    rebuilt_json[player_id] = {}
-
-                                rebuilt_json[player_id]["game_id"] = game_id
-                                rebuilt_json[player_id][
-                                    "team_name"
-                                ] = team_name
-                                rebuilt_json[player_id][
-                                    "team_conference"
-                                ] = team_conference
-                                rebuilt_json[player_id][
-                                    "player_id"
-                                ] = player_id
-                                rebuilt_json[player_id][
-                                    "player_name"
-                                ] = player_name
-                                rebuilt_json[player_id][
-                                    "home_away"
-                                ] = home_away
-                                rebuilt_json[player_id][
-                                    "puntReturns_LONG"
-                                ] = player_stat
-
-                        else:
-                            raise IndexError(
-                                f"Unhandled stat: \t{stat['name']}"
-                            )
-
-                else:
-                    raise IndexError(
-                        f"Unhandled stat category: \t{s_category['name']}"
-                    )
-
-    for key, value in tqdm(rebuilt_json.items()):
-        row_df = pd.json_normalize(value)
-        cfb_games_df = pd.concat([cfb_games_df, row_df], ignore_index=True)
-        del row_df
+            for stat_category in team["categories"]:
+                stat_category = stat_category["name"]
+                for s_type in stat_category["types"]:
+                    stat_name = s_type["name"]
+                    for player in s_type["athletes"]:
+                        p_id = player["id"]
+                        p_name = player["name"]
+                        full_stat_name = f"{stat_category}_{stat_name}"
+                        stat_value = player["stat"]
+
+                        if rebuilt_json.get(p_id) is None:
+                            rebuilt_json[p_id] = {}
+                        rebuilt_json[p_id]["player_id"] = p_id
+                        rebuilt_json[p_id]["game_id"] = game_id
+                        rebuilt_json[p_id]["team_name"] = team_name
+                        rebuilt_json[p_id]["team_conference"] = team_conference
+                        rebuilt_json[p_id]["home_away"] = home_away
+                        rebuilt_json[p_id]["player_name"] = p_name
+                        rebuilt_json[p_id][full_stat_name] = stat_value
+
+    for _, value in rebuilt_json.items():
+        rebuilt_json_list.append(value)
+    cfb_games_df = pd.DataFrame(rebuilt_json_list)
+    cfb_games_df["season"] = season
 
     cfb_games_df[["passing_COMP", "passing_ATT"]] = cfb_games_df[
         "passing_C/ATT"
@@ -3714,225 +2180,258 @@ def get_cfbd_player_game_stats(
     ].str.split(
         "/", expand=True
     )
-    cfb_games_df[["kicking_XPM", "kicking_XPA"]] = cfb_games_df[
+
+    cfb_games_df[["kicking_XP", "kicking_XPM"]] = cfb_games_df[
         "kicking_XP"
     ].str.split(
         "/", expand=True
     )
 
-    cfb_games_df = cfb_games_df.fillna(0)
+    cfb_games_df = cfb_games_df.reindex(
+        columns=stat_columns
+    )
 
+    cfb_games_df = cfb_games_df.replace(np.nan, 0)
     cfb_games_df = cfb_games_df.astype(
         {
-            "passing_COMP": "int",
-            "passing_ATT": "int",
-            "kicking_FGM": "int",
-            "kicking_FGA": "int",
-            "kicking_XPM": "int",
-            "kicking_XPA": "int",
+            "season": "uint16",
+            "game_id": "int64",
+            "team_name": "str",
+            "team_conference": "str",
+            "player_id": "int64",
+            "player_name": "str",
+            "home_away": "str",
+
+            "passing_COMP": "uint16",
+            "passing_ATT": "uint16",
+            "passing_YDS": "int16",
+            "passing_TD": "uint16",
+            "passing_INT": "uint16",
+            "passing_AVG": "float16",
+
+            "rushing_CAR": "uint16",
+            "rushing_YDS": "int16",
+            "rushing_AVG": "float16",
+            "rushing_TD": "uint16",
+            "rushing_LONG": "int16",
+
+            "receiving_REC": "uint16",
+            "receiving_YDS": "int16",
+            "receiving_AVG": "float16",
+            "receiving_TD": "uint16",
+            "receiving_LONG": "int16",
+
+            "fumbles_FUM": "uint8",
+            "fumbles_LOST": "uint8",
+            "fumbles_REC": "uint8",
+
+            "defensive_TOT": "uint16",
+            "defensive_SOLO": "uint16",
+            "defensive_TFL": "float16",
+            "defensive_QB HUR": "uint16",
+            "defensive_SACKS": "float16",
+            "defensive_PD": "uint16",
+            "defensive_TD": "uint8",
+
+            "interceptions_INT": "uint8",
+            "interceptions_YDS": "int16",
+            "interceptions_TD": "uint8",
+
+            "punting_NO": "uint16",
+            "punting_YDS": "int16",
+            "punting_AVG": "float16",
+            "punting_TB": "uint8",
+            "punting_In 20": "uint8",
+            "punting_LONG": "int8",
+
+            "kicking_FGM": "uint16",
+            "kicking_FGA": "uint16",
+            "kicking_PCT": "float16",
+            "kicking_LONG": "uint8",
+            "kicking_XPM": "uint16",
+            "kicking_XPA": "uint16",
+            "kicking_PTS": "uint16",
+
+            "kickReturns_NO": "uint16",
+            "kickReturns_YDS": "int16",
+            "kickReturns_AVG": "float16",
+            "kickReturns_TD": "uint8",
+            "kickReturns_LONG": "int8",
+
+            "puntReturns_NO": "uint16",
+            "puntReturns_YDS": "int16",
+            "puntReturns_AVG": "float16",
+            "puntReturns_TD": "uint8",
+            "puntReturns_LONG": "int8",
         }
     )
-    # print(cfb_games_df.columns)
-    cfb_games_df["season"] = season
 
-    if filter_by_stat_category is False:
-        cfb_games_df = cfb_games_df.reindex(columns=stat_columns)
-
-    elif filter_by_stat_category is True and stat_category == "passing":
-        cfb_games_df = cfb_games_df[
-            [
-                "season",
-                "game_id",
-                "team_name",
-                "team_conference",
-                "player_id",
-                "player_name",
-                "home_away",
-                # PASS
-                "passing_C/ATT",
-                "passing_COMP",
-                "passing_ATT",
-                "passing_YDS",
-                "passing_AVG",
-                "passing_TD",
-                "passing_INT",
-                "passing_QBR",
-            ]
-        ]
-
+    if filter_by_stat_category is True and stat_category == "passing":
+        cfb_games_df = cfb_games_df[[
+            "season",
+            "game_id",
+            "team_name",
+            "team_conference",
+            "player_id",
+            "player_name",
+            "home_away",
+            # PASS
+            "passing_C/ATT",
+            "passing_COMP",
+            "passing_ATT",
+            "passing_YDS",
+            "passing_AVG",
+            "passing_TD",
+            "passing_INT",
+            "passing_QBR",
+        ]]
     elif filter_by_stat_category is True and stat_category == "rushing":
-        cfb_games_df = cfb_games_df[
-            [
-                "season",
-                "game_id",
-                "team_name",
-                "team_conference",
-                "player_id",
-                "player_name",
-                "home_away",
-                # RUSH
-                "rushing_CAR",
-                "rushing_YDS",
-                "rushing_AVG",
-                "rushing_TD",
-                "rushing_LONG",
-            ]
-        ]
-
+        cfb_games_df = cfb_games_df[[
+            "season",
+            "game_id",
+            "team_name",
+            "team_conference",
+            "player_id",
+            "player_name",
+            "home_away",
+            # RUSH
+            "rushing_CAR",
+            "rushing_YDS",
+            "rushing_AVG",
+            "rushing_TD",
+            "rushing_LONG",
+        ]]
     elif filter_by_stat_category is True and stat_category == "receiving":
-        cfb_games_df = cfb_games_df[
-            [
-                "season",
-                "game_id",
-                "team_name",
-                "team_conference",
-                "player_id",
-                "player_name",
-                "home_away",
-                # REC
-                "receiving_REC",
-                "receiving_YDS",
-                "receiving_AVG",
-                "receiving_TD",
-                "receiving_LONG",
-            ]
-        ]
-
+        cfb_games_df = cfb_games_df[[
+            "season",
+            "game_id",
+            "team_name",
+            "team_conference",
+            "player_id",
+            "player_name",
+            "home_away",
+            # REC
+            "receiving_REC",
+            "receiving_YDS",
+            "receiving_AVG",
+            "receiving_TD",
+            "receiving_LONG",
+        ]]
     elif filter_by_stat_category is True and stat_category == "fumbles":
-        cfb_games_df = cfb_games_df[
-            [
-                "season",
-                "game_id",
-                "team_name",
-                "team_conference",
-                "player_id",
-                "player_name",
-                "home_away",
-                # FUM
-                "fumbles_FUM",
-                "fumbles_LOST",
-                "fumbles_REC",
-            ]
-        ]
-
+        cfb_games_df = cfb_games_df[[
+            "season",
+            "game_id",
+            "team_name",
+            "team_conference",
+            "player_id",
+            "player_name",
+            "home_away",
+            # FUM
+            "fumbles_FUM",
+            "fumbles_LOST",
+            "fumbles_REC",
+        ]]
     elif filter_by_stat_category is True and stat_category == "defensive":
-        cfb_games_df = cfb_games_df[
-            [
-                "season",
-                "game_id",
-                "team_name",
-                "team_conference",
-                "player_id",
-                "player_name",
-                "home_away",
-                # DEFENSE
-                "defensive_TOT",
-                "defensive_SOLO",
-                "defensive_TFL",
-                "defensive_QB HUR",
-                "defensive_SACKS",
-                "defensive_PD",
-                "defensive_TD",
-            ]
-        ]
-
+        cfb_games_df = cfb_games_df[[
+            "season",
+            "game_id",
+            "team_name",
+            "team_conference",
+            "player_id",
+            "player_name",
+            "home_away",
+            # DEFENSE
+            "defensive_TOT",
+            "defensive_SOLO",
+            "defensive_TFL",
+            "defensive_QB HUR",
+            "defensive_SACKS",
+            "defensive_PD",
+            "defensive_TD",
+        ]]
     elif filter_by_stat_category is True and stat_category == "interceptions":
-        cfb_games_df = cfb_games_df[
-            [
-                "season",
-                "game_id",
-                "team_name",
-                "team_conference",
-                "player_id",
-                "player_name",
-                "home_away",
-                # INT
-                "interceptions_INT",
-                "interceptions_YDS",
-                "interceptions_TD",
-            ]
-        ]
-
+        cfb_games_df = cfb_games_df[[
+            "season",
+            "game_id",
+            "team_name",
+            "team_conference",
+            "player_id",
+            "player_name",
+            "home_away",
+            # INT
+            "interceptions_INT",
+            "interceptions_YDS",
+            "interceptions_TD",
+        ]]
     elif filter_by_stat_category is True and stat_category == "punting":
-        cfb_games_df = cfb_games_df[
-            [
-                "season",
-                "game_id",
-                "team_name",
-                "team_conference",
-                "player_id",
-                "player_name",
-                "home_away",
-                # PUNT
-                "punting_NO",
-                "punting_YDS",
-                "punting_AVG",
-                "punting_TB",
-                "punting_In 20",
-                "punting_LONG",
-            ]
-        ]
-
+        cfb_games_df = cfb_games_df[[
+            "season",
+            "game_id",
+            "team_name",
+            "team_conference",
+            "player_id",
+            "player_name",
+            "home_away",
+            # PUNT
+            "punting_NO",
+            "punting_YDS",
+            "punting_AVG",
+            "punting_TB",
+            "punting_In 20",
+            "punting_LONG",
+        ]]
     elif filter_by_stat_category is True and stat_category == "kicking":
-        cfb_games_df = cfb_games_df[
-            [
-                "season",
-                "game_id",
-                "team_name",
-                "team_conference",
-                "player_id",
-                "player_name",
-                "home_away",
-                # KICK
-                "kicking_FG",
-                "kicking_FGM",
-                "kicking_FGA",
-                "kicking_PCT",
-                "kicking_LONG",
-                "kicking_XP",
-                "kicking_XPM",
-                "kicking_XPA",
-                "kicking_PTS",
-            ]
-        ]
-
+        cfb_games_df = cfb_games_df[[
+            "season",
+            "game_id",
+            "team_name",
+            "team_conference",
+            "player_id",
+            "player_name",
+            "home_away",
+            # KICK
+            "kicking_FG",
+            "kicking_FGM",
+            "kicking_FGA",
+            "kicking_PCT",
+            "kicking_LONG",
+            "kicking_XP",
+            "kicking_XPM",
+            "kicking_XPA",
+            "kicking_PTS",
+        ]]
     elif filter_by_stat_category is True and stat_category == "kickReturns":
-        cfb_games_df = cfb_games_df[
-            [
-                "season",
-                "game_id",
-                "team_name",
-                "team_conference",
-                "player_id",
-                "player_name",
-                "home_away",
-                # KR
-                "kickReturns_NO",
-                "kickReturns_YDS",
-                "kickReturns_AVG",
-                "kickReturns_TD",
-                "kickReturns_LONG",
-            ]
-        ]
-
+        cfb_games_df = cfb_games_df[[
+            "season",
+            "game_id",
+            "team_name",
+            "team_conference",
+            "player_id",
+            "player_name",
+            "home_away",
+            # KR
+            "kickReturns_NO",
+            "kickReturns_YDS",
+            "kickReturns_AVG",
+            "kickReturns_TD",
+            "kickReturns_LONG",
+        ]]
     elif filter_by_stat_category is True and stat_category == "puntReturns":
-        cfb_games_df = cfb_games_df[
-            [
-                "season",
-                "game_id",
-                "team_name",
-                "team_conference",
-                "player_id",
-                "player_name",
-                "home_away",
-                # KR
-                "puntReturns_NO",
-                "puntReturns_YDS",
-                "puntReturns_AVG",
-                "puntReturns_TD",
-                "puntReturns_LONG",
-            ]
-        ]
+        cfb_games_df = cfb_games_df[[
+            "season",
+            "game_id",
+            "team_name",
+            "team_conference",
+            "player_id",
+            "player_name",
+            "home_away",
+            # KR
+            "puntReturns_NO",
+            "puntReturns_YDS",
+            "puntReturns_AVG",
+            "puntReturns_TD",
+            "puntReturns_LONG",
+        ]]
 
     return cfb_games_df
 
@@ -4132,8 +2631,8 @@ def get_cfbd_player_advanced_game_stats(
     game_excitement_score = json_data["gameInfo"]["excitement"]
 
     # Parsing Usage
-    print("Parsing player usage data.")
-    for player in tqdm(json_data["players"]["usage"]):
+    logging.info("Parsing player usage data.")
+    for player in json_data["players"]["usage"]:
         row_df = pd.DataFrame({"game_id": game_id}, index=[0])
         row_df["player_name"] = player["player"]
         row_df["team"] = player["team"]
@@ -4151,8 +2650,8 @@ def get_cfbd_player_advanced_game_stats(
         del row_df
 
     # Parsing PPA
-    print("Parsing player PPA data.")
-    for player in tqdm(json_data["players"]["ppa"]):
+    logging.info("Parsing player PPA data.")
+    for player in json_data["players"]["ppa"]:
         row_df = pd.DataFrame({"game_id": game_id}, index=[0])
         row_df["player_name"] = player["player"]
         row_df["team"] = player["team"]

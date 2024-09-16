@@ -47,4 +47,4 @@ You can view the status of the project [by clicking on this link](https://github
 If you find an issue/bug while using this python package, [please feel free to raise an issue](https://github.com/armstjc/cfbd-json-py/issues), we're only human, and there will inevitably be issues found!
 
 ## Docs
-For the cfbd-json-py docs, they can be found at [armstjc.github.io/cfbd-json-py/](armstjc.github.io/cfbd-json-py/)
+For the cfbd-json-py docs, they can be found at [armstjc.github.io/cfbd-json-py/](https://armstjc.github.io/cfbd-json-py/cfbd_json_py.html)

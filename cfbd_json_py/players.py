@@ -1,16 +1,16 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 08/13/2024 02:10 PM EDT
+# Last Updated Date: 09/16/2024 06:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: players.py
 # Purpose: Houses functions pertaining to CFB player data within the CFBD API.
 ###############################################################################
 
-import logging
+# import logging
 from datetime import datetime
 
 import pandas as pd
 import requests
-from tqdm import tqdm
+# from tqdm import tqdm
 
 # from cfbd_json_py.games import get_cfbd_player_game_stats
 from cfbd_json_py.utls import get_cfbd_api_token
@@ -782,7 +782,6 @@ def get_cfbd_player_usage(
 
     if player_id is not None:
         url += f"&playerId={player_id}"
-        # print()
     if exclude_garbage_time is not None:
         url += f"&excludeGarbageTime={gt_str}"
 
@@ -1518,6 +1517,8 @@ def get_cfbd_player_season_stats(
     """
 
     rebuilt_json = {}
+    rebuilt_json_list = []
+
     stat_columns = [
         "season",
         "team_name",
@@ -1749,452 +1750,109 @@ def get_cfbd_player_season_stats(
     if return_as_dict is True:
         return json_data
 
-    for player in tqdm(json_data):
-        player_id = int(player["playerId"])
+    for player in json_data:
+        player_id = player["playerId"]
         player_name = player["player"]
         team_name = player["team"]
         team_conference = player["conference"]
-        s_category = player["category"]
-        s_type = player["statType"]
-        s_num = player["stat"]
 
         if rebuilt_json.get(player_id) is None:
             rebuilt_json[player_id] = {}
 
-        if s_category == "passing":
-            if s_type == "COMPLETIONS":
-                rebuilt_json[player_id]["player_id"] = player_name
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["passing_COMP"] = s_num
+        stat_category = player["category"]
+        stat_type = player["statType"]
+        stat_name = f"{stat_category}_{stat_type}"
 
-            elif s_type == "ATT":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["passing_ATT"] = s_num
+        stat_value = player["stat"]
 
-            elif s_type == "YDS":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["passing_YDS"] = s_num
+        rebuilt_json[player_id]["player_id"] = player_id
+        rebuilt_json[player_id]["player_name"] = player_name
+        rebuilt_json[player_id]["team_name"] = team_name
+        rebuilt_json[player_id]["team_conference"] = team_conference
+        rebuilt_json[player_id][stat_name] = stat_value
 
-            elif s_type == "TD":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["passing_TD"] = s_num
+    for _, value in rebuilt_json.items():
+        rebuilt_json_list.append(value)
 
-            elif s_type == "INT":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["passing_INT"] = s_num
-            # we can calculate these two later
-            elif s_type == "PCT":
-                pass
-
-            elif s_type == "YPA":
-                pass
-
-            else:
-                raise ValueError(f"Unhandled stat type: {s_type}")
-
-        elif s_category == "rushing":
-            if s_type == "CAR":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["rushing_CAR"] = s_num
-
-            elif s_type == "YDS":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["rushing_YDS"] = s_num
-
-            elif s_type == "TD":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["rushing_TD"] = s_num
-
-            elif s_type == "LONG":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["rushing_LONG"] = s_num
-            # we can calculate this later
-            elif s_type == "YPC":
-                pass
-
-            else:
-                raise ValueError(f"Unhandled stat type: {s_type}")
-
-        elif s_category == "receiving":
-            if s_type == "REC":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["receiving_REC"] = s_num
-
-            elif s_type == "YDS":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["receiving_YDS"] = s_num
-
-            elif s_type == "TD":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["receiving_TD"] = s_num
-
-            elif s_type == "LONG":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["receiving_LONG"] = s_num
-            # we can calculate this later
-            elif s_type == "YPR":
-                pass
-
-            else:
-                raise ValueError(f"Unhandled stat type: {s_type}")
-
-        elif s_category == "fumbles":
-            if s_type == "FUM":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["fumbles_FUM"] = s_num
-
-            elif s_type == "LOST":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["fumbles_LOST"] = s_num
-
-            elif s_type == "REC":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["fumbles_LOST"] = s_num
-
-            else:
-                raise ValueError(f"Unhandled stat type: {s_type}")
-
-        elif s_category == "defensive":
-            if s_type == "TOT":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["defensive_TOT"] = s_num
-
-            elif s_type == "SOLO":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["defensive_SOLO"] = s_num
-
-            elif s_type == "TFL":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["defensive_TFL"] = s_num
-
-            elif s_type == "QB HUR":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["defensive_QB HUR"] = s_num
-
-            elif s_type == "SACKS":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["defensive_SACKS"] = s_num
-
-            elif s_type == "PD":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["defensive_PD"] = s_num
-
-            elif s_type == "TD":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["defensive_TD"] = s_num
-
-            else:
-                raise ValueError(f"Unhandled stat type: {s_type}")
-
-        elif s_category == "interceptions":
-            if s_type == "INT":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["interceptions_INT"] = s_num
-
-            elif s_type == "YDS":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["interceptions_YDS"] = s_num
-
-            elif s_type == "TD":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["interceptions_TD"] = s_num
-
-            elif s_type == "AVG":
-                pass
-
-            else:
-                raise ValueError(f"Unhandled stat type: {s_type}")
-
-        elif s_category == "punting":
-            if s_type == "NO":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["punting_NO"] = s_num
-
-            elif s_type == "YDS":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["punting_YDS"] = s_num
-
-            elif s_type == "TB":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["punting_TB"] = s_num
-
-            elif s_type == "In 20":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["punting_In 20"] = s_num
-
-            elif s_type == "LONG":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["punting_LONG"] = s_num
-
-            elif s_type == "YPP":
-                pass
-
-            else:
-                raise ValueError(f"Unhandled stat type: {s_type}")
-
-        elif s_category == "kicking":
-            if s_type == "FGM":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["kicking_FGM"] = s_num
-
-            elif s_type == "FGA":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["kicking_FGA"] = s_num
-
-            elif s_type == "LONG":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["kicking_LONG"] = s_num
-
-            elif s_type == "XPM":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["kicking_XPM"] = s_num
-
-            elif s_type == "XPA":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["kicking_XPA"] = s_num
-
-            elif s_type == "PTS":
-                pass
-
-            elif s_type == "PCT":
-                pass
-
-            else:
-                raise ValueError(f"Unhandled stat type: {s_type}")
-
-        elif s_category == "kickReturns":
-            if s_type == "NO":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["kickReturns_NO"] = s_num
-
-            elif s_type == "YDS":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["kickReturns_YDS"] = s_num
-
-            elif s_type == "TD":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["kickReturns_TD"] = s_num
-
-            elif s_type == "LONG":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["kickReturns_LONG"] = s_num
-            # we can calculate this later
-            elif s_type == "AVG":
-                pass
-
-            else:
-                raise ValueError(f"Unhandled stat type: {s_type}")
-
-        elif s_category == "puntReturns":
-            if s_type == "NO":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["puntReturns_NO"] = s_num
-
-            elif s_type == "YDS":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["puntReturns_YDS"] = s_num
-
-            elif s_type == "TD":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["puntReturns_TD"] = s_num
-
-            elif s_type == "LONG":
-                rebuilt_json[player_id]["player_name"] = player_name
-                rebuilt_json[player_id]["team_name"] = team_name
-                rebuilt_json[player_id]["team_conference"] = team_conference
-                rebuilt_json[player_id]["puntReturns_LONG"] = s_num
-            # we can calculate this later
-            elif s_type == "AVG":
-                pass
-
-            else:
-                raise ValueError(f"Unhandled stat type: {s_type}")
-
-        else:
-            raise ValueError(f"Unhandled stat category: {s_category}")
-
-        del player_id, player_name, team_name, \
-            team_conference, s_category, s_type, s_num
-
-    for key, value in tqdm(rebuilt_json.items()):
-        row_df = pd.json_normalize(value)
-        row_df["player_id"] = key
-        final_df = pd.concat([final_df, row_df], ignore_index=True)
-        del row_df
-
-    final_df = final_df.fillna(0)
-
+    final_df = pd.DataFrame(rebuilt_json_list)
     final_df["season"] = season
+    # print(final_df.columns)
 
-    if filter_by_stat_category is False:
-        final_df = final_df.reindex(columns=stat_columns)
-        final_df = final_df.astype(
-            {
-                "passing_COMP": "int",
-                "passing_ATT": "int",
-                "rushing_CAR": "int",
-                "rushing_YDS": "int",
-                "receiving_REC": "int",
-                "receiving_YDS": "int",
-                "punting_NO": "int",
-                "punting_YDS": "int",
-                "kicking_FGM": "int",
-                "kicking_FGA": "int",
-                "kicking_XPM": "int",
-                "kicking_XPA": "int",
-                "kickReturns_NO": "int",
-                "kickReturns_YDS": "int",
-                "puntReturns_NO": "int",
-                "puntReturns_YDS": "int",
-            }
-        )
+    final_df = final_df.rename(
+        columns={
+            "passing_COMPLETIONS": "passing_COMP",
+            "passing_YPA": "passing_AVG",
+            "passing_PCT": "passing_COMP%",
+            "rushing_YPC": "rushing_AVG",
+            "punting_YPP": "punting_AVG",
+            "kicking_PCT": "kicking_FG%",
+            "receiving_YPR": "receiving_AVG",
+        }
+    )
+    final_df = final_df.reindex(columns=stat_columns)
+    final_df = final_df.fillna(0)
+    final_df = final_df.astype(
+        {
+            "passing_COMP": "int",
+            "passing_ATT": "int",
+            "rushing_CAR": "int",
+            "rushing_YDS": "int",
+            "receiving_REC": "int",
+            "receiving_YDS": "int",
+            "punting_NO": "int",
+            "punting_YDS": "int",
+            "kicking_FGM": "int",
+            "kicking_FGA": "int",
+            "kicking_XPM": "int",
+            "kicking_XPA": "int",
+            "kickReturns_NO": "int",
+            "kickReturns_YDS": "int",
+            "puntReturns_NO": "int",
+            "puntReturns_YDS": "int",
+        },
+        # errors="ignore"
+    )
 
-        final_df.loc[final_df["passing_ATT"] > 0, "passing_COMP%"] = (
-            final_df["passing_COMP"] / final_df["passing_ATT"]
-        )
-        final_df["passing_COMP%"] = final_df["passing_COMP%"].round(3)
+    final_df.loc[final_df["passing_ATT"] > 0, "passing_COMP%"] = (
+        final_df["passing_COMP"] / final_df["passing_ATT"]
+    )
+    final_df["passing_COMP%"] = final_df["passing_COMP%"].round(3)
 
-        final_df.loc[final_df["rushing_CAR"] > 0, "rushing_AVG"] = (
-            final_df["rushing_YDS"] / final_df["rushing_CAR"]
-        )
-        final_df["rushing_AVG"] = final_df["rushing_AVG"].round(3)
+    final_df.loc[final_df["rushing_CAR"] > 0, "rushing_AVG"] = (
+        final_df["rushing_YDS"] / final_df["rushing_CAR"]
+    )
+    final_df["rushing_AVG"] = final_df["rushing_AVG"].round(3)
 
-        final_df.loc[final_df["receiving_REC"] > 0, "receiving_AVG"] = (
-            final_df["receiving_YDS"] / final_df["receiving_REC"]
-        )
-        final_df["receiving_AVG"] = final_df["receiving_AVG"].round(3)
+    final_df.loc[final_df["receiving_REC"] > 0, "receiving_AVG"] = (
+        final_df["receiving_YDS"] / final_df["receiving_REC"]
+    )
+    final_df["receiving_AVG"] = final_df["receiving_AVG"].round(3)
 
-        final_df.loc[final_df["punting_NO"] > 0, "punting_AVG"] = (
-            final_df["punting_YDS"] / final_df["punting_NO"]
-        )
-        final_df["punting_AVG"] = final_df["punting_AVG"].round(3)
+    final_df.loc[final_df["punting_NO"] > 0, "punting_AVG"] = (
+        final_df["punting_YDS"] / final_df["punting_NO"]
+    )
+    final_df["punting_AVG"] = final_df["punting_AVG"].round(3)
 
-        final_df.loc[final_df["kicking_FGA"] > 0, "kicking_FG%"] = (
-            final_df["kicking_FGM"] / final_df["kicking_FGA"]
-        )
-        final_df["kicking_FG%"] = final_df["kicking_FG%"].round(5)
+    final_df.loc[final_df["kicking_FGA"] > 0, "kicking_FG%"] = (
+        final_df["kicking_FGM"] / final_df["kicking_FGA"]
+    )
+    final_df["kicking_FG%"] = final_df["kicking_FG%"].round(5)
 
-        final_df.loc[final_df["kicking_XPA"] > 0, "kicking_XP%"] = (
-            final_df["kicking_XPM"] / final_df["kicking_XPA"]
-        )
-        final_df["kicking_XP%"] = final_df["kicking_XP%"].round(5)
+    final_df.loc[final_df["kicking_XPA"] > 0, "kicking_XP%"] = (
+        final_df["kicking_XPM"] / final_df["kicking_XPA"]
+    )
+    final_df["kicking_XP%"] = final_df["kicking_XP%"].round(5)
 
-        final_df.loc[final_df["kickReturns_NO"] > 0, "kickReturns_AVG"] = (
-            final_df["kickReturns_YDS"] / final_df["kickReturns_NO"]
-        )
-        final_df["kickReturns_AVG"] = final_df["kickReturns_AVG"].round(3)
+    final_df.loc[final_df["kickReturns_NO"] > 0, "kickReturns_AVG"] = (
+        final_df["kickReturns_YDS"] / final_df["kickReturns_NO"]
+    )
+    final_df["kickReturns_AVG"] = final_df["kickReturns_AVG"].round(3)
 
-        final_df.loc[final_df["puntReturns_NO"] > 0, "puntReturns_AVG"] = (
-            final_df["puntReturns_YDS"] / final_df["puntReturns_NO"]
-        )
-        final_df["puntReturns_AVG"] = final_df["puntReturns_AVG"].round(3)
-
-    elif filter_by_stat_category is True and stat_category == "passing":
-        try:
-            final_df = final_df.astype(
-                {
-                    "passing_COMP": "int",
-                    "passing_ATT": "int",
-                }
-            )
-        except Exception as e:
-            logging.warning(
-                "Could not reformat [passing_COMP]"
-                + " and [passing_ATT] into integers. "
-                + f"Full Exception: {e}"
-            )
-
-        final_df.loc[final_df["passing_ATT"] >= 1, "passing_COMP%"] = (
-            final_df["passing_COMP"] / final_df["passing_ATT"]
-        )
-
-        final_df["passing_COMP%"] = final_df["passing_COMP%"].round(3)
+    final_df.loc[final_df["puntReturns_NO"] > 0, "puntReturns_AVG"] = (
+        final_df["puntReturns_YDS"] / final_df["puntReturns_NO"]
+    )
+    final_df["puntReturns_AVG"] = final_df["puntReturns_AVG"].round(3)
+    if filter_by_stat_category is True and stat_category == "passing":
 
         final_df = final_df[
             [
@@ -2211,26 +1869,7 @@ def get_cfbd_player_season_stats(
                 "passing_INT",
             ]
         ]
-
     elif filter_by_stat_category is True and stat_category == "rushing":
-        try:
-            final_df = final_df.astype(
-                {
-                    "rushing_CAR": "int",
-                    "rushing_YDS": "int",
-                }
-            )
-        except Exception as e:
-            logging.warning(
-                "Could not reformat [rushing_CAR] "
-                + "and [rushing_YDS] into integers. "
-                + f"Full Exception: {e}"
-            )
-
-        final_df.loc[final_df["rushing_CAR"] >= 1, "rushing_AVG"] = (
-            final_df["rushing_YDS"] / final_df["rushing_CAR"]
-        )
-        final_df["rushing_AVG"] = final_df["rushing_AVG"].round(3)
 
         final_df = final_df[
             [
@@ -2247,26 +1886,7 @@ def get_cfbd_player_season_stats(
                 "rushing_LONG",
             ]
         ]
-
     elif filter_by_stat_category is True and stat_category == "receiving":
-        try:
-            final_df = final_df.astype(
-                {
-                    "receiving_REC": "int",
-                    "receiving_YDS": "int",
-                }
-            )
-        except Exception as e:
-            logging.warning(
-                "Could not reformat [receiving_REC] "
-                + "and [receiving_YDS] into integers. "
-                + f"Full Exception: {e}"
-            )
-
-        final_df.loc[final_df["receiving_REC"] > 0, "receiving_AVG"] = (
-            final_df["receiving_YDS"] / final_df["receiving_REC"]
-        )
-        final_df["receiving_AVG"] = final_df["receiving_AVG"].round(3)
 
         final_df = final_df[
             [
@@ -2283,7 +1903,6 @@ def get_cfbd_player_season_stats(
                 "receiving_LONG",
             ]
         ]
-
     elif filter_by_stat_category is True and stat_category == "fumbles":
         final_df = final_df[
             [
@@ -2298,7 +1917,6 @@ def get_cfbd_player_season_stats(
                 "fumbles_REC",
             ]
         ]
-
     elif filter_by_stat_category is True and stat_category == "defensive":
         final_df = final_df[
             [
@@ -2317,7 +1935,6 @@ def get_cfbd_player_season_stats(
                 "defensive_TD",
             ]
         ]
-
     elif filter_by_stat_category is True and stat_category == "interceptions":
         final_df = final_df[
             [
@@ -2332,26 +1949,7 @@ def get_cfbd_player_season_stats(
                 "interceptions_TD",
             ]
         ]
-
     elif filter_by_stat_category is True and stat_category == "punting":
-        try:
-            final_df = final_df.astype(
-                {
-                    "punting_NO": "int",
-                    "punting_YDS": "int",
-                }
-            )
-        except Exception as e:
-            logging.warning(
-                "Could not reformat [punting_YDS] "
-                + "and [punting_NO] into integers. "
-                + f"Full Exception: {e}"
-            )
-
-        final_df.loc[final_df["punting_NO"] > 0, "punting_AVG"] = (
-            final_df["punting_YDS"] / final_df["punting_NO"]
-        )
-        final_df["punting_AVG"] = final_df["punting_AVG"].round(3)
 
         final_df = final_df[
             [
@@ -2369,36 +1967,7 @@ def get_cfbd_player_season_stats(
                 "punting_LONG",
             ]
         ]
-
     elif filter_by_stat_category is True and stat_category == "kicking":
-        try:
-            final_df = final_df.astype(
-                {
-                    "kicking_FGM": "int",
-                    "kicking_FGA": "int",
-                    "kicking_XPM": "int",
-                    "kicking_XPA": "int",
-                }
-            )
-        except Exception as e:
-            logging.warning(
-                "Could not reformat the following columns into integers.:"
-                + "\n-[kicking_FGM]"
-                + "\n-[kicking_FGA]"
-                + "\n-[kicking_XPM]"
-                + "\n-[kicking_XPA]"
-                + f"\nFull Exception: {e}"
-            )
-
-        final_df.loc[final_df["kicking_FGA"] > 0, "kicking_FG%"] = (
-            final_df["kicking_FGM"] / final_df["kicking_FGA"]
-        )
-        final_df["kicking_FG%"] = final_df["kicking_FG%"].round(5)
-
-        final_df.loc[final_df["kicking_XPA"] > 0, "kicking_XP%"] = (
-            final_df["kicking_XPM"] / final_df["kicking_XPA"]
-        )
-        final_df["kicking_XP%"] = final_df["kicking_XP%"].round(5)
 
         final_df = final_df[
             [
@@ -2416,26 +1985,7 @@ def get_cfbd_player_season_stats(
                 "kicking_XPA" "kicking_XP%",
             ]
         ]
-
     elif filter_by_stat_category is True and stat_category == "kickReturns":
-        try:
-            final_df = final_df.astype(
-                {
-                    "kickReturns_NO": "int",
-                    "kickReturns_YDS": "int",
-                }
-            )
-        except Exception as e:
-            logging.warning(
-                "Could not reformat [passing_COMP] "
-                + "and [kickReturns_YDS] into integers. "
-                + f"Full Exception: {e}"
-            )
-
-        final_df.loc[final_df["kickReturns_NO"] > 0, "kickReturns_AVG"] = (
-            final_df["kickReturns_YDS"] / final_df["kickReturns_NO"]
-        )
-        final_df["kickReturns_AVG"] = final_df["kickReturns_AVG"].round(3)
 
         final_df = final_df[
             [
@@ -2452,26 +2002,7 @@ def get_cfbd_player_season_stats(
                 "kickReturns_LONG",
             ]
         ]
-
     elif filter_by_stat_category is True and stat_category == "puntReturns":
-        try:
-            final_df = final_df.astype(
-                {
-                    "puntReturns_NO": "int",
-                    "puntReturns_YDS": "int",
-                }
-            )
-        except Exception as e:
-            logging.warning(
-                "Could not reformat [passing_COMP] "
-                + "and [puntReturns_YDS] into integers."
-                + f"Full Exception: {e}"
-            )
-
-        final_df.loc[final_df["puntReturns_NO"] > 0, "puntReturns_AVG"] = (
-            final_df["puntReturns_YDS"] / final_df["puntReturns_NO"]
-        )
-        final_df["puntReturns_AVG"] = final_df["puntReturns_AVG"].round(3)
 
         final_df = final_df[
             [

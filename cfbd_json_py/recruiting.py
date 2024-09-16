@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 08/13/2024 02:10 PM EDT
+# Last Updated Date: 09/16/2024 06:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: recruiting.py
 # Purpose: Houses functions pertaining to CFB recruiting data
@@ -291,7 +291,7 @@ def get_cfbd_player_recruit_ratings(
 
     """
 
-    now = datetime.now()
+    # now = datetime.now()
     recruit_df = pd.DataFrame()
     # row_df = pd.DataFrame()
     url = "https://api.collegefootballdata.com/recruiting/players"
@@ -315,9 +315,12 @@ def get_cfbd_player_recruit_ratings(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    if season > (now.year + 1):
-        raise ValueError(f"`season` cannot be greater than {season}.")
-    elif season < 1869:
+    # if season > (now.year + 1):
+    #     raise ValueError(f"`season` cannot be greater than {season}.")
+    # elif season < 1869:
+    #     raise ValueError("`season` cannot be less than 1869.")
+
+    if season < 1869:
         raise ValueError("`season` cannot be less than 1869.")
 
     if (
@@ -570,7 +573,7 @@ def get_cfbd_team_recruiting_ratings(
     a dictionary object with CFB Poll data.
     """
 
-    now = datetime.now()
+    # now = datetime.now()
     recruit_df = pd.DataFrame()
     # row_df = pd.DataFrame()
     url = "https://api.collegefootballdata.com/recruiting/teams"
@@ -594,9 +597,12 @@ def get_cfbd_team_recruiting_ratings(
     else:
         real_api_key = "Bearer " + real_api_key
 
-    if season is not None and season > (now.year + 1):
-        raise ValueError(f"`season` cannot be greater than {season}.")
-    elif season is not None and season < 1869:
+    # if season > (now.year + 1):
+    #     raise ValueError(f"`season` cannot be greater than {season}.")
+    # elif season < 1869:
+    #     raise ValueError("`season` cannot be less than 1869.")
+
+    if season < 1869:
         raise ValueError("`season` cannot be less than 1869.")
 
     if season is None and team is None:

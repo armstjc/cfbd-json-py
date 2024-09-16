@@ -1,5 +1,5 @@
 # Creation Date: 08/30/2023 01:13 EDT
-# Last Updated Date: 08/13/2024 02:10 PM EDT
+# Last Updated Date: 09/16/2024 06:10 PM EDT
 # Author: Joseph Armstrong (armstrongjoseph08@gmail.com)
 # File Name: venues.py
 # Purpose: Houses functions pertaining to
@@ -13,7 +13,9 @@ from cfbd_json_py.utls import get_cfbd_api_token
 
 
 def get_cfbd_venues(
-    api_key: str = None, api_key_dir: str = None, return_as_dict: bool = False
+    api_key: str = None,
+    api_key_dir: str = None,
+    return_as_dict: bool = False
 ):
     """
     Allows a user to get CFB venue/stadium information from the CFBD API.

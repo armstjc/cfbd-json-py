@@ -3,4 +3,4 @@ wheel
 pandas>=2.2.2
 tqdm
 requests
-keyring>=25.3.0
+keyring>=25.7.0
